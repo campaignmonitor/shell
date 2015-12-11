@@ -1,0 +1,600 @@
+/* ============================================================================
+   @CORE -> NORMALISE
+   ========================================================================= */
+
+
+/**
+ * Let’s get all browsers rendering all elements more consistently and in line
+ * with modern standards, and let’s nuke certain user-agent styles so that
+ * everything is on an even playing field.
+ *
+ * @credit
+ * https://necolas.github.io/normalize.css/
+ * https://html5boilerplate.com/
+ * https://github.com/suitcss/
+ */
+
+
+
+
+/* Global styles
+   ========================================================================= */
+
+/**
+ * 1. Reset the `box-sizing` property to the more friendly `border-box` value.
+ * 2. Set default font family to sans-serif.
+ * 3. Prevent iOS and IE text size adjust after device orientation change,
+ *    without disabling user zoom.
+ */
+
+html {
+    box-sizing: border-box; // [1]
+    font-family: sans-serif; // [2]
+    -ms-text-size-adjust: 100%; // [3]
+    -webkit-text-size-adjust: 100%; // [3]
+}
+
+// [1]
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+}
+
+
+
+
+/* Block-level elements
+   ========================================================================= */
+
+/**
+ * Correct `block` display not defined for `details` or `summary` in IE 10/11
+ * and Firefox.
+ * Correct `block` display not defined for `main` in IE 11.
+ */
+
+details,
+main,
+summary {
+    display: block;
+}
+
+
+/**
+ * Address differences between Firefox and other browsers.
+ */
+
+hr {
+    height: 0;
+}
+
+
+/**
+ * Address `[hidden]` styling not present in IE 10.
+ * Hide the `template` element in IE 10/11, Safari, and Firefox < 22.
+ */
+
+[hidden],
+template {
+    display: none;
+}
+
+
+/**
+ * Apply the pointer cursor to the `summary` element.
+ * Remove the arrow from the `summary` element in WebKit browsers, to allow
+ * for custom styling.
+ */
+
+summary {
+    cursor: pointer;
+}
+
+summary::-webkit-details-marker {
+    display: none;
+}
+
+
+/**
+ * Contain overflow in all browsers.
+ */
+
+pre {
+    overflow: auto;
+}
+
+
+/**
+ * Reset lists, this is in addition to removing `margin` and `padding`.
+ */
+
+ul,
+ol {
+    list-style-type: none;
+}
+
+
+
+
+/* Inline elements
+   ========================================================================= */
+
+/**
+ * Remove the grey background colour from active links in IE 10.
+ */
+
+a {
+    background-color: transparent;
+}
+
+
+/**
+ * Improve readability of focused elements when they are also in an
+ * active/hover state.
+ */
+
+a:active,
+a:hover {
+    outline: 0;
+}
+
+
+/**
+ * Address styling not present in IE 10/11, Safari, and Chrome.
+ * Apply the help cursor.
+ */
+
+abbr[title] {
+    border-bottom: 1px dotted;
+    cursor: help;
+}
+
+
+/**
+ * Address style set to `bolder` in Firefox 4+, Safari, and Chrome.
+ */
+
+b,
+strong {
+    font-weight: bold;
+}
+
+
+/**
+ * Address styling not present in Safari and Chrome.
+ */
+
+dfn {
+    font-style: italic;
+}
+
+
+/**
+ * Apply faux underlines to inserted text via `border-bottom`.
+ */
+
+ins {
+    border-bottom: 1px solid;
+}
+
+
+/**
+ * Address inconsistent and variable font size in all browsers.
+ */
+
+small {
+    font-size: 80%;
+}
+
+
+/**
+ * Prevent `sub` and `sup` affecting `line-height` in all browsers.
+ */
+
+sub,
+sup {
+    font-size: 75%;
+    line-height: 0;
+    position: relative;
+    vertical-align: baseline;
+}
+
+sup {
+    top: -0.5em;
+}
+
+sub {
+    bottom: -0.25em;
+}
+
+
+/**
+ * Address odd `em`-unit font size rendering in all browsers.
+ */
+
+code,
+kbd,
+pre,
+samp {
+    font-family: monospace, monospace;
+    font-size: 1em;
+}
+
+
+
+
+/* Embedded elements
+   ========================================================================= */
+
+/**
+ * Remove the gap between media elements and the bottom of their containers.
+ */
+
+audio,
+canvas,
+iframe,
+img,
+svg,
+video {
+    vertical-align: middle;
+}
+
+
+/**
+ * Prevent modern browsers from displaying `audio` without controls.
+ */
+
+audio:not([controls]) {
+    display: none;
+}
+
+
+/**
+ * Correct overflow not hidden in IE 10/11.
+ */
+
+svg:not(:root) {
+    overflow: hidden;
+}
+
+
+/**
+ * Set the default behaviour for touch-based browsing in IE 10 on devices
+ * running Windows 8.
+ */
+
+canvas {
+    -ms-touch-action: double-tap-zoom;
+}
+
+
+
+
+/* Form elements
+   ========================================================================= */
+
+/**
+ * Indicate that `label` will shift focus to the associated `input` element.
+ */
+
+label {
+    cursor: pointer;
+}
+
+
+/**
+ * Normalise vertical alignment of `progress` in Chrome, Firefox, and Opera.
+ */
+
+progress {
+    vertical-align: baseline;
+}
+
+
+/**
+ * 1. Correct colour not being inherited.
+ *    Known issue: affects colour of disabled elements.
+ * 2. Correct font properties not being inherited.
+ * 3. Address margins set differently in Firefox 4+, Safari, and Chrome.
+ */
+
+button,
+input,
+optgroup,
+select,
+textarea {
+    color: inherit; // [1]
+    font: inherit; // [2]
+    margin: 0; // [3]
+}
+
+
+/**
+ * Address `overflow` set to `hidden` in IE 10/11.
+ */
+
+button {
+    overflow: visible;
+}
+
+
+/**
+ * Address inconsistent `text-transform` inheritance for `button` and `select`.
+ * All other form control elements do not inherit `text-transform` values.
+ * Correct `button` style inheritance in Firefox, IE 10/11, and Opera.
+ * Correct `select` style inheritance in Firefox.
+ */
+
+button,
+select {
+    text-transform: none;
+}
+
+
+/**
+ * 1. Avoid the WebKit bug in Android 4.0.* where (2) destroys native `audio`
+ *    and `video` controls.
+ * 2. Correct inability to style clickable `input` types in iOS.
+ * 3. Improve usability and consistency of cursor style between image-type
+ *    `input` and others.
+ */
+
+button,
+html input[type="button"], // [1]
+input[type="reset"],
+input[type="submit"] {
+    cursor: pointer; // [3]
+    -webkit-appearance: button; // [2]
+}
+
+
+/**
+ * Remove rounded corners that iOS applies to all `input` buttons and certain
+ * browsers e.g. Chrome, apply rounded corners to `select` lists.
+ */
+
+input[type="submit"],
+input[type="button"],
+input[type="image"],
+input[type="reset"],
+select {
+    border-radius: 0;
+}
+
+
+/**
+ * Fix for IE and old versions of some other browsers not wrapping text within
+ * a `legend`.
+ *
+ * 1. Enable line-wrapping in IE8+.
+ * 2. Enable line-wrapping in old versions of some other browsers.
+ */
+
+legend {
+    display: table; // [1]
+    white-space: normal; // [2]
+}
+
+
+/**
+ * Re-set default cursor for disabled elements.
+ */
+
+button[disabled],
+html input[disabled] {
+    cursor: default;
+}
+
+
+/**
+ * Remove inner padding and border in Firefox 4+.
+ */
+
+button::-moz-focus-inner,
+input::-moz-focus-inner {
+    border: 0;
+    padding: 0;
+}
+
+
+/**
+ * Address Firefox 4+ setting `line-height` on `input` using `!important` in
+ * the UA stylesheet.
+ */
+
+input {
+    line-height: normal;
+}
+
+
+/**
+ * It’s recommended that you don’t attempt to style these elements.
+ * Firefox’s implementation doesn’t respect box-sizing, padding, or width.
+ *
+ * 1. Address box sizing set to `content-box` in IE 10.
+ * 2. Remove excess padding in IE 10.
+ */
+
+input[type="checkbox"],
+input[type="radio"] {
+    box-sizing: border-box; // [1]
+    padding: 0; // [2]
+}
+
+
+/**
+ * Fix the cursor style for Chrome’s increment/decrement buttons. For certain
+ * `font-size` values of the `input`, it causes the cursor style of the
+ * decrement button to change from `default` to `text`.
+ */
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    height: auto;
+}
+
+
+/**
+ * Remove rounded corners from iOS search inputs.
+ */
+
+input[type="search"] {
+    appearance: none;
+}
+
+
+/**
+ * Remove inner padding and search cancel button in Safari and Chrome on OS X.
+ * Safari (but not Chrome) clips the cancel button when the search input has
+ * padding (and `textfield` appearance).
+ */
+
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-decoration {
+    -webkit-appearance: none;
+}
+
+
+/**
+ * 1. Remove default vertical scrollbar in IE 10/11.
+ * 2. Disable `textarea`s from being resized horizontally.
+ */
+
+textarea {
+    overflow: auto; // [1]
+    resize: vertical; // [2]
+}
+
+
+/**
+ * Don’t inherit the `font-weight` (applied by a rule above).
+ * N.B. the default cannot safely be changed in Chrome and Safari on OS X.
+ */
+
+optgroup {
+    font-weight: bold;
+}
+
+
+
+
+/* Table elements
+   ========================================================================= */
+
+/**
+ * Remove most spacing between table cells.
+ */
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+
+
+
+/* Interactions
+   ========================================================================= */
+
+/**
+ * Suppress the focus outline on links that cannot be accessed via a keyboard.
+ * This prevents an unwanted focus outline from appearing around elements that
+ * might still respond to pointer events.
+ *
+ * N.B. it is okay to use `!important` here as we’re doing it preemptively
+ * i.e. you know you will always want the rule it’s applied too to take
+ * precedence.
+ */
+
+[tabindex="-1"]:focus {
+    outline: none !important;
+}
+
+
+
+
+/* Remove all margins, paddings, and borders
+   ========================================================================= */
+
+/**
+ * The complete list of HTML5 elements
+ * https://developer.mozilla.org/en/docs/Web/Guide/HTML/HTML5/HTML5_element_list
+ */
+
+a,
+abbr,
+acronym,
+address,
+applet,
+article,
+aside,
+b,
+blockquote,
+body,
+caption,
+center,
+cite,
+code,
+dd,
+del,
+details,
+dfn,
+dialog,
+div,
+dl,
+dt,
+em,
+fieldset,
+figcaption,
+figure,
+footer,
+form,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+header,
+hgroup,
+html,
+i,
+iframe,
+img,
+ins,
+kbd,
+label,
+legend,
+li,
+main,
+menu,
+nav,
+object,
+ol,
+p,
+pre,
+q,
+s,
+samp,
+section,
+small,
+span,
+strong,
+sub,
+summary,
+sup,
+table,
+tbody,
+td,
+tfoot,
+th,
+thead,
+time,
+tr,
+u,
+ul,
+var {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
