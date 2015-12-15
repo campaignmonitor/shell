@@ -242,13 +242,13 @@ a:hover {
 
 
 /**
- * Address styling not present in IE 10/11, Safari, and Chrome.
- * Apply the help cursor.
+ * 1. Address styling not present in IE 10/11, Safari, and Chrome.
+ * 2. Apply the help cursor.
  */
 
 abbr[title] {
-    border-bottom: 1px dotted;
-    cursor: help;
+    border-bottom: 1px dotted; // [1]
+    cursor: help; // [2]
 }
 
 
@@ -472,7 +472,7 @@ input[type="submit"] {
 /**
  * Remove inner padding and border in Firefox 4+.
  *
- * N.B. this may not be needed any more, let’s see how testing goes.
+ * N.B. this may not be needed any more? Let’s see how testing goes.
  */
 
 button::-moz-focus-inner,
@@ -528,7 +528,7 @@ select {
  * 1. Enable line-wrapping in IE8+.
  * 2. Enable line-wrapping in old versions of some other browsers.
  *
- * N.B. this may not be needed any more, let’s see how testing goes, we might
+ * N.B. this may not be needed any more? Let’s see how testing goes, we might
  * need this instead: https://github.com/twbs/bootstrap/blob/v4.0.0-alpha.2/scss/_reboot.scss#L316-L318
  */
 
