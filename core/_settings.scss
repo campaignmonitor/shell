@@ -1,0 +1,29 @@
+/* ============================================================================
+   @CORE -> SETTINGS
+   ========================================================================= */
+
+
+/**
+ * Global settings (Sass variables) for CM’s CSS Scaffolding. All global and
+ * local settings are namespaced with `$css-scaffolding` followed by two
+ * hyphens to better separate the namespace and the name of the setting:
+ *
+   $css-scaffolding--setting-name;
+ */
+
+
+/**
+ * HTML text `input` types.
+ */
+
+$css-scaffolding--all-html-text-inputs: 'input[type="text"],
+                                        input[type="search"],
+                                        input[type="tel"],
+                                        input[type="url"],
+                                        input[type="email"],
+                                        input[type="password"],
+                                        input[type="month"],
+                                        input[type="week"],
+                                        input[type="time"],
+                                        input[type="datetime-local"],
+                                        input[type="number"]';
