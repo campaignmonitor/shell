@@ -13,14 +13,17 @@
  * hyphens to better separate the namespace and the name of the setting:
  *
    $css-scaffolding--setting-name;
+ *
+ * We namespace the settings so we can easily distinguish what is coming from
+ * CM’s CSS Scaffolding.
  */
 /**
  * HTML text `input` types.
  */
-/* CM CSS Scaffolding framework
+/* CM’s CSS Scaffolding
    ========================================================================= */
 /* ============================================================================
-   @CORE -> NORMALISE
+   @CORE -> NORMALISE AND RESET
    ========================================================================= */
 /**
  * Let’s get all browsers rendering all elements more consistently and in line
@@ -36,12 +39,12 @@
  * 5. Form elements
  * 6. Table elements
  * 7. Interactions
- * 8. Resets
  *
  * @credit
- * https://necolas.github.io/normalize.css/
- * https://html5boilerplate.com/
- * https://github.com/suitcss/
+ * https://github.com/necolas/normalize.css/blob/3.0.2/normalize.css
+ * https://github.com/h5bp/html5-boilerplate/blob/master/src/css/main.css
+ * https://github.com/suitcss/base/
+ * https://github.com/twbs/bootstrap/blob/v4.0.0-alpha.2/scss/_reboot.scss
  */
 /* Global styles
    ========================================================================= */
@@ -61,6 +64,94 @@ html {
 *::before,
 *::after {
   box-sizing: inherit; }
+
+/**
+ * Remove all margins, paddings, and borders.
+ *
+ * N.B. do not include the following elements:
+ * - `input`
+ * - `button`
+ * - `textarea`
+ *
+ * The complete list of HTML5 elements:
+ * https://developer.mozilla.org/en/docs/Web/Guide/HTML/HTML5/HTML5_element_list
+ */
+a,
+abbr,
+acronym,
+address,
+applet,
+article,
+aside,
+b,
+blockquote,
+body,
+caption,
+center,
+cite,
+code,
+dd,
+del,
+details,
+dfn,
+dialog,
+div,
+dl,
+dt,
+em,
+fieldset,
+figcaption,
+figure,
+footer,
+form,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+header,
+hgroup,
+html,
+i,
+iframe,
+img,
+ins,
+kbd,
+label,
+legend,
+li,
+main,
+menu,
+nav,
+object,
+ol,
+p,
+pre,
+q,
+s,
+samp,
+section,
+small,
+span,
+strong,
+sub,
+summary,
+sup,
+table,
+tbody,
+td,
+tfoot,
+th,
+thead,
+time,
+tr,
+u,
+ul,
+var {
+  margin: 0;
+  padding: 0;
+  border: 0; }
 
 /* Block-level elements
    ========================================================================= */
@@ -191,6 +282,7 @@ samp {
    ========================================================================= */
 /**
  * Remove the gap between media elements and the bottom of their containers.
+ * See: https://github.com/h5bp/html5-boilerplate/issues/440.
  */
 audio,
 canvas,
@@ -222,21 +314,13 @@ canvas {
 /* Form elements
    ========================================================================= */
 /**
- * Indicate that `label` will shift focus to the associated `input` element.
+ * Known limitation: by default, Chrome and Safari on OS X allow very limited
+ * styling of `select`, unless a `border` property is set.
  */
-label {
-  cursor: pointer; }
-
-/**
- * Normalise vertical alignment of `progress` in Chrome, Firefox, and Opera.
- */
-progress {
-  vertical-align: baseline; }
-
 /**
  * 1. Correct colour not being inherited.
  *    Known issue: affects colour of disabled elements.
- * 2. Correct font properties not being inherited.
+ * 2. Correct font property not being inherited.
  * 3. Address margins set differently in Firefox 4+, Safari, and Chrome.
  */
 button,
@@ -249,10 +333,34 @@ textarea {
   margin: 0; }
 
 /**
- * Address `overflow` set to `hidden` in IE 10/11.
+ * Correct `line-height` property not being inherited.
+ */
+button,
+input,
+legend,
+optgroup,
+select,
+textarea {
+  line-height: inherit; }
+
+/**
+ * 1. Reset styles.
+ * 2. Address `overflow` set to `hidden` in IE 10/11.
  */
 button {
-  overflow: visible; }
+  background: transparent;
+  border: 0;
+  padding: 0;
+  overflow: visible;
+  /**
+   * Work around a Firefox/IE bug where the transparent `button` background
+   * results in a loss of the default `button` focus styles.
+   *
+   * N.B. this may cause issues, let’s see how testing goes.
+   */ }
+  button:focus {
+    outline: 1px dotted;
+    outline: 5px auto -webkit-focus-ring-color; }
 
 /**
  * Address inconsistent `text-transform` inheritance for `button` and `select`.
@@ -265,11 +373,11 @@ select {
   text-transform: none; }
 
 /**
- * 1. Avoid the WebKit bug in Android 4.0.* where (2) destroys native `audio`
+ * 1. Avoid the WebKit bug in Android 4.0.* where [2] destroys native `audio`
  *    and `video` controls.
- * 2. Correct inability to style clickable `input` types in iOS.
- * 3. Improve usability and consistency of cursor style between image-type
+ * 2. Improve usability and consistency of cursor style between image-type
  *    `input` and others.
+ * 3. Correct inability to style clickable `input` types in iOS.
  */
 button,
 html input[type="button"],
@@ -277,6 +385,35 @@ input[type="reset"],
 input[type="submit"] {
   cursor: pointer;
   -webkit-appearance: button; }
+
+/**
+ * Remove inner padding and border in Firefox 4+.
+ *
+ * N.B. this may not be needed any more, let’s see how testing goes.
+ */
+button::-moz-focus-inner,
+input::-moz-focus-inner {
+  border: 0;
+  padding: 0; }
+
+/**
+ * Reset `not-allowed` cursor for disabled elements.
+ */
+button[disabled],
+html input[disabled],
+select[disabled],
+textarea[disabled] {
+  cursor: not-allowed; }
+
+/**
+ * iOS “clickable elements” fix for `role="button"`.
+ *
+ * Fixes “clickability” issue (and more generally, the firing of events such
+ * as focus as well) for traditionally non-focusable elements with
+ * `role="button"`, see: https://developer.mozilla.org/en-US/docs/Web/Events/click#Safari_Mobile
+ */
+[role="button"] {
+  cursor: pointer; }
 
 /**
  * Remove rounded corners that iOS applies to all `input` buttons and certain
@@ -295,36 +432,18 @@ select {
  *
  * 1. Enable line-wrapping in IE8+.
  * 2. Enable line-wrapping in old versions of some other browsers.
+ *
+ * N.B. this may not be needed any more, let’s see how testing goes, we might
+ * need this instead: https://github.com/twbs/bootstrap/blob/v4.0.0-alpha.2/scss/_reboot.scss#L316-L318
  */
 legend {
   display: table;
   white-space: normal; }
 
 /**
- * Reset default cursor for disabled elements.
- */
-button[disabled],
-html input[disabled] {
-  cursor: default; }
-
-/**
- * Remove inner padding and border in Firefox 4+.
- */
-button::-moz-focus-inner,
-input::-moz-focus-inner {
-  border: 0;
-  padding: 0; }
-
-/**
- * Address Firefox 4+ setting `line-height` on `input` using `!important` in
- * the UA stylesheet.
- */
-input {
-  line-height: normal; }
-
-/**
  * It’s recommended that you don’t attempt to style these elements.
- * Firefox’s implementation doesn’t respect box-sizing, padding, or width.
+ * Firefox’s implementation doesn’t respect `box-sizing`, `padding`, or
+ * `width`.
  *
  * 1. Address box sizing set to `content-box` in IE 10.
  * 2. Remove excess padding in IE 10.
@@ -359,12 +478,28 @@ input[type="search"]::-webkit-search-decoration {
   -webkit-appearance: none; }
 
 /**
- * 1. Remove default vertical scrollbar in IE 10/11.
- * 2. Disable `textarea`s from being resized horizontally.
+ * Indicate that `label` will shift focus to the associated `input` element.
+ */
+label {
+  cursor: pointer; }
+
+/**
+ * 1. Make sure `textarea`s takes on height automatically.
+ * 2. Remove default vertical scrollbar in IE 10/11.
+ * 3. Disable `textarea`s from being resized horizontally.
  */
 textarea {
+  height: auto;
   overflow: auto;
   resize: vertical; }
+
+/**
+ * Chrome and Firefox set a `min-width: min-content;` on `fieldset`s, so we
+ * reset that to ensure it behaves more like a standard block element, see:
+ * https://github.com/twbs/bootstrap/issues/12359.
+ */
+fieldset {
+  min-width: 0; }
 
 /**
  * Don’t inherit the `font-weight` (applied by a rule above).
@@ -373,6 +508,12 @@ textarea {
  */
 optgroup {
   font-weight: bold; }
+
+/**
+ * Normalise vertical alignment of `progress` in Chrome, Firefox, and Opera.
+ */
+progress {
+  vertical-align: baseline; }
 
 /**
  * Remove the top inner shadow from iOS inputs.
@@ -421,92 +562,30 @@ table {
 [tabindex="-1"]:focus {
   outline: none !important; }
 
-/* Resets
-   ========================================================================= */
 /**
- * Remove all margins, paddings, and borders.
+ * Avoid 300ms click delay on touch devices that support the `touch-action` CSS
+ * property.
  *
- * The complete list of HTML5 elements
- * https://developer.mozilla.org/en/docs/Web/Guide/HTML/HTML5/HTML5_element_list
+ * In particular, unlike most other browsers, IE11+Edge on Windows 10 on touch
+ * devices and IE Mobile 10-11 DON’T remove the click delay when
+ * `<meta name="viewport" content="width=device-width">` is present.
+ * However, they DO support removing the click delay via
+ * `touch-action: manipulation`.
  *
- * N.B. do not include the `input` element!
+ * See:
+ * - http://caniuse.com/#feat=css-touch-action
+ * - http://patrickhlauke.github.io/touch/tests/results/#suppressing-300ms-delay
+ * - http://v4-alpha.getbootstrap.com/content/reboot/#click-delay-optimization-for-touch
  */
 a,
-abbr,
-acronym,
-address,
-applet,
-article,
-aside,
-b,
-blockquote,
-body,
-caption,
-center,
-cite,
-code,
-dd,
-del,
-details,
-dfn,
-dialog,
-div,
-dl,
-dt,
-em,
-fieldset,
-figcaption,
-figure,
-footer,
-form,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-header,
-hgroup,
-html,
-i,
-iframe,
-img,
-ins,
-kbd,
+area,
+button,
+input,
 label,
-legend,
-li,
-main,
-menu,
-nav,
-object,
-ol,
-p,
-pre,
-q,
-s,
-samp,
-section,
-small,
-span,
-strong,
-sub,
+select,
 summary,
-sup,
-table,
-tbody,
-td,
-tfoot,
-th,
-thead,
-time,
-tr,
-u,
-ul,
-var {
-  margin: 0;
-  padding: 0;
-  border: 0; }
+textarea {
+  touch-action: manipulation; }
 
 /* Product-specific styles
    ========================================================================= */
