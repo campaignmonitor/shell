@@ -1,32 +1,62 @@
 @charset "UTF-8";
 
+
 /* ============================================================================
    @TEST STYLESHEET
    ========================================================================= */
 
 /**
+ * Do not apply styles to elements directly, instead everything needs to be
+ * scoped to classes, and styles need to be kept to a minimum, we do this so we
+ * don’t interfere with the framework styles. All classes need to be namespaced
+ * like so:
+ *
+   .css-scaffolding-test__
+ *
+ * E.g.
+ *
+   .css-scaffolding-test__page-title
+ */
+
+
+/**
  * Page title (not part of any tests).
  */
 
-.css-scaffolding--page-title {
+.css-scaffolding-test__page-title {
     border-bottom: 1px solid;
     font-family: HelveticaNeue-Light, "Helvetica Neue Light", "Helvetica Neue", sans-serif;
     font-size: 60px;
     font-weight: 300;
-    margin-bottom: 60px;
     padding-bottom: 10px;
     text-align: center;
 }
 
-.css-scaffolding--page-title__icon {
-    color: gold;
-}
-
-.css-scaffolding--page-title__byline {
+.css-scaffolding-test__page-title__byline {
     color: #999;
     display: block;
     font-size: 16px;
 }
+
+
+/**
+ * Page intro (not part of any tests).
+ */
+
+.css-scaffolding-test__page-intro {
+    padding: 60px;
+}
+
+.css-scaffolding-test__page-intro p,
+.css-scaffolding-test__page-intro h2 {
+    margin-bottom: 24px;
+}
+
+.css-scaffolding-test__page-intro ol {
+    list-style: decimal;
+    margin-left: 48px;
+}
+
 
 /**
  * Test styles.
@@ -35,27 +65,24 @@
  * suit-test v0.1.0 | MIT License | github.com/suitcss
  */
 
-.Test {
+/**
+ * Container that contains everything.
+ */
+
+.css-scaffolding-test__container {
     background: #fff;
     counter-reset: test-describe;
 }
 
-.Test-describe:before {
-    content: counter(test-describe);
-    counter-increment: test-describe;
-}
 
-.Test-describe {
-    counter-reset: test-it;
-}
+/**
+ * The HTML elements that are affected by the test:
+ * `css-scaffolding-test__elements` and the test explanation:
+ * `css-scaffolding-test__explanation`.
+ */
 
-.Test-it:before {
-    content: counter(test-describe) "." counter(test-it);
-    counter-increment: test-it;
-}
-
-.Test-describe,
-.Test-it {
+.css-scaffolding-test__elements,
+.css-scaffolding-test__explanation {
     background: #eee;
     border-left: 5px solid #666;
     color: #666;
@@ -65,13 +92,14 @@
     padding: 0.75em 20px;
 }
 
-.Test-describe {
+.css-scaffolding-test__elements {
     font-size: 1.5em;
     margin: 60px 0 20px;
 }
 
-.Test-describe:before,
-.Test-it:before {
+/* The counters */
+.css-scaffolding-test__elements:before,
+.css-scaffolding-test__explanation:before {
     color: #999;
     display: inline-block;
     margin-right: 10px;
@@ -79,18 +107,34 @@
     text-transform: uppercase;
 }
 
-/**
- * Test whether the body's margin has been removed.
- */
+.css-scaffolding-test__elements::before {
+    content: counter(test-describe);
+    counter-increment: test-describe;
+}
 
-body {
-    background: red;
+.css-scaffolding-test__elements {
+    counter-reset: test-it;
+}
+
+.css-scaffolding-test__explanation::before {
+    content: counter(test-describe) "." counter(test-it);
+    counter-increment: test-it;
 }
 
 /**
  * Highlight the bounds of direct children of a test block.
  */
 
-.Test-run--highlightEl > * {
-    outline: 1px solid #ADD8E6;
+.css-scaffolding-test__run--highlightEl > * {
+    outline: 1px solid #add8e6;
+}
+
+
+/**
+ * Specific test cases.
+ */
+
+/* Test whether the body's margin has been removed */
+body {
+    background: red;
 }
