@@ -10,13 +10,16 @@
  *
  * CONTENTS:
  *
- * 1. Global styles
+ * 1. Root element and global resets
  * 2. Block-level elements
  * 3. Inline elements
- * 4. Embedded elements
+ * 4. Embedded, image, and multimedia, elements
  * 5. Form elements
  * 6. Table elements
  * 7. Interactions
+ *
+ * N.B. please remember to update the test file: /test/core/normalise.html
+ * whenever making changes to this CSS.
  *
  * @credit
  * https://github.com/necolas/normalize.css/blob/3.0.2/normalize.css
@@ -28,7 +31,7 @@
 
 
 
-/* Global styles
+/* 1. Root element and global resets
    ========================================================================= */
 
 /**
@@ -146,7 +149,7 @@ var {
 
 
 
-/* Block-level elements
+/* 2. Block-level elements
    ========================================================================= */
 
 /**
@@ -218,7 +221,7 @@ ol {
 
 
 
-/* Inline elements
+/* 3. Inline elements
    ========================================================================= */
 
 /**
@@ -325,7 +328,7 @@ samp {
 
 
 
-/* Embedded elements
+/* 4. Embedded, image and multimedia, elements
    ========================================================================= */
 
 /**
@@ -373,7 +376,7 @@ canvas {
 
 
 
-/* Form elements
+/* 5. Form elements
    ========================================================================= */
 
 /**
@@ -674,7 +677,7 @@ progress {
 
 
 
-/* Table elements
+/* 6. Table elements
    ========================================================================= */
 
 /**
@@ -689,7 +692,7 @@ table {
 
 
 
-/* Interactions
+/* 7. Interactions
    ========================================================================= */
 
 /**

@@ -4,9 +4,9 @@
    @TEST STYLESHEET
    ========================================================================= */
 
-html {
-    padding: 40px;
-}
+/**
+ * Page title (not part of any tests).
+ */
 
 .css-scaffolding--page-title {
     border-bottom: 1px solid;
@@ -26,4 +26,71 @@ html {
     color: #999;
     display: block;
     font-size: 16px;
+}
+
+/**
+ * Test styles.
+ *
+ * @credit
+ * suit-test v0.1.0 | MIT License | github.com/suitcss
+ */
+
+.Test {
+    background: #fff;
+    counter-reset: test-describe;
+}
+
+.Test-describe:before {
+    content: counter(test-describe);
+    counter-increment: test-describe;
+}
+
+.Test-describe {
+    counter-reset: test-it;
+}
+
+.Test-it:before {
+    content: counter(test-describe) "." counter(test-it);
+    counter-increment: test-it;
+}
+
+.Test-describe,
+.Test-it {
+    background: #eee;
+    border-left: 5px solid #666;
+    color: #666;
+    font-family: sans-serif;
+    font-weight: bold;
+    margin: 20px 0;
+    padding: 0.75em 20px;
+}
+
+.Test-describe {
+    font-size: 1.5em;
+    margin: 60px 0 20px;
+}
+
+.Test-describe:before,
+.Test-it:before {
+    color: #999;
+    display: inline-block;
+    margin-right: 10px;
+    min-width: 30px;
+    text-transform: uppercase;
+}
+
+/**
+ * Test whether the body's margin has been removed.
+ */
+
+body {
+    background: red;
+}
+
+/**
+ * Highlight the bounds of direct children of a test block.
+ */
+
+.Test-run--highlightEl > * {
+    outline: 1px solid #ADD8E6;
 }
