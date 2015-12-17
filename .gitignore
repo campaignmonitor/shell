@@ -2,6 +2,7 @@
 ###################
 /test/css-scaffolding.css
 /test/css-scaffolding.css.map
+node_modules
 
 
 # Compiled source #
