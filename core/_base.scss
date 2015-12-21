@@ -1,0 +1,343 @@
+/* ============================================================================
+   @CORE -> BASE
+   ========================================================================= */
+
+
+/**
+ * Here we provide very basic styling that most UI’s will need. These styles
+ * are applied at the most global level being applied via element selectors.
+ * Everything in Base needs to be easily overridden which is really easy to do
+ * as everything in Base sits right at the bottom in terms of specificity.
+ *
+ * CONTENTS:
+ *
+ * 1. Settings
+ * 2. Root element
+ * 3. Links
+ * 4. Horizontal rule
+ * 5. Forms
+ * 6. Print
+ *
+ * @credit
+ * https://html5boilerplate.com/
+ */
+
+
+
+
+/* 1. Settings
+   ========================================================================= */
+
+/**
+ * Booleans.
+ */
+
+$shell-apply-osx-font-smoothing: false !default;
+
+$shell-apply-link-transition: true !default;
+
+$shell-apply-disabled-and-readonly-states: true !default;
+
+$shell-apply-responsive-images: true !default;
+
+$shell-apply-bottom-margin-to-paragraphs: false !default;
+
+
+/**
+ * Root element.
+ */
+
+$shell-root-element-background-color: $color-white !default;
+
+
+/**
+ * Links.
+ */
+
+$shell-link-text-decoration: underline !default;
+
+$shell-link-text-decoration-on-hover: none !default;
+
+$shell-link-transition-duration: 0.15s !default;
+
+$shell-link-transition-timing-function: linear !default;
+
+
+/**
+ * Horizontal rule.
+ */
+
+$shell-hr-thickness: 1px !default;
+
+$shell-hr-style: solid !default;
+
+$shell-hr-color: $shell-color-text-base !default;
+
+
+/**
+ * Forms.
+ */
+
+$shell-disabled-state-opacity-strength: 0.6 !default;
+
+
+
+
+/* 2. Root element
+   ========================================================================= */
+
+/**
+ * 1. Set the global typography rules sourced from “Core -> Settings”.
+ * 2. Fonts on OSX will look more consistent with other systems that do not
+ *    render text using sub-pixel anti-aliasing.
+ *    N.B. we recommend not to use this.
+ */
+
+html {
+    background: $shell-root-element-background-color;
+    color: $shell-color-text-base;
+    font-family: $shell-font-family-base; // [1]
+    font-size: $shell-font-size / 16 * 1em; // [1]
+    font-weight: $shell-font-weight; // [1]
+    line-height: $shell-line-height-ratio; // [1]
+
+    @if $shell-apply-osx-font-smoothing {
+        -moz-osx-font-smoothing: grayscale; // [2]
+        -webkit-font-smoothing: antialiased; // [2]
+    }
+}
+
+
+
+
+/* 3. Links
+   ========================================================================= */
+
+a {
+    color: $shell-color-link;
+    text-decoration: $shell-link-text-decoration;
+
+    @if $shell-apply-link-transition {
+        transition: all $shell-link-transition-duration $shell-link-transition-timing-function;
+    }
+
+    &:hover,
+    &:focus {
+        color: $shell-color-link-hover;
+        text-decoration: $shell-link-text-decoration-hover;
+    }
+}
+
+
+
+
+/* 4. Horizontal rule
+   ========================================================================= */
+
+hr {
+    border-top: $shell-hr-thickness $shell-hr-style $shell-hr-color;
+    display: block;
+    height: 1px;
+    // Offset the border thickness to maintain a vertical rhythm
+    margin-top: -$shell-hr-thickness * 1px;
+}
+
+
+
+
+/* 5. Images
+   ========================================================================= */
+
+/**
+ * 1. Make responsive, i.e. keep images from scaling beyond the width of their
+ *    parents.
+ * 2. `[alt]` text is visually offset if images don’t load.
+ */
+
+img {
+    max-width: 100%; // [1]
+    height: auto; // [1]
+    font-style: italic; // [2]
+}
+
+
+/**
+ * Third-party widgets—like Google Maps—cannot have their images be responsive
+ * as this breaks any images used within them therefore we remove that by
+ * applying the two possible Google Map container selectors plus a generic
+ * container selector to be used for other third-party widgets.
+ *
+ * N.B. it is okay to use `!important` here as we’re doing it preemptively
+ * i.e. you know you will always want the rule it’s applied too to take
+ * precedence.
+ */
+
+.remove-responsive-images img,
+#map_canvas img,
+.map_canvas img, {
+    max-width: none !important;
+}
+
+
+
+
+/* 6. Forms
+   ========================================================================= */
+
+/**
+ * Apply an optional `opacity` style for disabled and read-only states.
+ *
+ * N.B. if developing for iOS be aware of this bug:
+ * “Safari Mobile for iOS applies a default style of `opacity: 0.4` to disabled
+ * textual `<input>` elements. Other major browsers don’t currently share this
+ * particular default style.”
+ * —https://developer.mozilla.org/en-US/docs/Web/HTML/Element/Input#Browser_compatibility
+ */
+
+@if $shell-apply-disabled-and-readonly-states {
+    :disabled,
+    [readonly] {
+        opacity: $shell-disabled-state-opacity-strength;
+    }
+}
+
+
+/**
+ * Colour for the textual input `[placeholder]` attribute.
+ */
+
+@include text-input-placeholder-color();
+
+
+
+
+/* 6. Paragraphs
+   ========================================================================= */
+
+/**
+ * Apply an optional bottom margin to all paragraphs.
+ */
+
+@if $shell-apply-bottom-margin-to-paragraphs {
+    p {
+        margin-bottom: $shell-spacing-base;
+    }
+}
+
+
+
+
+/* 7. Print
+   ========================================================================= */
+
+/**
+ * N.B. it is okay to use `!important` here as we're doing it preemptively i.e.
+ * you know you will always want the rule it's applied too to take precedence.
+ */
+
+@media print {
+
+    /**
+     * Apply print friendly styles to all the things.
+     */
+
+    *,
+    *::before,
+    *::after,
+    *::first-child,
+    *::first-line {
+        background: transparent !important;
+        box-shadow: none !important;
+        color: $color-black !important;
+        text-shadow: none !important;
+    }
+
+
+    /**
+     * Hide elements not really useful on a piece of paper.
+     */
+
+    nav,
+    video,
+    audio {
+        display: none !important;
+    }
+
+
+    /**
+     * Ensure all images are responsive.
+     */
+
+    img {
+        height: auto !important;
+        max-width: 100% !important;
+    }
+
+
+    /**
+     * Make links always stand out.
+     */
+
+    a,
+    a:visited {
+        border-bottom: 0 !important;
+        text-decoration: underline !important;
+    }
+
+
+    /**
+     * Show the `[href]` and `[title]` attribute values of links and
+     * abbreviations via their `::after` pseudo element.
+     */
+
+    a[href]::after {
+        content: " (" attr(href) ")";
+    }
+
+    abbr[title]::after {
+        content: " (" attr(title) ")";
+    }
+
+    // Don’t show links that are fragment identifiers, or use the
+    // `javascript:` pseudo protocol
+    a[href^="javascript:"]::after,
+    a[href^="#"]::after {
+        content: "";
+    }
+
+
+    /*
+     * Make the header row repeated at the top of each printed page, see:
+     * http://css-discuss.incutio.com/wiki/Printing_Tables
+     */
+
+    thead {
+        display: table-header-group;
+    }
+
+
+    /**
+     * Set page breaks, orphans and widows.
+     */
+
+    // Page breaks
+    h2
+    h3 {
+        page-break-after: avoid;
+    }
+
+    tr,
+    img,
+    pre,
+    blockquote {
+        page-break-inside: avoid;
+    }
+
+    // Orphans and widows
+    p,
+    h2,
+    h3 {
+        orphans: 3;
+        widows: 3;
+    }
+}

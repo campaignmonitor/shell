@@ -4,29 +4,179 @@
 
 
 /**
- * Global settings (Sass variables) for CM’s CSS Scaffolding. All global and
- * local settings are namespaced with `$css-scaffolding` followed by two
- * hyphens to better separate the namespace and the name of the setting:
+ * All the global settings (Sass variables) for Shell. All settings start with
+ * a global namespace: `$shell` followed by one hyphen, like this:
  *
-   $css-scaffolding--setting-name;
+   $shell-;
  *
- * We namespace the settings so we can easily distinguish what is coming from
- * CM’s CSS Scaffolding.
+ * ~~All local settings (settings defined outside of here in Sass partials) are
+ * namespaced also. There namespace is the first letter of the section they
+ * belong too.~~
+ *
+ * CONTENTS:
+ *
+ * 1. Colours
+ * 2. Typography
+ * 3. Other
  */
+
+
+
+
+/* 1. Colours
+   ========================================================================= */
+
+/**
+ * Black and white.
+ */
+
+$shell-color-white: #fff;
+
+$shell-color-black: #000;
 
 
 /**
- * HTML text `input` types.
+ * Brand.
  */
 
-$css-scaffolding--all-html-text-inputs: 'input[type="text"],
-                                        input[type="search"],
-                                        input[type="tel"],
-                                        input[type="url"],
-                                        input[type="email"],
-                                        input[type="password"],
-                                        input[type="month"],
-                                        input[type="week"],
-                                        input[type="time"],
-                                        input[type="datetime-local"],
-                                        input[type="number"]';
+$shell-color-brand: #19a9e5;
+
+
+/**
+ * Text base.
+ */
+
+$shell-color-text-base: #444;
+
+
+/**
+ * Links.
+ */
+
+$shell-color-link: $shell-color-brand;
+
+$shell-color-link-hover: $shell-color-brand;
+
+
+/**
+ * Textual input `[placeholder]` attribute.
+ */
+
+$shell-color-text-input-placeholder: #999 !default;
+
+
+
+
+/* 2. Typography
+   ========================================================================= */
+
+/**
+ * Size.
+ */
+
+// Base
+$shell-font-size: 16 !default;
+
+// Smaller
+$shell-font-size-small: $shell-font-size - 1 !default;
+
+$shell-font-size-x-small: $shell-font-size - 2 !default;
+
+$shell-font-size-xx-small: $shell-font-size - 3 !default;
+
+$shell-font-size-xxx-small: $shell-font-size - 4 !default;
+
+// Larger
+$shell-font-size-large: $shell-font-size + 1 !default;
+
+$shell-font-size-x-large: $shell-font-size + 2 !default;
+
+$shell-font-size-xx-large: $shell-font-size + 3 !default;
+
+$shell-font-size-xxx-large: $shell-font-size + 4 !default;
+
+
+/**
+ * Line height.
+ *
+ * N.B. this value will be used for the base spacing setting to achieve a
+ * vertical rhythm.
+ */
+
+$shell-line-height: 24 !default;
+
+
+/**
+ * Line height ratio.
+ */
+
+$shell-line-height-ratio: $shell-line-height / $shell-font-size !default;
+
+
+/**
+ * Families.
+ */
+
+// Base
+$shell-font-family-base: sans-serif !default;
+
+// Monospaced
+$shell-font-family-monospace: monospace, monospace !default;
+
+
+/**
+ * Weights.
+ *
+ * N.B. all the font weights other than `$shell-font-weight-base` are there to
+ * be used when you’re using webfonts i.e. fonts brought in via the
+ * `@font-face` declaration. It’s better to store each webfont weights in
+ * settings rather than trying to remember each of the numbers that the
+ * weights corresponds to, plus it ensures that the site/app’s typography is
+ * applied consistency. You can use these settings for none webfonts i.e.
+ * system fonts but typically you’ll only need to apply one weight which is
+ * “bold” and in this case using `font-weight: bold;` is fine.
+ *
+ * See: https://developer.mozilla.org/en/docs/Web/CSS/font-weight#Common_weight_name_mapping.
+ */
+
+$shell-font-weight-base: 400 !default;
+
+$shell-font-weight-thin: 100 !default;
+
+$shell-font-weight-extra-light: 200 !default;
+
+$shell-font-weight-light: 300 !default;
+
+$shell-font-weight-medium: 500 !default;
+
+$shell-font-weight-semi-bold: 600 !default;
+
+$shell-font-weight-bold: 700 !default;
+
+$shell-font-weight-extra-bold: 800 !default;
+
+$shell-font-weight-black: 900 !default;
+
+
+
+
+/* 3. Other
+   ========================================================================= */
+
+/**
+ * HTML textual `input`s.
+ */
+
+$shell-textual-inputs: 'input[type="text"],
+                        input[type="search"],
+                        input[type="tel"],
+                        input[type="url"],
+                        input[type="email"],
+                        input[type="password"],
+                        input[type="month"],
+                        input[type="week"],
+                        input[type="time"],
+                        input[type="date"],
+                        input[type="datetime"],
+                        input[type="datetime-local"],
+                        input[type="number"]';
