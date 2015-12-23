@@ -46,7 +46,7 @@ $shell-apply-bottom-margin-to-paragraphs: false !default;
  * Root element.
  */
 
-$shell-root-element-background-color: $color-white !default;
+$shell-root-element-background-color: $shell-color-white !default;
 
 
 /**
@@ -97,7 +97,7 @@ html {
     color: $shell-color-text-base;
     font-family: $shell-font-family-base; // [1]
     font-size: $shell-font-size / 16 * 1em; // [1]
-    font-weight: $shell-font-weight; // [1]
+    font-weight: $shell-font-weight-normal; // [1]
     line-height: $shell-line-height-ratio; // [1]
 
     @if $shell-apply-osx-font-smoothing {
@@ -123,7 +123,7 @@ a {
     &:hover,
     &:focus {
         color: $shell-color-link-hover;
-        text-decoration: $shell-link-text-decoration-hover;
+        text-decoration: $shell-link-text-decoration-on-hover;
     }
 }
 
@@ -138,7 +138,7 @@ hr {
     display: block;
     height: 1px;
     // Offset the border thickness to maintain a vertical rhythm
-    margin-top: -$shell-hr-thickness * 1px;
+    margin-top: -$shell-hr-thickness;
 }
 
 
@@ -205,7 +205,7 @@ img {
  * Colour for the textual input `[placeholder]` attribute.
  */
 
-@include text-input-placeholder-color();
+//@include text-input-placeholder-color();
 
 
 
@@ -378,7 +378,7 @@ h6 {
     *::first-line {
         background: transparent !important;
         box-shadow: none !important;
-        color: $color-black !important;
+        color: $shell-color-black !important;
         text-shadow: none !important;
     }
 

@@ -2,7 +2,7 @@
 
 
 /* ============================================================================
-   @TEST STYLESHEET
+   @TEST DOCS STYLESHEET
    ========================================================================= */
 
 /**
@@ -11,31 +11,23 @@
  * don’t interfere with the framework styles. All classes need to be namespaced
  * like so:
  *
-   .css-scaffolding-test__
- *
- * E.g.
- *
-   .css-scaffolding-test__page-title
+   .shell-test__
  */
 
 
 /**
- * Page title (not part of any tests).
+ * Page title.
  */
 
-.css-scaffolding-test__page-title {
-    border-bottom: 1px solid;
+.shell-test__page-title {
+    background-color: gold;
+    color: white;
     font-family: HelveticaNeue-Light, "Helvetica Neue Light", "Helvetica Neue", sans-serif;
     font-size: 60px;
     font-weight: 300;
     padding-bottom: 10px;
+    padding-top: 10px;
     text-align: center;
-}
-
-.css-scaffolding-test__page-title__byline {
-    color: #999;
-    display: block;
-    font-size: 16px;
 }
 
 
@@ -43,16 +35,23 @@
  * Page intro (not part of any tests).
  */
 
-.css-scaffolding-test__page-intro {
-    padding: 60px;
+.shell-test__page-intro {
+    background-color: LightYellow;
+    padding-top: 40px;
+    padding-bottom: 40px;
+
+    > div {
+        margin: 0 auto;
+        max-width: 600px;
+    }
 }
 
-.css-scaffolding-test__page-intro p,
-.css-scaffolding-test__page-intro h2 {
+.shell-test__page-intro p,
+.shell-test__page-intro h2 {
     margin-bottom: 24px;
 }
 
-.css-scaffolding-test__page-intro ol {
+.shell-test__page-intro ol {
     list-style: decimal;
     margin-left: 48px;
 }
@@ -69,7 +68,7 @@
  * Container that contains everything.
  */
 
-.css-scaffolding-test__container {
+.shell-test__container {
     background: #fff;
     counter-reset: test-describe;
 }
@@ -77,12 +76,12 @@
 
 /**
  * The HTML elements that are affected by the test:
- * `css-scaffolding-test__elements` and the test explanation:
- * `css-scaffolding-test__explanation`.
+ * `shell-test__elements` and the test explanation:
+ * `shell-test__explanation`.
  */
 
-.css-scaffolding-test__elements,
-.css-scaffolding-test__explanation {
+.shell-test__elements,
+.shell-test__explanation {
     background: #eee;
     border-left: 5px solid #666;
     color: #666;
@@ -92,14 +91,14 @@
     padding: 0.75em 20px;
 }
 
-.css-scaffolding-test__elements {
+.shell-test__elements {
     font-size: 1.5em;
     margin: 60px 0 20px;
 }
 
 /* The counters */
-.css-scaffolding-test__elements:before,
-.css-scaffolding-test__explanation:before {
+.shell-test__elements:before,
+.shell-test__explanation:before {
     color: #999;
     display: inline-block;
     margin-right: 10px;
@@ -107,16 +106,16 @@
     text-transform: uppercase;
 }
 
-.css-scaffolding-test__elements::before {
+.shell-test__elements::before {
     content: counter(test-describe);
     counter-increment: test-describe;
 }
 
-.css-scaffolding-test__elements {
+.shell-test__elements {
     counter-reset: test-it;
 }
 
-.css-scaffolding-test__explanation::before {
+.shell-test__explanation::before {
     content: counter(test-describe) "." counter(test-it);
     counter-increment: test-it;
 }
@@ -125,7 +124,7 @@
  * Highlight the bounds of direct children of a test block.
  */
 
-.css-scaffolding-test__run--highlightEl > * {
+.shell-test__run--highlightEl > * {
     outline: 1px solid #add8e6;
 }
 
@@ -136,5 +135,5 @@
 
 /* Test whether the body's margin has been removed */
 body {
-    background: red;
+    //background: red;
 }

@@ -3,47 +3,65 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>&#9762; Test: Base &#9762; / Shell</title>
-    <link rel="stylesheet" href="../css-scaffolding.css">
-    <link rel="stylesheet" href="../css-scaffolding-test.css">
+    <title>&#9762; Test: Core/Base &#9762;</title>
+    <link rel="stylesheet" href="../test-shell.css">
+    <link rel="stylesheet" href="../test-docs-styles.css">
 </head>
 
 <body>
 
-<!-- Page title and intro -->
-<h1 class="css-scaffolding-test__page-title">
-    &#9762; Test: Normalise/Reset &#9762;
-    <span class="css-scaffolding-test__page-title__byline">CM’s CSS Scaffolding&#8482</span>
-</h1>
-<div class="css-scaffolding-test__page-intro">
-    <p>Let’s get all browsers rendering all elements more consistently and in line with modern standards, and let’s nuke certain user-agent styles so that everything is on an even playing field.</p>
-    <h2>Contents</h2>
-    <ol>
-        <li><a href="#one">Root element and global resets</a></li>
-        <li><a href="#two">Block-level elements</a></li>
-        <li><a href="#three">Inline elements</a></li>
-        <li><a href="#four">Embedded, image, and multimedia, elements</a></li>
-        <li><a href="#five">Form elements</a></li>
-        <li><a href="#six">Table elements</a></li>
-        <li><a href="#seven">Interactions</a></li>
-    </ol>
-</div>
-<!-- //Page title and intro -->
+
+    <!-- Page title and intro -->
+    <h1 class="shell-test__page-title">&#9762; Test: Core/Base &#9762;</h1>
+    <div class="shell-test__page-intro">
+        <div>
+            <p>Here we provide very basic styling that most UI’s will need. These styles are applied at the most global level being applied via element selectors, except for “Headings” which are scoped to classes (see that section for the info). Everything in Base needs to be easily overridden which is really easy to do as everything in Base sits right at the bottom in terms of specificity.</p>
+            <h2><strong>Contents</strong></h2>
+            <ol>
+                <li><a href="#one"></a></li>
+            </ol>
+        </div>
+    </div>
+    <!-- //Page title and intro -->
+
+
+    <div class="shell-test__container">
+
+        <!-- 1. Links -->
+        <h1 class="shell-test__elements" style="margin-top: 0;">Links</h1>
+        <div class="shell-test__run">
+            <a href="/">An internal link</a>
+            <br>
+            <a href="http://www.unicode.org/versions/Unicode4.0.0/ch06.pdf" type="application/pdf">An external link</a> using the <code>type="application/pdf"</code> attribute
+        </div>
+        <!-- //1. Links -->
+
+
+        <!-- 1. Heading -->
+        <h1 class="shell-test__elements">Headings</h1>
+        <div class="shell-test__run">
+            <h1>This is 1st level heading</h1>
+            <p>This is a test paragraph</p>
+            <h2>This is 2nd level heading</h2>
+            <p>This is a test paragraph</p>
+            <h3>This is 3rd level heading</h3>
+            <p>This is a test paragraph</p>
+            <h4>This is 4th level heading</h4>
+            <p>This is a test paragraph</p>
+            <h5>This is 5th level heading</h5>
+            <p>This is a test paragraph</p>
+            <h6>This is 6th level heading</h6>
+            <p>This is a test paragraph</p>
+        </div>
+        <!-- //1. Heading -->
+
+    </div>
 
 
 
-<h1>This is 1st level heading</h1>
-<p>This is a test paragraph.</p>
-<h2>This is 2nd level heading</h2>
-<p>This is a test paragraph.</p>
-<h3>This is 3rd level heading</h3>
-<p>This is a test paragraph.</p>
-<h4>This is 4th level heading</h4>
-<p>This is a test paragraph.</p>
-<h5>This is 5th level heading</h5>
-<p>This is a test paragraph.</p>
-<h6>This is 6th level heading</h6>
-<p>This is a test paragraph.</p>
+
+
+
 
 
 <h2>Basic block level elements</h2>

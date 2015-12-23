@@ -25,6 +25,10 @@
 
 // Global settings
 @import "../core/settings";
+// N.B. only here temporarily for a clean Sass compile
+@function to-rem($value) {
+    @return $value / $shell-font-size * 1rem;
+}
 
 // Normalise and reset
 @import "../core/normalise-reset";

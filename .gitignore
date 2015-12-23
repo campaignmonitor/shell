@@ -1,7 +1,7 @@
 # Specific files #
 ###################
-/test/css-scaffolding.css
-/test/css-scaffolding.css.map
+/test/*.css
+/test/*.css.map
 node_modules
 
 
