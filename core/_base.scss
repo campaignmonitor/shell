@@ -5,9 +5,11 @@
 
 /**
  * Here we provide very basic styling that most UI’s will need. These styles
- * are applied at the most global level being applied via element selectors.
- * Everything in Base needs to be easily overridden which is really easy to do
- * as everything in Base sits right at the bottom in terms of specificity.
+ * are applied at the most global level being applied via element selectors,
+ * except for “Headings” which are scoped to classes (see that section for the
+ * info). Everything in Base needs to be easily overridden which is really
+ * easy to do as everything in Base sits right at the bottom in terms of
+ * specificity.
  *
  * CONTENTS:
  *
@@ -16,10 +18,9 @@
  * 3. Links
  * 4. Horizontal rule
  * 5. Forms
- * 6. Print
- *
- * @credit
- * https://html5boilerplate.com/
+ * 6. Paragraphs
+ * 7. Headings
+ * 8. Print
  */
 
 
@@ -36,9 +37,7 @@ $shell-apply-osx-font-smoothing: false !default;
 
 $shell-apply-link-transition: true !default;
 
-$shell-apply-disabled-and-readonly-states: true !default;
-
-$shell-apply-responsive-images: true !default;
+$shell-apply-style-to-disabled-and-readonly-states: true !default;
 
 $shell-apply-bottom-margin-to-paragraphs: false !default;
 
@@ -78,7 +77,7 @@ $shell-hr-color: $shell-color-text-base !default;
  * Forms.
  */
 
-$shell-disabled-state-opacity-strength: 0.6 !default;
+$shell-disabled-and-readonly-state-opacity-strength: 0.6 !default;
 
 
 
@@ -194,10 +193,10 @@ img {
  * —https://developer.mozilla.org/en-US/docs/Web/HTML/Element/Input#Browser_compatibility
  */
 
-@if $shell-apply-disabled-and-readonly-states {
+@if $shell-apply-style-to-disabled-and-readonly-states {
     :disabled,
     [readonly] {
-        opacity: $shell-disabled-state-opacity-strength;
+        opacity: $shell-disabled-and-readonly-state-opacity-strength;
     }
 }
 
@@ -220,14 +219,145 @@ img {
 
 @if $shell-apply-bottom-margin-to-paragraphs {
     p {
-        margin-bottom: $shell-spacing-base;
+        margin-bottom: to-rem($shell-spacing-base);
     }
 }
 
 
 
 
-/* 7. Print
+/* 7. Headings
+   ========================================================================= */
+
+/**
+ * Here we scope our Base Heading styles to classes instead of the `hx` element
+ * selector so our styles are not tied to the semantics of the heading element,
+ * i.e. if you want a `h4` to look like a `h2` you can easily do this.
+ *
+ * N.B. spacing (`bottom-margin`) is handled with the Spacing utilities.
+ */
+
+
+/**
+ * Neutralise all the heading elements in favour of applying styles via the
+ * `.heading` class and its modifiers. We make all the heading elements use the
+ * default typography styles and we may as well apply the heading colour.
+ *
+ * N.B. `margin` and `padding` are taken care of in “Core -> Normalise/Reset”.
+ */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: $shell-color-heading;
+    font-size: to-rem($shell-font-size);
+    font-weight: $shell-font-weight-normal;
+    line-height: $shell-line-height-ratio;
+}
+
+
+/**
+ * Base `.heading` styles.
+ */
+
+.heading {
+    color: $shell-color-heading;
+    font-size: to-rem($shell-font-size-heading);
+    font-weight: $shell-font-weight-heading;
+}
+
+/**
+ * Modifiers: sizes.
+ */
+
+// Decrease
+.heading--size-small {
+    font-size: to-rem($shell-font-size-heading - 2);
+}
+
+.heading--size-x-small {
+    font-size: to-rem($shell-font-size-heading - 4);
+}
+
+.heading--size-xx-small {
+    font-size: to-rem($shell-font-size-heading - 6);
+}
+
+.heading--size-xxx-small {
+    font-size: to-rem($shell-font-size-heading - 8);
+}
+
+// Increase
+.heading--size-large {
+    font-size: to-rem($shell-font-size-heading + 2);
+}
+
+.heading--size-x-large {
+    font-size: to-rem($shell-font-size-heading + 4);
+}
+
+.heading--size-xx-large {
+    font-size: to-rem($shell-font-size-heading + 6);
+}
+
+.heading--size-xxx-large {
+    font-size: to-rem($shell-font-size-heading + 8);
+}
+
+/**
+ * Modifiers: weights.
+ *
+ * N.B. one of these weights is redundant as it’s the Base weight but we don’t
+ * know what that weight is so we have to include it.
+ */
+
+// Thin
+.heading--weight-thin {
+    font-weight: $shell-font-weight-thin;
+}
+
+// Extra light
+.heading--weight-extra-light {
+    font-weight: $shell-font-weight-extra-light;
+}
+
+// Light
+.heading--weight-light {
+    font-weight: $shell-font-weight-light;
+}
+
+// Medium
+.heading--weight-medium {
+    font-weight: $shell-font-weight-medium;
+}
+
+// Semi-bold
+.heading--weight-semi-bold {
+    font-weight: $shell-font-weight-semi-bold;
+}
+
+// Bold
+.heading--weight-bold {
+    font-weight: $shell-font-weight-bold;
+}
+
+// Extra bold
+.heading--weight-extra-bold {
+    font-weight: $shell-font-weight-extra-bold;
+}
+
+// Black
+.heading--weight-black {
+    font-weight: $shell-font-weight-black;
+}
+
+
+
+
+/* 8. Print
    ========================================================================= */
 
 /**
