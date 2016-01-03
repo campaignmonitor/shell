@@ -4,8 +4,10 @@
 
 
 /**
- * All the global settings (Sass variables) for Shell. All settings start with
- * a global namespace: `$shell` followed by one hyphen, like this:
+ * All the global settings (Sass variables) for Shell.
+ *
+ * N.B. all settings start with a global namespace: `$shell` followed by one
+ * hyphen, like this:
  *
    $shell-;
  *
@@ -47,7 +49,7 @@ $shell-color-brand: #19a9e5 !default;
 $shell-color-text-base: #444 !default;
 
 // Heading
-$shell-color-heading: $shell-color-text-base !default;
+$shell-color-text-heading: $shell-color-text-base !default;
 
 
 /**
@@ -126,6 +128,9 @@ $shell-line-height-ratio: $shell-line-height / $shell-font-size !default;
 
 // Base
 $shell-font-family-base: sans-serif !default;
+
+// Headings
+$shell-font-family-headings: $shell-font-family-base !default;
 
 // Monospaced
 $shell-font-family-monospace: monospace, monospace !default;
@@ -209,16 +214,10 @@ $shell-spacing-four-fifths: $shell-spacing-fifth * 4 !default;
 // Sixth
 $shell-spacing-sixth: $shell-spacing-base / 6 !default;
 
-// Micro
-$shell-spacing-micro: 2 !default;
-
 
 /**
  * Increase from base.
  */
-
-// Micro
-$shell-spacing-base-plus-micro: $shell-spacing-base + 2 !default;
 
 // Thirds
 $shell-spacing-base-plus-third: $shell-spacing-base + $shell-spacing-third !default;

@@ -1,8 +1,6 @@
-# Specific files #
+# Specific files and folders #
 ###################
-/test/*.css
-/test/*.css.map
-node_modules
+docs/node_modules
 
 
 # Compiled source #

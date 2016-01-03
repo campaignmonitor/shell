@@ -252,7 +252,7 @@ h3,
 h4,
 h5,
 h6 {
-    color: $shell-color-heading;
+    color: $shell-color-text-heading;
     font-size: to-rem($shell-font-size);
     font-weight: $shell-font-weight-normal;
     line-height: $shell-line-height-ratio;
@@ -264,7 +264,8 @@ h6 {
  */
 
 .heading {
-    color: $shell-color-heading;
+    color: $shell-color-text-heading;
+    font-family: $shell-font-family-headings;
     font-size: to-rem($shell-font-size-heading);
     font-weight: $shell-font-weight-heading;
 }
