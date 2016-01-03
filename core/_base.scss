@@ -167,7 +167,7 @@ img {
  * container selector to be used for other third-party widgets.
  *
  * N.B. it is okay to use `!important` here as we’re doing it preemptively
- * i.e. you know you will always want the rule it’s applied too to take
+ * i.e. you know you will always want the rule it’s applied to to take
  * precedence.
  */
 
@@ -437,7 +437,7 @@ h6 {
     }
 
 
-    /*
+    /**
      * Make the header row repeated at the top of each printed page, see:
      * http://css-discuss.incutio.com/wiki/Printing_Tables
      */
