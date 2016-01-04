@@ -1,0 +1,81 @@
+/* ============================================================================
+   @SHELL DOCS SETTINGS
+   ========================================================================= */
+
+/**
+ * All global settings (Sass variables) for the Shell Docs.
+ *
+ * N.B. all settings start with a global namespace: `$g` followed by one
+ * hyphen, like this:
+ *
+   $g-;
+ *
+ * The “g” stands for “global”.
+ *
+ * CONTENTS:
+ *
+ * 1. Colours
+ * 2. Typography
+ * 3. Layout -> Template / Components
+ */
+
+
+
+
+
+
+
+
+/* 1. Colours
+   ========================================================================= */
+
+$g-color-light-grey: #666;
+
+$g-color-code-block-background: $shell-color-white;
+
+
+
+
+/* 2. Typography
+   ========================================================================= */
+
+$g-font-family-code: Consolas, "Andale Mono", "Bitstream Vera Sans Mono", "Courier New", Courier, monospace;
+
+
+
+
+/* 3. Layout -> Template / Components
+   ========================================================================= */
+
+/**
+ * We need to apply some “Layout -> Template” and “Component” global settings
+ * so we can share them across partials.
+ */
+
+// Header
+$g-header-width: 16vw;
+
+$g-header-padding-ends: $shell-spacing-base-plus-half;
+
+// Main content
+$g-main-content-width: 790;
+
+$g-main-content-padding-left-bottom: $shell-spacing-triple;
+
+// Code block
+$g-code-block-padding: $shell-spacing-half;
+
+
+
+
+/* 1. Shell overrides
+   ========================================================================= */
+
+$shell-color-link-hover: darken($shell-color-brand, 10%);
+
+$shell-font-size-heading: 34;
+
+$shell-font-family-headings: "HelveticaNeue-Light", "Helvetica Neue Light",
+"Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+
+$shell-font-weight-heading: $shell-font-weight-extra-light;

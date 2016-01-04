@@ -1,0 +1,29 @@
+/* ============================================================================
+   @LAYOUT -> TEMPLATE -> FOOTER
+   ========================================================================= */
+
+
+/**
+ * The site footer.
+ */
+
+
+.l-footer {
+  border-top: 5px solid $color-brand-light;
+  color: $color-white;
+  font-size: to-rem($font-size-small);
+  padding-top: to-rem($spacing-triple);
+  padding-bottom: to-rem($spacing-triple);
+}
+
+
+/**
+ * Main nav.
+ *
+ * Extends `l-nav-main` from Layout -> Template -> Nav Main.
+ */
+
+.l-footer-nav__link {
+  display: inline-block;
+  margin-bottom: to-rem($spacing-quarter);
+}

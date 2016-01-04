@@ -1,0 +1,27 @@
+<section class="c-demo" id="{{ id }}">
+    <h1 class="heading c-demo__heading">{{ heading }}</h1>
+    <div class="c-demo__intro">
+        {{ intro }}
+    </div>
+    <h2 class="c-demo__heading-sub">Example</h2>
+    <div class="c-demo__example">
+        {{#if markup "link"}}
+            <a href="#">A link</a>
+        {{/if}}
+    </div>
+    <div class="c-demo__code">
+{{#markdown}}
+```handlebars
+
+```
+{{/markdown}}
+    </div>
+    <div class="c-demo__view-source-code">
+        <a href="{{ source-code-url }}" target="_blank">
+            <svg>
+                <use xlink:href="#github-icon" />
+            </svg>
+            <span>View source code</span>
+        </a>
+    </div>
+</section>

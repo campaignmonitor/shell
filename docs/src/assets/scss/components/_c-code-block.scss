@@ -1,0 +1,54 @@
+/* ============================================================================
+   @COMPONENTS -> CODE BLOCK
+   ========================================================================= */
+
+
+/**
+ * When we need to apply syntax highlighting to some code we use this
+ * component, both for inline code and blocks of code.
+ */
+
+
+/**
+ * Settings.
+ */
+
+$c-demo-background-color: darken($shell-color-white, 2%);
+
+
+.c-demo {
+    background-color: $c-demo-background-color;
+    padding: to-rem($shell-spacing-base);
+    padding-left: to-rem($g-main-content-padding-left-bottom);
+    padding-right: to-rem($g-main-content-padding-left-bottom);
+    margin-left: -(to-rem($g-main-content-padding-left-bottom));
+}
+
+
+/**
+ * Apply base spacing.
+ */
+
+.c-demo__apply-spacing {
+    margin-bottom: to-rem($shell-spacing-base);
+}
+
+
+/**
+ * Headings.
+ */
+
+.c-demo__heading-sub {
+    color: darken($c-demo-background-color, 20%);
+    font-size: to-rem($shell-font-size-xxx-small);
+    margin-bottom: to-rem($shell-spacing-third);
+    text-transform: uppercase;
+}
+
+
+/**
+ * The explanation.
+ */
+
+.c-demo__explanation {
+}

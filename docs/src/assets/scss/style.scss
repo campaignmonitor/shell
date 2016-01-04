@@ -1,0 +1,114 @@
+@charset "UTF-8";
+
+/* ============================================================================
+   @SHELL DOCS STYLESHEET
+   ========================================================================= */
+
+/**
+ * Styles for the Shell Docs site.
+ *
+ * CONTENTS:
+ *
+ * 1. Shell framework
+ * 2. Shell Docs styles
+ */
+
+
+
+
+/* 1. Shell framework
+   ========================================================================= */
+
+/**
+ * The entire framework is included however only use what you need, you will
+ * however always need: “Core -> Settings” and “Core -> Mixins/Functions”.
+ *
+ * Overriding Shell’s settings:
+ *
+ * Global settings can be overridden *after* the “Core -> Settings” partial
+ * import, like so:
+ *
+   @import "[framework-path]/core/settings";
+   $shell-color-brand: #999;
+   $shell-font-size: 14;
+   …
+ *
+ * Local settings (settings set in any of the partials other than the
+ * “Core -> Settings” partial) can be overriden *above* the relevant partial,
+ * like so:
+ *
+   @import "[framework-path]/core/base";
+   $shell-apply-osx-font-smoothing: true;
+   …
+ */
+
+
+/**
+ * Core -> Settings.
+ *
+ * N.B. Define any setting overrides *below* the `@import`.
+ */
+
+@import "../../../../core/settings";
+// N.B. only here temporarily for a clean Sass compile
+@function to-rem($value) {
+    @return $value / $shell-font-size * 1rem;
+}
+
+@import "settings";
+
+/**
+ * Core -> Normalise and reset.
+ */
+
+@import "../../../../core/normalise-reset";
+
+
+/**
+ * Core -> Base.
+ *
+ * N.B. Define any setting overrides *above* the `@import`.
+ */
+
+@import "../../../../core/base";
+
+
+
+/* 2. Shell Docs styles
+   ========================================================================= */
+
+/**
+ * Settings.
+ */
+
+
+
+
+/**
+ * Layout -> Template.
+ */
+
+@import "layout/template/l-header";
+
+@import "layout/template/l-main";
+
+
+/**
+ * Components.
+ */
+
+@import "components/c-bulleted-list";
+
+@import "components/c-view-masthead";
+
+@import "components/c-demo";
+
+@import "components/c-demo";
+
+
+/**
+ * Vendor.
+ */
+
+// GitHub style syntax highlighting
+@import "vendor/github-style-syntax-highlighting";

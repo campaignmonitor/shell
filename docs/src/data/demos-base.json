@@ -1,0 +1,7 @@
+{
+    "id": "demos-base-links",
+    "heading": "Links",
+    "intro": "Apply a link text colour for the default and hover/focus states. Apply a text underline either for the default state or for the hover/focus states, and depending on what state the underline is applied to remove or apply it on hover/focus. Apply an optional transition.",
+    "markup": "<a href=\"#\">A link<\/a>",
+    "source-code-url": ""
+}

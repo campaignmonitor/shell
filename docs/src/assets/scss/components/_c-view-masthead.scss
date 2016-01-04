@@ -1,0 +1,46 @@
+/* ============================================================================
+   @COMPONENTS -> VIEW MASTHEAD
+   ========================================================================= */
+
+
+/**
+ * The masthead that sits at the top of each view (page), by default it
+ * contains the view heading and an introduction.
+ */
+
+
+/**
+ * Settings.
+ */
+
+$c-view-masthead-heading-text-size: 50;
+
+
+.c-view-masthead {
+    margin-bottom: to-rem($g-main-content-padding-left-bottom);
+}
+
+
+/**
+ * The heading.
+ */
+
+.c-view-masthead__heading {
+    font-size: to-rem($c-view-masthead-heading-text-size);
+    line-height: normal;
+    margin-bottom: to-rem($shell-spacing-base);
+}
+
+
+/**
+ * The introduction.
+ */
+
+.c-view-masthead__intro {
+    font-style: italic;
+    color: $g-color-light-grey;
+
+    > p {
+        margin-bottom: to-rem($shell-spacing-base);
+    }
+}

@@ -1,0 +1,109 @@
+/* ============================================================================
+   @COMPONENTS -> DEMO
+   ========================================================================= */
+
+
+/**
+ * A component that encapsulates a demo for something coming from Shell,
+ * typically includes:
+ *
+ * - A heading
+ * - An intro
+ * - An example
+ * - The examples code
+ * - View source code link
+ */
+
+
+/**
+ * Settings.
+ */
+
+$c-demo-background-color: darken($shell-color-white, 2%);
+
+$c-demo-github-icon-size: 26px;
+
+
+.c-demo {
+    background-color: $c-demo-background-color;
+    padding: to-rem($shell-spacing-base);
+    padding-left: to-rem($g-main-content-padding-left-bottom);
+    padding-right: to-rem($g-main-content-padding-left-bottom);
+    margin-bottom: to-rem($shell-spacing-double);
+    margin-left: -(to-rem($g-main-content-padding-left-bottom));
+}
+
+
+/**
+ * Headings.
+ */
+
+.c-demo__heading {
+    margin-bottom: to-rem($shell-spacing-half);
+}
+
+.c-demo__heading-sub {
+    color: darken($c-demo-background-color, 26%);
+    font-size: to-rem($shell-font-size-xxx-small);
+    margin-bottom: to-rem($shell-spacing-half);
+    text-transform: uppercase;
+}
+
+
+/**
+ * Intro.
+ */
+
+.c-demo__intro {
+    margin-bottom: to-rem($shell-spacing-base);
+}
+
+
+/**
+ * Example.
+ */
+
+.c-demo__example {
+    margin-bottom: to-rem($shell-spacing-half);
+}
+
+
+/**
+ * View source code link.
+ */
+
+.c-demo__view-source-code {
+    background-color: $g-color-code-block-background;
+    border-top: 1px solid $c-demo-background-color;
+    padding: to-rem($g-code-block-padding);
+
+    a {
+        display: inline-block;
+        font-size: to-rem($shell-font-size-small);
+        text-decoration: none;
+
+        /**
+         * The link text.
+         */
+
+        span {
+            vertical-align: middle;
+        }
+
+        /**
+         * The GitHub icon.
+         */
+
+        svg {
+            fill: $shell-color-link;
+            height: $c-demo-github-icon-size;
+            transition: fill $shell-link-transition-duration $shell-link-transition-timing-function;
+            width: $c-demo-github-icon-size;
+        }
+
+        &:hover svg,
+        &:focus svg {
+            fill: $shell-color-link-hover;
+        }
+    }
+}
