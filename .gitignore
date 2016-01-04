@@ -1,8 +1,6 @@
-# Specific files #
+# Specific files and folders #
 ###################
-/test/css-scaffolding.css
-/test/css-scaffolding.css.map
-node_modules
+docs/node_modules
 
 
 # Compiled source #

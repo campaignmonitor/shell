@@ -18,14 +18,11 @@
  * 6. Table elements
  * 7. Interactions
  *
- * N.B. please remember to update the test file: /test/core/normalise.html
- * whenever making changes to this CSS and of course test!!
- *
  * @credit
- * https://github.com/necolas/normalize.css/blob/3.0.2/normalize.css
- * https://github.com/h5bp/html5-boilerplate/blob/master/src/css/main.css
- * https://github.com/suitcss/base/
- * https://github.com/twbs/bootstrap/blob/v4.0.0-alpha.2/scss/_reboot.scss
+ * https://necolas.github.io/normalize.css/
+ * https://html5boilerplate.com/
+ * https://suitcss.github.io/
+ * https://github.com/twbs/bootstrap/blob/v4.0.0-alpha.2/
  */
 
 
@@ -60,9 +57,9 @@ html {
  * Remove all margins, paddings, and borders.
  *
  * N.B. do not include the following elements:
- * - `input`
- * - `button`
- * - `textarea`
+ * - `<input>`
+ * - `<button>`
+ * - `<textarea>`
  *
  * The complete list of HTML5 elements:
  * https://developer.mozilla.org/en/docs/Web/Guide/HTML/HTML5/HTML5_element_list
@@ -153,9 +150,9 @@ var {
    ========================================================================= */
 
 /**
- * Correct `block` display not defined for `details` or `summary` in IE 10/11
- * and Firefox.
- * Correct `block` display not defined for `main` in IE 11.
+ * Correct `block` display not defined for `<details>` or `<summary>` in
+ * IE 10/11 and Firefox.
+ * Correct `block` display not defined for `<main>` in IE 11.
  */
 
 details,
@@ -166,17 +163,8 @@ summary {
 
 
 /**
- * Address differences between Firefox and other browsers.
- */
-
-hr {
-    height: 0;
-}
-
-
-/**
  * Address `[hidden]` styling not present in IE 10.
- * Hide the `template` element in IE 10/11, Safari, and Firefox < 22.
+ * Hide the `<template>` element in IE 10/11, Safari, and Firefox < 22.
  */
 
 [hidden],
@@ -186,8 +174,8 @@ template {
 
 
 /**
- * Apply the pointer cursor to the `summary` element.
- * Remove the arrow from the `summary` element in WebKit browsers, to allow
+ * Apply the pointer cursor to the `<summary>` element.
+ * Remove the arrow from the `<summary>` element in WebKit browsers, to allow
  * for custom styling.
  */
 
@@ -347,7 +335,7 @@ video {
 
 
 /**
- * Prevent modern browsers from displaying `audio` without controls.
+ * Prevent modern browsers from displaying `<audio>` without controls.
  */
 
 audio:not([controls]) {
@@ -381,7 +369,7 @@ canvas {
 
 /**
  * Known limitation: by default, Chrome and Safari on OS X allow very limited
- * styling of `select`, unless a `border` property is set.
+ * styling of `<select>`s, unless a `border` property is set.
  */
 
 
@@ -429,8 +417,8 @@ button {
     overflow: visible; // [2]
 
     /**
-     * Work around a Firefox/IE bug where the transparent `button` background
-     * results in a loss of the default `button` focus styles.
+     * Work around a Firefox/IE bug where the transparent `<button>` background
+     * results in a loss of the default `<button>` focus styles.
      *
      * N.B. this may cause issues, let’s see how testing goes.
      */
@@ -443,10 +431,11 @@ button {
 
 
 /**
- * Address inconsistent `text-transform` inheritance for `button` and `select`.
- * All other form control elements do not inherit `text-transform` values.
- * Correct `button` style inheritance in Firefox, IE 10/11, and Opera.
- * Correct `select` style inheritance in Firefox.
+ * Address inconsistent `text-transform` inheritance for `<button>` and
+ * `<select>`s. All other form control elements do not inherit `text-transform`
+ * values.
+ * Correct `<button>` style inheritance in Firefox, IE 10/11, and Opera.
+ * Correct `<select>` style inheritance in Firefox.
  */
 
 button,
@@ -456,11 +445,11 @@ select {
 
 
 /**
- * 1. Avoid the WebKit bug in Android 4.0.* where [2] destroys native `audio`
- *    and `video` controls.
+ * 1. Avoid the WebKit bug in Android 4.0.* where [2] destroys native `<audio>`
+ *    and `<video>` controls.
  * 2. Improve usability and consistency of cursor style between image-type
- *    `input` and others.
- * 3. Correct inability to style clickable `input` types in iOS.
+ *    `<input>` and others.
+ * 3. Correct inability to style clickable `<input>` types in iOS.
  */
 
 button,
@@ -486,23 +475,22 @@ input::-moz-focus-inner {
 
 
 /**
- * Reset `not-allowed` cursor for disabled elements.
+ * Reset `not-allowed` cursor for disabled elements (`<button>`, `<input>`,
+ * `<textarea>`, `<optgroup>`, `<option>` and `<fieldset>`).
  */
 
-button[disabled],
-html input[disabled],
-select[disabled],
-textarea[disabled] {
+:disabled {
     cursor: not-allowed;
 }
 
 
 /**
- * iOS “clickable elements” fix for `role="button"`.
+ * iOS “clickable elements” fix for `[role="button"]`.
  *
  * Fixes “clickability” issue (and more generally, the firing of events such
  * as focus as well) for traditionally non-focusable elements with
- * `role="button"`, see: https://developer.mozilla.org/en-US/docs/Web/Events/click#Safari_Mobile
+ * `[role="button"]`, see:
+ * https://developer.mozilla.org/en-US/docs/Web/Events/click#Safari_Mobile
  */
 
 [role="button"] {
@@ -511,8 +499,8 @@ textarea[disabled] {
 
 
 /**
- * Remove rounded corners that iOS applies to all `input` buttons and certain
- * browsers e.g. Chrome, apply rounded corners to `select` lists.
+ * Remove rounded corners that iOS applies to all `<input>` buttons and certain
+ * browsers e.g. Chrome, apply rounded corners to `<select>`s.
  */
 
 input[type="submit"],
@@ -526,7 +514,7 @@ select {
 
 /**
  * Fix for IE and old versions of some other browsers not wrapping text within
- * a `legend`.
+ * a `<legend>`.
  *
  * 1. Enable line-wrapping in IE8+.
  * 2. Enable line-wrapping in old versions of some other browsers.
@@ -559,7 +547,7 @@ input[type="radio"] {
 
 /**
  * Fix the cursor style for Chrome’s increment/decrement buttons. For certain
- * `font-size` values of the `input`, it causes the cursor style of the
+ * `font-size` values of the `<input>`, it causes the cursor style of the
  * decrement button to change from `default` to `text`.
  */
 
@@ -581,7 +569,7 @@ input[type="search"] {
 /**
  * Remove inner padding and search cancel button in Safari and Chrome on OS X.
  * Safari (but not Chrome) clips the cancel button when the search input has
- * padding (and `textfield` appearance).
+ * padding (and `<textfield>` appearance).
  */
 
 input[type="search"]::-webkit-search-cancel-button,
@@ -591,7 +579,8 @@ input[type="search"]::-webkit-search-decoration {
 
 
 /**
- * Indicate that `label` will shift focus to the associated `input` element.
+ * Indicate that `<label>` will shift focus to the associated `<input>`
+ * element.
  */
 
 label {
@@ -600,9 +589,9 @@ label {
 
 
 /**
- * 1. Make sure `textarea`s takes on height automatically.
+ * 1. Make sure `<textarea>`s takes on height automatically.
  * 2. Remove default vertical scrollbar in IE 10/11.
- * 3. Disable `textarea`s from being resized horizontally.
+ * 3. Disable `<textarea>`s from being resized horizontally.
  */
 
 textarea {
@@ -613,7 +602,7 @@ textarea {
 
 
 /**
- * Chrome and Firefox set a `min-width: min-content;` on `fieldset`s, so we
+ * Chrome and Firefox set a `min-width: min-content;` on `<fieldset>`s, so we
  * reset that to ensure it behaves more like a standard block element, see:
  * https://github.com/twbs/bootstrap/issues/12359.
  */
@@ -635,7 +624,7 @@ optgroup {
 
 
 /**
- * Normalise vertical alignment of `progress` in Chrome, Firefox, and Opera.
+ * Normalise vertical alignment of `<progress>` in Chrome, Firefox, and Opera.
  */
 
 progress {
@@ -647,14 +636,14 @@ progress {
  * Remove the top inner shadow from iOS inputs.
  *
  * N.B. we isolate this to iOS devices via user-agent sniffing then appending
- * an `ios` class to the `html` element.
+ * an `ios` class to the `<html>` element.
  *
  * @credit
  * https://davidwalsh.name/input-shadows-ipad
  */
 
 .ios {
-    #{$css-scaffolding--all-html-text-inputs},
+    #{$shell-textual-inputs},
     textarea {
         -webkit-appearance: caret;
     }
@@ -663,7 +652,7 @@ progress {
 
 /**
  * Remove the clear field button (an “X” icon) and the reveal password button
- * (an “eye” icon) that is generated by IE 10+ for text inputs.
+ * (an “eye” icon) that is generated by IE 10+ for textual inputs.
  *
  * @credit
  * http://stackoverflow.com/a/21869433/1116204
@@ -672,6 +661,16 @@ progress {
 ::-ms-clear,
 ::-ms-reveal {
     display: none;
+}
+
+
+/**
+ * Unstyle the caret on `<select>`s in IE 10+.
+ */
+
+::-ms-expand {
+    background-color: transparent;
+    border: 0;
 }
 
 
@@ -714,7 +713,7 @@ table {
  * Avoid 300ms click delay on touch devices that support the `touch-action` CSS
  * property.
  *
- * In particular, unlike most other browsers, IE11+Edge on Windows 10 on touch
+ * In particular, unlike most other browsers, IE 11+Edge on Windows 10 on touch
  * devices and IE Mobile 10-11 DON’T remove the click delay when
  * `<meta name="viewport" content="width=device-width">` is present.
  * However, they DO support removing the click delay via
