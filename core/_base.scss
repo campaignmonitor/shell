@@ -80,6 +80,29 @@ $shell-hr-color: $shell-color-text-base !default;
 $shell-disabled-and-readonly-state-opacity-strength: 0.6 !default;
 
 
+/**
+ * Headings.
+ */
+
+// Smaller sizes
+$shell-font-size-heading-small: $shell-font-size-heading - 2 !default;
+
+$shell-font-size-heading-x-small: $shell-font-size-heading - 4 !default;
+
+$shell-font-size-heading-xx-small: $shell-font-size-heading - 6 !default;
+
+$shell-font-size-heading-xxx-small: $shell-font-size-heading - 8 !default;
+
+// Larger sizes
+$shell-font-size-heading-large: $shell-font-size-heading + 2 !default;
+
+$shell-font-size-heading-x-large: $shell-font-size-heading + 4 !default;
+
+$shell-font-size-heading-xx-large: $shell-font-size-heading + 6 !default;
+
+$shell-font-size-heading-xxx-large: $shell-font-size-heading + 8 !default;
+
+
 
 
 /* 2. Root element
@@ -276,36 +299,36 @@ h6 {
 
 // Decrease
 .heading--size-small {
-    font-size: to-rem($shell-font-size-heading - 2);
+    font-size: to-rem($shell-font-size-heading-small);
 }
 
 .heading--size-x-small {
-    font-size: to-rem($shell-font-size-heading - 4);
+    font-size: to-rem($shell-font-size-heading-x-small);
 }
 
 .heading--size-xx-small {
-    font-size: to-rem($shell-font-size-heading - 6);
+    font-size: to-rem($shell-font-size-heading-xx-small);
 }
 
 .heading--size-xxx-small {
-    font-size: to-rem($shell-font-size-heading - 8);
+    font-size: to-rem($shell-font-size-heading-xxx-small);
 }
 
 // Increase
 .heading--size-large {
-    font-size: to-rem($shell-font-size-heading + 2);
+    font-size: to-rem($shell-font-size-heading-large);
 }
 
 .heading--size-x-large {
-    font-size: to-rem($shell-font-size-heading + 4);
+    font-size: to-rem($shell-font-size-heading-x-large);
 }
 
 .heading--size-xx-large {
-    font-size: to-rem($shell-font-size-heading + 6);
+    font-size: to-rem($shell-font-size-heading-xx-large);
 }
 
 .heading--size-xxx-large {
-    font-size: to-rem($shell-font-size-heading + 8);
+    font-size: to-rem($shell-font-size-heading-xxx-large);
 }
 
 /**
