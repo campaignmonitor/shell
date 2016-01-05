@@ -13,12 +13,12 @@
  * Settings.
  */
 
-$c-demo-background-color: darken($shell-color-white, 2%);
+$c-demo-background-color: darken($shell-g-color-white, 2%);
 
 
 .c-demo {
     background-color: $c-demo-background-color;
-    padding: to-rem($shell-spacing-base);
+    padding: to-rem($shell-g-spacing-base);
     padding-left: to-rem($g-main-content-padding-left-bottom);
     padding-right: to-rem($g-main-content-padding-left-bottom);
     margin-left: -(to-rem($g-main-content-padding-left-bottom));
@@ -30,7 +30,7 @@ $c-demo-background-color: darken($shell-color-white, 2%);
  */
 
 .c-demo__apply-spacing {
-    margin-bottom: to-rem($shell-spacing-base);
+    margin-bottom: to-rem($shell-g-spacing-base);
 }
 
 
@@ -40,8 +40,8 @@ $c-demo-background-color: darken($shell-color-white, 2%);
 
 .c-demo__heading-sub {
     color: darken($c-demo-background-color, 20%);
-    font-size: to-rem($shell-font-size-xxx-small);
-    margin-bottom: to-rem($shell-spacing-third);
+    font-size: to-rem($shell-g-font-size-xxx-small);
+    margin-bottom: to-rem($shell-g-spacing-third);
     text-transform: uppercase;
 }
 

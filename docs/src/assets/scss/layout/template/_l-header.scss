@@ -11,13 +11,13 @@
  * Settings.
  */
 
-$l-header-background-color: $shell-color-text-base;
+$l-header-background-color: $shell-g-color-text-base;
 
 
 .l-header {
     background-color: $l-header-background-color;
     height: 100vh;
-    padding: to-rem($g-header-padding-ends) to-rem($shell-spacing-base);
+    padding: to-rem($g-header-padding-ends) to-rem($shell-g-spacing-base);
     position: fixed;
     width: $g-header-width;
 }
@@ -29,11 +29,11 @@ $l-header-background-color: $shell-color-text-base;
 
 .l-header__logo-link {
     display: block;
-    margin-bottom: to-rem($shell-spacing-double);
+    margin-bottom: to-rem($shell-g-spacing-double);
 }
 
 .l-header__logo {
-    fill: $shell-color-brand;
+    fill: $shell-g-color-brand;
     width: 60%;
 }
 
@@ -44,8 +44,8 @@ $l-header-background-color: $shell-color-text-base;
 
 .l-header__nav__link {
     display: inline-block;
-    background-color: lighten($shell-color-text-base, 3%);
-    border-color: darken($shell-color-text-base, 1.5%);
+    background-color: lighten($shell-g-color-text-base, 3%);
+    border-color: darken($shell-g-color-text-base, 1.5%);
     border-style: solid;
     border-radius: 6px;
     border-width: 0 1px 1px 0;
@@ -55,12 +55,12 @@ $l-header-background-color: $shell-color-text-base;
     &,
     &:hover,
     &:focus {
-        color: $shell-color-white;
+        color: $shell-g-color-white;
     }
 
     &:hover,
     &:focus,
     &.is-active {
-        background-color: $shell-color-brand;
+        background-color: $shell-g-color-brand;
     }
 }

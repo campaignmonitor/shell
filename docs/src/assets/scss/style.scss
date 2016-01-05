@@ -7,82 +7,78 @@
 /**
  * Styles for the Shell Docs site.
  *
+ * ----------------------------------------------------------------------------
+ *
  * CONTENTS:
  *
- * 1. Shell framework
- * 2. Shell Docs styles
+ * 1. Settings
+ * 2. Shell framework
+ * 3. Shell Docs styles
  */
 
 
 
 
-/* 1. Shell framework
+/* 1. Settings
+   ========================================================================= */
+
+/**
+ * Shell framework settings.
+ */
+
+@import "../../../../settings";
+// N.B. only here temporarily until “Mixins/Functions” is done
+@function to-rem($value) {
+    @return $value / $shell-g-font-size * 1rem;
+}
+
+
+/**
+ * Shell Docs settings incl. Shell setting overrides.
+ */
+
+@import "settings";
+
+
+
+
+
+/* 2. Shell framework
    ========================================================================= */
 
 /**
  * The entire framework is included however only use what you need, you will
- * however always need: “Core -> Settings” and “Core -> Mixins/Functions”.
+ * however always need: “Settings” and “Mixins/Functions”.
  *
- * Overriding Shell’s settings:
+ * N.B. the order of the partial importing needs to be maintained, which is:
  *
- * Global settings can be overridden *after* the “Core -> Settings” partial
- * import, like so:
- *
-   @import "[framework-path]/core/settings";
-   $shell-color-brand: #999;
-   $shell-font-size: 14;
-   …
- *
- * Local settings (settings set in any of the partials other than the
- * “Core -> Settings” partial) can be overriden *above* the relevant partial,
- * like so:
- *
-   @import "[framework-path]/core/base";
-   $shell-apply-osx-font-smoothing: true;
-   …
+ * 1. Mixins/Functions
+ * 2. Normalise/Reset
+ * 3. Base
+ * 4. Grid
+ * 5. Side-by-side
+ * 6. Helpers
  */
 
 
 /**
- * Core -> Settings.
- *
- * N.B. Define any setting overrides *below* the `@import`.
+ * Normalise/Reset.
  */
 
-@import "../../../../core/settings";
-// N.B. only here temporarily for a clean Sass compile
-@function to-rem($value) {
-    @return $value / $shell-font-size * 1rem;
-}
-
-@import "settings";
-
-/**
- * Core -> Normalise and reset.
- */
-
-@import "../../../../core/normalise-reset";
+@import "../../../../normalise-reset";
 
 
 /**
- * Core -> Base.
- *
- * N.B. Define any setting overrides *above* the `@import`.
+ * Base.
  */
 
-@import "../../../../core/base";
+@import "../../../../base";
 
 
 
-/* 2. Shell Docs styles
+
+/* 3. Shell Docs styles
    ========================================================================= */
-
-/**
- * Settings.
- */
-
-
-
 
 /**
  * Layout -> Template.
