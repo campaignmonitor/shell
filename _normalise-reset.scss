@@ -726,7 +726,7 @@ table {
  * See:
  * - http://caniuse.com/#feat=css-touch-action
  * - http://patrickhlauke.github.io/touch/tests/results/#suppressing-300ms-delay
- * - http://v4-alpha.getbootstrap.com/content/reboot/#click-delay-optimization-for-touch
+ * - https://adactio.com/journal/10019
  */
 
 a,
@@ -736,6 +736,7 @@ input,
 label,
 select,
 summary,
-textarea {
+textarea,
+[tabindex]:not([tabindex="-1"]) {
     touch-action: manipulation;
 }

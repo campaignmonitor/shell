@@ -58,8 +58,11 @@
  * 1. Colours (Global)
  * 2. Typography (Global)
  * 3. Spacing (Global)
- * 4. Other (Global)
- * 5. Base (Local)
+ * 4. Breakpoints (Global)
+ * 5. Percentage widths (Global)
+ * 6. Z-Index system (Global)
+ * 7. Other (Global)
+ * 8. Base (Local)
  *
  * More to come…
  */
@@ -193,7 +196,7 @@ $shell-g-font-family-base: sans-serif !default;
 $shell-g-font-family-headings: $shell-g-font-family-base !default;
 
 // Monospace
-$shell-g-font-family-monospace: Menlo, Monaco, Consolas, "Courier New", monospace !default;
+$shell-g-font-family-monospace: Consolas, "Andale Mono", "Bitstream Vera Sans Mono", "Courier New", Courier, monospace !default;
 
 
 /**
@@ -203,7 +206,7 @@ $shell-g-font-family-monospace: Menlo, Monaco, Consolas, "Courier New", monospac
  * to be used when you’re using Webfonts i.e. fonts brought in via the
  * `@font-face` declaration. It’s better to store each Webfont weights in
  * settings rather than trying to remember each of the numbers that the
- * weights correspond to, plus it ensures that the site/app’s typography is
+ * weights correspond to, plus it ensures that your project’s typography is
  * applied consistency. You can use these settings for none Webfonts i.e.
  * system fonts but typically you’ll only need to apply one weight which is
  * “bold” and in that case using `font-weight: bold;` is fine.
@@ -378,7 +381,224 @@ $shell-g-default-bp-for-generate-at-bp-mixin: $shell-g-bp-lap !default;
 
 
 
-/* 5. Other (Global)
+/* 5. Percentage widths (Global)
+   ========================================================================= */
+
+/**
+ * Whole.
+ */
+
+$shell-g-one-whole: 100%;
+
+
+/**
+ * Half.
+ */
+
+$shell-g-one-half: 50%;
+
+
+/**
+ * Thirds.
+ */
+
+$shell-g-one-third: (100 / 3) * 1%;
+
+$shell-g-two-thirds: (100 / 3) * 2%;
+
+
+/**
+ * Quarters.
+ */
+
+$shell-g-one-quarter: (100 / 4) * 1%;
+
+$shell-g-two-quarters: $shell-g-one-half;
+
+$shell-g-three-quarters:  (100 / 4) * 3%;
+
+
+/**
+ * Fifths.
+ */
+
+$shell-g-one-fifth: (100 / 5) * 1%;
+
+$shell-g-two-fifths: (100 / 5) * 2%;
+
+$shell-g-three-fifths: (100 / 5) * 3%;
+
+$shell-g-four-fifths: (100 / 5) * 4%;
+
+
+/**
+ * Sixths.
+ */
+
+$shell-g-one-sixth: (100 / 6) * 1%;
+
+$shell-g-two-sixths: $shell-g-one-third;
+
+$shell-g-three-sixths: $shell-g-one-half;
+
+$shell-g-four-sixths: $shell-g-two-thirds;
+
+$shell-g-five-sixths: (100 / 6) * 5%;
+
+
+/**
+ * Sevenths.
+ */
+
+$shell-g-one-seventh: (100 / 7) * 1%;
+
+$shell-g-two-sevenths: (100 / 7) * 2%;
+
+$shell-g-three-sevenths: (100 / 7) * 3%;
+
+$shell-g-four-sevenths: (100 / 7) * 4%;
+
+$shell-g-five-sevenths: (100 / 7) * 5%;
+
+$shell-g-six-sevenths: (100 / 7) * 6%;
+
+
+/**
+ * Eighths.
+ */
+
+$shell-g-one-eighth: (100 / 8) * 1%;
+
+$shell-g-two-eighths: $shell-g-one-quarter;
+
+$shell-g-three-eighths: (100 / 8) * 3%;
+
+$shell-g-four-eighths: $shell-g-one-half;
+
+$shell-g-five-eighths: (100 / 8) * 5%;
+
+$shell-g-six-eighths: $shell-g-three-quarters;
+
+$shell-g-seven-eighths: (100 / 8) * 7%;
+
+
+/**
+ * Tenths.
+ */
+
+$shell-g-one-tenth: (100 / 10) * 1%;
+
+$shell-g-two-tenths: $shell-g-one-fifth;
+
+$shell-g-three-tenths: (100 / 10) * 3%;
+
+$shell-g-four-tenths: $shell-g-two-fifths;
+
+$shell-g-five-tenths: $shell-g-one-half;
+
+$shell-g-six-tenths: $shell-g-three-fifths;
+
+$shell-g-seven-tenths: (100 / 10) * 7%;
+
+$shell-g-eight-tenths: $shell-g-four-fifths;
+
+$shell-g-nine-tenths: (100 / 10) * 9%;
+
+
+/**
+ * Twelfths.
+ */
+
+$shell-g-one-twelfth: (100 / 12) * 1%;
+
+$shell-g-two-twelfths: $shell-g-one-sixth;
+
+$shell-g-three-twelfths: $shell-g-one-quarter;
+
+$shell-g-four-twelfths: $shell-g-one-third;
+
+$shell-g-five-twelfths: (100 / 12) * 5%;
+
+$shell-g-six-twelfths: $shell-g-one-half;
+
+$shell-g-seven-twelfths: (100 / 12) * 7%;
+
+$shell-g-eight-twelfths: $shell-g-two-thirds;
+
+$shell-g-nine-twelfths: $shell-g-three-quarters;
+
+$shell-g-ten-twelfths: $shell-g-five-sixths;
+
+$shell-g-eleven-twelfths: (100 / 12) * 11%;
+
+
+
+
+/* 6. Z-Index system (Global)
+   ========================================================================= */
+
+/**
+ * A nice system that uses Sass maps to keep your project `z-index`s
+ * maintainable, sane, and free of those crazy `z-index: 99999;` occurrences!
+ *
+ * Be sure to read this to fully understand how the system works:
+ * http://www.sitepoint.com/better-solution-managing-z-index-sass/
+ *
+ * Shell kicks it off by providing a standard stacking order that most projects
+ * would require, you can then update the Sass map in your project “Settings”
+ * partial, be sure to use nested maps to make this system aware of stacking
+ * contexts as having a flat map will soon become a headache to maintain.
+ *
+ * Applying `z-index`s with this system is done like this:
+ *
+   .c-header {
+     z-index: z("header");
+   }
+ *
+ * And for nested stacking contexts (defined via a nested map):
+ *
+   .c-modal__close-button {
+     z-index: z("modal-elements", "close-button");
+   }
+ *
+ * N.B. as we’re using a Sass map (and nested maps) we need to use a Sass
+ * function to make it easier to apply the map values and to be able to
+ * retrieve nested map values. The function lives in “Mixins/Functions”.
+ *
+ * @credit
+ * http://www.sitepoint.com/better-solution-managing-z-index-sass/
+ */
+
+
+/**
+ * Starting from highest to lowest:
+ *
+   <body>
+     <modal>
+       <modal-close-button>
+     <modal-underlay>
+     <header>
+     <main>
+     <footer>
+   </body>
+ */
+
+$shell-g-z-layers: (
+    "modal-elements": (
+        "close-button": 1
+    ),
+    "modal": 5,
+    "modal-underlay": 4,
+    "header": 3,
+    "main": 2,
+    "footer": 1,
+    "underneath": -1
+) !default;
+
+
+
+
+/* 7. Other (Global)
    ========================================================================= */
 
 /**
@@ -403,7 +623,7 @@ $shell-g-textual-inputs: 'input[type="text"],
 
 
 
-/* 5. Base (Local)
+/* 8. Base (Local)
    ========================================================================= */
 
 /**

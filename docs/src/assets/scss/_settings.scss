@@ -4,7 +4,7 @@
 
 /**
  * All global settings (Sass variables) for the Shell Docs and any Shell
- * setting framework overrides.
+ * framework setting overrides.
  *
  * Shell Docs settings can use any of the Shell framework settings, like so:
  *
@@ -25,7 +25,7 @@
  *
  * 1. Colours
  * 2. Typography
- * 3. Layout -> Template / Components
+ * 3. Layout/Components
  * 4. Shell overrides
  */
 
@@ -44,8 +44,6 @@ $g-color-code-block-background: $shell-g-color-white;
 
 /* 2. Typography
    ========================================================================= */
-
-$g-font-family-code: Consolas, "Andale Mono", "Bitstream Vera Sans Mono", "Courier New", Courier, monospace;
 
 
 

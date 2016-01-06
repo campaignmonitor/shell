@@ -11,7 +11,7 @@
  *
  * CONTENTS:
  *
- * 1. Settings
+ * 1. Settings (your own and Shell framework’s)
  * 2. Shell framework
  * 3. Shell Docs styles
  */
@@ -24,6 +24,8 @@
 
 /**
  * Shell framework settings.
+ *
+ * N.B. must come first!
  */
 
 @import "../../../../settings";
@@ -34,11 +36,10 @@
 
 
 /**
- * Shell Docs settings incl. Shell setting overrides.
+ * Shell Docs settings incl. any Shell setting overrides.
  */
 
 @import "settings";
-
 
 
 
@@ -47,17 +48,19 @@
    ========================================================================= */
 
 /**
- * The entire framework is included however only use what you need, you will
- * however always need: “Settings” and “Mixins/Functions”.
+ * The entire framework is imported (“Settings” is imported in the above
+ * section), however only use what you need, you will however need: “Settings”
+ * and “Mixins/Functions” for Shell to work.
  *
  * N.B. the order of the partial importing needs to be maintained, which is:
  *
  * 1. Mixins/Functions
  * 2. Normalise/Reset
  * 3. Base
- * 4. Grid
- * 5. Side-by-side
- * 6. Helpers
+ * 4. Container
+ * 5. Grid
+ * 6. Side-by-side
+ * 7. Helpers
  */
 
 
@@ -96,8 +99,6 @@
 @import "components/c-bulleted-list";
 
 @import "components/c-view-masthead";
-
-@import "components/c-demo";
 
 @import "components/c-demo";
 
