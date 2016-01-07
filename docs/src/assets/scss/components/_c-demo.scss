@@ -19,17 +19,17 @@
  * Settings.
  */
 
-$c-demo-background-color: darken($shell-color-white, 2%);
+$c-demo-background-color: darken($shell-g-color-white, 2%);
 
 $c-demo-github-icon-size: 26px;
 
 
 .c-demo {
     background-color: $c-demo-background-color;
-    padding: to-rem($shell-spacing-base);
+    padding: to-rem($shell-g-spacing-base);
     padding-left: to-rem($g-main-content-padding-left-bottom);
     padding-right: to-rem($g-main-content-padding-left-bottom);
-    margin-bottom: to-rem($shell-spacing-double);
+    margin-bottom: to-rem($shell-g-spacing-double);
     margin-left: -(to-rem($g-main-content-padding-left-bottom));
 }
 
@@ -39,13 +39,13 @@ $c-demo-github-icon-size: 26px;
  */
 
 .c-demo__heading {
-    margin-bottom: to-rem($shell-spacing-half);
+    margin-bottom: to-rem($shell-g-spacing-half);
 }
 
 .c-demo__heading-sub {
     color: darken($c-demo-background-color, 26%);
-    font-size: to-rem($shell-font-size-xxx-small);
-    margin-bottom: to-rem($shell-spacing-half);
+    font-size: to-rem($shell-g-font-size-xxx-small);
+    margin-bottom: to-rem($shell-g-spacing-half);
     text-transform: uppercase;
 }
 
@@ -55,7 +55,7 @@ $c-demo-github-icon-size: 26px;
  */
 
 .c-demo__intro {
-    margin-bottom: to-rem($shell-spacing-base);
+    margin-bottom: to-rem($shell-g-spacing-base);
 }
 
 
@@ -64,7 +64,7 @@ $c-demo-github-icon-size: 26px;
  */
 
 .c-demo__example {
-    margin-bottom: to-rem($shell-spacing-half);
+    margin-bottom: to-rem($shell-g-spacing-half);
 }
 
 
@@ -79,7 +79,7 @@ $c-demo-github-icon-size: 26px;
 
     a {
         display: inline-block;
-        font-size: to-rem($shell-font-size-small);
+        font-size: to-rem($shell-g-font-size-small);
         text-decoration: none;
 
         /**
@@ -95,15 +95,15 @@ $c-demo-github-icon-size: 26px;
          */
 
         svg {
-            fill: $shell-color-link;
+            fill: $shell-g-color-link;
             height: $c-demo-github-icon-size;
-            transition: fill $shell-link-transition-duration $shell-link-transition-timing-function;
+            transition: fill $shell-base-link-transition-duration $shell-base-link-transition-timing-function;
             width: $c-demo-github-icon-size;
         }
 
         &:hover svg,
         &:focus svg {
-            fill: $shell-color-link-hover;
+            fill: $shell-g-color-link-hover;
         }
     }
 }

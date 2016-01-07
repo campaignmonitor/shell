@@ -1,0 +1,678 @@
+/* ============================================================================
+   @SETTINGS
+   ========================================================================= */
+
+
+/**
+ * All the settings (Sass variables) for Shell. The settings are broken into
+ * two categories:
+ *
+ * - “Global”.....settings for the entire framework.
+ * - “Local”......settings for a particular partial.
+ *
+ * N.B. usually “Local” settings exist in their relevant partial but we combine
+ * them for Shell to make them easier to override. It’s easier as you can
+ * override all of the settings in the one place—typically in a
+ * “_settings.scss” partial—compared to overriding “Local” settings above
+ * their relevant partial within the master stylesheet, like so:
+ *
+   $shell-apply-osx-font-smoothing: true;
+   $shell-apply-link-transition: false;
+   @import "[framework/path]/base";
+
+   $shell-grid-gutter: 24;
+   @import "[framework/path]/grid";
+ *
+ * The above set up is more cumbersome to maintain due to “Local” settings
+ * being dispersed throughout the master stylesheet plus the master stylesheet
+ * should only contain Sass partial imports.
+ *
+ * Having all settings together in the same Sass partial makes life easier for
+ * consumers of Shell.
+ *
+ * ----------------------------------------------------------------------------
+ *
+ * All settings start with a global namespace: `$shell` followed by one
+ * hyphen, like this:
+ *
+   $shell-
+ *
+ * “Global” settings include a letter “g” to easily identify them, like so:
+ *
+   $shell-g-
+ *
+ * “Local” settings include the name of its section to easily identify them, so
+ * settings for the “Base” and “Grid” sections would be formatted like this:
+ *
+   $shell-base-
+   $shell-grid-
+ *
+ * The `$shell` namespace prevents your project settings and Shell’s settings
+ * from clashing with each other, and allows you to easily see what is
+ * coming from Shell and what isn’t.
+ *
+ * ----------------------------------------------------------------------------
+ *
+ * CONTENTS:
+ *
+ * 1. Colours (Global)
+ * 2. Typography (Global)
+ * 3. Spacing (Global)
+ * 4. Breakpoints (Global)
+ * 5. Percentage widths (Global)
+ * 6. Z-Index system (Global)
+ * 7. Other (Global)
+ * 8. Base (Local)
+ *
+ * More to come…
+ */
+
+
+
+
+/* 1. Colours (Global)
+   ========================================================================= */
+
+/**
+ * Black and white.
+ */
+
+$shell-g-color-white: #fff;
+
+$shell-g-color-black: #000;
+
+
+/**
+ * Brand.
+ */
+
+$shell-g-color-brand: #19a9e5 !default;
+
+
+/**
+ * Text.
+ */
+
+// Base (global text colour)
+$shell-g-color-text-base: #444 !default;
+
+// Heading
+$shell-g-color-text-heading: $shell-g-color-text-base !default;
+
+
+/**
+ * Links.
+ */
+
+$shell-g-color-link: $shell-g-color-brand !default;
+
+$shell-g-color-link-hover: $shell-g-color-link !default;
+
+
+/**
+ * Textual input `[placeholder]` attribute.
+ */
+
+$shell-g-color-text-input-placeholder: #999 !default;
+
+
+
+
+/* 2. Typography (Global)
+   ========================================================================= */
+
+/**
+ * Base sizes.
+ */
+
+$shell-g-font-size: 16 !default;
+
+// Smaller
+$shell-g-font-size-small: $shell-g-font-size - 1 !default;
+
+$shell-g-font-size-x-small: $shell-g-font-size - 2 !default;
+
+$shell-g-font-size-xx-small: $shell-g-font-size - 3 !default;
+
+$shell-g-font-size-xxx-small: $shell-g-font-size - 4 !default;
+
+// Larger
+$shell-g-font-size-large: $shell-g-font-size + 1 !default;
+
+$shell-g-font-size-x-large: $shell-g-font-size + 2 !default;
+
+$shell-g-font-size-xx-large: $shell-g-font-size + 3 !default;
+
+$shell-g-font-size-xxx-large: $shell-g-font-size + 4 !default;
+
+
+/**
+ * Heading sizes.
+ */
+
+$shell-g-font-size-heading: 24 !default;
+
+// Smaller
+$shell-g-font-size-heading-small: $shell-g-font-size-heading - 2 !default;
+
+$shell-g-font-size-heading-x-small: $shell-g-font-size-heading - 4 !default;
+
+$shell-g-font-size-heading-xx-small: $shell-g-font-size-heading - 6 !default;
+
+$shell-g-font-size-heading-xxx-small: $shell-g-font-size-heading - 8 !default;
+
+// Larger
+$shell-g-font-size-heading-large: $shell-g-font-size-heading + 2 !default;
+
+$shell-g-font-size-heading-x-large: $shell-g-font-size-heading + 4 !default;
+
+$shell-g-font-size-heading-xx-large: $shell-g-font-size-heading + 6 !default;
+
+$shell-g-font-size-heading-xxx-large: $shell-g-font-size-heading + 8 !default;
+
+
+/**
+ * Line height.
+ */
+
+$shell-g-line-height: 24 !default;
+
+
+/**
+ * Line height ratio.
+ */
+
+$shell-g-line-height-ratio: $shell-g-line-height / $shell-g-font-size;
+
+
+/**
+ * Families.
+ */
+
+// Base
+$shell-g-font-family-base: sans-serif !default;
+
+// Headings
+$shell-g-font-family-headings: $shell-g-font-family-base !default;
+
+// Monospace
+$shell-g-font-family-monospace: Consolas, "Andale Mono",
+"Bitstream Vera Sans Mono", "Courier New", Courier, monospace !default;
+
+
+/**
+ * Weights.
+ *
+ * N.B. all the font weights other than `$shell-g-font-weight-normal` are there
+ * to be used when you’re using Webfonts i.e. fonts brought in via the
+ * `@font-face` declaration. It’s better to store each Webfont weights in
+ * settings rather than trying to remember each of the numbers that the
+ * weights correspond to, plus it ensures that your project’s typography is
+ * applied consistency. You can use these settings for none Webfonts i.e.
+ * system fonts but typically you’ll only need to apply one weight which is
+ * “bold” and in that case using `font-weight: bold;` is fine.
+ *
+ * See: https://developer.mozilla.org/en/docs/Web/CSS/font-weight#Common_weight_name_mapping.
+ */
+
+$shell-g-font-weight-normal: 400 !default;
+
+$shell-g-font-weight-thin: 100 !default;
+
+$shell-g-font-weight-extra-light: 200 !default;
+
+$shell-g-font-weight-light: 300 !default;
+
+$shell-g-font-weight-medium: 500 !default;
+
+$shell-g-font-weight-semi-bold: 600 !default;
+
+$shell-g-font-weight-bold: 700 !default;
+
+$shell-g-font-weight-extra-bold: 800 !default;
+
+$shell-g-font-weight-black: 900 !default;
+
+// Heading weight
+$shell-g-font-weight-heading: $shell-g-font-weight-bold !default;
+
+
+
+
+/* 3. Spacing (Global)
+   ========================================================================= */
+
+/**
+ * Base.
+ */
+
+$shell-g-spacing-base: $shell-g-line-height !default;
+
+
+/**
+ * Decrease from base.
+ */
+
+// Half
+$shell-g-spacing-half: $shell-g-spacing-base / 2 !default;
+
+// Thirds
+$shell-g-spacing-third: $shell-g-spacing-base / 3 !default;
+
+$shell-g-spacing-two-thirds: $shell-g-spacing-third * 2 !default;
+
+// Quarters
+$shell-g-spacing-quarter: $shell-g-spacing-base / 4 !default;
+
+$shell-g-spacing-three-quarters: $shell-g-spacing-quarter * 3 !default;
+
+// Fifths
+$shell-g-spacing-fifth: $shell-g-spacing-base / 5 !default;
+
+$shell-g-spacing-two-fifths: $shell-g-spacing-fifth * 2 !default;
+
+$shell-g-spacing-three-fifths: $shell-g-spacing-fifth * 3 !default;
+
+$shell-g-spacing-four-fifths: $shell-g-spacing-fifth * 4 !default;
+
+// Sixth
+$shell-g-spacing-sixth: $shell-g-spacing-base / 6 !default;
+
+
+/**
+ * Increase from base.
+ */
+
+// Thirds
+$shell-g-spacing-base-plus-third: $shell-g-spacing-base + $shell-g-spacing-third !default;
+
+$shell-g-spacing-base-plus-two-thirds: $shell-g-spacing-base + $shell-g-spacing-two-thirds !default;
+
+// Quarters
+$shell-g-spacing-base-plus-quarter: $shell-g-spacing-base + $shell-g-spacing-quarter !default;
+
+$shell-g-spacing-base-plus-three-quarters: $shell-g-spacing-base + $shell-g-spacing-three-quarters !default;
+
+// Fifths
+$shell-g-spacing-base-plus-fifth: $shell-g-spacing-base + $shell-g-spacing-fifth !default;
+
+$shell-g-spacing-base-plus-two-fifths: $shell-g-spacing-base + $shell-g-spacing-two-fifths !default;
+
+$shell-g-spacing-base-plus-three-fifths: $shell-g-spacing-base + $shell-g-spacing-three-fifths !default;
+
+$shell-g-spacing-base-plus-four-fifths: $shell-g-spacing-base + $shell-g-spacing-four-fifths !default;
+
+// Sixth
+$shell-g-spacing-base-plus-sixth: $shell-g-spacing-base + $shell-g-spacing-sixth !default;
+
+// Half
+$shell-g-spacing-base-plus-half: $shell-g-spacing-base + $shell-g-spacing-half !default;
+
+// Double
+$shell-g-spacing-double: $shell-g-spacing-base * 2 !default;
+
+// Triple
+$shell-g-spacing-triple: $shell-g-spacing-base * 3 !default;
+
+// Quadruple
+$shell-g-spacing-quadruple: $shell-g-spacing-base * 4 !default;
+
+
+
+
+/* 4. Breakpoints (Global)
+   ========================================================================= */
+
+/**
+ * The breakdown of the breakpoints is based off this chart:
+ * http://static.lukew.com/unified_device_design.png
+ *
+ * Here’s the thinking:
+ *
+ * - Palm..........smart-phones and feature phones—anything that can fit into
+ *                 the palm of a hand.
+ * - Lap...........typically tablets, notebooks and laptops—anything that is
+ *                 portable that doesn't include phones.
+ * - Lap small.....smaller tablets/notebooks and e-readers e.g. Kindle.
+ * - Lap large.....larger tablets and laptops.
+ * - Desk..........desktop computers, TVs, etc.—anything that isn’t portable.
+ * - Desk large....larger desktop computer monitors, TVs, and who knows what
+ *                 else?
+ *
+ * The breakpoints:
+ *
+ * - Palm: 0–640px
+ * - Lap: 641px +
+ * - Lap small: 768px +
+ * - Lap large: 901px +
+ * - Desk: 1200px +
+ * - Desk large: 1366px +
+ *
+ * @credit
+ * http://www.lukew.com/ff/entry.asp?1679
+ */
+
+
+// Divided by “16” (the default non-overridable user-agent font-size) as we
+// apply viewport width/height media queries via the `em` unit, not the `px`
+// unit e.g. `@media (min-width: $shell-g-bp-palm)`
+$shell-g-user-agent-font-size: 16;
+
+$shell-g-bp-palm: (640 / $shell-g-user-agent-font-size) * 1em !default;
+
+$shell-g-bp-lap: (641 / $shell-g-user-agent-font-size) * 1em !default;
+
+$shell-g-bp-lap-small: (768 / $shell-g-user-agent-font-size) * 1em !default;
+
+$shell-g-bp-lap-large: (901 / $shell-g-user-agent-font-size) * 1em !default;
+
+$shell-g-bp-desk: (1200 / $shell-g-user-agent-font-size) * 1em !default;
+
+$shell-g-bp-desk-large: (1366 / $shell-g-user-agent-font-size) * 1em !default;
+
+
+/**
+ * The setting used for the default breakpoint applied to the
+ * `generate-at-breakpoints()` mixin which allows the application of certain
+ * Shell features to be applied at any breakpoint.
+ */
+
+$shell-g-default-bp-for-generate-at-bp-mixin: $shell-g-bp-lap !default;
+
+
+
+
+/* 5. Percentage widths (Global)
+   ========================================================================= */
+
+/**
+ * Whole.
+ */
+
+$shell-g-one-whole: 100%;
+
+
+/**
+ * Half.
+ */
+
+$shell-g-one-half: 50%;
+
+
+/**
+ * Thirds.
+ */
+
+$shell-g-one-third: (100 / 3) * 1%;
+
+$shell-g-two-thirds: (100 / 3) * 2%;
+
+
+/**
+ * Quarters.
+ */
+
+$shell-g-one-quarter: (100 / 4) * 1%;
+
+$shell-g-two-quarters: $shell-g-one-half;
+
+$shell-g-three-quarters:  (100 / 4) * 3%;
+
+
+/**
+ * Fifths.
+ */
+
+$shell-g-one-fifth: (100 / 5) * 1%;
+
+$shell-g-two-fifths: (100 / 5) * 2%;
+
+$shell-g-three-fifths: (100 / 5) * 3%;
+
+$shell-g-four-fifths: (100 / 5) * 4%;
+
+
+/**
+ * Sixths.
+ */
+
+$shell-g-one-sixth: (100 / 6) * 1%;
+
+$shell-g-two-sixths: $shell-g-one-third;
+
+$shell-g-three-sixths: $shell-g-one-half;
+
+$shell-g-four-sixths: $shell-g-two-thirds;
+
+$shell-g-five-sixths: (100 / 6) * 5%;
+
+
+/**
+ * Sevenths.
+ */
+
+$shell-g-one-seventh: (100 / 7) * 1%;
+
+$shell-g-two-sevenths: (100 / 7) * 2%;
+
+$shell-g-three-sevenths: (100 / 7) * 3%;
+
+$shell-g-four-sevenths: (100 / 7) * 4%;
+
+$shell-g-five-sevenths: (100 / 7) * 5%;
+
+$shell-g-six-sevenths: (100 / 7) * 6%;
+
+
+/**
+ * Eighths.
+ */
+
+$shell-g-one-eighth: (100 / 8) * 1%;
+
+$shell-g-two-eighths: $shell-g-one-quarter;
+
+$shell-g-three-eighths: (100 / 8) * 3%;
+
+$shell-g-four-eighths: $shell-g-one-half;
+
+$shell-g-five-eighths: (100 / 8) * 5%;
+
+$shell-g-six-eighths: $shell-g-three-quarters;
+
+$shell-g-seven-eighths: (100 / 8) * 7%;
+
+
+/**
+ * Tenths.
+ */
+
+$shell-g-one-tenth: (100 / 10) * 1%;
+
+$shell-g-two-tenths: $shell-g-one-fifth;
+
+$shell-g-three-tenths: (100 / 10) * 3%;
+
+$shell-g-four-tenths: $shell-g-two-fifths;
+
+$shell-g-five-tenths: $shell-g-one-half;
+
+$shell-g-six-tenths: $shell-g-three-fifths;
+
+$shell-g-seven-tenths: (100 / 10) * 7%;
+
+$shell-g-eight-tenths: $shell-g-four-fifths;
+
+$shell-g-nine-tenths: (100 / 10) * 9%;
+
+
+/**
+ * Twelfths.
+ */
+
+$shell-g-one-twelfth: (100 / 12) * 1%;
+
+$shell-g-two-twelfths: $shell-g-one-sixth;
+
+$shell-g-three-twelfths: $shell-g-one-quarter;
+
+$shell-g-four-twelfths: $shell-g-one-third;
+
+$shell-g-five-twelfths: (100 / 12) * 5%;
+
+$shell-g-six-twelfths: $shell-g-one-half;
+
+$shell-g-seven-twelfths: (100 / 12) * 7%;
+
+$shell-g-eight-twelfths: $shell-g-two-thirds;
+
+$shell-g-nine-twelfths: $shell-g-three-quarters;
+
+$shell-g-ten-twelfths: $shell-g-five-sixths;
+
+$shell-g-eleven-twelfths: (100 / 12) * 11%;
+
+
+
+
+/* 6. Z-Index system (Global)
+   ========================================================================= */
+
+/**
+ * A nice system that uses Sass maps to keep your project `z-index`s
+ * maintainable, sane, and free of those crazy `z-index: 99999;` occurrences!
+ *
+ * Be sure to read this to fully understand how the system works:
+ * http://www.sitepoint.com/better-solution-managing-z-index-sass/
+ *
+ * Shell kicks it off by providing a standard stacking order that most projects
+ * would require, you can then update the Sass map in your project “Settings”
+ * partial, be sure to use nested maps to make this system aware of stacking
+ * contexts as having a flat map will soon become a headache to maintain.
+ *
+ * Applying `z-index`s with this system is done like this:
+ *
+   .c-header {
+     z-index: z("header");
+   }
+ *
+ * And for nested stacking contexts (defined via a nested map):
+ *
+   .c-modal__close-button {
+     z-index: z("modal-elements", "close-button");
+   }
+ *
+ * N.B. as we’re using a Sass map (and nested maps) we need to use a Sass
+ * function to make it easier to apply the map values and to be able to
+ * retrieve nested map values. The function lives in “Mixins/Functions”.
+ *
+ * @credit
+ * http://www.sitepoint.com/better-solution-managing-z-index-sass/
+ */
+
+
+/**
+ * Starting from highest to lowest:
+ *
+   <body>
+     <modal>
+       <modal-close-button>
+     <modal-underlay>
+     <header>
+     <main>
+     <footer>
+   </body>
+ */
+
+$shell-g-z-layers: (
+    "modal-elements": (
+        "close-button": 1
+    ),
+    "modal": 5,
+    "modal-underlay": 4,
+    "header": 3,
+    "main": 2,
+    "footer": 1,
+    "underneath": -1
+) !default;
+
+
+
+
+/* 7. Other (Global)
+   ========================================================================= */
+
+/**
+ * HTML textual `input`s.
+ */
+
+$shell-g-textual-inputs: 'input[type="text"],
+                          input[type="search"],
+                          input[type="tel"],
+                          input[type="url"],
+                          input[type="email"],
+                          input[type="password"],
+                          input[type="month"],
+                          input[type="week"],
+                          input[type="time"],
+                          input[type="date"],
+                          input[type="datetime"],
+                          input[type="datetime-local"],
+                          input[type="number"]' !default;
+
+
+
+
+
+/* 8. Base (Local)
+   ========================================================================= */
+
+/**
+ * Booleans.
+ */
+
+$shell-base-apply-osx-font-smoothing: false !default;
+
+$shell-base-apply-link-transition: true !default;
+
+$shell-base-apply-style-to-disabled-and-readonly-states: true !default;
+
+$shell-base-apply-bottom-margin-to-paragraphs: false !default;
+
+
+/**
+ * Root element.
+ */
+
+$shell-base-root-element-background-color: $shell-g-color-white !default;
+
+
+/**
+ * Links.
+ */
+
+$shell-base-link-text-decoration: underline !default;
+
+$shell-base-link-text-decoration-on-hover: none !default;
+
+$shell-base-link-transition-duration: 0.15s !default;
+
+$shell-base-link-transition-timing-function: linear !default;
+
+
+/**
+ * Horizontal rule.
+ */
+
+$shell-base-hr-thickness: 1px !default;
+
+$shell-base-hr-style: solid !default;
+
+$shell-base-hr-color: $shell-g-color-text-base !default;
+
+
+/**
+ * Forms.
+ */
+
+$shell-base-disabled-and-readonly-state-opacity-strength: 0.6 !default;

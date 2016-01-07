@@ -1,5 +1,5 @@
 /* ============================================================================
-   @CORE -> NORMALISE AND RESET
+   @NORMALISE AND RESET
    ========================================================================= */
 
 
@@ -7,6 +7,16 @@
  * Let’s get all browsers rendering all elements more consistently and in line
  * with modern standards, and let’s nuke certain user-agent styles so that
  * everything is on an even playing field.
+ *
+ * ----------------------------------------------------------------------------
+ *
+ * @credit
+ * https://necolas.github.io/normalize.css/
+ * https://html5boilerplate.com/
+ * https://suitcss.github.io/
+ * https://github.com/twbs/bootstrap/blob/v4.0.0-alpha.2/
+ *
+ * ----------------------------------------------------------------------------
  *
  * CONTENTS:
  *
@@ -17,12 +27,6 @@
  * 5. Form elements
  * 6. Table elements
  * 7. Interactions
- *
- * @credit
- * https://necolas.github.io/normalize.css/
- * https://html5boilerplate.com/
- * https://suitcss.github.io/
- * https://github.com/twbs/bootstrap/blob/v4.0.0-alpha.2/
  */
 
 
@@ -643,7 +647,7 @@ progress {
  */
 
 .ios {
-    #{$shell-textual-inputs},
+    #{$shell-g-textual-inputs},
     textarea {
         -webkit-appearance: caret;
     }
@@ -722,7 +726,7 @@ table {
  * See:
  * - http://caniuse.com/#feat=css-touch-action
  * - http://patrickhlauke.github.io/touch/tests/results/#suppressing-300ms-delay
- * - http://v4-alpha.getbootstrap.com/content/reboot/#click-delay-optimization-for-touch
+ * - https://adactio.com/journal/10019
  */
 
 a,
@@ -732,6 +736,7 @@ input,
 label,
 select,
 summary,
-textarea {
+textarea,
+[tabindex]:not([tabindex="-1"]) {
     touch-action: manipulation;
 }

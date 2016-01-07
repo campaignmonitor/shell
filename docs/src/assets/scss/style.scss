@@ -7,82 +7,81 @@
 /**
  * Styles for the Shell Docs site.
  *
+ * ----------------------------------------------------------------------------
+ *
  * CONTENTS:
  *
- * 1. Shell framework
- * 2. Shell Docs styles
+ * 1. Settings (your own and Shell framework’s)
+ * 2. Shell framework
+ * 3. Shell Docs styles
  */
 
 
 
 
-/* 1. Shell framework
+/* 1. Settings
    ========================================================================= */
 
 /**
- * The entire framework is included however only use what you need, you will
- * however always need: “Core -> Settings” and “Core -> Mixins/Functions”.
+ * Shell framework settings.
  *
- * Overriding Shell’s settings:
- *
- * Global settings can be overridden *after* the “Core -> Settings” partial
- * import, like so:
- *
-   @import "[framework-path]/core/settings";
-   $shell-color-brand: #999;
-   $shell-font-size: 14;
-   …
- *
- * Local settings (settings set in any of the partials other than the
- * “Core -> Settings” partial) can be overriden *above* the relevant partial,
- * like so:
- *
-   @import "[framework-path]/core/base";
-   $shell-apply-osx-font-smoothing: true;
-   …
+ * N.B. must come first!
  */
+
+@import "../../../../settings";
+// N.B. only here temporarily until “Mixins/Functions” is done
+@function to-rem($value) {
+    @return $value / $shell-g-font-size * 1rem;
+}
 
 
 /**
- * Core -> Settings.
- *
- * N.B. Define any setting overrides *below* the `@import`.
+ * Shell Docs settings incl. any Shell setting overrides.
  */
-
-@import "../../../../core/settings";
-// N.B. only here temporarily for a clean Sass compile
-@function to-rem($value) {
-    @return $value / $shell-font-size * 1rem;
-}
 
 @import "settings";
 
-/**
- * Core -> Normalise and reset.
- */
-
-@import "../../../../core/normalise-reset";
-
-
-/**
- * Core -> Base.
- *
- * N.B. Define any setting overrides *above* the `@import`.
- */
-
-@import "../../../../core/base";
 
 
 
-/* 2. Shell Docs styles
+/* 2. Shell framework
    ========================================================================= */
 
 /**
- * Settings.
+ * The entire framework is imported (“Settings” is imported in the above
+ * section), however only use what you need, you will however need: “Settings”
+ * and “Mixins/Functions” for Shell to work.
+ *
+ * N.B. the order of the partial importing needs to be maintained, which is:
+ *
+ * 1. Mixins/Functions
+ * 2. Normalise/Reset
+ * 3. Base
+ * 4. Container
+ * 5. Grid
+ * 6. Side-by-side
+ * 7. Helpers
  */
 
 
+/**
+ * Normalise/Reset.
+ */
 
+@import "../../../../normalise-reset";
+
+
+/**
+ * Base.
+ */
+
+@import "../../../../base";
+
+
+
+
+/* 3. Shell Docs styles
+   ========================================================================= */
 
 /**
  * Layout -> Template.
@@ -100,8 +99,6 @@
 @import "components/c-bulleted-list";
 
 @import "components/c-view-masthead";
-
-@import "components/c-demo";
 
 @import "components/c-demo";
 

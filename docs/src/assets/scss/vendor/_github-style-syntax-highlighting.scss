@@ -11,7 +11,7 @@ code[class*="language-"] {
     padding: to-rem($g-code-block-padding);
     color: #333;
     background: $g-color-code-block-background;
-    font-family: $g-font-family-code;
+    font-family: $shell-g-font-family-monospace;
 
 
     .comment,

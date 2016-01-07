@@ -1,6 +1,7 @@
 # Specific files and folders #
 ###################
 docs/node_modules
+docs/dist
 
 
 # Compiled source #

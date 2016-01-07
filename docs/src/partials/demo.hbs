@@ -5,14 +5,12 @@
     </div>
     <h2 class="c-demo__heading-sub">Example</h2>
     <div class="c-demo__example">
-        {{#if markup "link"}}
-            <a href="#">A link</a>
-        {{/if}}
+        {{> (lookup . 'markup') }}
     </div>
     <div class="c-demo__code">
 {{#markdown}}
 ```handlebars
-
+{{> (lookup . 'markup') }}
 ```
 {{/markdown}}
     </div>
