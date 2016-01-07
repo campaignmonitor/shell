@@ -75,6 +75,8 @@
 
 /**
  * Black and white.
+ *
+ * N.B. non-overridable.
  */
 
 $shell-g-color-white: #fff;
@@ -180,6 +182,8 @@ $shell-g-line-height: 24 !default;
 
 /**
  * Line height ratio.
+ *
+ * N.B. non-overridable.
  */
 
 $shell-g-line-height-ratio: $shell-g-line-height / $shell-g-font-size;
@@ -384,6 +388,11 @@ $shell-g-default-bp-for-generate-at-bp-mixin: $shell-g-bp-lap !default;
 
 /* 5. Percentage widths (Global)
    ========================================================================= */
+
+/**
+ * N.B. all these settings are non-overridable.
+ */
+
 
 /**
  * Whole.
@@ -601,6 +610,20 @@ $shell-g-z-layers: (
 
 /* 7. Other (Global)
    ========================================================================= */
+
+/**
+ * Device pixel ratio used for the HiDPI mixins, see “Mixins/Functions”. We
+ * generate the `dpi` and `dppx` units from this.
+ *
+ * N.B. non-overridable.
+ */
+
+$shell-g-hidpi-dpr: 1.3;
+
+$shell-g-hidpi-dpi: ($shell-g-hidpi-dpr * 96) * 1dpi;
+
+$shell-g-hidpi-dppx: 1.3 * 1dppx;
+
 
 /**
  * HTML textual `input`s.
