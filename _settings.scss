@@ -4,8 +4,9 @@
 
 
 /**
- * All the settings (Sass variables) for Shell. The settings are broken into
- * two categories:
+ * All of Shell’s settings (Sass variables).
+ *
+ * The settings are broken into two categories:
  *
  * - “Global”.....settings for the entire framework.
  * - “Local”......settings for a particular partial.
@@ -85,13 +86,6 @@ $shell-g-color-black: #000;
 
 
 /**
- * Brand.
- */
-
-$shell-g-color-brand: #19a9e5 !default;
-
-
-/**
  * Text.
  */
 
@@ -106,16 +100,16 @@ $shell-g-color-text-heading: $shell-g-color-text-base !default;
  * Links.
  */
 
-$shell-g-color-link: $shell-g-color-brand !default;
+$shell-g-color-link: blue !default;
 
 $shell-g-color-link-hover: $shell-g-color-link !default;
 
 
 /**
- * Textual input `[placeholder]` attribute.
+ * `[placeholder]` attribute in an input field.
  */
 
-$shell-g-color-text-input-placeholder: #999 !default;
+$shell-g-color-placeholder-attr: #999 !default;
 
 
 
@@ -254,7 +248,7 @@ $shell-g-spacing-base: $shell-g-line-height !default;
 
 
 /**
- * Decrease from base.
+ * Decrease from base: fractions and “tiny” / “small”.
  */
 
 // Half
@@ -282,9 +276,15 @@ $shell-g-spacing-four-fifths: $shell-g-spacing-fifth * 4 !default;
 // Sixth
 $shell-g-spacing-sixth: $shell-g-spacing-base / 6 !default;
 
+// Tiny
+$shell-g-spacing-tiny: $shell-g-spacing-quarter !default;
+
+// Small
+$shell-g-spacing-small: $shell-g-spacing-half !default;
+
 
 /**
- * Increase from base.
+ * Increase from base: fractions and “large” / “huge”.
  */
 
 // Thirds
@@ -320,6 +320,12 @@ $shell-g-spacing-triple: $shell-g-spacing-base * 3 !default;
 
 // Quadruple
 $shell-g-spacing-quadruple: $shell-g-spacing-base * 4 !default;
+
+// Large
+$shell-g-spacing-tiny: $shell-g-spacing-double !default;
+
+// Huge
+$shell-g-spacing-small: $shell-g-spacing-quadruple !default;
 
 
 

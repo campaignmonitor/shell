@@ -35,6 +35,8 @@
 /* 1. Colours
    ========================================================================= */
 
+$g-color-brand: #19a9e5;
+
 $g-color-light-grey: #666;
 
 $g-color-code-block-background: $shell-g-color-white;
@@ -80,7 +82,9 @@ $g-code-block-padding: $shell-g-spacing-half;
  */
 
 // Colours
-$shell-g-color-link-hover: darken($shell-g-color-brand, 10%);
+$shell-g-color-link: $g-color-brand;
+
+$shell-g-color-link-hover: darken($g-color-brand, 10%);
 
 // Typography
 $shell-g-font-size-heading: 34;
@@ -94,5 +98,3 @@ $shell-g-font-weight-heading: $shell-g-font-weight-extra-light;
 /**
  * Local.
  */
-
-// Base

@@ -4,113 +4,153 @@
 
 
 /**
- * All the Sass mixins and functions for Shell.
+ * All of Shell’s mixins and functions.
  *
  * ----------------------------------------------------------------------------
  *
  * CONTENTS:
  *
- * 1. HiDPI (Mixin)
- * 2. Functions
+ * 1. Shell-only mixins and functions
+ * 2. HiDPI background images (Mixin)
+ * 3. Convert pixels to `rem`s or `em`s (Function)
  */
 
 
 
 
-/* 1. HiDPI (Mixin)
+/* 1. Shell-only mixins and functions
    ========================================================================= */
 
 /**
- * A mixin for applying styles for HiDPI screens.
- *
- * We use a device pixel ratio (“dpr”) of “1.3” which captures almost all HiDPI
- * aware devices, see: https://gist.github.com/marcedwards/3446599.
- *
- * N.B.
- * - For applying HiDPI background images see the `hidpi-bg-img()` mixin.
- * - Autoprefixer will take care of generating the non-standard
- *   `-webkit-device-pixel-ratio` for browsers/devices that need it, see:
- *   http://caniuse.com/#feat=css-media-resolution.
- *
- * @example
-   @include hidpi {
-     background-image: url("path/to/image");
-     background-size: 24px auto;
-   }
-
-   // Output
-   @media (min-resolution: 1.3dppx),
-          (min-resolution: 124.8dpi), {
-      background-image: url("path/to/image");
-      background-size: 24px auto;
-    }
+ * Shell-only mixins and functions, not for Shell consumers although some can
+ * be used if the need arises.
  */
 
-@mixin hidpi {
-    @media (min-resolution: $shell-g-hidpi-dppx),
-           (min-resolution: $shell-g-hidpi-dpi) {
-         @content;
+
+/**
+ * Remove the unit of a length.
+ *
+ * @parameters
+ * | Name    | Description                | Type   | Default value |
+ * |---------|----------------------------|--------|---------------|
+ * | $number | Number to remove unit from | number | —             |
+ *
+ * @example
+   strip-unit(24px)
+ */
+
+@function strip-unit($number) {
+    @if type-of($number) == 'number' and not unitless($number) {
+        @return $number / ($number * 0 + 1);
     }
+
+    @return $number;
 }
 
+
+
+
+/* 2. HiDPI background images (Mixin)
+   ========================================================================= */
 
 /**
  * A mixin for easily applying HiDPI background images.
  *
- * Parameters:
+ * We use a device pixel ratio (“dpr”) of “1.3” which captures almost all HiDPI
+ * aware devices, see: https://gist.github.com/marcedwards/3446599.
  *
+ * N.B. Autoprefixer will take care of generating the non-standard
+ * `-webkit-device-pixel-ratio` for browsers/devices that need it, see:
+ * http://caniuse.com/#feat=css-media-resolution.
+ *
+ * @parameters
  * | Name        | Description             | Type   | Default value |
  * |-------------|-------------------------|--------|---------------|
  * | $img-url    | The image url path      | string | —             |
- * | $img-width  | The image width in `px` | string | auto          |
- * | $img-height | The image width in `px` | string | auto          |
+ * | $img-width  | The image width in `px` | number | auto          |
+ * | $img-height | The image width in `px` | number | auto          |
+ *
+ * @throws
+ * - `$img-url` must be within single or double quotes
+ * - `$img-width` and `$img-height` must be a number with a unit
  *
  * @example
-   .element-1 {
-      background: url("path/to/image") no-repeat;
-      @include hidpi-bg-img("path/to/image", 100px, 45px);
+   .selector {
+      background: url("path/to/image/image.png") no-repeat;
+      @include hidpi-bg-img("path/to/image/image.png", 100px, 45px);
     }
 
-    .element-2 {
-      background: url("path/to/image") no-repeat;
-      @include hidpi-bg-img("path/to/image", 32px);
-    }
-
-    // Output
-    .element-1 {
-      @media (min-resolution: 1.3dppx),
-             (min-resolution: 124.8dpi), {
-        background-image: url("path/to/image");
-        background-size: 100px 45px;
-      }
-    }
-
-    .element-2 {
-      @media (min-resolution: 1.3dppx),
-             (min-resolution: 124.8dpi), {
-        background-image: url("path/to/image");
-        background-size: 32px auto;
-      }
+    .selector {
+      background: url("path/to/image/image.png") no-repeat;
+      @include hidpi-bg-img("path/to/image/image.png", 32px);
     }
  */
 
-// @mixin hidpi-bg-img($img-url: null, $img-width: auto, $img-height: auto) {
-//     @include hidpi {
-//         @if ($img-url == null) {
-//             background-image: url($img-url);
-//         } @else {
-//             @error "You must enter an image path";
-//         }
-
-//         @if (($img-width == auto) and ($img-height == auto)) {
-//             @error "You must enter either an image width or an image height";
-//         } @else {
-//             background-size: $img-width $img-height;
-//         }
-//     }
-// }
-
 @mixin hidpi-bg-img($img-url, $img-width: auto, $img-height: auto) {
-    background-image: url($img-url);
-    background-size: $img-width $img-height;
+    @media (min-resolution: $shell-g-hidpi-dppx),
+           (min-resolution: $shell-g-hidpi-dpi) {
+        background-image: url($img-url);
+        background-size: $img-width $img-height;
+    }
+}
+
+
+
+
+/* 3. Convert pixels to `rem`s or `em`s (Function)
+   ========================================================================= */
+
+/**
+ * A simple function to convert pixels to `rem`s or `em`s.
+ *
+ * @parameters
+ * | Name          | Description                               | Type   | Default value      |
+ * |---------------|-------------------------------------------|--------|--------------------|
+ * | $value        | The `px` amount to be converted           | number | —                  |
+ * | $parent-value | The `px` amount of the parent (`em` only) | number | $shell-g-font-size |
+ *
+ * @requires
+ * function strip-unit()
+ *
+ * @throws
+ * - `$value` must be a number
+ * - `$parent-value` must be a number
+ *
+ * @example
+   .selector {
+     margin-left: to-em(8, 20);
+   }
+
+   .selector {
+     padding: to-rem(8) 0;
+   }
+ */
+
+
+/**
+ * `em`.
+ */
+
+@function to-em($value, $parent-value: $shell-g-font-size) {
+    @if type-of($value) == 'string' {
+        @error 'You have to enter a number, you entered "#{$value}"';
+    }
+    @if type-of($parent-value) == 'string' {
+        @error 'You have to enter a number, you entered "#{$parent-value}"';
+    }
+
+    @return strip-unit($value) / strip-unit($parent-value) * 1em;
+}
+
+
+/**
+ * `rem`.
+ */
+
+@function to-rem($value) {
+    @if type-of($value) == 'string' {
+        @error 'You have to enter a number, you entered "#{$value}"';
+    }
+
+    @return strip-unit($value) / strip-unit($shell-g-font-size) * 1rem;
 }

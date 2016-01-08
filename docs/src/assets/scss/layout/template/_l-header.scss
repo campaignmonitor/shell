@@ -33,7 +33,7 @@ $l-header-background-color: $shell-g-color-text-base;
 }
 
 .l-header__logo {
-    fill: $shell-g-color-brand;
+    fill: $g-color-brand;
     width: 60%;
 }
 
@@ -61,6 +61,6 @@ $l-header-background-color: $shell-g-color-text-base;
     &:hover,
     &:focus,
     &.is-active {
-        background-color: $shell-g-color-brand;
+        background-color: $g-color-brand;
     }
 }
