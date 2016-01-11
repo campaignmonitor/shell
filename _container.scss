@@ -56,8 +56,8 @@
    </div>
  *
  * Here we have wrongly applied a “Component” (`c-card`) to the same element as
- * a “Layout Module” mixing concerns, this can result in this part of the UI
- * being easily prone to breakages. The valid way to approach this would be:
+ * a “Layout Module”, we’ve mixed concerns, this can result in this part of
+ * the UI being prone to breakages. The valid way to approach this would be:
  *
    <div class="l-container">
      <div class="c-card">
