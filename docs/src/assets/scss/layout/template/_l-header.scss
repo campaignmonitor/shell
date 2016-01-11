@@ -11,13 +11,14 @@
  * Settings.
  */
 
-$l-header-background-color: $shell-g-color-text-base;
+$l-header-link-padding-sides: $shell-g-spacing-sixth;
+
+$l-header-link-padding-ends: 1;
 
 
 .l-header {
-    background-color: $l-header-background-color;
     height: 100vh;
-    padding: to-rem($g-header-padding-ends) to-rem($shell-g-spacing-base);
+    padding: to-rem($shell-g-spacing-base-plus-half) to-rem($shell-g-spacing-base-plus-half);
     position: fixed;
     width: $g-header-width;
 }
@@ -33,8 +34,7 @@ $l-header-background-color: $shell-g-color-text-base;
 }
 
 .l-header__logo {
-    fill: $shell-g-color-brand;
-    width: 60%;
+    fill: $g-color-brand;
 }
 
 
@@ -42,25 +42,35 @@ $l-header-background-color: $shell-g-color-text-base;
  * Main navigation.
  */
 
+/**
+ * Items.
+ */
+
+.l-header__nav__item {
+    margin-bottom: to-rem(4);
+}
+
+/**
+ * Links.
+ */
+
 .l-header__nav__link {
     display: inline-block;
-    background-color: lighten($shell-g-color-text-base, 3%);
-    border-color: darken($shell-g-color-text-base, 1.5%);
-    border-style: solid;
-    border-radius: 6px;
-    border-width: 0 1px 1px 0;
-    padding: to-rem(2) to-rem(10);
+    padding: to-rem($l-header-link-padding-ends) to-rem($l-header-link-padding-sides);
+    margin-left: -(to-rem($l-header-link-padding-sides));
     text-decoration: none;
+    transition: none;
 
     &,
     &:hover,
     &:focus {
-        color: $shell-g-color-white;
+        color: $shell-g-color-text-base;
     }
 
     &:hover,
     &:focus,
     &.is-active {
-        background-color: $shell-g-color-brand;
+        background-color: $g-color-brand;
+        color: $shell-g-color-white;
     }
 }
