@@ -31,9 +31,7 @@
  * Remove the unit of a length.
  *
  * @parameters
- * | Name    | Description                | Type   | Default value |
- * |---------|----------------------------|--------|---------------|
- * | $number | Number to remove unit from | number | —             |
+ * @param {number} $number — Number to remove unit from
  *
  * @example
    strip-unit(24px)
@@ -64,11 +62,9 @@
  * http://caniuse.com/#feat=css-media-resolution.
  *
  * @parameters
- * | Name        | Description             | Type   | Default value |
- * |-------------|-------------------------|--------|---------------|
- * | $img-url    | The image url path      | string | —             |
- * | $img-width  | The image width in `px` | number | auto          |
- * | $img-height | The image width in `px` | number | auto          |
+ * @param {string} $img-url — The image url path
+ * @param {number} $img-width [auto] — The image width in `px`
+ * @param {number} $img-height [auto] — The image height in `px`
  *
  * @throws
  * - `$img-url` must be within single or double quotes
@@ -104,10 +100,9 @@
  * A simple function to convert pixels to `rem`s or `em`s.
  *
  * @parameters
- * | Name          | Description                               | Type   | Default value      |
- * |---------------|-------------------------------------------|--------|--------------------|
- * | $value        | The `px` amount to be converted           | number | —                  |
- * | $parent-value | The `px` amount of the parent (`em` only) | number | $shell-g-font-size |
+ * @param {number} $value — The `px` amount to be converted
+ * @param {number} $parent-value [$shell-g-font-size] — The `px` amount of the
+ * parent (`em` only)
  *
  * @requires
  * function strip-unit()
