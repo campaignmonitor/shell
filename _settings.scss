@@ -64,6 +64,7 @@
  * 6. Z-Index system (Global)
  * 7. Other (Global)
  * 8. Base (Local)
+ * 9. Container (Local)
  *
  * More to come…
  */
@@ -652,7 +653,6 @@ $shell-g-textual-inputs: 'input[type="text"],
 
 
 
-
 /* 8. Base (Local)
    ========================================================================= */
 
@@ -707,3 +707,35 @@ $shell-base-hr-color: $shell-g-color-text-base !default;
 $shell-base-disabled-and-readonly-state-opacity-strength: 0.6 !default;
 
 $shell-base-target-ios-selector: ".ios" !default;
+
+
+
+
+/* 9. Container (Local)
+   ========================================================================= */
+
+/**
+ * Booleans.
+ */
+
+$shell-container-center-aligned: true !default;
+
+
+/**
+ * Widths.
+ */
+
+$shell-container-width: 90% !default;
+
+$shell-container-maximum-width: 1600 !default;
+
+$shell-container-minimum-width: 320 !default;
+
+// Size modifiers
+$shell-container-maximum-width-huge: 2400 !default;
+
+$shell-container-maximum-width-large: 2000 !default;
+
+$shell-container-maximum-width-small: 1000 !default;
+
+$shell-container-maximum-width-tiny: 640 !default;
