@@ -82,7 +82,7 @@
     min-width: to-rem($shell-container-minimum-width);
     width: $shell-container-width;
 
-    @if $shell-container-center-aligned {
+    @if $shell-container-apply-center-alignment {
         margin: 0 auto;
     }
 }
