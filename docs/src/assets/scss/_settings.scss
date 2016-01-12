@@ -25,8 +25,7 @@
  *
  * 1. Colours
  * 2. Typography
- * 3. Layout/Components
- * 4. Shell overrides
+ * 3. Shell overrides
  */
 
 
@@ -37,9 +36,9 @@
 
 $g-color-brand: #ef3123;
 
-$g-color-light-grey: #666;
+$g-color-off-white: #fafafa;
 
-$g-color-code-block-background: $shell-g-color-white;
+$g-color-light-grey: #666;
 
 
 
@@ -47,34 +46,13 @@ $g-color-code-block-background: $shell-g-color-white;
 /* 2. Typography
    ========================================================================= */
 
-$shell-g-font-family-light: "HelveticaNeue-Light", "Helvetica Neue Light",
+$g-font-family-light: "HelveticaNeue-Light", "Helvetica Neue Light",
 "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
 
 
 
-/* 3. Layout/Components
-   ========================================================================= */
 
-/**
- * We need to apply some “Layout” and “Component” global settings so we can
- * share them across partials.
- */
-
-// Header
-$g-header-width: 20vw;
-
-// Main content
-$g-main-content-width: 790;
-
-$g-main-content-padding-left-bottom: $shell-g-spacing-triple;
-
-// Code block
-$g-code-block-padding: $shell-g-spacing-half;
-
-
-
-
-/* 4. Shell overrides
+/* 3. Shell overrides
    ========================================================================= */
 
 /**
@@ -89,13 +67,22 @@ $shell-g-color-link-hover: darken($g-color-brand, 10%);
 // Typography
 $shell-g-font-size: 18;
 
-$shell-g-font-size-heading: 34;
+$shell-g-line-height: 26;
 
-$shell-g-font-family-headings: $shell-g-font-family-light;
+$shell-g-font-size-heading: 58;
 
-$shell-g-font-weight-heading: $shell-g-font-weight-extra-light;
+$shell-g-font-size-heading-small: 44;
+
+$shell-g-font-family-heading: $g-font-family-light;
+
+$shell-g-font-weight-heading: 200;
 
 
 /**
  * Local.
  */
+
+// Container
+$shell-container-apply-center-alignment: false;
+
+$shell-container-maximum-width: 700;

@@ -1,0 +1,114 @@
+/* ============================================================================
+   @CONTAINER
+   ========================================================================= */
+
+
+/**
+ * Pretty much every UI will need to be constrained by a container or a
+ * series of them (modifiers of the base container), e.g. a wider container,
+ * a narrower container, etc. Repeating the CSS of these crucial structural
+ * UI elements like `width` and `max-width` does not make for a robust,
+ * scalable, consistent, and maintainable UI. So we abstract that CSS out here.
+ *
+ * The most common usage for this container(s) is for constructing a master
+ * layout of a site/app, for example, if our master layout needed a full-bleed
+ * (100% of the viewport) header and footer with a nested container to be
+ * capped off at a certain width, and the main content area needing the same
+ * treatment as the nested header and footer, we would mark it up like this:
+ *
+   <header class="l-header" role="banner">
+     <div class="l-container">
+       […]
+     </div>
+   </header>
+   <main class="l-main l-container" role="main">
+     […]
+   </main>
+   <footer class="l-footer" role="contentinfo">
+     <div class="l-container">
+       […]
+     </div>
+   </footer>
+ *
+ * In the main content area we may have an entire section: “Blog” requiring a
+ * much narrower container for nice readable line lengths, we could achieve
+ * this by creating a sub layout nested in the `<main>` container of the
+ * above master layout and using one of the “Size” modifiers provided by
+ * Shell, like so:
+ *
+   <div class="l-container l-container--tiny">
+     […]
+   </div>
+ *
+ * Container(s) can be used anywhere it makes sense to do so including within
+ * components.
+ *
+ * All containers are responsive ready meaning they are a fluid width (using
+ * the `%` unit) up until it hits its maximum width. And are center aligned by
+ * default.
+ *
+ * Other styles cannot be applied to an element using a container. Container is
+ * a “Layout Module” therefore the “Single Responsibility Principle” and the
+ * “Open/close Principle” strictly applies. So this would be invalid:
+ *
+   <div class="l-container  c-card">
+     […]
+   </div>
+ *
+ * Here we have wrongly applied a “Component” (`c-card`) to the same element as
+ * a “Layout Module”, we’ve mixed concerns, this can result in this part of
+ * the UI being prone to breakages. The valid way to approach this would be:
+ *
+   <div class="l-container">
+     <div class="c-card">
+       […]
+     </div>
+   </div>
+ *
+ * ----------------------------------------------------------------------------
+ *
+ * Container is namespaced with “l” followed by one hyphen, like this:
+ *
+   l-
+ *
+ * The “l” stands for “layout” as Container is a “Layout Module”.
+ *
+ * See: https://git.campmon.com/Freshview/coding-guidelines/blob/master/css/README.md#the-namespaces
+ */
+
+
+.l-container {
+    max-width: to-rem($shell-container-maximum-width);
+    min-width: to-rem($shell-container-minimum-width);
+    width: $shell-container-width;
+
+    @if $shell-container-apply-center-alignment {
+        margin: 0 auto;
+    }
+}
+
+
+/**
+ * Wider and narrower container modifiers that use our set size names:
+ *
+ * - Huge
+ * - Large
+ * - Small
+ * - Tiny
+ */
+
+.l-container--huge {
+    max-width: to-rem($shell-container-maximum-width-huge);
+}
+
+.l-container--large {
+    max-width: to-rem($shell-container-maximum-width-large);
+}
+
+.l-container--small {
+    max-width: to-rem($shell-container-maximum-width-small);
+}
+
+.l-container--tiny {
+    max-width: to-rem($shell-container-maximum-width-tiny);
+}

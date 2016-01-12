@@ -11,13 +11,13 @@
  *
  * CONTENTS:
  *
- * 1. Settings
- *    1.1. Shell framework settings
- *    1.2. Shell Docs settings incl. any Shell setting overrides
+ * 1. Shell Docs settings
  * 2. Shell framework
- *    2.1. Mixins/Functions
- *    2.2. Normalise/Reset
- *    2.3. Base
+ *    2.1. Settings
+ *    2.2. Mixins/Functions
+ *    2.3. Normalise/Reset
+ *    2.4. Base
+ *    2.5. Container
  * 3. Shell Docs styles
  *    3.1. Layout/Template
  *    3.2. Components
@@ -30,19 +30,8 @@
 
 
 
-/* 1. Settings
+/* 1. Shell Docs settings incl. any Shell setting overrides
    ========================================================================= */
-
-/**
- * Shell framework settings.
- */
-
-@import "../../../../settings";
-
-
-/**
- * Shell Docs settings incl. any Shell setting overrides.
- */
 
 @import "settings";
 
@@ -53,10 +42,16 @@
    ========================================================================= */
 
 /**
- * The entire framework is imported (“Settings” is imported in the above
- * section), however only use what you need, you will however need: “Settings”
- * and “Mixins/Functions” for Shell to work.
+ * The entire framework is imported however only use what you need, you will
+ * however need: “Settings” and “Mixins/Functions” for Shell to work.
  */
+
+
+/**
+ * Settings.
+ */
+
+@import "../../../../settings";
 
 
 /**
@@ -78,6 +73,13 @@
  */
 
 @import "../../../../base";
+
+
+/**
+ * Container.
+ */
+
+@import "../../../../container";
 
 
 

@@ -8,9 +8,9 @@
 
 code[class*="language-"] {
     display: block;
-    padding: to-rem($g-code-block-padding);
+    padding: to-rem($c-demo-view-source-code-padding);
     color: #333;
-    background: $g-color-code-block-background;
+    background-color: $shell-g-color-white;
     font-family: $shell-g-font-family-monospace;
 
 

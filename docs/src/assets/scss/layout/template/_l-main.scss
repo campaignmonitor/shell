@@ -7,10 +7,18 @@
  */
 
 
+/**
+ * Settings.
+ */
+
+$l-main-left-margin: $l-header-width;
+
+$l-main-left-padding: $shell-g-spacing-triple;
+
+
 .l-main {
-    margin-left: $g-header-width;
-    max-width: to-rem($g-main-content-width);
-    padding-bottom: to-rem($g-main-content-padding-left-bottom);
-    padding-left: to-rem($g-main-content-padding-left-bottom);
+    margin-left: to-rem($l-main-left-margin);
+    padding-bottom: to-rem($shell-g-spacing-base-plus-half);
+    padding-left: to-rem($l-main-left-padding);
     padding-top: to-rem($shell-g-spacing-base-plus-half);
 }
