@@ -1,5 +1,5 @@
 /* ============================================================================
-   @SHELL DOCS SETTINGS
+   @SETTINGS
    ========================================================================= */
 
 /**
@@ -40,6 +40,8 @@ $g-color-off-white: #fafafa;
 
 $g-color-light-grey: #666;
 
+$g-color-navy-blue: #000080;
+
 
 
 
@@ -71,7 +73,9 @@ $shell-g-line-height: 26;
 
 $shell-g-font-size-heading: 58;
 
-$shell-g-font-size-heading-small: 44;
+$shell-g-font-size-heading-small: 42;
+
+$shell-g-font-size-heading-xxx-small: $shell-g-font-size - 1;
 
 $shell-g-font-family-heading: $g-font-family-light;
 

@@ -1,0 +1,19 @@
+/* ============================================================================
+   @COMPONENTS -> INLINE CODE
+   ========================================================================= */
+
+
+/**
+ * A component for inline code occurrences.
+ *
+ * @example
+   <code class="c-inline-code">[textnode]</code>
+ */
+
+
+.c-inline-code {
+    color: $g-color-navy-blue;
+    display: inline-block;
+    padding-left: to-rem($shell-g-spacing-tiny);
+    padding-right: to-rem($shell-g-spacing-tiny);
+}

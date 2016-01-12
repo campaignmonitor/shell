@@ -33,7 +33,7 @@
 
 /**
  * 1. Set the global typography rules sourced from “Settings”.
- * 2. Fonts on OSX will look more consistent with other systems that do not
+ * 2. Fonts on OS X will look more consistent with other systems that do not
  *    render text using sub-pixel anti-aliasing.
  *    N.B. we recommend not to use this.
  */
@@ -63,7 +63,7 @@ a {
     text-decoration: $shell-base-link-text-decoration;
 
     @if $shell-base-apply-link-transition {
-        transition: all $shell-base-link-transition-duration $shell-base-link-transition-timing-function;
+        transition: color $shell-base-link-transition-duration $shell-base-link-transition-timing-function;
     }
 
     &:hover,
@@ -83,8 +83,6 @@ hr {
     border-top: $shell-base-hr-thickness $shell-base-hr-style $shell-base-hr-color;
     display: block;
     height: 1px;
-    // Offset the border thickness to maintain a vertical rhythm
-    margin-top: -$shell-base-hr-thickness;
 }
 
 

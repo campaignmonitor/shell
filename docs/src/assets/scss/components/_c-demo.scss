@@ -9,9 +9,13 @@
  *
  * - A heading
  * - An intro
+ * - Configurable items
  * - An example
  * - The examples code
  * - View source code link
+ *
+ * @example
+ * /partials/demo.hbs
  */
 
 
@@ -21,15 +25,18 @@
 
 $c-demo-padding: $l-main-left-padding;
 
+$c-demo-view-source-code-padding: $shell-g-spacing-half;
+
+$c-demo-base-spacing: $shell-g-spacing-base;
+
 $c-demo-background-color: $g-color-off-white;
 
 $c-demo-github-icon-size: 26px;
 
-$c-demo-view-source-code-padding: $shell-g-spacing-half;
-
 
 .c-demo {
     background-color: $c-demo-background-color;
+    font-size: to-rem($shell-g-font-size-small);
     padding: to-rem($c-demo-padding / 2);
     padding-left: to-rem($c-demo-padding);
     padding-right: to-rem($c-demo-padding);
@@ -40,18 +47,17 @@ $c-demo-view-source-code-padding: $shell-g-spacing-half;
 
 
 /**
- * Headings.
+ * Apply shared spacing.
+ *
+ * TODO: move this out of the component and replace with spacing helpers.
  */
 
-.c-demo__heading {
-    margin-bottom: to-rem($shell-g-spacing-base);
+.c-demo__spacing {
+    margin-bottom: to-rem($c-demo-base-spacing);
 }
 
-.c-demo__heading-sub {
-    color: darken($c-demo-background-color, 26%);
-    font-size: to-rem($shell-g-font-size-xxx-small);
-    margin-bottom: to-rem($shell-g-spacing-half);
-    text-transform: uppercase;
+.c-demo__spacing-large {
+    margin-bottom: to-rem($c-demo-base-spacing + $shell-g-spacing-half);
 }
 
 
@@ -60,7 +66,19 @@ $c-demo-view-source-code-padding: $shell-g-spacing-half;
  */
 
 .c-demo__intro {
-    margin-bottom: to-rem($shell-g-spacing-base);
+    margin-bottom: to-rem($c-demo-base-spacing + $shell-g-spacing-half);
+}
+
+
+/**
+ * Configurable items.
+ */
+
+.c-demo__config-items {
+    em {
+        color: $g-color-light-grey;
+        font-size: to-rem($shell-g-font-size-x-small);
+    }
 }
 
 
@@ -68,8 +86,19 @@ $c-demo-view-source-code-padding: $shell-g-spacing-half;
  * Example.
  */
 
-.c-demo__example {
-    margin-bottom: to-rem($shell-g-spacing-half);
+/**
+ * Modifier: apply extra styling to the example markup, this is needed when
+ * we need additional markup like paragraphs that isn’t the actual example
+ * markup.
+ */
+
+.c-demo__example--extra-styling {
+
+    > p {
+        color: $g-color-light-grey;
+        font-family: $g-font-family-light;
+        font-size: to-rem($shell-g-font-size-x-small);
+    }
 }
 
 
@@ -80,16 +109,9 @@ $c-demo-view-source-code-padding: $shell-g-spacing-half;
 .c-demo__view-source-code {
     background-color: $shell-g-color-white;
     border-top: 1px solid $c-demo-background-color;
-    padding: to-rem($c-demo-view-source-code-padding);
-}
-
-/**
- * The link.
- */
-
-.c-demo__view-source-code-link {
-    display: inline-block;
+    display: block;
     font-size: to-rem($shell-g-font-size-small);
+    padding: to-rem($c-demo-view-source-code-padding);
     text-decoration: none;
 }
 
@@ -97,7 +119,7 @@ $c-demo-view-source-code-padding: $shell-g-spacing-half;
  * The link text.
  */
 
-.c-demo__view-source-code-link-text {
+.c-demo__view-source-code-text {
     vertical-align: middle;
 }
 
@@ -111,8 +133,8 @@ $c-demo-view-source-code-padding: $shell-g-spacing-half;
     transition: fill $shell-base-link-transition-duration $shell-base-link-transition-timing-function;
     width: $c-demo-github-icon-size;
 
-    .c-demo__view-source-code-link:hover svg,
-    .c-demo__view-source-code-link:focus svg {
+    .c-demo__view-source-code:hover &,
+    .c-demo__view-source-code:focus & {
         fill: $shell-g-color-link-hover;
     }
 }

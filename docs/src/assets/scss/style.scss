@@ -13,15 +13,7 @@
  *
  * 1. Shell Docs settings
  * 2. Shell framework
- *    2.1. Settings
- *    2.2. Mixins/Functions
- *    2.3. Normalise/Reset
- *    2.4. Base
- *    2.5. Container
  * 3. Shell Docs styles
- *    3.1. Layout/Template
- *    3.2. Components
- *    3.3. Vendor
  *
  * N.B. the above order of sections #1 and #2 must be maintained otherwise Sass
  * will not compile ಠ╭╮ಠ!
@@ -82,10 +74,27 @@
 @import "../../../../container";
 
 
+/**
+ * Helpers.
+ */
+
+// Will be removed once Shell Helpers are done
+.h-hide {
+    display: none !important;
+}
+
 
 
 /* 3. Shell Docs styles
    ========================================================================= */
+
+
+/**
+ * Base.
+ */
+
+@import "base";
+
 
 /**
  * Layout/Template.
@@ -105,6 +114,8 @@
 @import "components/c-view-masthead";
 
 @import "components/c-demo";
+
+@import "components/c-inline-code";
 
 
 /**

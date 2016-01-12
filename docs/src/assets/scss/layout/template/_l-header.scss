@@ -11,7 +11,7 @@
  * Settings.
  */
 
-$l-header-width: 276;
+$l-header-width: 286;
 
 $l-header-link-padding-sides: $shell-g-spacing-sixth;
 
@@ -19,6 +19,8 @@ $l-header-link-padding-ends: 1;
 
 
 .l-header {
+    background-color: $shell-g-color-black;
+    color: $shell-g-color-white;
     height: 100vh;
     padding: to-rem($shell-g-spacing-base-plus-half) to-rem($shell-g-spacing-base-plus-half);
     position: fixed;
@@ -61,18 +63,17 @@ $l-header-link-padding-ends: 1;
     padding: to-rem($l-header-link-padding-ends) to-rem($l-header-link-padding-sides);
     margin-left: -(to-rem($l-header-link-padding-sides));
     text-decoration: none;
-    transition: none;
+    transition: background-color 0.10s ease-out;
 
     &,
     &:hover,
     &:focus {
-        color: $shell-g-color-text-base;
+        color: $shell-g-color-white;
     }
 
     &:hover,
     &:focus,
     &.is-active {
         background-color: $g-color-brand;
-        color: $shell-g-color-white;
     }
 }

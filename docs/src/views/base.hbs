@@ -11,6 +11,72 @@ navOrder: 4
 {{!-- //View masthead --}}
 
 
+{{!-- Root element demo --}}
+{{>demo this
+        id="base-demo-root-element"
+        heading="Root element (<code class='c-inline-code'>&lt;html&gt;</code>)"
+        intro="
+            <ul class='c-bulleted-list'>
+                <li>Apply global typography styles.</li>
+                <li>Apply OS X font smoothing: <strong>optional</strong> styles for fonts on OS X to make them look more consistent with other systems that do not render text using sub-pixel anti-aliasing.</li>
+                <li>Apply a background colour.</li>
+            </ul>
+        "
+        config-items="
+            <li><code class='c-inline-code'>background</code></li>
+            <li><code class='c-inline-code'>color</code></li>
+            <li><code class='c-inline-code'>line-height</code></li>
+            <li><code class='c-inline-code'>font-family</code></li>
+            <li><code class='c-inline-code'>font-size</code></li>
+            <li><code class='c-inline-code'>font-weight</code></li>
+            <li><em>OS X font smoothing—optional</em></li>
+        "
+        remove-example=true
+        example-markup="markup-base-links"
+        source-code-url="https://git.campmon.com/Freshview/shell/blob/master/_base.scss"
+}}
+{{!-- //Root element demo --}}
+
+
 {{!-- Links demo --}}
-{{>demo this id="base-demo-links" heading="Links" intro="<ul class='c-bulleted-list'><li>Apply a link text colour for the default and hover/focus states.</li><li>Apply a text underline either for the default state or for the hover/focus states, and depending on what state the underline is applied to remove or apply it on hover/focus.</li><li>Apply an optional transition.</li>" markup="markup-base-links" source-code-url="https://git.campmon.com/Freshview/shell/blob/master/_base.scss"}}
+{{>demo this
+        id="base-demo-links"
+        heading="Links"
+        intro="
+            <ul class='c-bulleted-list'>
+                <li>Apply a link text colour for the default and hover/focus states.</li>
+                <li>Apply a text underline either for the default state or for the hover/focus states, and depending on what state the underline is applied to remove or apply it on hover/focus.</li><li>Apply an <strong>optional</strong> transition for the link text colour when the hover/focus states are applied.</li>
+            </ul>
+        "
+        config-items="
+            <li><code class='c-inline-code'>color</code> <em>both default and hover/focus states</em></li>
+            <li><code class='c-inline-code'>text-underline</code> <em>both default and hover/focus states</em></li>
+            <li><code class='c-inline-code'>transition-duration</code> <em>optional</em></li>
+            <li><code class='c-inline-code'>transition-timing-function</code> <em>optional</em></li>
+        "
+        example-markup="markup-base-links"
+        source-code-url="https://git.campmon.com/Freshview/shell/blob/master/_base.scss"
+}}
 {{!-- //Links demo --}}
+
+
+{{!-- Horizontal rule demo --}}
+{{>demo this
+        id="base-demo-horizontal-rule"
+        heading="Horizontal rule"
+        intro="
+            <ul class='c-bulleted-list'>
+                <li>Apply styles for a better looking and cross-browser consistent horizontal rule.</li>
+                <li>The rule is rendered with a <code class='c-inline-code'>border</code>.</li>
+            </ul>
+        "
+        config-items="
+            <li><code class='c-inline-code'>border-top-color</code></li>
+            <li><code class='c-inline-code'>border-top-style</code></li>
+            <li><code class='c-inline-code'>border-top-width</code></li>
+        "
+        example-markup="markup-base-horizontal-rule"
+        example-styles=true
+        source-code-url="https://git.campmon.com/Freshview/shell/blob/master/_base.scss"
+}}
+{{!-- //Horizontal rule demo --}}

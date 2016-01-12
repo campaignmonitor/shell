@@ -1,0 +1,24 @@
+/* ============================================================================
+   @BASE
+   ========================================================================= */
+
+/**
+ * Here we provide very basic styling that most UI’s will need. These styles
+ * are applied at the most global level being applied via element selectors.
+ * Everything in Base needs to be easily overridden which is really easy to do
+ * as everything in Base sits right at the bottom in terms of specificity.
+ *
+ * CONTENTS:
+ *
+ * 1. Code element
+ */
+
+
+
+
+/* 1. Code
+   ========================================================================= */
+
+code {
+    font-family: $shell-g-font-family-monospace;
+}

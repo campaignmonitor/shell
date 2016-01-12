@@ -6,13 +6,21 @@
  * four space indentation.
  */
 
+
+/**
+ * Here we have to set the background of the `<pre>` element using parent
+ * elements as the JS Assemble uses for syntax highlighting does not provide a
+ * selector on `<pre>` element only the child `<code>` element.
+ */
+
+.c-demo__code > pre {
+    background-color: $shell-g-color-white;
+}
+
 code[class*="language-"] {
     display: block;
     padding: to-rem($c-demo-view-source-code-padding);
     color: #333;
-    background-color: $shell-g-color-white;
-    font-family: $shell-g-font-family-monospace;
-
 
     .comment,
     .template_comment,
