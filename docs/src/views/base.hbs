@@ -7,19 +7,10 @@ navOrder: 4
 
 
 {{!-- View masthead --}}
-<header class="c-view-masthead">
-    <h1 class="heading c-view-masthead__heading">{{title}}</h1>
-    <div class="c-view-masthead__intro">
-        <p>Here we provide very basic styling that most UI’s will need. These styles are applied at the most global level being applied via element selectors, except for “Headings” which are scoped to classes (see that section for the info).</p>
-        <p>Everything in Base needs to be easily overridden which is really easy to do as everything in Base sits right at the bottom in terms of specificity.</p>
-    </div>
-</header>
+{{>view-masthead this intro="<p>Here we provide very basic styling that most UI’s will need. These styles are applied at the most global level being applied via element selectors, except for “Headings” which are scoped to classes (see that section for the info).</p><p>Everything in Base needs to be easily overridden which is really easy to do as everything in Base sits right at the bottom in terms of specificity.</p>"}}
 {{!-- //View masthead --}}
 
 
-
-{{!-- Demo’s --}}
-
-{{!-- Links --}}
-{{>demo this id="base-demo-links" heading="Links" intro="Apply a link text colour for the default and hover/focus states. Apply a text underline either for the default state or for the hover/focus states, and depending on what state the underline is applied to remove or apply it on hover/focus. Apply an optional transition." markup="markup-base-links" source-code-url="http://google.com"}}
-{{!-- //Links --}}
+{{!-- Links demo --}}
+{{>demo this id="base-demo-links" heading="Links" intro="<ul class='c-bulleted-list'><li>Apply a link text colour for the default and hover/focus states.</li><li>Apply a text underline either for the default state or for the hover/focus states, and depending on what state the underline is applied to remove or apply it on hover/focus.</li><li>Apply an optional transition.</li>" markup="markup-base-links" source-code-url="https://git.campmon.com/Freshview/shell/blob/master/_base.scss"}}
+{{!-- //Links demo --}}

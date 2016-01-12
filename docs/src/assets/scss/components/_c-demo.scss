@@ -19,18 +19,23 @@
  * Settings.
  */
 
-$c-demo-background-color: darken($shell-g-color-white, 2%);
+$c-demo-padding: $l-main-left-padding;
+
+$c-demo-background-color: $g-color-off-white;
 
 $c-demo-github-icon-size: 26px;
+
+$c-demo-view-source-code-padding: $shell-g-spacing-half;
 
 
 .c-demo {
     background-color: $c-demo-background-color;
-    padding: to-rem($shell-g-spacing-base);
-    padding-left: to-rem($g-main-content-padding-left-bottom);
-    padding-right: to-rem($g-main-content-padding-left-bottom);
-    margin-bottom: to-rem($shell-g-spacing-double);
-    margin-left: -(to-rem($g-main-content-padding-left-bottom));
+    padding: to-rem($c-demo-padding / 2);
+    padding-left: to-rem($c-demo-padding);
+    padding-right: to-rem($c-demo-padding);
+    // TODO: move this out of the component and replace with a spacing helper
+    margin-bottom: to-rem($c-demo-padding);
+    margin-left: -(to-rem($c-demo-padding));
 }
 
 
@@ -39,7 +44,7 @@ $c-demo-github-icon-size: 26px;
  */
 
 .c-demo__heading {
-    margin-bottom: to-rem($shell-g-spacing-half);
+    margin-bottom: to-rem($shell-g-spacing-base);
 }
 
 .c-demo__heading-sub {
@@ -73,37 +78,41 @@ $c-demo-github-icon-size: 26px;
  */
 
 .c-demo__view-source-code {
-    background-color: $g-color-code-block-background;
+    background-color: $shell-g-color-white;
     border-top: 1px solid $c-demo-background-color;
-    padding: to-rem($g-code-block-padding);
+    padding: to-rem($c-demo-view-source-code-padding);
+}
 
-    a {
-        display: inline-block;
-        font-size: to-rem($shell-g-font-size-small);
-        text-decoration: none;
+/**
+ * The link.
+ */
 
-        /**
-         * The link text.
-         */
+.c-demo__view-source-code-link {
+    display: inline-block;
+    font-size: to-rem($shell-g-font-size-small);
+    text-decoration: none;
+}
 
-        span {
-            vertical-align: middle;
-        }
+/**
+ * The link text.
+ */
 
-        /**
-         * The GitHub icon.
-         */
+.c-demo__view-source-code-link-text {
+    vertical-align: middle;
+}
 
-        svg {
-            fill: $shell-g-color-link;
-            height: $c-demo-github-icon-size;
-            transition: fill $shell-base-link-transition-duration $shell-base-link-transition-timing-function;
-            width: $c-demo-github-icon-size;
-        }
+/**
+ * The GitHub SVG icon.
+ */
 
-        &:hover svg,
-        &:focus svg {
-            fill: $shell-g-color-link-hover;
-        }
+.c-demo__view-source-code-icon {
+    fill: $shell-g-color-link;
+    height: $c-demo-github-icon-size;
+    transition: fill $shell-base-link-transition-duration $shell-base-link-transition-timing-function;
+    width: $c-demo-github-icon-size;
+
+    .c-demo__view-source-code-link:hover svg,
+    .c-demo__view-source-code-link:focus svg {
+        fill: $shell-g-color-link-hover;
     }
 }

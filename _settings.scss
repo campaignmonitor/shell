@@ -192,7 +192,7 @@ $shell-g-line-height-ratio: $shell-g-line-height / $shell-g-font-size;
 $shell-g-font-family-base: sans-serif !default;
 
 // Headings
-$shell-g-font-family-headings: $shell-g-font-family-base !default;
+$shell-g-font-family-heading: $shell-g-font-family-base !default;
 
 // Monospace
 $shell-g-font-family-monospace: Consolas, "Andale Mono",
@@ -667,6 +667,8 @@ $shell-base-apply-link-transition: true !default;
 $shell-base-apply-style-to-disabled-and-readonly-states: true !default;
 
 $shell-base-apply-bottom-margin-to-paragraphs: false !default;
+
+$shell-base-apply-print-styles: true !default;
 
 
 /**

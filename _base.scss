@@ -205,7 +205,7 @@ h6 {
 
 .heading {
     color: $shell-g-color-text-heading;
-    font-family: $shell-g-font-family-headings;
+    font-family: $shell-g-font-family-heading;
     font-size: to-rem($shell-g-font-size-heading);
     font-weight: $shell-g-font-weight-heading;
 }
@@ -306,109 +306,111 @@ h6 {
  * you know you will always want the rule it's applied too to take precedence.
  */
 
-@media print {
+@if $shell-base-apply-print-styles {
+    @media print {
 
-    /**
-     * Apply print friendly styles to all the things.
-     */
+        /**
+         * Apply print friendly styles to all the things.
+         */
 
-    *,
-    *::before,
-    *::after,
-    *::first-child,
-    *::first-line {
-        background: transparent !important;
-        box-shadow: none !important;
-        color: $shell-g-color-black !important;
-        text-shadow: none !important;
-    }
-
-
-    /**
-     * Hide elements not really useful on a piece of paper.
-     */
-
-    nav,
-    video,
-    audio {
-        display: none !important;
-    }
+        *,
+        *::before,
+        *::after,
+        *::first-child,
+        *::first-line {
+            background: transparent !important;
+            box-shadow: none !important;
+            color: $shell-g-color-black !important;
+            text-shadow: none !important;
+        }
 
 
-    /**
-     * Ensure all images are responsive.
-     */
+        /**
+         * Hide elements not really useful on a piece of paper.
+         */
 
-    img {
-        height: auto !important;
-        max-width: 100% !important;
-    }
-
-
-    /**
-     * Make links always stand out.
-     */
-
-    a,
-    a:visited {
-        border-bottom: 0 !important;
-        text-decoration: underline !important;
-    }
+        nav,
+        video,
+        audio {
+            display: none !important;
+        }
 
 
-    /**
-     * Show the `[href]` and `[title]` attribute values of links and
-     * abbreviations via their `::after` pseudo element.
-     */
+        /**
+         * Ensure all images are responsive.
+         */
 
-    a[href]::after {
-        content: " (" attr(href) ")";
-    }
-
-    abbr[title]::after {
-        content: " (" attr(title) ")";
-    }
-
-    // Don’t show links that are fragment identifiers, or use the
-    // `javascript:` pseudo protocol
-    a[href^="javascript:"]::after,
-    a[href^="#"]::after {
-        content: "";
-    }
+        img {
+            height: auto !important;
+            max-width: 100% !important;
+        }
 
 
-    /**
-     * Make the header row repeated at the top of each printed page, see:
-     * http://css-discuss.incutio.com/wiki/Printing_Tables
-     */
+        /**
+         * Make links always stand out.
+         */
 
-    thead {
-        display: table-header-group;
-    }
+        a,
+        a:visited {
+            border-bottom: 0 !important;
+            text-decoration: underline !important;
+        }
 
 
-    /**
-     * Set page breaks, orphans and widows.
-     */
+        /**
+         * Show the `[href]` and `[title]` attribute values of links and
+         * abbreviations via their `::after` pseudo element.
+         */
 
-    // Page breaks
-    h2
-    h3 {
-        page-break-after: avoid;
-    }
+        a[href]::after {
+            content: " (" attr(href) ")";
+        }
 
-    tr,
-    img,
-    pre,
-    blockquote {
-        page-break-inside: avoid;
-    }
+        abbr[title]::after {
+            content: " (" attr(title) ")";
+        }
 
-    // Orphans and widows
-    p,
-    h2,
-    h3 {
-        orphans: 3;
-        widows: 3;
+        // Don’t show links that are fragment identifiers, or use the
+        // `javascript:` pseudo protocol
+        a[href^="javascript:"]::after,
+        a[href^="#"]::after {
+            content: "";
+        }
+
+
+        /**
+         * Make the header row repeated at the top of each printed page, see:
+         * http://css-discuss.incutio.com/wiki/Printing_Tables
+         */
+
+        thead {
+            display: table-header-group;
+        }
+
+
+        /**
+         * Set page breaks, orphans and widows.
+         */
+
+        // Page breaks
+        h2
+        h3 {
+            page-break-after: avoid;
+        }
+
+        tr,
+        img,
+        pre,
+        blockquote {
+            page-break-inside: avoid;
+        }
+
+        // Orphans and widows
+        p,
+        h2,
+        h3 {
+            orphans: 3;
+            widows: 3;
+        }
     }
 }

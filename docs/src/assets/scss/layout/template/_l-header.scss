@@ -11,6 +11,8 @@
  * Settings.
  */
 
+$l-header-width: 276;
+
 $l-header-link-padding-sides: $shell-g-spacing-sixth;
 
 $l-header-link-padding-ends: 1;
@@ -20,7 +22,7 @@ $l-header-link-padding-ends: 1;
     height: 100vh;
     padding: to-rem($shell-g-spacing-base-plus-half) to-rem($shell-g-spacing-base-plus-half);
     position: fixed;
-    width: $g-header-width;
+    width: to-rem($l-header-width);
 }
 
 

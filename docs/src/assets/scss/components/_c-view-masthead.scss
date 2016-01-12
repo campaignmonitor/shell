@@ -15,9 +15,12 @@
 
 $c-view-masthead-heading-text-size: 58;
 
+$c-view-margin-bottom: $l-main-left-padding;
+
 
 .c-view-masthead {
-    margin-bottom: to-rem($g-main-content-padding-left-bottom);
+    // TODO: move this out of the component and replace with a spacing helper
+    margin-bottom: to-rem($l-main-left-padding);
 }
 
 
@@ -26,8 +29,6 @@ $c-view-masthead-heading-text-size: 58;
  */
 
 .c-view-masthead__heading {
-    font-size: to-rem($c-view-masthead-heading-text-size);
-    line-height: normal;
     margin-bottom: to-rem($shell-g-spacing-base);
 }
 
