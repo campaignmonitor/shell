@@ -1,4 +1,4 @@
-<section class="c-demo" id="{{ id }}">
+<section class="c-demo{{#if remove-example}} has-no-example{{/if}}" id="{{ id }}">
 
     <div class="l-container">
 
@@ -11,7 +11,7 @@
 
         {{!-- What’s configurable --}}
         <h3 class="heading heading--size-xxx-small heading--weight-semi-bold  c-demo__spacing c-demo__heading-sub">What’s configurable</h3>
-        <ul class="c-demo__config-items c-demo__spacing-large  c-bulleted-list">
+        <ul class="c-demo__config-items{{#if remove-example}} c-demo__spacing {{else}} c-demo__spacing-large{{/if}}  c-bulleted-list">
             {{{ config-items }}}
         </ul>
         {{!-- //What’s configurable --}}

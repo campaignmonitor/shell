@@ -34,13 +34,21 @@
 /* 1. Colours
    ========================================================================= */
 
-$g-color-brand: #ef3123;
+// CM blue
+$g-color-brand: #19a9e5;
 
-$g-color-off-white: #fafafa;
+// Off white & black
+$g-color-off-white: #f9f9f9;
 
-$g-color-light-grey: #666;
+$g-color-off-black: #37393b;
 
-$g-color-navy-blue: #000080;
+// Greys
+$g-color-grey-light: #efefef;
+
+$g-color-grey-medium: #504f4f;
+
+// Code
+$g-color-code-navy-blue: #000080;
 
 
 
@@ -62,9 +70,11 @@ $g-font-family-light: "HelveticaNeue-Light", "Helvetica Neue Light",
  */
 
 // Colours
+$shell-g-color-text-base: #333;
+
 $shell-g-color-link: $g-color-brand;
 
-$shell-g-color-link-hover: darken($g-color-brand, 10%);
+$shell-g-color-link-hover: #1176a0;
 
 // Typography
 $shell-g-font-size: 18;

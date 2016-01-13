@@ -13,13 +13,13 @@
 
 $l-header-width: 286;
 
-$l-header-link-padding-sides: $shell-g-spacing-sixth;
+$l-header-link-color: $shell-g-color-white;
 
-$l-header-link-padding-ends: 1;
+$l-header-link-hover-color: darken($l-header-link-color, 26%);
 
 
 .l-header {
-    background-color: $shell-g-color-black;
+    background-color: $g-color-off-black;
     color: $shell-g-color-white;
     height: 100vh;
     padding: to-rem($shell-g-spacing-base-plus-half) to-rem($shell-g-spacing-base-plus-half);
@@ -38,7 +38,7 @@ $l-header-link-padding-ends: 1;
 }
 
 .l-header__logo {
-    fill: $g-color-brand;
+    fill: $shell-g-color-white;
 }
 
 
@@ -51,7 +51,7 @@ $l-header-link-padding-ends: 1;
  */
 
 .l-header__nav__item {
-    margin-bottom: to-rem(4);
+    margin-bottom: to-rem($shell-g-spacing-quarter);
 }
 
 /**
@@ -59,21 +59,15 @@ $l-header-link-padding-ends: 1;
  */
 
 .l-header__nav__link {
+    border-bottom: 1px solid transparent;
     display: inline-block;
-    padding: to-rem($l-header-link-padding-ends) to-rem($l-header-link-padding-sides);
-    margin-left: -(to-rem($l-header-link-padding-sides));
     text-decoration: none;
-    transition: background-color 0.10s ease-out;
-
-    &,
-    &:hover,
-    &:focus {
-        color: $shell-g-color-white;
-    }
+    transition: all 0.10s ease-out;
 
     &:hover,
     &:focus,
     &.is-active {
-        background-color: $g-color-brand;
+        border-bottom-color: $shell-g-color-link-hover;
+        color: $shell-g-color-link-hover;
     }
 }

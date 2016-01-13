@@ -15,11 +15,12 @@
 
 .c-demo__code > pre {
     background-color: $shell-g-color-white;
+    border: 1px solid $g-color-grey-light;
+    display: block;
+    padding: to-rem($c-demo-view-source-code-padding);
 }
 
 code[class*="language-"] {
-    display: block;
-    padding: to-rem($c-demo-view-source-code-padding);
     color: #333;
 
     .comment,

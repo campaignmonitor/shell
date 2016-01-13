@@ -23,20 +23,30 @@
  * Settings.
  */
 
+// Padding and margins
 $c-demo-padding: $l-main-left-padding;
 
 $c-demo-view-source-code-padding: $shell-g-spacing-half;
 
 $c-demo-base-spacing: $shell-g-spacing-base;
 
+// Colors
 $c-demo-background-color: $g-color-off-white;
 
+$c-demo-foreground-color-light-grey: $g-color-grey-medium;
+
+// Typography
+$c-demo-font-size: $shell-g-font-size-small;
+
+$c-demo-font-size-small: $shell-g-font-size-x-small;
+
+// Other
 $c-demo-github-icon-size: 26px;
 
 
 .c-demo {
     background-color: $c-demo-background-color;
-    font-size: to-rem($shell-g-font-size-small);
+    font-size: to-rem($c-demo-font-size);
     padding: to-rem($c-demo-padding / 2);
     padding-left: to-rem($c-demo-padding);
     padding-right: to-rem($c-demo-padding);
@@ -76,8 +86,8 @@ $c-demo-github-icon-size: 26px;
 
 .c-demo__config-items {
     em {
-        color: $g-color-light-grey;
-        font-size: to-rem($shell-g-font-size-x-small);
+        color: $c-demo-foreground-color-light-grey;
+        font-size: to-rem($c-demo-font-size-small);
     }
 }
 
@@ -95,9 +105,9 @@ $c-demo-github-icon-size: 26px;
 .c-demo__example--extra-styling {
 
     > p {
-        color: $g-color-light-grey;
+        color: $c-demo-foreground-color-light-grey;
         font-family: $g-font-family-light;
-        font-size: to-rem($shell-g-font-size-x-small);
+        font-size: to-rem($c-demo-font-size-small);
     }
 }
 
@@ -107,12 +117,15 @@ $c-demo-github-icon-size: 26px;
  */
 
 .c-demo__view-source-code {
-    background-color: $shell-g-color-white;
-    border-top: 1px solid $c-demo-background-color;
-    display: block;
-    font-size: to-rem($shell-g-font-size-small);
-    padding: to-rem($c-demo-view-source-code-padding);
+    display: inline-block;
+    padding-left: to-rem($c-demo-view-source-code-padding);
+    padding-top: to-rem($c-demo-view-source-code-padding);
     text-decoration: none;
+
+    // Remove padding when the demo doesn’t show an example.
+    .has-no-example & {
+        padding: 0;
+    }
 }
 
 /**
