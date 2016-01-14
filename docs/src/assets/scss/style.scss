@@ -78,7 +78,9 @@
  * Helpers.
  */
 
-// Will be removed once Shell Helpers are done
+@import "../../../../helpers";
+
+Will be removed once Shell Helpers are done
 .h-hide {
     display: none !important;
 }
@@ -124,3 +126,13 @@
 
 // GitHub style syntax highlighting
 @import "vendor/github-style-syntax-highlighting";
+
+
+// .test {
+//     @include clear-fix;
+// }
+
+// .test2 {
+//     color: red;
+//     @extend %h-clear-fix;
+// }

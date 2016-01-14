@@ -6,6 +6,17 @@
 /**
  * All of Shell’s mixins and functions.
  *
+ * All mixins and functions use the following annotations from the Sass Docs
+ * documentation system:
+ *
+ * @access
+ * @example
+ * @parameter
+ * @require
+ * @throw
+ *
+ * See: http://sassdoc.com/annotations/
+ *
  * ----------------------------------------------------------------------------
  *
  * CONTENTS:
@@ -30,7 +41,8 @@
 /**
  * Remove the unit of a length.
  *
- * @parameters
+ * @access private
+ *
  * @param {number} $number — Number to remove unit from
  *
  * @example
@@ -61,12 +73,13 @@
  * `-webkit-device-pixel-ratio` for browsers/devices that need it, see:
  * http://caniuse.com/#feat=css-media-resolution.
  *
- * @parameters
+ * @access public
+ *
  * @param {string} $img-url — The image url path
  * @param {number} $img-width [auto] — The image width in `px`
  * @param {number} $img-height [auto] — The image height in `px`
  *
- * @throws
+ * @exception
  * - `$img-url` must be within single or double quotes
  * - `$img-width` and `$img-height` must be a number with a unit
  *
@@ -99,7 +112,8 @@
 /**
  * A simple function to convert pixels to `rem`s or `em`s.
  *
- * @parameters
+ * @access public
+ *
  * @param {number} $value — The `px` amount to be converted
  * @param {number} $parent-value [$shell-g-font-size] — The `px` amount of the
  * parent (`em` only)
@@ -107,7 +121,7 @@
  * @requires
  * function strip-unit()
  *
- * @throws
+ * @exception
  * - `$value` must be a number
  * - `$parent-value` must be a number
  *

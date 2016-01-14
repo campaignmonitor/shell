@@ -1,0 +1,80 @@
+/* ============================================================================
+   @HELPERS
+   ========================================================================= */
+
+
+/**
+ *
+ * Some Helpers, in addition to the class and silent placeholder selectors,
+ * come with a mixin. This serves two purposes:
+ *
+ * 1. To avoid the selector that uses it being hoisted to another location in
+ * the compiled stylesheet which can then effect its specificity
+ *
+ * N.B. always be aware that the mixin implementation will repeat the Helper
+ * CSS in your compiled stylesheet however many times you use it, whereas the
+ * silent placeholder selector implementation won’t do this but in doing this
+ * one issue is created which is explained in #1 above.
+ *
+ * http://csswizardry.com/2014/11/when-to-use-extend-when-to-use-a-mixin/
+ *
+ * ----------------------------------------------------------------------------
+ *
+ * Helpers are namespaced with “h” followed by one hyphen, like this:
+ *
+   h-
+ *
+ * The “h” stands for “helper”.
+ *
+ * See: https://git.campmon.com/Freshview/coding-guidelines/blob/master/css/README.md#the-namespaces
+ *
+ * ----------------------------------------------------------------------------
+ *
+ * CONTENTS:
+ *
+ * 1. Clear fix
+ */
+
+
+
+
+/* 1. Clear fix
+   ========================================================================= */
+
+/**
+ * Make an element expand to contain floated children.
+ */
+
+@mixin clear-fix {
+    &::after {
+        content: "" !important;
+        display: table !important;
+        clear: both !important;
+    }
+}
+
+.h-clear-fix {
+    @include clear-fix;
+}
+
+
+
+
+/* 2. Text
+   ========================================================================= */
+
+.h-text-size-base {
+    font-size: to-rem($shell-g-font-size);
+}
+
+.h-text-size-small {
+    font-size: to-rem($shell-g-font-size);
+}
+
+.h-text-size-x-small {
+    font-size: to-rem($shell-g-font-size);
+}
+
+.h-text-size-xx-small {
+    font-size: to-rem($shell-g-font-size);
+}
