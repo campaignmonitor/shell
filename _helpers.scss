@@ -4,23 +4,12 @@
 
 
 /**
- *
- * Some Helpers, in addition to the class and silent placeholder selectors,
- * come with a mixin. This serves two purposes:
- *
- * 1. To avoid the selector that uses it being hoisted to another location in
- * the compiled stylesheet which can then effect its specificity
- *
- * N.B. always be aware that the mixin implementation will repeat the Helper
- * CSS in your compiled stylesheet however many times you use it, whereas the
- * silent placeholder selector implementation won’t do this but in doing this
- * one issue is created which is explained in #1 above.
- *
- * http://csswizardry.com/2014/11/when-to-use-extend-when-to-use-a-mixin/
+ * To come…
  *
  * ----------------------------------------------------------------------------
  *
- * Helpers are namespaced with “h” followed by one hyphen, like this:
+ * Helpers including any of the Helper mixins are namespaced with “h” followed
+ * by one hyphen, like this:
  *
    h-
  *
@@ -33,6 +22,7 @@
  * CONTENTS:
  *
  * 1. Clear fix
+ * 2. Text
  */
 
 
@@ -45,7 +35,17 @@
  * Make an element expand to contain floated children.
  */
 
-@mixin clear-fix {
+/**
+ * @access public
+ *
+ * @example
+   .selector {
+      […]
+      @include h-clear-fix;
+    }
+ */
+
+@mixin h-clear-fix {
     &::after {
         content: "" !important;
         display: table !important;
@@ -54,7 +54,7 @@
 }
 
 .h-clear-fix {
-    @include clear-fix;
+    @include h-clear-fix;
 }
 
 
@@ -63,18 +63,120 @@
 /* 2. Text
    ========================================================================= */
 
+/**
+ * Sizes.
+ */
+
+// Base
 .h-text-size-base {
-    font-size: to-rem($shell-g-font-size);
+    font-size: to-rem($shell-g-font-size) !important;
 }
 
+// Smaller
 .h-text-size-small {
-    font-size: to-rem($shell-g-font-size);
+    font-size: to-rem($shell-g-font-size-small) !important;
 }
 
 .h-text-size-x-small {
-    font-size: to-rem($shell-g-font-size);
+    font-size: to-rem($shell-g-font-size-x-small) !important;
 }
 
 .h-text-size-xx-small {
-    font-size: to-rem($shell-g-font-size);
+    font-size: to-rem($shell-g-font-size-xx-small) !important;
+}
+
+.h-text-size-xxx-small {
+    font-size: to-rem($shell-g-font-size-xxx-small) !important;
+}
+
+// Larger
+.h-text-size-large {
+    font-size: to-rem($shell-g-font-size-large) !important;
+}
+
+.h-text-size-x-large {
+    font-size: to-rem($shell-g-font-size-x-large) !important;
+}
+
+.h-text-size-xx-large {
+    font-size: to-rem($shell-g-font-size-xx-large) !important;
+}
+
+.h-text-size-xxx-large {
+    font-size: to-rem($shell-g-font-size-xxx-large) !important;
+}
+
+
+/**
+ * Truncate using an ellipsis. This helper will only work on block container
+ * elements so the default is set to `display: block;`, to override this
+ * to be, say, `display: inline-block;` you have two options:
+ *
+ * 1. Use the “Inline” modifier class selector: `.h-text-truncate--inline`.
+ * 2. Use the mixin assigning “inline-block” to the `$display` parameter:
+ *    `@include h-text-truncate(inline-block);`.
+ *
+ * You can assign other `display` values when using the mixin but not sure if
+ * that’ll ever be required outside of `display: block;` and
+ * `display: inline-block;`?
+ */
+
+/**
+ * @access private
+ */
+
+@mixin h-text-truncate-placeholder {
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    white-space: nowrap !important;
+}
+
+/**
+ * @access public
+ *
+ * @param {string} $display — The value of the `display` property
+ *
+ * @example
+   .selector {
+      […]
+      @include h-text-truncate;
+    }
+ */
+
+@mixin h-text-truncate($display: block) {
+    @if $display == block {
+        display: $display !important;
+    } @else {
+        display: $display !important;
+    }
+    @include h-text-truncate-placeholder;
+}
+
+.h-text-truncate {
+    @include h-text-truncate();
+}
+
+/**
+ * Modifier: inline.
+ */
+
+.h-text-truncate--inline {
+    display: inline-block !important;
+}
+
+
+/**
+ * Fonts on OS X will look more consistent with other systems that do not
+ * render text using sub-pixel anti-aliasing.
+ *
+ * N.B. we recommend not to use this and this can be applied globally on the
+ * `<html>` element in “Base” therefore it’s only applied here if that boolean
+ * setting is set to “false”—which is the default.
+ */
+
+@if $shell-base-apply-osx-font-smoothing == false {
+    .h-text-osx-font-smoothing {
+        -moz-osx-font-smoothing: grayscale !important;
+        -webkit-font-smoothing: antialiased !important;
+    }
 }
