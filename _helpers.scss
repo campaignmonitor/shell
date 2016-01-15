@@ -128,6 +128,7 @@
  *
  * 1. Clear fix
  * 2. Text
+ * 3. Hide
  */
 
 
@@ -300,5 +301,109 @@
     .h-text-osx-font-smoothing {
         -moz-osx-font-smoothing: grayscale !important;
         -webkit-font-smoothing: antialiased !important;
+    }
+}
+
+
+
+
+/* 3. Hide
+   ========================================================================= */
+
+/**
+ * Hide elements from both screen readers and the document flow.
+ */
+
+.h-hide {
+    display: none !important;
+}
+
+
+/**
+ * Hide elements only visually but have it available for screen readers.
+ */
+
+/**
+ * @access public
+ *
+ * @example
+   .selector {
+      […]
+      @include h-hide-visually;
+    }
+ */
+
+@mixin h-hide-visually {
+    position: absolute !important;
+    height: 1px !important;
+    width: 1px !important;
+    overflow: hidden !important;
+    clip: rect(0 0 0 0) !important;
+    margin: -1px !important;
+    padding: 0 !important;
+    border: 0 !important;
+}
+
+.h-hide-visually {
+    @include h-hide-visually;
+}
+
+
+/**
+ * Hide elements for JavaScript users and non-JavaScript users, this is
+ * necessary when building accessible and progressively enhanced UI’s.
+ *
+ * These classes are applied to the `<html>` element depending whether
+ * JavaScript is on or off:
+ *
+ * - `no-js` = JavaScript is off
+ * - `js`    = JavaScript is on
+ *
+ * The `no-js` class is to be hard-coded to the `<html>` element in your master
+ * layout, to be replaced with the `js` class, using this JavaScript function:
+ *
+ * To come…
+ *
+ * N.B. these single-line declaration Helpers would typically always be applied
+ * directly in the markup of your components and layout templates.
+ */
+
+// JavaScript is off
+.no-js .h-hide-if-js-off {
+    display: none !important;
+}
+
+// JavaScript is on
+.js .h-hide-if-js-on {
+    display: none !important;
+}
+
+
+/**
+ * Hide and show elements for print media.
+ */
+
+.h-show-for-print,
+.h-show-for-print-inline,
+.h-show-for-print-inline-block {
+    display: none !important;
+}
+
+@media print {
+
+    .h-hide-for-print {
+        display: none !important;
+    }
+
+    .h-show-for-print {
+        display: block !important;
+    }
+
+    .h-show-for-print-inline {
+        display: inline !important;
+    }
+
+    .h-show-for-print-inline-block {
+        display: inline-block !important;
     }
 }
