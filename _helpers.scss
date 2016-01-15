@@ -4,7 +4,112 @@
 
 
 /**
- * To come…
+ * The purpose of Helpers are to provide extremely common style treatments
+ * and UI patterns, some good examples are:
+ *
+ * - Hide an element visually but have it available for screen readers
+ * - Truncate a line of text using an ellipsis
+ * - Applying white space outside of components
+ *
+ * Rather than repeating the CSS for these common style treatments and UI
+ * patterns and also having the cognitive load of remembering their CSS
+ * declarations we instead abstract them into classes and mixins making them
+ * really easy to apply.
+ *
+ * Helpers all follow the single responsibility and open/closed principles
+ * meaning they do one thing and one thing only and are never open to
+ * extension i.e. you cannot modify or add to them in anyway. If you need to
+ * modify any of Shell’s Helpers then you should simply not use them.
+ *
+ * All Helpers come with the `!important` keyword and are imported last in the
+ * Shell framework section of your master stylesheet. This is because Helpers
+ * always need to win in terms of CSS specificity as they should always just
+ * work.
+ *
+ * Implementation
+ *
+ * Helpers are available as classes and sometimes as mixins, here we explain
+ * how to implement the two different types.
+ *
+ * Applying Helpers via their *class* implementation would only be done in two
+ * scenarios:
+ *
+ * - **Outside of components and layout templates:** this’ll be rare with the
+ *   exception of the “Width” and “Spacing” Helpers (see the comments in those
+ *   sections) as most of your UI should be componentised or encapsulated in
+ *   a layout template, for example, a site header or footer. An example
+ *   though, might be that you have a paragraph element (`<p>`) sitting
+ *   between two components in a view that needs to be center aligned, so you
+ *   apply one of the “Text” Helper classes: `.h-text-align-center`, like so:
+ *   `<p class="h-text-align-center">`. However, this could be argued that
+ *   this paragraph element should become a component.
+ *
+ * - **Inside of components and layout templates:** although quite rare there
+ *   are certain scenarios were you would want to be applying a Helper
+ *   directly in the markup of a component or layout template as opposed to
+ *   applying it via the mixin implementation. However, this only ever applies
+ *   to multi-line declaration Helpers, applying a single-line declaration
+ *   Helper, for example:
+ *   ```html
+ *   .h-text-size-base {
+ *     font-size: to-rem($shell-g-font-size) !important;
+ *   }
+ *   ```
+ *   Would always be wrong as you would simply just write that single-line
+ *   declaration directly into your component or layout template CSS, this is
+ *   why single-line declaration Helpers do not come with the mixin version.
+ *   An example of applying a multi-line declaration Helper directly in the
+ *   markup of a component or layout template would be when you’re having to
+ *   create a class to apply a fairly common Helper. For example, you’re
+ *   inside a “Drop Down Menu” component needing to add a piece of text to the
+ *   drop down menu trigger button that is only for screen reader users—using
+ *   the “Hide visually” Helper. The correct way to achieve this would be:
+ *   ```html
+ *   <button type="button" class="c-drop-down-menu__trigger">
+ *     My account
+ *     <span class="h-hide-visually">Open the menu with the enter key and
+ *     close it with the escape key; use the up and down arrow keys to
+ *     navigate.</span>
+ *   </button>
+ *   ```
+ *   Not:
+ *   ```html
+ *   <button type="button" class="c-drop-down-menu__trigger">
+ *     My account
+ *     <span class="c-drop-down-menu__trigger-assistive-text">Open the menu
+ *     with the enter key and close it with the escape key; use the up and
+ *     down arrow keys to navigate.</span>
+ *   </button>
+ *   ```
+ *   ```css
+ *   .c-drop-down-menu__trigger-assistive-text {
+ *     @include h-hide-visually;
+ *   }
+ *   ```
+ *   Knowing when to do this isn’t always clear, it is very case dependant.
+ *
+ * Applying Helpers via their *mixin* implementation would only be done in one
+ * scenario:
+ *
+ * - **Inside of components and layout templates:** any multi-line declaration
+ *   Helpers should be applied via their mixin, this is to keep all the styles
+ *   related to a component or layout template nicely contained. For example,
+ *   you may need to truncate a line of text in a site header layout template
+ *   that is part of a main nav link item—using the “Text truncate” Helper.
+ *   The correct way to achieve this would be:
+ *   ```html
+ *   <a href="some/url" class="l-header__nav-item">List &amp; Subscribers</a>
+ *   ```
+ *   ```css
+ *   .l-header__nav-item {
+ *     […]
+ *     @include h-text-truncate;
+ *   }
+ *   ```
+ *
+ * N.B. it is important not to overuse certain Helpers, the exceptions are the
+ * “Width”, “Spacing”, and “Hide” Helpers. Overuse indicates a UI not being
+ * componentised enough, which can lead to a number of problems.
  *
  * ----------------------------------------------------------------------------
  *
@@ -108,6 +213,23 @@
 
 
 /**
+ * Alignments.
+ */
+
+.h-text-align-center {
+    text-align: center !important;
+}
+
+.h-text-align-left {
+    text-align: left !important;
+}
+
+.h-text-align-right {
+    text-align: right !important;
+}
+
+
+/**
  * Truncate using an ellipsis. This helper will only work on block container
  * elements so the default is set to `display: block;`, to override this
  * to be, say, `display: inline-block;` you have two options:
@@ -169,7 +291,7 @@
  * Fonts on OS X will look more consistent with other systems that do not
  * render text using sub-pixel anti-aliasing.
  *
- * N.B. we recommend not to use this and this can be applied globally on the
+ * N.B. we recommend not to use this. And this can be applied globally on the
  * `<html>` element in “Base” therefore it’s only applied here if that boolean
  * setting is set to “false”—which is the default.
  */
