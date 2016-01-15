@@ -12,9 +12,9 @@
  * - Applying white space outside of components
  *
  * Rather than repeating the CSS for these common style treatments and UI
- * patterns and also having the cognitive load of remembering their CSS
- * declarations we instead abstract them into classes and mixins making them
- * really easy to apply.
+ * patterns over and over and also having the cognitive load of remembering
+ * their CSS declarations we instead abstract them into nicely reusable
+ * classes and mixins.
  *
  * Helpers all follow the single responsibility and open/closed principles
  * meaning they do one thing and one thing only and are never open to
@@ -47,18 +47,18 @@
  * - **Inside of components and layout templates:** although quite rare there
  *   are certain scenarios were you would want to be applying a Helper
  *   directly in the markup of a component or layout template as opposed to
- *   applying it via the mixin implementation. However, this only ever applies
- *   to multi-line declaration Helpers, applying a single-line declaration
- *   Helper, for example:
+ *   applying it via the mixin implementation. However, this typically only
+ *   ever applies to multi-line declaration Helpers, applying a single-line
+ *   declaration Helper, for example:
  *   ```html
  *   .h-text-size-base {
  *     font-size: to-rem($shell-g-font-size) !important;
  *   }
  *   ```
- *   Would always be wrong as you would simply just write that single-line
- *   declaration directly into your component or layout template CSS, this is
- *   why single-line declaration Helpers do not come with the mixin version.
- *   An example of applying a multi-line declaration Helper directly in the
+ *   Wouldn’t be correct as you would simply write that single-line declaration
+ *   directly into your component or layout template CSS, and this is why
+ *   single-line declaration Helpers do not come with a mixin version. An
+ *   example of applying a multi-line declaration Helper directly in the
  *   markup of a component or layout template would be when you’re having to
  *   create a class to apply a fairly common Helper. For example, you’re
  *   inside a “Drop Down Menu” component needing to add a piece of text to the
@@ -86,7 +86,7 @@
  *     @include h-hide-visually;
  *   }
  *   ```
- *   Knowing when to do this isn’t always clear, it is very case dependant.
+ *   Knowing when to do this isn’t always clear and it is very case dependant.
  *
  * Applying Helpers via their *mixin* implementation would only be done in one
  * scenario:
@@ -106,10 +106,16 @@
  *     @include h-text-truncate;
  *   }
  *   ```
+ *   Not:
+ *   ```html
+ *   <a href="some/url" class="l-header__nav-item  u-text-truncate">List &amp;
+ *   Subscribers</a>
+ *   ```
  *
  * N.B. it is important not to overuse certain Helpers, the exceptions are the
- * “Width”, “Spacing”, and “Hide” Helpers. Overuse indicates a UI not being
- * componentised enough, which can lead to a number of problems.
+ * “Width” and “Spacing” Helpers and the “Hide visually” and “Text truncate”
+ * Helpers. Overuse can indicate that your UI is not componentised enough,
+ * which can lead to a number of problems.
  *
  * ----------------------------------------------------------------------------
  *
