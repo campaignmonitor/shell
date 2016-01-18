@@ -184,3 +184,55 @@
   margin: 0 auto;
 }
 
+
+/**
+ * Modifiers: cell widths
+ *
+ * Based on 12 column grid.
+ * `.l-grid__item--12-col` not needed as cells 100% by default
+ */
+
+.l-grid__item--1-col {
+   width: 8.3333%;
+}
+
+.l-grid__item--2-col {
+   width: 16.6666%;
+}
+
+.l-grid__item--3-col {
+    width: 25%;
+}
+
+.l-grid__item--4-col {
+  width: 33.3333%;
+}
+
+.l-grid__item--5-col {
+  width: 41.6666%;
+}
+
+.l-grid__item--6-col {
+   width: 50%;
+}
+
+.l-grid__item--7-col {
+  width: 58.3333%;
+}
+
+.l-grid__item--8-col {
+  width: 66.6666%;
+}
+
+.l-grid__item--9-col {
+  width: 75%;
+}
+
+.l-grid__item--10-col {
+  width: 83.3333%;
+}
+
+.l-grid__item--11-col {
+  width: 91.6666%;
+}
+
