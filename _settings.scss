@@ -651,6 +651,13 @@ $shell-g-textual-inputs: 'input[type="text"],
                           input[type="number"]' !default;
 
 
+/**
+ * Grid gutter
+ */
+
+$shell-g-grid-gutter: 10px !default;
+
+
 
 
 /* 8. Base (Local)

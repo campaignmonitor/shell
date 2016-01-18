@@ -1,0 +1,186 @@
+/* ============================================================================
+   @GRID
+   ========================================================================= */
+
+/**
+ * A powerful fluid and nestable mobile first grid system. It makes use of flexbox and box-sizing to provide features that float-based layouts cannot.
+ *
+ * N.B. grid systems should be thought of as shelves. They contain content but
+ * are not content in themselves. You put up your shelves then fill them with
+ * your stuff. By setting up our grids separately to our components you can
+ * move components around a lot more easily than if they had dimensions
+ * applied to them; this makes our front-ends a lot more adaptable and quick
+ * to work with.
+ *
+ * N.B. you should NEVER apply any styles to a grid item, they are for layout
+ * purposes only. Apply styling to content inside a grid item.
+ *
+ * @markup
+    <div class="l-grid [modifier(s)]">
+        <div class="l-grid__item  l-grid__item--6-col"> [...] </div>
+        <div class="l-grid__item  l-grid__item--6-col"> [...] </div>
+    </div>
+    <div class="l-grid [modifier(s)]">
+        <div class="l-grid__item  l-grid__item--4-col"> [...] </div>
+        <div class="l-grid__item  l-grid__item--4-col"> [...] </div>
+        <div class="l-grid__item  l-grid__item--4-col"> [...] </div>
+    </div>
+ *
+ *
+ * @credit
+ * https://github.com/csswizardry/csswizardry-grids/blob/master/csswizardry-grids.scss
+ * https://github.com/suitcss/components-grid
+ *
+ * ----------------------------------------------------------------------------
+ *
+ * Grid is namespaced with “l” followed by one hyphen, like this:
+ *
+   l-
+ *
+ * The “l” stands for “layout” as Grid is a “Layout Module”.
+ *
+ * See: https://git.campmon.com/Freshview/coding-guidelines/blob/master/css/README.md#the-namespaces
+ */
+
+
+/**
+ * Grid container.
+ *
+ * 1. Negative `margin-left` to negate the columns gutters.
+ */
+
+.l-grid {
+    display: flex;
+    flex-flow: row wrap;
+    margin: 0 0 0 (-$shell-g-grid-gutter); // [1]
+}
+
+
+/**
+ * All content must be contained within child `grid__item` elements.
+ *
+ * 1. Space columns apart.
+ * 2. Allows use of widths
+ * 3. 100% width by default - mobile first
+ */
+
+.l-grid__item {
+  box-sizing: inherit;
+  padding: 0 0 $shell-g-grid-gutter $shell-g-grid-gutter; // [1]
+  flex-basis: auto; // [2]
+  width: 100%; // [3]
+}
+
+
+/**
+ * Modifiers: gutters.
+ */
+
+// Gutterless
+.l-grid--gutterless {
+    margin: 0;
+
+    > .l-grid__item {
+       padding: 0;
+    }
+}
+
+
+// Gutter small
+.l-grid--small {
+    margin-left: -$shell-g-grid-gutter / 2;
+
+    .l-grid__item {
+        padding: 0 0 ($shell-g-grid-gutter / 2) ($shell-g-grid-gutter / 2);
+    }
+}
+
+// Gutter large
+.l-grid--large {
+    margin-left: -$shell-g-grid-gutter * 2;
+
+    .l-grid__item {
+        padding: 0 0 ($shell-g-grid-gutter * 2) ($shell-g-grid-gutter * 2);
+    }
+}
+
+
+/**
+ * Modifiers: vertical alignments.
+ */
+
+// Center alignment
+.l-grid--align-middle {
+    align-items: center;
+}
+
+// Bottom alignment
+.l-grid--align-bottom {
+    align-items: flex-end;
+}
+
+
+/**
+ * Modifiers: horizontal alignments.
+ */
+
+// Right alignment
+.l-grid--align-right {
+    justify-content: flex-end;
+}
+
+// Center alignment
+.l-grid--align-center {
+    justify-content: center;
+}
+
+
+/**
+ * Modifiers: Space between
+ */
+
+.l-grid--space-between {
+    flex-flow: row;
+    justify-content: space-between;
+
+    > .l-grid__item {
+      flex: 1 1 0%;
+      flex-basis: none;
+    }
+}
+
+
+/**
+ * Modifiers: allow items to equal distribute width
+ *
+ * 1. Provide all values to avoid IE10 bug with shorthand flex -
+ * http://git.io/vllC7
+ *    Use `0%` to avoid bug in IE10/11 with unitless flex basis -
+ * http://git.io/vllWx
+ */
+
+.l-grid--fit > .l-grid__item {
+  flex: 1 1 0%; // [1]
+  flex-basis: none;
+}
+
+/**
+ * Modifiers: all items match height of tallest item in a row
+ */
+
+.l-grid--equal-height > .l-grid__item {
+  display: flex;
+}
+
+
+/**
+ * Modifiers: horizontally center one unit
+ *
+ * Set a specific unit to be horizontally centered. Doesn't affect
+ * any other units. Can still contain a child `grid` object.
+ */
+
+.l-grid__item--center {
+  margin: 0 auto;
+}
+
