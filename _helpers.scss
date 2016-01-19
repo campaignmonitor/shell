@@ -21,14 +21,13 @@
  * extension i.e. you cannot modify or add to them in anyway. If you need to
  * modify any of Shell’s Helpers then you should simply not use them.
  *
- * All of the *class* Helpers come with the `!important` keyword. This is
- * because the *class* Helpers always need to win in terms of CSS specificity
- * as they should always just work.
- *
  * Implementation
  *
  * Helpers are available as classes and sometimes as mixins, here we explain
- * how to implement the two different types.
+ * how to implement the two different types. The class versions come with the
+ * `!important` keyword, this is because they always need to win in terms of
+ * CSS specificity as they should always just work. For the mixin versions
+ * it’s optional.
  *
  * Applying Helpers via their *class* implementation would only be done in two
  * scenarios:
