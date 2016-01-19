@@ -21,10 +21,9 @@
  * extension i.e. you cannot modify or add to them in anyway. If you need to
  * modify any of Shell’s Helpers then you should simply not use them.
  *
- * All Helpers come with the `!important` keyword and are imported last in the
- * Shell framework section of your master stylesheet. This is because Helpers
- * always need to win in terms of CSS specificity as they should always just
- * work.
+ * All of the *class* Helpers come with the `!important` keyword. This is
+ * because the *class* Helpers always need to win in terms of CSS specificity
+ * as they should always just work.
  *
  * Implementation
  *
@@ -136,7 +135,7 @@
  * 2. Text
  * 3. Hide
  * 4. Spacing
- * 5.
+ * 5. Horizontal and vertical alignments
  */
 
 
@@ -152,23 +151,28 @@
 /**
  * @access public
  *
+ * @param {boolean} $apply-important-keyword [false] — Whether to apply the
+ * `!important` keyword
+ *
  * @example
    .selector {
       […]
-      @include h-clear-fix;
+      @include h-clear-fix(true);
     }
  */
 
-@mixin h-clear-fix {
+@mixin h-clear-fix($apply-important-keyword: false) {
+    $important-keyword: if($apply-important-keyword, " !important", "");
+
     &::after {
-        content: "" !important;
-        display: table !important;
-        clear: both !important;
+        content: ""#{$important-keyword};
+        display: table#{$important-keyword};
+        clear: both#{$important-keyword};
     }
 }
 
 .h-clear-fix {
-    @include h-clear-fix;
+    @include h-clear-fix(true);
 }
 
 
@@ -253,38 +257,31 @@
  */
 
 /**
- * @access private
- */
-
-@mixin h-text-truncate-placeholder {
-    overflow: hidden !important;
-    text-overflow: ellipsis !important;
-    white-space: nowrap !important;
-}
-
-/**
  * @access public
  *
- * @param {string} $display — The value of the `display` property
+ * @param {boolean} $apply-important-keyword [false] — Whether to apply the
+ * `!important` keyword
+ * @param {string} $display [block] — The value of the `display` property
  *
  * @example
    .selector {
       […]
-      @include h-text-truncate;
+      @include h-text-truncate(true, inline-block);
     }
  */
 
-@mixin h-text-truncate($display: block) {
-    @if $display == block {
-        display: $display !important;
-    } @else {
-        display: $display !important;
-    }
-    @include h-text-truncate-placeholder;
+@mixin h-text-truncate($apply-important-keyword: false, $display: block) {
+    $important-keyword: if($apply-important-keyword, " !important", "");
+    $display-property-value: if($display == block, "block", $display);
+
+    display: #{$display-property-value}#{$important-keyword};
+    overflow: hidden#{$important-keyword};
+    text-overflow: ellipsis#{$important-keyword};
+    white-space: nowrap#{$important-keyword};
 }
 
 .h-text-truncate {
-    @include h-text-truncate();
+    @include h-text-truncate(true);
 }
 
 /**
@@ -305,10 +302,29 @@
  * setting is set to “false”—which is the default.
  */
 
+/**
+ * @access public
+ *
+ * @param {boolean} $apply-important-keyword [false] — Whether to apply the
+ * `!important` keyword
+ *
+ * @example
+   .selector {
+      […]
+      @include h-text-osx-font-smoothing();
+    }
+ */
+
+@mixin h-text-osx-font-smoothing($apply-important-keyword: false) {
+    $important-keyword: if($apply-important-keyword, " !important", "");
+
+    -moz-osx-font-smoothing: grayscale#{$important-keyword};
+    -webkit-font-smoothing: antialiased#{$important-keyword};
+}
+
 @if $shell-base-apply-osx-font-smoothing == false {
     .h-text-osx-font-smoothing {
-        -moz-osx-font-smoothing: grayscale !important;
-        -webkit-font-smoothing: antialiased !important;
+        @include h-text-osx-font-smoothing(true);
     }
 }
 
@@ -334,26 +350,31 @@
 /**
  * @access public
  *
+ * @param {boolean} $apply-important-keyword [false] — Whether to apply the
+ * `!important` keyword
+ *
  * @example
    .selector {
       […]
-      @include h-hide-visually;
+      @include h-hide-visually(true);
     }
  */
 
-@mixin h-hide-visually {
-    position: absolute !important;
-    height: 1px !important;
-    width: 1px !important;
-    overflow: hidden !important;
-    clip: rect(0 0 0 0) !important;
-    margin: -1px !important;
-    padding: 0 !important;
-    border: 0 !important;
+@mixin h-hide-visually($apply-important-keyword: false) {
+    $important-keyword: if($apply-important-keyword, " !important", "");
+
+    position: absolute#{$important-keyword};
+    height: 1px#{$important-keyword};
+    width: 1px#{$important-keyword};
+    overflow: hidden#{$important-keyword};
+    clip: rect(0 0 0 0)#{$important-keyword};
+    margin: -1px #{$important-keyword};
+    padding: 0#{$important-keyword};
+    border: 0#{$important-keyword};
 }
 
 .h-hide-visually {
-    @include h-hide-visually;
+    @include h-hide-visually(true);
 }
 
 
@@ -449,4 +470,76 @@
 // Huge
 .h-spacing-huge {
     margin-bottom: to-rem($shell-g-spacing-huge) !important;
+}
+
+
+
+
+/* 5. Horizontal and vertical alignment
+   ========================================================================= */
+
+/**
+ * Flexbox version, must go on the parent of the element that needs the
+ * alignment.
+ */
+
+/**
+ * @access public
+ *
+ * @param {boolean} $apply-important-keyword [false] — Whether to apply the
+ * `!important` keyword
+ *
+ * @example
+   .selector {
+      […]
+      @include h-align-horiz-and-vert(true);
+    }
+ */
+
+@mixin h-align-horiz-and-vert($apply-important-keyword: false) {
+    $important-keyword: if($apply-important-keyword, " !important", "");
+
+    display: flex#{$important-keyword};
+    align-items: center#{$important-keyword};
+    justify-content: center#{$important-keyword};
+}
+
+.h-align-horiz-and-vert {
+    @include h-align-horiz-and-vert(true);
+}
+
+
+/**
+ * Position and transform version, must go on the element that needs the
+ * alignment and the element’s parent must have `position: relative;`.
+ */
+
+/**
+ * @access public
+ *
+ * @param {boolean} $apply-important-keyword [false] — Whether to apply the
+ * `!important` keyword
+ *
+ * @example
+   .selector {
+      […]
+      @include h-align-horiz-and-vert-alt(true);
+    }
+ */
+
+@mixin h-align-horiz-and-vert-alt($apply-important-keyword: false) {
+    $important-keyword: if($apply-important-keyword, " !important", "");
+
+    left: 50%#{$important-keyword};
+    position: absolute#{$important-keyword};
+    top: 50%#{$important-keyword};
+    transform: translate(-50%, -50%)#{$important-keyword};
+}
+
+.h-align-horiz-and-vert-alt {
+    @include h-align-horiz-and-vert-alt(true);
+}
+
+.h-align-horiz-and-vert-alt-parent {
+    position: relative !important;
 }

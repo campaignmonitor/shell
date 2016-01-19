@@ -280,7 +280,7 @@ ins {
  */
 
 small {
-    font-size: 80%;
+    font-size: 100%;
 }
 
 
@@ -419,18 +419,6 @@ button {
     border: 0; // [1]
     padding: 0; // [1]
     overflow: visible; // [2]
-
-    /**
-     * Work around a Firefox/IE bug where the transparent `<button>` background
-     * results in a loss of the default `<button>` focus styles.
-     *
-     * N.B. this may cause issues, let’s see how testing goes.
-     */
-
-    &:focus {
-        outline: 1px dotted;
-        outline: 5px auto -webkit-focus-ring-color;
-    }
 }
 
 
@@ -480,11 +468,13 @@ input::-moz-focus-inner {
 
 /**
  * Reset `not-allowed` cursor for disabled elements (`<button>`, `<input>`,
- * `<textarea>`, `<optgroup>`, `<option>` and `<fieldset>`).
+ * `<textarea>`, `<optgroup>`, `<option>` and `<fieldset>`) and disable
+ * pointer events.
  */
 
 :disabled {
     cursor: not-allowed;
+    pointer-events: none;
 }
 
 
