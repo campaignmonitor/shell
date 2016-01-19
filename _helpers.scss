@@ -4,7 +4,7 @@
 
 
 /**
- * The purpose of Helpers are to provide extremely common style treatments
+ * The purpose of Helpers is to provide extremely common style treatments
  * and UI patterns, some good examples are:
  *
  * - Hide an element visually but have it available for screen readers
@@ -108,7 +108,7 @@
  *   ```
  *   Not:
  *   ```html
- *   <a href="some/url" class="l-header__nav-item  u-text-truncate">List &amp;
+ *   <a href="some/url" class="l-header__nav-item  h-text-truncate">List &amp;
  *   Subscribers</a>
  *   ```
  *
@@ -135,6 +135,8 @@
  * 1. Clear fix
  * 2. Text
  * 3. Hide
+ * 4. Spacing
+ * 5.
  */
 
 
@@ -366,9 +368,7 @@
  * - `js`    = JavaScript is on
  *
  * The `no-js` class is to be hard-coded to the `<html>` element in your master
- * layout, to be replaced with the `js` class, using this JavaScript function:
- *
- * To come…
+ * layout, to be replaced with the `js` class using JavaScript.
  *
  * N.B. these single-line declaration Helpers would typically always be applied
  * directly in the markup of your components and layout templates.
@@ -412,4 +412,41 @@
     .h-show-for-print-inline-block {
         display: inline-block !important;
     }
+}
+
+
+
+
+/* 4. Spacing
+   ========================================================================= */
+
+/**
+ * Any spacing outside of a component and the grid is handled by one of these
+ * Spacing Helpers. All spacing is downward facing hence `margin-bottom` being
+ * used.
+ */
+
+// Base
+.h-spacing-base {
+    margin-bottom: to-rem($shell-g-spacing-base) !important;
+}
+
+// Tiny
+.h-spacing-tiny {
+    margin-bottom: to-rem($shell-g-spacing-tiny) !important;
+}
+
+// Small
+.h-spacing-small {
+    margin-bottom: to-rem($shell-g-spacing-small) !important;
+}
+
+// Large
+.h-spacing-large {
+    margin-bottom: to-rem($shell-g-spacing-large) !important;
+}
+
+// Huge
+.h-spacing-huge {
+    margin-bottom: to-rem($shell-g-spacing-huge) !important;
 }
