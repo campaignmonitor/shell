@@ -155,6 +155,7 @@
  * 3. Hide
  * 4. Spacing
  * 5. Horizontal and vertical alignment
+ * 6. Intrinsic ratio
  */
 
 
@@ -496,10 +497,6 @@
 
 /* 5. Horizontal and vertical alignment
    ========================================================================= */
-
-/**
- * Easily horizontally and vertically align a block level element.
- */
 
 /**
  * Flexbox version, must go on the parent of the element that needs the
