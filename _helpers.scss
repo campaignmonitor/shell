@@ -9,17 +9,21 @@
  *
  * - Hide an element visually but have it available for screen readers
  * - Truncate a line of text using an ellipsis
- * - Applying white space outside of components
+ * - Applying white space outside of Components
  *
  * Rather than repeating the CSS for these common style treatments and UI
- * patterns over and over and also having the cognitive load of remembering
+ * patterns over and over and also the cognitive load of having to remember
  * their CSS declarations we instead abstract them into nicely reusable
  * classes and mixins.
  *
  * Helpers all follow the single responsibility and open/closed principles
  * meaning they do one thing and one thing only and are never open to
  * extension i.e. you cannot modify or add to them in anyway. If you need to
- * modify any of Shell’s Helpers then you should simply not use them.
+ * modify any of Shell’s Helpers then you should simply not use them. Read more
+ * about these principles and how they apply to CSS here:
+ *
+ * - http://csswizardry.com/2012/04/the-single-responsibility-principle-applied-to-css/
+ * - http://csswizardry.com/2012/06/the-open-closed-principle-applied-to-css/
  *
  * Implementation
  *
@@ -27,24 +31,27 @@
  * how to implement the two different types. The class versions come with the
  * `!important` keyword, this is because they always need to win in terms of
  * CSS specificity as they should always just work. For the mixin versions
- * it’s optional.
+ * this is optional as the mixin versions are typically being applied from
+ * within Components therefore do not require the specificity boost.
  *
  * Applying Helpers via their *class* implementation would only be done in two
  * scenarios:
  *
- * - **Outside of components and layout templates:** this’ll be rare with the
- *   exception of the “Width” and “Spacing” Helpers (see the comments in those
- *   sections) as most of your UI should be componentised or encapsulated in
- *   a layout template, for example, a site header or footer. An example
- *   though, might be that you have a paragraph element (`<p>`) sitting
- *   between two components in a view that needs to be center aligned, so you
- *   apply one of the “Text” Helper classes: `.h-text-align-center`, like so:
+ * - **Outside of Components and Layout Templates:** this’ll be rare as most
+ *   of your UI should be componentised or encapsulated in a Layout Template,
+ *   for example, a site header or footer. An example though, might be that
+ *   you have a paragraph element (`<p>`) sitting between two Components in a
+ *   view that needs to be center aligned, so you apply one of the “Text”
+ *   Helper classes: `.h-text-align-center`, like so:
  *   `<p class="h-text-align-center">`. However, this could be argued that
- *   this paragraph element should become a component.
+ *   this paragraph element should become a Component. The main exception of
+ *   avoiding Helpers outside of Components and Layout Templates is the
+ *   “Spacing” Helpers as we don’t want to bake in outside (`margin`) spacing
+ *   to Components as this makes them contextual to surrounding UI.
  *
- * - **Inside of components and layout templates:** although quite rare there
+ * - **Inside of Components and Layout Templates:** although quite rare there
  *   are certain scenarios were you would want to be applying a Helper
- *   directly in the markup of a component or layout template as opposed to
+ *   directly in the markup of a Component or Layout Template as opposed to
  *   applying it via the mixin implementation. However, this typically only
  *   ever applies to multi-line declaration Helpers, applying a single-line
  *   declaration Helper, for example:
@@ -54,12 +61,12 @@
  *   }
  *   ```
  *   Wouldn’t be correct as you would simply write that single-line declaration
- *   directly into your component or layout template CSS, and this is why
+ *   directly into your Component or Layout Template CSS, and this is why
  *   single-line declaration Helpers do not come with a mixin version. An
  *   example of applying a multi-line declaration Helper directly in the
- *   markup of a component or layout template would be when you’re having to
+ *   markup of a Component or Layout Template would be when you’re having to
  *   create a class to apply a fairly common Helper. For example, you’re
- *   inside a “Drop Down Menu” component needing to add a piece of text to the
+ *   inside a “Drop Down Menu” Component needing to add a piece of text to the
  *   drop down menu trigger button that is only for screen reader users—using
  *   the “Hide visually” Helper. The correct way to achieve this would be:
  *   ```html
@@ -89,10 +96,10 @@
  * Applying Helpers via their *mixin* implementation would only be done in one
  * scenario:
  *
- * - **Inside of components and layout templates:** any multi-line declaration
+ * - **Inside of Components and Layout Templates:** any multi-line declaration
  *   Helpers should be applied via their mixin, this is to keep all the styles
- *   related to a component or layout template nicely contained. For example,
- *   you may need to truncate a line of text in a site header layout template
+ *   related to a Component or Layout Template nicely contained. For example,
+ *   you may need to truncate a line of text in a site header Layout Template
  *   that is part of a main nav link item—using the “Text truncate” Helper.
  *   The correct way to achieve this would be:
  *   ```html
@@ -110,10 +117,23 @@
  *   Subscribers</a>
  *   ```
  *
+ * All the mixins use the following annotations from the Sass Docs
+ * documentation system:
+ *
+ * @access
+ * @example
+ * @parameter
+ * @require
+ * @throw
+ *
+ * See: http://sassdoc.com/annotations/
+ *
+ * ----------------------------------------------------------------------------
+ *
  * N.B. it is important not to overuse certain Helpers, the exceptions are the
- * “Width” and “Spacing” Helpers and the “Hide visually” and “Text truncate”
- * Helpers. Overuse can indicate that your UI is not componentised enough,
- * which can lead to a number of problems.
+ * “Spacing” Helpers and the “Hide visually” and “Text truncate” Helpers.
+ * Overuse can indicate that your UI is not componentised enough, which can
+ * lead to a number of problems.
  *
  * ----------------------------------------------------------------------------
  *
@@ -134,7 +154,7 @@
  * 2. Text
  * 3. Hide
  * 4. Spacing
- * 5. Horizontal and vertical alignments
+ * 5. Horizontal and vertical alignment
  */
 
 
@@ -156,7 +176,7 @@
  * @example
    .selector {
       […]
-      @include h-clear-fix(true);
+      @include h-clear-fix();
     }
  */
 
@@ -242,7 +262,7 @@
 
 
 /**
- * Truncate using an ellipsis. This helper will only work on block container
+ * Truncate using an ellipsis. This Helper will only work on block container
  * elements so the default is set to `display: block;`, to override this
  * to be, say, `display: inline-block;` you have two options:
  *
@@ -265,7 +285,7 @@
  * @example
    .selector {
       […]
-      @include h-text-truncate(true, inline-block);
+      @include h-text-truncate(false, inline-block);
     }
  */
 
@@ -355,7 +375,7 @@
  * @example
    .selector {
       […]
-      @include h-hide-visually(true);
+      @include h-hide-visually();
     }
  */
 
@@ -388,10 +408,10 @@
  * - `js`    = JavaScript is on
  *
  * The `no-js` class is to be hard-coded to the `<html>` element in your master
- * layout, to be replaced with the `js` class using JavaScript.
+ * layout to be replaced with the `js` class using JavaScript.
  *
  * N.B. these single-line declaration Helpers would typically always be applied
- * directly in the markup of your components and layout templates.
+ * directly in the markup of your Components and Layout Templates.
  */
 
 // JavaScript is off
@@ -441,9 +461,9 @@
    ========================================================================= */
 
 /**
- * Any spacing outside of a component and the grid is handled by one of these
- * Spacing Helpers. All spacing is downward facing hence `margin-bottom` being
- * used.
+ * Any spacing outside of a Component is handled by one of these “Spacing”
+ * Helpers unless handled by the “Grid”, and ALL spacing is downward facing
+ * hence only `margin-bottom` being used.
  */
 
 // Base
@@ -478,6 +498,10 @@
    ========================================================================= */
 
 /**
+ * Easily horizontally and vertically align a block level element.
+ */
+
+/**
  * Flexbox version, must go on the parent of the element that needs the
  * alignment.
  */
@@ -491,7 +515,7 @@
  * @example
    .selector {
       […]
-      @include h-align-horiz-and-vert(true);
+      @include h-align-horiz-and-vert();
     }
  */
 
@@ -510,7 +534,7 @@
 
 /**
  * Position and transform version, must go on the element that needs the
- * alignment and the element’s parent must have `position: relative;`.
+ * alignment and the elements parent must have `position: relative;`.
  */
 
 /**
@@ -535,10 +559,122 @@
     transform: translate(-50%, -50%)#{$important-keyword};
 }
 
+.h-align-horiz-and-vert-parent {
+    position: relative !important;
+}
+
 .h-align-horiz-and-vert-alt {
     @include h-align-horiz-and-vert-alt(true);
 }
 
-.h-align-horiz-and-vert-alt-parent {
-    position: relative !important;
+
+
+
+/* 6. Intrinsic ratio
+   ========================================================================= */
+
+/**
+ * A container that retains the aspect ratio of its content when that content
+ * needs to adapt to the width of varying viewports. The content would
+ * typically be embedded elements, like:
+ *
+ * `<video>`
+ * `<iframe>`
+ *
+ * @credit
+ * https://github.com/suitcss/components-flex-embed/blob/master/lib/flex-embed.css
+ */
+
+
+/**
+ * The container, the default ratio is “16:9”.
+ */
+
+/**
+ * @access public
+ *
+ * @param {boolean} $apply-important-keyword [false] — Whether to apply the
+ * `!important` keyword
+ * @param {list} $ratio [16 9] - The ratio of the content e.g. `3 1`, `4 3`.
+ *
+ * @exception
+ * $ratio must be a list
+ *
+ * @example
+   .selector {
+      […]
+      @include h-intrinsic-ratio-container(false, 3 1);
+    }
+ */
+
+@mixin h-intrinsic-ratio-container($apply-important-keyword: false, $ratio: 16 9) {
+    $important-keyword: if($apply-important-keyword, " !important", "");
+    @if length($ratio) < 2 or length($ratio) > 2 {
+        @error "#{inspect($ratio)} must be a list with two values.";
+    }
+
+    display: block#{$important-keyword};
+    height: 0#{$important-keyword};
+    overflow: hidden#{$important-keyword};
+    padding-bottom: percentage(nth($ratio, 2) / nth($ratio, 1))#{$important-keyword};
+    position: relative#{$important-keyword};
+ }
+
+.h-intrinsic-ratio {
+    @include h-intrinsic-ratio-container(true);
 }
+
+/**
+ * Modifiers: different ratios, we can’t use the mixin for this as it’ll
+ * generate too much CSS as we’ll be generating every property for each
+ * modifier when we only need to set the `padding-bottom` property—so we just
+ * override the default ratio of “16:9”.
+ */
+
+// 3:1 aspect ratio
+.h-intrinsic-ratio--3-by-1 {
+    padding-bottom: (100 / 3) * 1% !important;
+}
+
+// 2:1 aspect ratio
+.h-intrinsic-ratio--2-by-1 {
+    padding-bottom: 50% !important;
+}
+
+// 4:3 aspect ratio
+.h-intrinsic-ratio--4-by-3 {
+    padding-bottom: 75% !important;
+}
+
+
+/**
+ * The content.
+ */
+
+/**
+ * @access public
+ *
+ * @param {boolean} $apply-important-keyword [false] — Whether to apply the
+ * `!important` keyword
+ *
+ * @example
+   .selector {
+      […]
+      @include h-intrinsic-ratio-content();
+    }
+ */
+
+ @mixin h-intrinsic-ratio-content($apply-important-keyword: false) {
+    $important-keyword: if($apply-important-keyword, " !important", "");
+
+    position: absolute#{$important-keyword};
+    top: 0#{$important-keyword};
+    left: 0#{$important-keyword};
+    width: 100%#{$important-keyword};
+    height: 100%#{$important-keyword};
+ }
+
+.h-intrinsic-ratio__content {
+    @include h-intrinsic-ratio-content(true);
+}
+

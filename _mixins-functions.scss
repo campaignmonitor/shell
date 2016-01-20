@@ -80,8 +80,8 @@
  * @param {number} $img-height [auto] — The image height in `px`
  *
  * @exception
- * - `$img-url` must be within single or double quotes
- * - `$img-width` and `$img-height` must be a number with a unit
+ * $img-url must be within single or double quotes
+ * $img-width and $img-height must be a number with a unit
  *
  * @example
    .selector {
@@ -122,8 +122,8 @@
  * function strip-unit()
  *
  * @exception
- * - `$value` must be a number
- * - `$parent-value` must be a number
+ * $value must be a number
+ * $parent-value must be a number
  *
  * @example
    .selector {
@@ -142,10 +142,10 @@
 
 @function to-em($value, $parent-value: $shell-g-font-size) {
     @if type-of($value) == 'string' {
-        @error 'You have to enter a number, you entered "#{$value}"';
+        @error 'You have to enter a number, you entered "#{$value}".';
     }
     @if type-of($parent-value) == 'string' {
-        @error 'You have to enter a number, you entered "#{$parent-value}"';
+        @error 'You have to enter a number, you entered "#{$parent-value}".';
     }
 
     @return strip-unit($value) / strip-unit($parent-value) * 1em;
@@ -158,7 +158,7 @@
 
 @function to-rem($value) {
     @if type-of($value) == 'string' {
-        @error 'You have to enter a number, you entered "#{$value}"';
+        @error 'You have to enter a number, you entered "#{$value}".';
     }
 
     @return strip-unit($value) / strip-unit($shell-g-font-size) * 1rem;
