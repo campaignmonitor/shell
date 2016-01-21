@@ -60,6 +60,7 @@ $l-header-link-hover-color: darken($l-header-link-color, 26%);
 
 .l-header__nav__link {
     border-bottom: 1px solid transparent;
+    color: $shell-g-color-white;
     display: inline-block;
     text-decoration: none;
     transition: all 0.10s ease-out;
@@ -67,7 +68,7 @@ $l-header-link-hover-color: darken($l-header-link-color, 26%);
     &:hover,
     &:focus,
     &.is-active {
-        border-bottom-color: $shell-g-color-link-hover;
-        color: $shell-g-color-link-hover;
+        border-bottom-color: darken($shell-g-color-white, 30%);
+        color: darken($shell-g-color-white, 30%);
     }
 }

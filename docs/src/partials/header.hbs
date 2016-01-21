@@ -28,10 +28,10 @@
     {{!-- Main nav --}}
     <nav class="l-header__nav" role="navigation" aria-label="Main navigation">
         <ul>
-            {{#withSort pages 'data.navOrder'}}
+            {{#withSort pages 'data.nav-order'}}
                 {{#if data.slug}}
                     <li class="l-header__nav__item">
-                        <a href="{{relative ../../page.dest this.dest}}" class="l-header__nav__link {{#is ../../page.dest this.dest}}is-active{{/is}}">{{data.navTitle}}</a>
+                        <a href="{{relative ../../page.dest this.dest}}" class="l-header__nav__link {{#is ../../page.dest this.dest}}is-active{{/is}}">{{data.nav-title}}</a>
                     </li>
                 {{/if}}
             {{/withSort}}

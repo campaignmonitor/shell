@@ -27,6 +27,15 @@ module.exports = function(grunt) {
             assemble: {
                 files: ['src/**/*'],
                 tasks: ['assemble']
+            },
+
+            // Uglify
+            uglify: {
+                files: ['src/assets/js/**/*.js'],
+                tasks: ['uglify:dev'],
+                options: {
+                    spawn: false
+                }
             }
         },
 
@@ -80,6 +89,43 @@ module.exports = function(grunt) {
             }
         },
 
+        // Uglify
+        uglify: {
+            dev: {
+                options: {
+                    mangle: false,
+                    beautify: {
+                        width: 80,
+                        beautify: true
+                    },
+                    screwIE8: true
+                },
+                files: {
+                    'dist/js/script.js':
+                    [
+                        'src/assets/js/helpers.js',
+                        'src/assets/js/append-anchors.js',
+                        'src/assets/js/script.js'
+                    ]
+                }
+            },
+            dist: {
+                options: {
+                    compress: true,
+                    preserveComments: false,
+                    report: 'gzip',
+                },
+                files: {
+                    'dist/js/script.js':
+                    [
+                        'src/assets/js/helpers.js',
+                        'src/assets/js/append-anchors.js',
+                        'src/assets/js/script.js'
+                    ]
+                }
+            }
+        },
+
         // SVG-min
         svgmin: {
             options: {
@@ -128,6 +174,7 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-assemble');
     grunt.loadNpmTasks('grunt-contrib-clean');
     grunt.loadNpmTasks('grunt-contrib-connect');
+    grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-postcss');
     grunt.loadNpmTasks('grunt-sass');
@@ -140,6 +187,7 @@ module.exports = function(grunt) {
         'sass',
         'postcss',
         'svgmin',
+        'uglify:dev',
         'connect',
         'watch'
     ]);
@@ -150,6 +198,7 @@ module.exports = function(grunt) {
         'sass',
         'postcss',
         'svgmin',
+        'uglify:dist',
         'assemble'
     ]);
 
