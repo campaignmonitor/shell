@@ -6,6 +6,17 @@
 /**
  * All of Shell’s mixins and functions.
  *
+ * All mixins and functions use the following annotations from the Sass Docs
+ * documentation system:
+ *
+ * @access
+ * @example
+ * @parameter
+ * @require
+ * @throw
+ *
+ * See: http://sassdoc.com/annotations/
+ *
  * ----------------------------------------------------------------------------
  *
  * CONTENTS:
@@ -14,6 +25,66 @@
  * 2. HiDPI background images (Mixin)
  * 3. Convert pixels to `rem`s or `em`s (Function)
  */
+
+
+
+// This placeholder will be replaced with the breakpoint name
+$mixin-breakpoint-name-placeholder: "{bp}";
+
+@mixin generate-at-breakpoints($class, $breakpoint-names: ()) {
+
+  $all-breakpoint-names: map-keys($breakpoints);
+
+  @if $breakpoint-names == all {
+    $breakpoint-names: $all-breakpoint-names;
+  }
+
+  // When specifying one breakpoint with an explicit limit, it needs to be
+  // casted into a list of lists, otherwise the mixin assumes there is a
+  // breakpoint called 'max'
+  @if length($breakpoint-names) == 2 and index((min max),
+    nth($breakpoint-names, 2)) {
+    $breakpoint-names-copy: $breakpoint-names;
+    $breakpoint-names: ();
+    $breakpoint-names: append($breakpoint-names, (nth($breakpoint-names-copy, 1)
+     nth($breakpoint-names-copy, 2)));
+  }
+
+  @each $breakpoint-name in $breakpoint-names {
+
+    $limit: "min";
+    $joiner: "from";
+
+    @if type-of($breakpoint-name) == list {
+      $limit: nth($breakpoint-name, 2);
+      $breakpoint-name: nth($breakpoint-name, 1);
+    }
+    @else {
+      // Palm is a special case where it uses a `max-width` media query
+      $limit: if($breakpoint-name == "palm", "max", "min");
+    }
+
+    @if $limit == max {
+      $joiner: "up-to";
+    }
+
+    @include respond-to($breakpoint-name, $limit) {
+      $final-selector: "#{$class}-#{$joiner}-#{$breakpoint-name}";
+
+      // Handle complex selectors by replacing a placeholder with the
+      // breakpoint suffix
+      @if str_index($class, $mixin-breakpoint-name-placeholder) != null {
+        $final-selector: str-replace($class, $mixin-breakpoint-name-placeholder,
+         "-#{$joiner}-#{$breakpoint-name}");
+      }
+
+      // Output a class which applies the style at a given breakpoint
+      #{$final-selector} {
+        @content;
+      }
+    }
+  }
+}
 
 
 
@@ -30,7 +101,8 @@
 /**
  * Remove the unit of a length.
  *
- * @parameters
+ * @access private
+ *
  * @param {number} $number — Number to remove unit from
  *
  * @example
@@ -61,14 +133,15 @@
  * `-webkit-device-pixel-ratio` for browsers/devices that need it, see:
  * http://caniuse.com/#feat=css-media-resolution.
  *
- * @parameters
+ * @access public
+ *
  * @param {string} $img-url — The image url path
  * @param {number} $img-width [auto] — The image width in `px`
  * @param {number} $img-height [auto] — The image height in `px`
  *
- * @throws
- * - `$img-url` must be within single or double quotes
- * - `$img-width` and `$img-height` must be a number with a unit
+ * @exception
+ * $img-url must be within single or double quotes
+ * $img-width and $img-height must be a number with a unit
  *
  * @example
    .selector {
@@ -99,7 +172,8 @@
 /**
  * A simple function to convert pixels to `rem`s or `em`s.
  *
- * @parameters
+ * @access public
+ *
  * @param {number} $value — The `px` amount to be converted
  * @param {number} $parent-value [$shell-g-font-size] — The `px` amount of the
  * parent (`em` only)
@@ -107,9 +181,9 @@
  * @requires
  * function strip-unit()
  *
- * @throws
- * - `$value` must be a number
- * - `$parent-value` must be a number
+ * @exception
+ * $value must be a number
+ * $parent-value must be a number
  *
  * @example
    .selector {
@@ -128,10 +202,10 @@
 
 @function to-em($value, $parent-value: $shell-g-font-size) {
     @if type-of($value) == 'string' {
-        @error 'You have to enter a number, you entered "#{$value}"';
+        @error 'You have to enter a number, you entered "#{$value}".';
     }
     @if type-of($parent-value) == 'string' {
-        @error 'You have to enter a number, you entered "#{$parent-value}"';
+        @error 'You have to enter a number, you entered "#{$parent-value}".';
     }
 
     @return strip-unit($value) / strip-unit($parent-value) * 1em;
@@ -144,7 +218,7 @@
 
 @function to-rem($value) {
     @if type-of($value) == 'string' {
-        @error 'You have to enter a number, you entered "#{$value}"';
+        @error 'You have to enter a number, you entered "#{$value}".';
     }
 
     @return strip-unit($value) / strip-unit($shell-g-font-size) * 1rem;

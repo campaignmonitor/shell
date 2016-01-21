@@ -1,0 +1,677 @@
+/* ============================================================================
+   @HELPERS
+   ========================================================================= */
+
+
+/**
+ * The purpose of Helpers is to provide extremely common style treatments
+ * and UI patterns, some good examples are:
+ *
+ * - Hide an element visually but have it available for screen readers
+ * - Truncate a line of text using an ellipsis
+ * - Applying white space outside of Components
+ *
+ * Rather than repeating the CSS for these common style treatments and UI
+ * patterns over and over and also the cognitive load of having to remember
+ * their CSS declarations we instead abstract them into nicely reusable
+ * classes and mixins.
+ *
+ * Helpers all follow the single responsibility and open/closed principles
+ * meaning they do one thing and one thing only and are never open to
+ * extension i.e. you cannot modify or add to them in any way. If you need to
+ * modify any of Shell’s Helpers then you should simply not use them. Read more
+ * about these principles and how they apply to CSS here:
+ *
+ * - http://csswizardry.com/2012/04/the-single-responsibility-principle-applied-to-css/
+ * - http://csswizardry.com/2012/06/the-open-closed-principle-applied-to-css/
+ *
+ * Implementation
+ *
+ * Helpers are available as classes and sometimes as mixins, here we explain
+ * how to implement the two different types. The class versions come with the
+ * `!important` keyword, this is because they always need to win in terms of
+ * CSS specificity as they should always just work. For the mixin versions
+ * this is optional as the mixin versions are typically being applied from
+ * within Components therefore do not require the specificity boost.
+ *
+ * Applying Helpers via their *class* implementation would only be done in two
+ * scenarios:
+ *
+ * - **Outside of Components and Layout Templates:** this’ll be rare as most
+ *   of your UI should be componentised or encapsulated in a Layout Template,
+ *   for example, a site header or footer. An example though, might be that
+ *   you have a paragraph element (`<p>`) sitting between two Components in a
+ *   view that needs to be center aligned, so you apply one of the “Text”
+ *   Helper classes: `.h-text-align-center`, like so:
+ *   `<p class="h-text-align-center">`. However, this could be argued that
+ *   this paragraph element should become a Component. The main exception of
+ *   avoiding Helpers outside of Components and Layout Templates is the
+ *   “Spacing” Helpers as we don’t want to bake in outside (`margin`) spacing
+ *   to Components as this makes them contextual to surrounding UI.
+ *
+ * - **Inside of Components and Layout Templates:** although quite rare there
+ *   are certain scenarios were you would want to be applying a Helper
+ *   directly in the markup of a Component or Layout Template as opposed to
+ *   applying it via the mixin implementation. However, this typically only
+ *   ever applies to multi-line declaration Helpers, applying a single-line
+ *   declaration Helper, for example:
+ *   ```html
+ *   .h-text-size-base {
+ *     font-size: to-rem($shell-g-font-size) !important;
+ *   }
+ *   ```
+ *   Wouldn’t be correct as you would simply write that single-line declaration
+ *   directly into your Component or Layout Template CSS, and this is why
+ *   single-line declaration Helpers do not come with a mixin version. An
+ *   example of applying a multi-line declaration Helper directly in the
+ *   markup of a Component or Layout Template would be when you’re having to
+ *   create a class to apply a fairly common Helper. For example, you’re
+ *   inside a “Drop Down Menu” Component needing to add a piece of text to the
+ *   drop down menu trigger button that is only for screen reader users—using
+ *   the “Hide visually” Helper. The correct way to achieve this would be:
+ *   ```html
+ *   <button type="button" class="c-drop-down-menu__trigger">
+ *     My account
+ *     <span class="h-hide-visually">Open the menu with the enter key and
+ *     close it with the escape key; use the up and down arrow keys to
+ *     navigate.</span>
+ *   </button>
+ *   ```
+ *   Not:
+ *   ```html
+ *   <button type="button" class="c-drop-down-menu__trigger">
+ *     My account
+ *     <span class="c-drop-down-menu__trigger-assistive-text">Open the menu
+ *     with the enter key and close it with the escape key; use the up and
+ *     down arrow keys to navigate.</span>
+ *   </button>
+ *   ```
+ *   ```css
+ *   .c-drop-down-menu__trigger-assistive-text {
+ *     @include h-hide-visually;
+ *   }
+ *   ```
+ *   Knowing when to do this isn’t always clear and it is very case dependant.
+ *
+ * Applying Helpers via their *mixin* implementation would only be done in one
+ * scenario:
+ *
+ * - **Inside of Components and Layout Templates:** any multi-line declaration
+ *   Helpers should be applied via their mixin, this is to keep all the styles
+ *   related to a Component or Layout Template nicely contained. For example,
+ *   you may need to truncate a line of text in a site header Layout Template
+ *   that is part of a main nav link item—using the “Text truncate” Helper.
+ *   The correct way to achieve this would be:
+ *   ```html
+ *   <a href="some/url" class="l-header__nav-item">List &amp; Subscribers</a>
+ *   ```
+ *   ```css
+ *   .l-header__nav-item {
+ *     […]
+ *     @include h-text-truncate;
+ *   }
+ *   ```
+ *   Not:
+ *   ```html
+ *   <a href="some/url" class="l-header__nav-item  h-text-truncate">List &amp;
+ *   Subscribers</a>
+ *   ```
+ *
+ * All the mixins use the following annotations from the Sass Docs
+ * documentation system:
+ *
+ * @access
+ * @example
+ * @parameter
+ * @require
+ * @throw
+ *
+ * See: http://sassdoc.com/annotations/
+ *
+ * ----------------------------------------------------------------------------
+ *
+ * N.B. it is important not to overuse certain Helpers, the exceptions are the
+ * “Spacing” Helpers and the “Hide visually” and “Text truncate” Helpers.
+ * Overuse can indicate that your UI is not componentised enough, which can
+ * lead to a number of problems.
+ *
+ * ----------------------------------------------------------------------------
+ *
+ * Helpers including any of the Helper mixins are namespaced with “h” followed
+ * by one hyphen, like this:
+ *
+   h-
+ *
+ * The “h” stands for “helper”.
+ *
+ * See: https://git.campmon.com/Freshview/coding-guidelines/blob/master/css/README.md#the-namespaces
+ *
+ * ----------------------------------------------------------------------------
+ *
+ * CONTENTS:
+ *
+ * 1. Clear fix
+ * 2. Text
+ * 3. Hide
+ * 4. Spacing
+ * 5. Horizontal and vertical alignment
+ * 6. Intrinsic ratio
+ */
+
+
+
+
+/* 1. Clear fix
+   ========================================================================= */
+
+/**
+ * Make an element expand to contain floated children.
+ */
+
+/**
+ * @access public
+ *
+ * @param {boolean} $apply-important-keyword [false] — Whether to apply the
+ * `!important` keyword
+ *
+ * @example
+   .selector {
+      […]
+      @include h-clear-fix();
+    }
+ */
+
+@mixin h-clear-fix($apply-important-keyword: false) {
+    $important-keyword: if($apply-important-keyword, " !important", "");
+
+    &::after {
+        clear: both#{$important-keyword};
+        content: ""#{$important-keyword};
+        display: table#{$important-keyword};
+    }
+}
+
+.h-clear-fix {
+    @include h-clear-fix(true);
+}
+
+
+
+
+/* 2. Text
+   ========================================================================= */
+
+/**
+ * Sizes.
+ */
+
+// Base
+.h-text-size-base {
+    font-size: to-rem($shell-g-font-size) !important;
+}
+
+// Smaller
+.h-text-size-small {
+    font-size: to-rem($shell-g-font-size-small) !important;
+}
+
+.h-text-size-x-small {
+    font-size: to-rem($shell-g-font-size-x-small) !important;
+}
+
+.h-text-size-xx-small {
+    font-size: to-rem($shell-g-font-size-xx-small) !important;
+}
+
+.h-text-size-xxx-small {
+    font-size: to-rem($shell-g-font-size-xxx-small) !important;
+}
+
+// Larger
+.h-text-size-large {
+    font-size: to-rem($shell-g-font-size-large) !important;
+}
+
+.h-text-size-x-large {
+    font-size: to-rem($shell-g-font-size-x-large) !important;
+}
+
+.h-text-size-xx-large {
+    font-size: to-rem($shell-g-font-size-xx-large) !important;
+}
+
+.h-text-size-xxx-large {
+    font-size: to-rem($shell-g-font-size-xxx-large) !important;
+}
+
+
+/**
+ * Alignments.
+ */
+
+.h-text-align-center {
+    text-align: center !important;
+}
+
+.h-text-align-left {
+    text-align: left !important;
+}
+
+.h-text-align-right {
+    text-align: right !important;
+}
+
+
+/**
+ * Truncate using an ellipsis. This Helper will only work on block container
+ * elements so the default is set to `display: block;`, to override this
+ * to be, say, `display: inline-block;` you have two options:
+ *
+ * 1. Use the “Inline” modifier class selector: `.h-text-truncate--inline`.
+ * 2. Use the mixin assigning “inline-block” to the `$display` parameter:
+ *    `@include h-text-truncate(inline-block);`.
+ *
+ * You can assign other `display` values when using the mixin but not sure if
+ * that’ll ever be required outside of `display: block;` and
+ * `display: inline-block;`?
+ */
+
+/**
+ * @access public
+ *
+ * @param {boolean} $apply-important-keyword [false] — Whether to apply the
+ * `!important` keyword
+ * @param {string} $display [block] — The value of the `display` property
+ *
+ * @example
+   .selector {
+      […]
+      @include h-text-truncate(false, inline-block);
+    }
+ */
+
+@mixin h-text-truncate($apply-important-keyword: false, $display: block) {
+    $important-keyword: if($apply-important-keyword, " !important", "");
+    $display-property-value: if($display == block, "block", $display);
+
+    display: #{$display-property-value}#{$important-keyword};
+    overflow: hidden#{$important-keyword};
+    text-overflow: ellipsis#{$important-keyword};
+    white-space: nowrap#{$important-keyword};
+}
+
+.h-text-truncate {
+    @include h-text-truncate(true);
+}
+
+/**
+ * Modifier: inline.
+ */
+
+.h-text-truncate--inline {
+    display: inline-block !important;
+}
+
+
+/**
+ * Fonts on OS X will look more consistent with other systems that do not
+ * render text using sub-pixel anti-aliasing.
+ *
+ * N.B. we recommend not to use this. And this can be applied globally on the
+ * `<html>` element in “Base” therefore it’s only applied here if that boolean
+ * setting is set to “false”—which is the default.
+ */
+
+/**
+ * @access public
+ *
+ * @param {boolean} $apply-important-keyword [false] — Whether to apply the
+ * `!important` keyword
+ *
+ * @example
+   .selector {
+      […]
+      @include h-text-osx-font-smoothing();
+    }
+ */
+
+@mixin h-text-osx-font-smoothing($apply-important-keyword: false) {
+    $important-keyword: if($apply-important-keyword, " !important", "");
+
+    -moz-osx-font-smoothing: grayscale#{$important-keyword};
+    -webkit-font-smoothing: antialiased#{$important-keyword};
+}
+
+@if $shell-base-apply-osx-font-smoothing == false {
+    .h-text-osx-font-smoothing {
+        @include h-text-osx-font-smoothing(true);
+    }
+}
+
+
+
+
+/* 3. Hide
+   ========================================================================= */
+
+/**
+ * Hide elements from both screen readers and the document flow.
+ */
+
+.h-hide {
+    display: none !important;
+}
+
+
+/**
+ * Hide elements only visually but have it available for screen readers.
+ */
+
+/**
+ * @access public
+ *
+ * @param {boolean} $apply-important-keyword [false] — Whether to apply the
+ * `!important` keyword
+ *
+ * @example
+   .selector {
+      […]
+      @include h-hide-visually();
+    }
+ */
+
+@mixin h-hide-visually($apply-important-keyword: false) {
+    $important-keyword: if($apply-important-keyword, " !important", "");
+
+    border: 0#{$important-keyword};
+    clip: rect(0 0 0 0)#{$important-keyword};
+    height: 1px#{$important-keyword};
+    margin: -1px #{$important-keyword};
+    overflow: hidden#{$important-keyword};
+    padding: 0#{$important-keyword};
+    position: absolute#{$important-keyword};
+    width: 1px#{$important-keyword};
+}
+
+.h-hide-visually {
+    @include h-hide-visually(true);
+}
+
+
+/**
+ * Hide elements for JavaScript users and non-JavaScript users, this is
+ * necessary when building accessible and progressively enhanced UI’s.
+ *
+ * These classes are applied to the `<html>` element depending whether
+ * JavaScript is on or off:
+ *
+ * - `no-js` = JavaScript is off
+ * - `js`    = JavaScript is on
+ *
+ * The `no-js` class is to be hard-coded to the `<html>` element in your master
+ * layout to be replaced with the `js` class using JavaScript.
+ *
+ * N.B. these single-line declaration Helpers would typically always be applied
+ * directly in the markup of your Components and Layout Templates.
+ */
+
+// JavaScript is off
+.no-js .h-hide-if-js-off {
+    display: none !important;
+}
+
+// JavaScript is on
+.js .h-hide-if-js-on {
+    display: none !important;
+}
+
+
+/**
+ * Hide and show elements for print media.
+ */
+
+.h-show-for-print,
+.h-show-for-print-inline,
+.h-show-for-print-inline-block {
+    display: none !important;
+}
+
+@media print {
+
+    .h-hide-for-print {
+        display: none !important;
+    }
+
+    .h-show-for-print {
+        display: block !important;
+    }
+
+    .h-show-for-print-inline {
+        display: inline !important;
+    }
+
+    .h-show-for-print-inline-block {
+        display: inline-block !important;
+    }
+}
+
+
+
+
+/* 4. Spacing
+   ========================================================================= */
+
+/**
+ * Any spacing outside of a Component is handled by one of these “Spacing”
+ * Helpers unless handled by the “Grid”, and ALL spacing is downward facing
+ * hence only `margin-bottom` being used.
+ */
+
+// Base
+.h-spacing-base {
+    margin-bottom: to-rem($shell-g-spacing-base) !important;
+}
+
+// Tiny
+.h-spacing-tiny {
+    margin-bottom: to-rem($shell-g-spacing-tiny) !important;
+}
+
+// Small
+.h-spacing-small {
+    margin-bottom: to-rem($shell-g-spacing-small) !important;
+}
+
+// Large
+.h-spacing-large {
+    margin-bottom: to-rem($shell-g-spacing-large) !important;
+}
+
+// Huge
+.h-spacing-huge {
+    margin-bottom: to-rem($shell-g-spacing-huge) !important;
+}
+
+
+
+
+/* 5. Horizontal and vertical alignment
+   ========================================================================= */
+
+/**
+ * Flexbox version, must go on the parent of the element that needs the
+ * alignment.
+ */
+
+/**
+ * @access public
+ *
+ * @param {boolean} $apply-important-keyword [false] — Whether to apply the
+ * `!important` keyword
+ *
+ * @example
+   .selector {
+      […]
+      @include h-align-horizontally-and-vertically();
+    }
+ */
+
+@mixin h-align-horizontally-and-vertically($apply-important-keyword: false) {
+    $important-keyword: if($apply-important-keyword, " !important", "");
+
+    align-items: center#{$important-keyword};
+    display: flex#{$important-keyword};
+    justify-content: center#{$important-keyword};
+}
+
+.h-align-horizontally-and-vertically {
+    @include h-align-horizontally-and-vertically(true);
+}
+
+
+/**
+ * Position and transform version, must go on the element that needs the
+ * alignment and the elements parent must have `position: relative;`.
+ */
+
+/**
+ * @access public
+ *
+ * @param {boolean} $apply-important-keyword [false] — Whether to apply the
+ * `!important` keyword
+ *
+ * @example
+   .selector {
+      […]
+      @include h-align-horizontally-and-vertically-alt();
+    }
+ */
+
+@mixin h-align-horizontally-and-vertically-alt($apply-important-keyword: false) {
+    $important-keyword: if($apply-important-keyword, " !important", "");
+
+    left: 50%#{$important-keyword};
+    position: absolute#{$important-keyword};
+    top: 50%#{$important-keyword};
+    transform: translate(-50%, -50%)#{$important-keyword};
+}
+
+.h-align-horizontally-and-vertically-parent {
+    position: relative !important;
+}
+
+.h-align-horizontally-and-vertically-alt {
+    @include h-align-horizontally-and-vertically-alt(true);
+}
+
+
+
+
+/* 6. Intrinsic ratio
+   ========================================================================= */
+
+/**
+ * A container that retains the aspect ratio of its content when that content
+ * needs to adapt to the width of varying viewports. The content would
+ * typically be embedded elements, like:
+ *
+ * `<video>`
+ * `<iframe>`
+ *
+ * @credit
+ * https://github.com/suitcss/components-flex-embed/blob/master/lib/flex-embed.css
+ */
+
+
+/**
+ * The container, the default ratio is “16:9”.
+ */
+
+/**
+ * @access public
+ *
+ * @param {boolean} $apply-important-keyword [false] — Whether to apply the
+ * `!important` keyword
+ * @param {list} $ratio [16 9] - The ratio of the content e.g. `3 1`, `4 3`.
+ *
+ * @exception
+ * $ratio must be a list
+ *
+ * @example
+   .selector {
+      […]
+      @include h-intrinsic-ratio-container(false, 3 1);
+    }
+ */
+
+@mixin h-intrinsic-ratio-container($apply-important-keyword: false, $ratio: 16 9) {
+    $important-keyword: if($apply-important-keyword, " !important", "");
+    @if length($ratio) < 2 or length($ratio) > 2 {
+        @error "#{inspect($ratio)} must be a list with two values.";
+    }
+
+    display: block#{$important-keyword};
+    height: 0#{$important-keyword};
+    overflow: hidden#{$important-keyword};
+    padding-bottom: percentage(nth($ratio, 2) / nth($ratio, 1))#{$important-keyword};
+    position: relative#{$important-keyword};
+ }
+
+.h-intrinsic-ratio {
+    @include h-intrinsic-ratio-container(true);
+}
+
+/**
+ * Modifiers: different ratios, we can’t use the mixin for this as it’ll
+ * generate too much CSS as we’ll be generating every property for each
+ * modifier when we only need to set the `padding-bottom` property—so we just
+ * override the default ratio of “16:9”.
+ */
+
+// 3:1 aspect ratio
+.h-intrinsic-ratio--3-by-1 {
+    padding-bottom: (100 / 3) * 1% !important;
+}
+
+// 2:1 aspect ratio
+.h-intrinsic-ratio--2-by-1 {
+    padding-bottom: 50% !important;
+}
+
+// 4:3 aspect ratio
+.h-intrinsic-ratio--4-by-3 {
+    padding-bottom: 75% !important;
+}
+
+
+/**
+ * The content.
+ */
+
+/**
+ * @access public
+ *
+ * @param {boolean} $apply-important-keyword [false] — Whether to apply the
+ * `!important` keyword
+ *
+ * @example
+   .selector {
+      […]
+      @include h-intrinsic-ratio-content();
+    }
+ */
+
+ @mixin h-intrinsic-ratio-content($apply-important-keyword: false) {
+    $important-keyword: if($apply-important-keyword, " !important", "");
+
+    height: 100%#{$important-keyword};
+    left: 0#{$important-keyword};
+    position: absolute#{$important-keyword};
+    top: 0#{$important-keyword};
+    width: 100%#{$important-keyword};
+ }
+
+.h-intrinsic-ratio__content {
+    @include h-intrinsic-ratio-content(true);
+}
+
