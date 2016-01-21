@@ -28,6 +28,66 @@
 
 
 
+// This placeholder will be replaced with the breakpoint name
+$mixin-breakpoint-name-placeholder: "{bp}";
+
+@mixin generate-at-breakpoints($class, $breakpoint-names: ()) {
+
+  $all-breakpoint-names: map-keys($breakpoints);
+
+  @if $breakpoint-names == all {
+    $breakpoint-names: $all-breakpoint-names;
+  }
+
+  // When specifying one breakpoint with an explicit limit, it needs to be
+  // casted into a list of lists, otherwise the mixin assumes there is a
+  // breakpoint called 'max'
+  @if length($breakpoint-names) == 2 and index((min max),
+    nth($breakpoint-names, 2)) {
+    $breakpoint-names-copy: $breakpoint-names;
+    $breakpoint-names: ();
+    $breakpoint-names: append($breakpoint-names, (nth($breakpoint-names-copy, 1)
+     nth($breakpoint-names-copy, 2)));
+  }
+
+  @each $breakpoint-name in $breakpoint-names {
+
+    $limit: "min";
+    $joiner: "from";
+
+    @if type-of($breakpoint-name) == list {
+      $limit: nth($breakpoint-name, 2);
+      $breakpoint-name: nth($breakpoint-name, 1);
+    }
+    @else {
+      // Palm is a special case where it uses a `max-width` media query
+      $limit: if($breakpoint-name == "palm", "max", "min");
+    }
+
+    @if $limit == max {
+      $joiner: "up-to";
+    }
+
+    @include respond-to($breakpoint-name, $limit) {
+      $final-selector: "#{$class}-#{$joiner}-#{$breakpoint-name}";
+
+      // Handle complex selectors by replacing a placeholder with the
+      // breakpoint suffix
+      @if str_index($class, $mixin-breakpoint-name-placeholder) != null {
+        $final-selector: str-replace($class, $mixin-breakpoint-name-placeholder,
+         "-#{$joiner}-#{$breakpoint-name}");
+      }
+
+      // Output a class which applies the style at a given breakpoint
+      #{$final-selector} {
+        @content;
+      }
+    }
+  }
+}
+
+
+
 
 /* 1. Shell-only mixins and functions
    ========================================================================= */

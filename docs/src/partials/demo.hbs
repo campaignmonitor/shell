@@ -10,29 +10,43 @@
         {{!-- //Heading and intro --}}
 
         {{!-- What’s configurable --}}
-        <h3 class="heading heading--size-xxx-small heading--weight-semi-bold  c-demo__spacing c-demo__heading-sub">What’s configurable</h3>
-        <ul class="c-demo__config-items{{#if remove-example}} c-demo__spacing {{else}} c-demo__spacing-large{{/if}}  c-bulleted-list">
-            {{{ config-items }}}
-        </ul>
+        {{#if has-config-items}}
+            <details>
+                <summary class="heading heading--size-xxx-small heading--weight-semi-bold  c-demo__spacing c-demo__heading-sub">
+                    What’s configurable
+                </summary>
+                <ul class="c-demo__config-items{{#if remove-example}} c-demo__spacing {{else}} c-demo__spacing-large{{/if}}  c-bulleted-list">
+                    {{{ config-items }}}
+                </ul>
+            </details>
+        {{else}}
+            <p class="heading heading--size-xxx-small heading--weight-semi-bold  c-demo__spacing c-demo__heading-sub">
+                No configurable options
+            </p>
+        {{/if}}
         {{!-- //What’s configurable --}}
 
     </div>
 
 
     {{!-- Example incl. markup --}}
-    {{#if remove-example}}<div class="h-hide">{{/if}}
-    <h3 class="heading heading--size-xxx-small heading--weight-semi-bold  c-demo__spacing c-demo__heading-sub">Example</h3>
-    <div class="c-demo__example{{#if example-styles}} c-demo__example--extra-styling{{/if}} c-demo__spacing">
-        {{> (lookup . 'example-markup') }}
-    </div>
-    <div class="c-demo__code">
+    {{#if remove-example}}
+        <div class="h-hide">
+    {{/if}}
+            <h3 class="heading heading--size-xxx-small heading--weight-semi-bold  c-demo__spacing c-demo__heading-sub">Example</h3>
+            <div class="c-demo__example{{#if example-styles}} c-demo__example--extra-styling{{/if}} c-demo__spacing">
+                {{> (lookup . 'example-markup') }}
+            </div>
+            <div class="c-demo__code">
 {{#markdown}}
 ```handlebars
 {{> (lookup . 'example-markup') }}
 ```
 {{/markdown}}
-    </div>
-    {{#if remove-example}}</div>{{/if}}
+            </div>
+    {{#if remove-example}}
+        </div>
+    {{/if}}
     {{!-- //Example incl. markup --}}
 
     {{!-- View source code link --}}

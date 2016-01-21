@@ -1,8 +1,9 @@
 ---
 title: Base
-navTitle: Base
+nav-title: Base
 slug: base
-navOrder: 4
+nav-order: 4
+demo-url: https://git.campmon.com/Freshview/shell/blob/master/_base.scss
 ---
 
 
@@ -22,6 +23,7 @@ navOrder: 4
                 <li>Apply a background colour.</li>
             </ul>
         "
+        has-config-items=true
         config-items="
             <li><code class='c-inline-code'>background</code></li>
             <li><code class='c-inline-code'>color</code></li>
@@ -34,7 +36,7 @@ navOrder: 4
         remove-example=true
         example-markup="markup-base-links"
         example-styles=false
-        source-code-url="https://git.campmon.com/Freshview/shell/blob/master/_base.scss"
+        source-code-url=demo-url
 }}
 {{!-- //Root element demo --}}
 
@@ -49,6 +51,7 @@ navOrder: 4
                 <li>Apply a text underline either for the default state or for the hover/focus states, and depending on what state the underline is applied to remove or apply it on hover/focus.</li><li>Apply an <strong>optional</strong> transition for the link text colour when the hover/focus states are applied.</li>
             </ul>
         "
+        has-config-items=true
         config-items="
             <li><code class='c-inline-code'>color</code> <em>both default and hover/focus states</em></li>
             <li><code class='c-inline-code'>text-underline</code> <em>both default and hover/focus states</em></li>
@@ -58,7 +61,7 @@ navOrder: 4
         remove-example=false
         example-markup="markup-base-links"
         example-styles=false
-        source-code-url="https://git.campmon.com/Freshview/shell/blob/master/_base.scss"
+        source-code-url=demo-url
 }}
 {{!-- //Links demo --}}
 
@@ -73,6 +76,7 @@ navOrder: 4
                 <li>The rule is rendered with a <code class='c-inline-code'>border</code>.</li>
             </ul>
         "
+        has-config-items=true
         config-items="
             <li><code class='c-inline-code'>border-top-color</code></li>
             <li><code class='c-inline-code'>border-top-style</code></li>
@@ -81,6 +85,27 @@ navOrder: 4
         remove-example=false
         example-markup="markup-base-horizontal-rule"
         example-styles=true
-        source-code-url="https://git.campmon.com/Freshview/shell/blob/master/_base.scss"
+        source-code-url=demo-url
 }}
 {{!-- //Horizontal rule demo --}}
+
+
+{{!-- Images demo --}}
+{{>demo this
+        id="base-demo-images"
+        heading="Images"
+        intro="
+            <ul class='c-bulleted-list'>
+                <li>Make images responsive, i.e., keep images from scaling
+                beyond the width of their parent container.</li>
+                <li>Provide a way to turn the default responsive styles off
+                for any images within embeddable third-party widgets—particularly Google Maps—as their images cannot be responsive. For Google Maps, Shell uses two of the possible map container selectors from Google, and for other third-party widgets Shell provides a generic container selector.</li>
+            </ul>
+        "
+        has-config-items=false
+        remove-example=false
+        example-markup="markup-base-images"
+        example-styles=false
+        source-code-url=demo-url
+}}
+{{!-- //Images demo --}}
