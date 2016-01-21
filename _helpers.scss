@@ -512,11 +512,11 @@
  * @example
    .selector {
       […]
-      @include h-align-horiz-and-vert();
+      @include h-align-horizontally-and-vertically();
     }
  */
 
-@mixin h-align-horiz-and-vert($apply-important-keyword: false) {
+@mixin h-align-horizontally-and-vertically($apply-important-keyword: false) {
     $important-keyword: if($apply-important-keyword, " !important", "");
 
     align-items: center#{$important-keyword};
@@ -524,8 +524,8 @@
     justify-content: center#{$important-keyword};
 }
 
-.h-align-horiz-and-vert {
-    @include h-align-horiz-and-vert(true);
+.h-align-horizontally-and-vertically {
+    @include h-align-horizontally-and-vertically(true);
 }
 
 
@@ -543,11 +543,11 @@
  * @example
    .selector {
       […]
-      @include h-align-horiz-and-vert-alt(true);
+      @include h-align-horizontally-and-vertically-alt();
     }
  */
 
-@mixin h-align-horiz-and-vert-alt($apply-important-keyword: false) {
+@mixin h-align-horizontally-and-vertically-alt($apply-important-keyword: false) {
     $important-keyword: if($apply-important-keyword, " !important", "");
 
     left: 50%#{$important-keyword};
@@ -556,12 +556,12 @@
     transform: translate(-50%, -50%)#{$important-keyword};
 }
 
-.h-align-horiz-and-vert-parent {
+.h-align-horizontally-and-vertically-parent {
     position: relative !important;
 }
 
-.h-align-horiz-and-vert-alt {
-    @include h-align-horiz-and-vert-alt(true);
+.h-align-horizontally-and-vertically-alt {
+    @include h-align-horizontally-and-vertically-alt(true);
 }
 
 
