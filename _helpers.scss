@@ -18,7 +18,7 @@
  *
  * Helpers all follow the single responsibility and open/closed principles
  * meaning they do one thing and one thing only and are never open to
- * extension i.e. you cannot modify or add to them in anyway. If you need to
+ * extension i.e. you cannot modify or add to them in any way. If you need to
  * modify any of Shell’s Helpers then you should simply not use them. Read more
  * about these principles and how they apply to CSS here:
  *
@@ -185,9 +185,9 @@
     $important-keyword: if($apply-important-keyword, " !important", "");
 
     &::after {
+        clear: both#{$important-keyword};
         content: ""#{$important-keyword};
         display: table#{$important-keyword};
-        clear: both#{$important-keyword};
     }
 }
 
@@ -383,14 +383,14 @@
 @mixin h-hide-visually($apply-important-keyword: false) {
     $important-keyword: if($apply-important-keyword, " !important", "");
 
-    position: absolute#{$important-keyword};
-    height: 1px#{$important-keyword};
-    width: 1px#{$important-keyword};
-    overflow: hidden#{$important-keyword};
-    clip: rect(0 0 0 0)#{$important-keyword};
-    margin: -1px #{$important-keyword};
-    padding: 0#{$important-keyword};
     border: 0#{$important-keyword};
+    clip: rect(0 0 0 0)#{$important-keyword};
+    height: 1px#{$important-keyword};
+    margin: -1px #{$important-keyword};
+    overflow: hidden#{$important-keyword};
+    padding: 0#{$important-keyword};
+    position: absolute#{$important-keyword};
+    width: 1px#{$important-keyword};
 }
 
 .h-hide-visually {
@@ -519,8 +519,8 @@
 @mixin h-align-horiz-and-vert($apply-important-keyword: false) {
     $important-keyword: if($apply-important-keyword, " !important", "");
 
-    display: flex#{$important-keyword};
     align-items: center#{$important-keyword};
+    display: flex#{$important-keyword};
     justify-content: center#{$important-keyword};
 }
 
@@ -664,11 +664,11 @@
  @mixin h-intrinsic-ratio-content($apply-important-keyword: false) {
     $important-keyword: if($apply-important-keyword, " !important", "");
 
+    height: 100%#{$important-keyword};
+    left: 0#{$important-keyword};
     position: absolute#{$important-keyword};
     top: 0#{$important-keyword};
-    left: 0#{$important-keyword};
     width: 100%#{$important-keyword};
-    height: 100%#{$important-keyword};
  }
 
 .h-intrinsic-ratio__content {
