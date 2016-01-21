@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en-au">
+<html lang="en-au" class="no-js">
 
 <head>
     <meta charset="utf-8">
@@ -12,10 +12,16 @@
 
 <body>
 
-    <svg style="display: none;">
+    <svg class="h-hide">
+    
         <symbol id="github-icon" viewBox="0 0 512 512">
             <path d="M256 55.083c-113.764 0-206 92.237-206 206 0 91.013 59.025 168.246 140.887 195.472 10.293 1.91 13.613-4.46 13.613-9.908V408.29C147.2 420.765 135.262 384 135.262 384c-9.354-23.822-22.865-30.16-22.865-30.16-18.693-12.773 1.408-12.522 1.408-12.522 20.688 1.46 31.584 21.24 31.584 21.24 18.372 31.483 48.18 22.38 59.948 17.117 1.844-13.312 7.174-22.397 13.076-27.544-45.768-5.196-93.848-22.866-93.848-101.81 0-22.497 8.047-40.87 21.225-55.288-2.145-5.197-9.187-26.152 1.98-54.518 0 0 17.3-5.532 56.662 21.123 16.445-4.56 34.066-6.856 51.568-6.94 17.502.084 35.154 2.38 51.6 6.94 39.33-26.655 56.596-21.123 56.596-21.123 11.217 28.365 4.158 49.32 2.03 54.518 13.21 14.417 21.206 32.79 21.206 55.29 0 79.126-48.197 96.544-94.064 101.64 7.375 6.39 14.133 18.944 14.133 38.156v56.53c0 5.48 3.302 11.902 13.747 9.89C403.057 429.265 462 352.08 462 261.085c0-113.763-92.238-206-206-206z"/>
         </symbol>
+    
+        <symbol id="link-icon" viewBox="0 0 100 100">
+            <path d="M57.04 68.077L43.29 81.83c-6.92 6.92-18.157 6.952-25.117.098-.016-.015-.032-.032-.048-.05l-.05-.047c-6.853-6.96-6.822-18.198.098-25.117l15.156-15.156c6.92-6.92 18.157-6.95 25.117-.097l.05.048.05.05h-.002c.833.845 1.564 1.752 2.193 2.707l-4.118 4.118c-1.174 1.174-2.962 1.363-4.338.575-.18-.228-.375-.448-.584-.66-3.21-3.152-8.385-3.136-11.573.052L24.963 63.506c-3.19 3.19-3.205 8.368-.048 11.578 3.21 3.157 8.39 3.142 11.578-.048l8.615-8.615c3.777 1.64 7.914 2.19 11.933 1.657zM81.83 18.07v.002c-6.96-6.854-18.198-6.823-25.117.097L42.96 31.922c4.02-.533 8.156.018 11.932 1.655l8.615-8.615c3.19-3.19 8.368-3.205 11.578-.048 3.157 3.21 3.142 8.39-.048 11.578L59.88 51.65c-3.187 3.188-8.362 3.204-11.572.052-.208-.212-.403-.432-.584-.66-1.376-.788-3.164-.6-4.338.575l-4.118 4.118c.63.955 1.36 1.863 2.192 2.707.015.017.032.033.05.05l.047.05v-.002c6.96 6.854 18.2 6.823 25.118-.097L81.83 43.287c6.92-6.92 6.952-18.157.098-25.117-.015-.017-.032-.033-.05-.05l-.047-.05z"/>
+        </symbol>
+    
     </svg>
 
     <header role="banner" class="l-header">
@@ -62,7 +68,7 @@
     
     </header>
 
-    <main role="main" class="l-main">
+    <main role="main" class="l-main  js-main">
         
 
 
@@ -91,9 +97,12 @@
         
         </div>
 
-        <h3 class="heading heading--size-xxx-small heading--weight-semi-bold  c-demo__spacing c-demo__heading-sub">What’s configurable</h3>
-        <ul class="c-demo__config-items c-demo__spacing   c-bulleted-list">
-            
+            <details>
+                <summary class="heading heading--size-xxx-small heading--weight-semi-bold  c-demo__spacing c-demo__heading-sub">
+                    What’s configurable
+                </summary>
+                <ul class="c-demo__config-items c-demo__spacing   c-bulleted-list">
+                    
             <li><code class='c-inline-code'>background</code></li>
             <li><code class='c-inline-code'>color</code></li>
             <li><code class='c-inline-code'>line-height</code></li>
@@ -102,20 +111,21 @@
             <li><code class='c-inline-code'>font-weight</code></li>
             <li><em>OS X font smoothing—optional</em></li>
         
-        </ul>
+                </ul>
+            </details>
 
     </div>
 
 
-    <div class="h-hide">
-    <h3 class="heading heading--size-xxx-small heading--weight-semi-bold  c-demo__spacing c-demo__heading-sub">Example</h3>
-    <div class="c-demo__example c-demo__spacing">
-        <a href="#">A link</a>
-    </div>
-    <div class="c-demo__code">
+        <div class="h-hide">
+            <h3 class="heading heading--size-xxx-small heading--weight-semi-bold  c-demo__spacing c-demo__heading-sub">Example</h3>
+            <div class="c-demo__example c-demo__spacing">
+                <a href="#">A link</a>
+            </div>
+            <div class="c-demo__code">
 <pre><code class="language-handlebars"><span class="tag">&lt;<span class="title">a</span> <span class="attribute">href</span>=<span class="value">"#"</span>&gt;</span>A link<span class="tag">&lt;/<span class="title">a</span>&gt;</span></code></pre>
-    </div>
-    </div>
+            </div>
+        </div>
 
     <a href="https://git.campmon.com/Freshview/shell/blob/master/_base.scss" class="c-demo__view-source-code" target="_blank">
         <svg class="c-demo__view-source-code-icon">
@@ -141,28 +151,30 @@
         
         </div>
 
-        <h3 class="heading heading--size-xxx-small heading--weight-semi-bold  c-demo__spacing c-demo__heading-sub">What’s configurable</h3>
-        <ul class="c-demo__config-items c-demo__spacing-large  c-bulleted-list">
-            
+            <details>
+                <summary class="heading heading--size-xxx-small heading--weight-semi-bold  c-demo__spacing c-demo__heading-sub">
+                    What’s configurable
+                </summary>
+                <ul class="c-demo__config-items c-demo__spacing-large  c-bulleted-list">
+                    
             <li><code class='c-inline-code'>color</code> <em>both default and hover/focus states</em></li>
             <li><code class='c-inline-code'>text-underline</code> <em>both default and hover/focus states</em></li>
             <li><code class='c-inline-code'>transition-duration</code> <em>optional</em></li>
             <li><code class='c-inline-code'>transition-timing-function</code> <em>optional</em></li>
         
-        </ul>
+                </ul>
+            </details>
 
     </div>
 
 
-    
-    <h3 class="heading heading--size-xxx-small heading--weight-semi-bold  c-demo__spacing c-demo__heading-sub">Example</h3>
-    <div class="c-demo__example c-demo__spacing">
-        <a href="#">A link</a>
-    </div>
-    <div class="c-demo__code">
+            <h3 class="heading heading--size-xxx-small heading--weight-semi-bold  c-demo__spacing c-demo__heading-sub">Example</h3>
+            <div class="c-demo__example c-demo__spacing">
+                <a href="#">A link</a>
+            </div>
+            <div class="c-demo__code">
 <pre><code class="language-handlebars"><span class="tag">&lt;<span class="title">a</span> <span class="attribute">href</span>=<span class="value">"#"</span>&gt;</span>A link<span class="tag">&lt;/<span class="title">a</span>&gt;</span></code></pre>
-    </div>
-    
+            </div>
 
     <a href="https://git.campmon.com/Freshview/shell/blob/master/_base.scss" class="c-demo__view-source-code" target="_blank">
         <svg class="c-demo__view-source-code-icon">
@@ -188,31 +200,106 @@
         
         </div>
 
-        <h3 class="heading heading--size-xxx-small heading--weight-semi-bold  c-demo__spacing c-demo__heading-sub">What’s configurable</h3>
-        <ul class="c-demo__config-items c-demo__spacing-large  c-bulleted-list">
-            
+            <details>
+                <summary class="heading heading--size-xxx-small heading--weight-semi-bold  c-demo__spacing c-demo__heading-sub">
+                    What’s configurable
+                </summary>
+                <ul class="c-demo__config-items c-demo__spacing-large  c-bulleted-list">
+                    
             <li><code class='c-inline-code'>border-top-color</code></li>
             <li><code class='c-inline-code'>border-top-style</code></li>
             <li><code class='c-inline-code'>border-top-width</code></li>
         
-        </ul>
+                </ul>
+            </details>
 
     </div>
 
 
-    
-    <h3 class="heading heading--size-xxx-small heading--weight-semi-bold  c-demo__spacing c-demo__heading-sub">Example</h3>
-    <div class="c-demo__example c-demo__example--extra-styling c-demo__spacing">
-        <p>Turpis urna, est parturient, mattis auctor scelerisque lundium? Facilisis ultrices! Mauris, vel urna cum. Adipiscing.</p>
-        <hr>
-        <p>Nunc dis dis phasellus, porttitor elementum, augue tristique purus diam et tincidunt odio enim nunc rhoncus.</p>
-    </div>
-    <div class="c-demo__code">
+            <h3 class="heading heading--size-xxx-small heading--weight-semi-bold  c-demo__spacing c-demo__heading-sub">Example</h3>
+            <div class="c-demo__example c-demo__example--extra-styling c-demo__spacing">
+                <p>Turpis urna, est parturient, mattis auctor scelerisque lundium? Facilisis ultrices! Mauris, vel urna cum. Adipiscing.</p>
+                <hr>
+                <p>Nunc dis dis phasellus, porttitor elementum, augue tristique purus diam et tincidunt odio enim nunc rhoncus.</p>
+            </div>
+            <div class="c-demo__code">
 <pre><code class="language-handlebars"><span class="tag">&lt;<span class="title">p</span>&gt;</span>Turpis urna, est parturient, mattis auctor scelerisque lundium? Facilisis ultrices! Mauris, vel urna cum. Adipiscing.<span class="tag">&lt;/<span class="title">p</span>&gt;</span>
 <span class="tag">&lt;<span class="title">hr</span>&gt;</span>
 <span class="tag">&lt;<span class="title">p</span>&gt;</span>Nunc dis dis phasellus, porttitor elementum, augue tristique purus diam et tincidunt odio enim nunc rhoncus.<span class="tag">&lt;/<span class="title">p</span>&gt;</span></code></pre>
+            </div>
+
+    <a href="https://git.campmon.com/Freshview/shell/blob/master/_base.scss" class="c-demo__view-source-code" target="_blank">
+        <svg class="c-demo__view-source-code-icon">
+            <use xlink:href="#github-icon" />
+        </svg>
+        <span class="c-demo__view-source-code-text">View source code</span>
+    </a>
+
+</section>
+
+
+<section class="c-demo" id="base-demo-images">
+
+    <div class="l-container">
+
+        <h2 class="heading heading--size-small  c-demo__spacing c-demo__heading">Images</h2>
+        <div class="c-demo__intro">
+            
+            <ul class='c-bulleted-list'>
+                <li>Make images responsive, i.e., keep images from scaling
+                beyond the width of their parent container.</li>
+                <li>Provide a way to turn the default responsive styles off
+                for any images within embeddable third-party widgets—particularly Google Maps—as their images cannot be responsive. For Google Maps, Shell uses two of the possible map container selectors from Google, and for other third-party widgets Shell provides a generic container selector.</li>
+            </ul>
+        
+        </div>
+
+            <p class="heading heading--size-xxx-small heading--weight-semi-bold  c-demo__spacing c-demo__heading-sub">
+                No configurable options
+            </p>
+
     </div>
-    
+
+
+            <h3 class="heading heading--size-xxx-small heading--weight-semi-bold  c-demo__spacing c-demo__heading-sub">Example</h3>
+            <div class="c-demo__example c-demo__spacing">
+                <!-- Responsive image constrained in a container -->
+                <div class="l-container">
+                    <img src="https://unsplash.it/900/400/?random" alt="">
+                </div>
+                
+                <!-- Remove responsive image styles for third-party widgets -->
+                <div class="remove-responsive-images">
+                    <img src="https://unsplash.it/900/400/?random" alt="">
+                </div>
+                
+                <div class="map_canvas">
+                    <img src="https://unsplash.it/900/400/?random" alt="">
+                </div>
+                
+                <div id="map_canvas">
+                    <img src="https://unsplash.it/900/400/?random" alt="">
+                </div>
+            </div>
+            <div class="c-demo__code">
+<pre><code class="language-handlebars"><span class="comment">&lt;!-- Responsive image constrained in a container --&gt;</span>
+<span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"l-container"</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">img</span> <span class="attribute">src</span>=<span class="value">"https://unsplash.it/900/400/?random"</span> <span class="attribute">alt</span>=<span class="value">""</span>&gt;</span>
+<span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+
+<span class="comment">&lt;!-- Remove responsive image styles for third-party widgets --&gt;</span>
+<span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"remove-responsive-images"</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">img</span> <span class="attribute">src</span>=<span class="value">"https://unsplash.it/900/400/?random"</span> <span class="attribute">alt</span>=<span class="value">""</span>&gt;</span>
+<span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+
+<span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"map_canvas"</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">img</span> <span class="attribute">src</span>=<span class="value">"https://unsplash.it/900/400/?random"</span> <span class="attribute">alt</span>=<span class="value">""</span>&gt;</span>
+<span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+
+<span class="tag">&lt;<span class="title">div</span> <span class="attribute">id</span>=<span class="value">"map_canvas"</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">img</span> <span class="attribute">src</span>=<span class="value">"https://unsplash.it/900/400/?random"</span> <span class="attribute">alt</span>=<span class="value">""</span>&gt;</span>
+<span class="tag">&lt;/<span class="title">div</span>&gt;</span></code></pre>
+            </div>
 
     <a href="https://git.campmon.com/Freshview/shell/blob/master/_base.scss" class="c-demo__view-source-code" target="_blank">
         <svg class="c-demo__view-source-code-icon">
@@ -225,6 +312,6 @@
 
     </main>
 
-
+    <script src="js/script.js"></script>
   </body>
 </html>
