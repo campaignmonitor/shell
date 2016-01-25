@@ -191,16 +191,16 @@
    ========================================================================= */
 
 /**
- * This mixin makes it really easy for a Shell consumer to apply appropriate
- * Shell “Helpers” and all of Shell’s “Grid column widths” at any width based
+ * This mixin makes it really easy for a Shell consumer to apply certain Shell
+ * “Helpers” and ALL of Shell’s “Grid column widths” at any width based
  * breakpoint(s).
  *
  * N.B. the mixin does not support height based breakpoints or breakpoint
  * ranges.
  *
- * The mixin can also be used outside of Shell for your project styles but its
- * main purpose is to allow Shell consumers to easily apply certain parts of
- * Shell at any breakpoint, mainly the “Grid”.
+ * The mixin can also be used outside of Shell in project styles but its main
+ * purpose is to allow Shell consumers to easily apply certain parts of Shell
+ * at any breakpoint(s), mainly the “Grid”.
  *
  * The mixin will accept any of the named breakpoints set in “Settings ->
  * Breakpoints” (which can be renamed and breakpoints redefined in your
@@ -211,18 +211,17 @@
  * breakpoint, the default is minimum width media queries to favour the
  * “Mobile First” approach.
  *
- * Using this mixin requires you to “opt in” as Shell doesn’t want to assume
- * all of its consumers are building responsive UI’s requiring the CSS this
- * mixin generates. Opting in requires changing the relevant Boolean settings
- * found in: “Settings -> Grid” and “Settings -> Helpers”. For example if you
- * want the “Hide Visually” Helper to use this mixin you change its Boolean
- * setting: `$shell-helper-hide-visually-apply-at-breakpoints` to `true` then
- * define the breakpoints you need via its other setting:
+ * By default the mixin won’t generate any outputted CSS as Shell doesn’t want
+ * to assume all of its consumers are building responsive UI’s requiring the
+ * CSS this mixin generates. In order for the mixin to generate any outputted
+ * CSS it requires assigning breakpoints to each of the relevant settings
+ * found in: “Settings -> Grid” and “Settings -> Helpers”. For example, if you
+ * want the “Hide Visually” Helper to use this mixin you define the
+ * breakpoints you need via its setting:
  * `$shell-helper-hide-visually-define-breakpoints`. So in the “Shell
  * Overrides” section of your project “Settings” you will have something like
  * this, depending on what breakpoints you choose:
  *
-   $shell-helper-hide-visually-apply-at-breakpoints: true;
    $shell-helper-hide-visually-define-breakpoints: (400 max, lap, desk);
  *
  * You define your breakpoints in a comma separated list enclosed in curly
@@ -238,27 +237,19 @@
  *
    $shell-helper-hide-visually-define-breakpoints: (all, 900);
  *
- * Shell uses a default breakpoint (which can be redefined) if nothing is
- * defined on the consumer side. The default breakpoint is “Lap” which is
- * stored in a setting set in “Settings -> Breakpoints”. So all of the settings
- * for defining breakpoints are defaulted to this, like so:
+ * Shell has a global breakpoint setting set in “Settings -> Breakpoints” so
+ * that you can easily share breakpoints across everything that uses the
+ * mixin. By default Shell doesn’t apply any breakpoints to this setting, this
+ * is for the Shell consumer to apply if they need the ability for shared
+ * global breakpoints. So in the “Shell Overrides” section of your project
+ * “Settings” you could do this:
  *
-   $shell-helper-hide-visually-define-breakpoints: $shell-g-default-breakpoint-for-apply-at-breakpoint-mixin !default;
- *
- * And in “Settings -> Breakpoints” it is set like this:
- *
-   $shell-g-default-breakpoint-for-apply-at-breakpoint-mixin: lap !default;
- *
- * Ready for you to override in the breakpoint settings found in “Settings ->
- * Helpers” and “Settings -> Grid”. You can also override the
- * `$shell-helper-hide-visually-define-breakpoints` settings to be any
- * breakpoint(s) you wish, which is useful when you want a bunch of things
- * using the same breakpoint.
+   $shell-g-global-breakpoints: (lap, desk);
  */
 
 /// Outputs minimum and maximum width media-queries for some of Shell’s
 /// “Helpers” and all of Shell’s “Grid column widths” at breakpoints defined
-/// by the consumers of Shell, via settings.
+/// by the consumers of Shell.
 ///
 /// @author Chris Pearce
 ///
@@ -270,18 +261,16 @@
 /// breakpoints e.g. `(palm, lap)`, integers e.g. `(400, 740)`, or “all” to
 /// generate all the named breakpoints e.g. `(all)`. Each breakpoint can be
 /// accompanied with a “max” or “min” limit label to tell the mixin to
-/// generate a `min-width` or `max-width` media query, the default is
-/// `min-width`, e.g. `(lap-large max, 460 max)`.
+/// generate a `min-width` or `max-width` media query e.g.
+/// `(lap-large max, 460 max)`, the default is `min-width`.
 ///
 /// @todo
-/// Make it so you can pass in a number breakpoint with “all”
+/// Allow number breakpoints to be passed in along with “all”
 /// Add @exception rules, see: https://gist.github.com/terkel/4373420
 ///
 /// @example scss - Usage
-///     $shell-helper-hide-visually-apply-at-breakpoints: true;
 ///     $shell-helper-hide-visually-define-breakpoints: (400 max, lap);
 ///
-///     $shell-grid-col-4-apply-at-breakpoints: true;
 ///     $shell-grid-col-4-define-breakpoints: (lap-large);
 /// @example css - CSS Output
 ///     @media (max-width: 25em) {

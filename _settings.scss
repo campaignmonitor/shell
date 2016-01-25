@@ -393,11 +393,12 @@ $shell-g-breakpoints: (
 
 
 /**
- * The setting used (“Lap”) for the default breakpoint applied to the
- * “Apply at breakpoints” mixin.
+ * The setting used for the default breakpoint applied to the
+ * “Apply at breakpoints” mixin, left empty to be populated by the Shell
+ * consumer.
  */
 
-$shell-g-default-breakpoint-for-apply-at-breakpoint-mixin: lap !default;
+$shell-g-global-breakpoints: () !default;
 
 
 
@@ -759,16 +760,76 @@ $shell-container-maximum-width-tiny: 640 !default;
    ========================================================================= */
 
 /**
- * Booleans for applying certain “Helpers” at breakpoints.
+ * Define breakpoints for certain “Helpers”.
  */
-
-// Text truncate
-$shell-helper-apply-text-truncate-at-breakpoints: false !default;
-
 
 /**
- * If opted in then define the breakpoints for certain “Helpers”.
+ * Text sizes.
  */
 
-// Text truncate
-$shell-helper-define-text-truncate-breakpoints: $shell-g-default-breakpoint-for-apply-at-breakpoint-mixin !default;
+// Base
+$shell-helper-define-text-size-base-breakpoints: $shell-g-global-breakpoints !default;
+
+// Decrease from base
+$shell-helper-define-text-size-small-breakpoints: $shell-g-global-breakpoints !default;
+
+$shell-helper-define-text-size-x-small-breakpoints: $shell-g-global-breakpoints !default;
+
+$shell-helper-define-text-size-xx-small-breakpoints: $shell-g-global-breakpoints !default;
+
+$shell-helper-define-text-size-xxx-small-breakpoints: $shell-g-global-breakpoints !default;
+
+// Increase from base
+$shell-helper-define-text-size-large-breakpoints: $shell-g-global-breakpoints !default;
+
+$shell-helper-define-text-size-x-large-breakpoints: $shell-g-global-breakpoints !default;
+
+$shell-helper-define-text-size-xx-large-breakpoints: $shell-g-global-breakpoints !default;
+
+$shell-helper-define-text-size-xxx-large-breakpoints: $shell-g-global-breakpoints !default;
+
+/**
+ * Alignments.
+ */
+
+// Center
+$shell-helper-define-text-align-center-breakpoints: $shell-g-global-breakpoints !default;
+
+// Left
+$shell-helper-define-text-align-left-breakpoints: $shell-g-global-breakpoints !default;
+
+// Right
+$shell-helper-define-text-align-right-breakpoints: $shell-g-global-breakpoints !default;
+
+/**
+ * Text truncate.
+ */
+
+$shell-helper-define-text-truncate-breakpoints: $shell-g-global-breakpoints !default;
+
+/**
+ * Hide.
+ */
+
+// Hide elements from both screen readers and the document flow
+$shell-helper-define-hide-breakpoints: $shell-g-global-breakpoints !default;
+
+// Hide elements only visually but have it available for screen readers
+$shell-helper-define-hide-visually-breakpoints: $shell-g-global-breakpoints !default;
+
+/**
+ * Spacing.
+ */
+
+// Base
+$shell-helper-define-spacing-base-breakpoints: $shell-g-global-breakpoints !default;
+
+// Decrease from base
+$shell-helper-define-spacing-tiny-breakpoints: $shell-g-global-breakpoints !default;
+
+$shell-helper-define-spacing-small-breakpoints: $shell-g-global-breakpoints !default;
+
+// Increase from base
+$shell-helper-define-spacing-large-breakpoints: $shell-g-global-breakpoints !default;
+
+$shell-helper-define-spacing-huge-breakpoints: $shell-g-global-breakpoints !default;
