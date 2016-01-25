@@ -48,12 +48,14 @@
  * Grid container.
  *
  * 1. Negative `margin-left` to negate the columns gutters.
+ *
+ * Gutter widths can be found in Settings -> Grid (Global)
  */
 
 .l-grid {
     display: flex;
     flex-flow: row wrap;
-    margin-left -$shell-grid-gutter; // [1]
+    margin-left -(to-rem($shell-g-grid-gutter-base)); // [1]
 }
 
 
@@ -68,8 +70,8 @@
 
 .l-grid__item {
     flex-basis: auto; // [1]
-    margin-bottom: $shell-grid-gutter; // [2]
-    padding-left:  $shell-grid-gutter; // [3]
+    margin-bottom: to-rem($shell-g-grid-gutter-base); // [2]
+    padding-left: to-rem($shell-g-grid-gutter-base); // [3]
     width: 100%; // [4]
 }
 
@@ -102,23 +104,44 @@
     }
 }
 
-// Gutter small
-.l-grid--gutter-small {
-    margin-left: -$shell-grid-gutter / 2;
+
+// Gutter tiny
+.l-grid--gutter-tiny {
+    margin-left: -(to-rem($shell-g-grid-gutter-tiny));
 
     .l-grid__item {
-        margin-bottom: $shell-grid-gutter / 2;
-        padding-left:  $shell-grid-gutter / 2;
+        margin-bottom: to-rem($shell-g-grid-gutter-tiny);
+        padding-left:  to-rem($shell-g-grid-gutter-tiny);
+    }
+}
+
+// Gutter small
+.l-grid--gutter-small {
+    margin-left: -(to-rem($shell-g-grid-gutter-small));
+
+    .l-grid__item {
+        margin-bottom: to-rem($shell-g-grid-gutter-small);
+        padding-left:  to-rem($shell-g-grid-gutter-small);
     }
 }
 
 // Gutter large
 .l-grid--gutter-large {
-    margin-left: -$shell-grid-gutter * 2;
+    margin-left: -(to-rem($shell-g-grid-gutter-large));
 
     .l-grid__item {
-        margin-bottom: $shell-grid-gutter * 2;
-        padding-left:  $shell-grid-gutter * 2;
+        margin-bottom: to-rem($shell-g-grid-gutter-large);
+        padding-left:  to-rem($shell-g-grid-gutter-large);
+    }
+}
+
+// Gutter huge
+.l-grid--gutter-huge {
+    margin-left: -(to-rem($shell-g-grid-gutter-huge));
+
+    .l-grid__item {
+        margin-bottom: to-rem($shell-g-grid-gutter-huge);
+        padding-left:  to-rem($shell-g-grid-gutter-huge);
     }
 }
 
@@ -182,14 +205,6 @@
     flex-basis: none;
 }
 
-/**
- * Modifiers: all items match height of tallest item in a row
- */
-
-.l-grid--equal-height > .l-grid__item {
-    display: flex;
-}
-
 
 /**
  * Modifiers: horizontally center one unit
@@ -208,49 +223,52 @@
  *
  * Based on 12 column grid.
  * `.l-grid__item--12-col` not needed as cells 100% by default
+ *
+ * Column widths can be found in Settings -> Grid (Global)
  */
 
+
 .l-grid__item--1-col {
-    width: 8.3333%;
+    width: $shell-g-grid-1-col;
 }
 
 .l-grid__item--2-col {
-    width: 16.6666%;
+    width: $shell-g-grid-2-col;
 }
 
 .l-grid__item--3-col {
-    width: 25%;
+    width: $shell-g-grid-3-col;
 }
 
 .l-grid__item--4-col {
-    width: 33.3333%;
+    width: $shell-g-grid-4-col;
 }
 
 .l-grid__item--5-col {
-    width: 41.6666%;
+    width: $shell-g-grid-5-col;
 }
 
 .l-grid__item--6-col {
-    width: 50%;
+    width: $shell-g-grid-6-col;
 }
 
 .l-grid__item--7-col {
-    width: 58.3333%;
+    width: $shell-g-grid-7-col;
 }
 
 .l-grid__item--8-col {
-    width: 66.6666%;
+    width: $shell-g-grid-8-col;
 }
 
 .l-grid__item--9-col {
-    width: 75%;
+    width: $shell-g-grid-9-col;
 }
 
 .l-grid__item--10-col {
-    width: 83.3333%;
+    width: $shell-g-grid-10-col;
 }
 
 .l-grid__item--11-col {
-    width: 91.6666%;
+    width: $shell-g-grid-11-col;
 }
 
