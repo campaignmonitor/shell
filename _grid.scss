@@ -158,7 +158,7 @@
  */
 
 .l-grid--space-between {
-    flex-flow: row;
+    flex-direction: row;
     justify-content: space-between;
 
     > .l-grid__item {
