@@ -154,9 +154,9 @@ var {
    ========================================================================= */
 
 /**
- * Correct `block` display not defined for `<details>` or `<summary>` in
- * IE 10/11 and Firefox.
- * Correct `block` display not defined for `<main>` in IE 11.
+ * - Correct `block` display not defined for `<details>` or `<summary>` in
+ *   IE 10/11 and Firefox.
+ * - Correct `block` display not defined for `<main>` in IE 11.
  */
 
 details,
@@ -167,8 +167,8 @@ summary {
 
 
 /**
- * Address `[hidden]` styling not present in IE 10.
- * Hide the `<template>` element in IE 10/11, Safari, and Firefox < 22.
+ * - Address `[hidden]` styling not present in IE 10.
+ * - Hide the `<template>` element in IE 10/11, Safari, and Firefox < 22.
  */
 
 [hidden],
@@ -178,9 +178,9 @@ template {
 
 
 /**
- * Apply the pointer cursor to the `<summary>` element.
- * Remove the arrow from the `<summary>` element in WebKit browsers, to allow
- * for custom styling.
+ * - Apply the pointer cursor to the `<summary>` element.
+ * - Remove the arrow from the `<summary>` element in WebKit browsers, to allow
+ *   for custom styling.
  */
 
 summary {
@@ -285,7 +285,7 @@ small {
 
 
 /**
- * Prevent `sub` and `sup` affecting `line-height` in all browsers.
+ * Prevent `<sub>` and `<sup>` affecting `line-height` in all browsers.
  */
 
 sub,
@@ -372,14 +372,14 @@ canvas {
    ========================================================================= */
 
 /**
- * Known limitation: by default, Chrome and Safari on OS X allow very limited
- * styling of `<select>`s, unless a `border` property is set.
+ * N.B. known limitation: by default, Chrome and Safari on OS X allow very
+ * limited styling of `<select>`s, unless a `border` property is set.
  */
 
 
 /**
  * 1. Correct colour not being inherited.
- *    Known issue: affects colour of disabled elements.
+ *    N.B. known issue: affects colour of disabled elements.
  * 2. Correct font property not being inherited.
  * 3. Address margins set differently in Firefox 4+, Safari, and Chrome.
  */
@@ -423,11 +423,11 @@ button {
 
 
 /**
- * Address inconsistent `text-transform` inheritance for `<button>` and
- * `<select>`s. All other form control elements do not inherit `text-transform`
- * values.
- * Correct `<button>` style inheritance in Firefox, IE 10/11, and Opera.
- * Correct `<select>` style inheritance in Firefox.
+ * - Address inconsistent `text-transform` inheritance for `<button>` and
+ *   `<select>`s. All other form control elements do not inherit \
+ *   `text-transform` values.
+ * - Correct `<button>` style inheritance in Firefox, IE 10/11, and Opera.
+ * - Correct `<select>` style inheritance in Firefox.
  */
 
 button,

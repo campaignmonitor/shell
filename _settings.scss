@@ -56,15 +56,16 @@
  *
  * CONTENTS:
  *
- * 1. Colours (Global)
- * 2. Typography (Global)
- * 3. Spacing (Global)
- * 4. Breakpoints (Global)
- * 5. Percentage widths (Global)
- * 6. Z-Index system (Global)
- * 7. Other (Global)
- * 8. Base (Local)
- * 9. Container (Local)
+ * 1.  Colours (Global)
+ * 2.  Typography (Global)
+ * 3.  Spacing (Global)
+ * 4.  Breakpoints (Global)
+ * 5.  Percentage widths (Global)
+ * 6.  Z-Index system (Global)
+ * 7.  Other (Global)
+ * 8.  Base (Local)
+ * 9.  Container (Local)
+ * 10. Helpers (Local)
  *
  * More to come…
  */
@@ -106,13 +107,6 @@ $shell-g-color-link: blue !default;
 $shell-g-color-link-hover: $shell-g-color-link !default;
 
 
-/**
- * `[placeholder]` attribute in an input field.
- */
-
-$shell-g-color-placeholder-attr: #999 !default;
-
-
 
 
 /* 2. Typography (Global)
@@ -124,7 +118,7 @@ $shell-g-color-placeholder-attr: #999 !default;
 
 $shell-g-font-size: 16 !default;
 
-// Smaller
+// Decrease from base
 $shell-g-font-size-small: $shell-g-font-size - 1 !default;
 
 $shell-g-font-size-x-small: $shell-g-font-size - 2 !default;
@@ -133,7 +127,7 @@ $shell-g-font-size-xx-small: $shell-g-font-size - 3 !default;
 
 $shell-g-font-size-xxx-small: $shell-g-font-size - 4 !default;
 
-// Larger
+// Increase from base
 $shell-g-font-size-large: $shell-g-font-size + 1 !default;
 
 $shell-g-font-size-x-large: $shell-g-font-size + 2 !default;
@@ -149,7 +143,7 @@ $shell-g-font-size-xxx-large: $shell-g-font-size + 4 !default;
 
 $shell-g-font-size-heading: 24 !default;
 
-// Smaller
+// Decrease from base
 $shell-g-font-size-heading-small: $shell-g-font-size-heading - 2 !default;
 
 $shell-g-font-size-heading-x-small: $shell-g-font-size-heading - 4 !default;
@@ -158,7 +152,7 @@ $shell-g-font-size-heading-xx-small: $shell-g-font-size-heading - 6 !default;
 
 $shell-g-font-size-heading-xxx-small: $shell-g-font-size-heading - 8 !default;
 
-// Larger
+// Increase from base
 $shell-g-font-size-heading-large: $shell-g-font-size-heading + 2 !default;
 
 $shell-g-font-size-heading-x-large: $shell-g-font-size-heading + 4 !default;
@@ -364,31 +358,46 @@ $shell-g-spacing-huge: $shell-g-spacing-quadruple !default;
  */
 
 
-// Divided by “16” (the default non-overridable user-agent font-size) as we
-// apply viewport width/height media queries via the `em` unit, not the `px`
-// unit e.g. `@media (min-width: $shell-g-bp-palm)`
-$shell-g-user-agent-font-size: 16;
+/**
+ * All the breakpoints divided by the default user-agent font-size setting
+ * that is non-overridable by Shell’s base font size setting:
+ * `$shell-g-font-size`. We do this division as all viewport width and height
+ * media queries are to be applied with the `em` unit. See:
+ * http://blog.cloudfour.com/the-ems-have-it-proportional-media-queries-ftw/.
+ *
+ * N.B. if you wish to override any of the breakpoints then don’t forget to
+ * apply this calculation:
+ *
+    ([breakpoint-value] / 16) * 1em
+ *
+ * N.B. as we’re using a Sass map we need to use a Sass function to make it
+ * easier to apply the map keys, the function lives in “Mixins/Functions ->
+ * Retrieve from maps”.
+ */
 
-$shell-g-bp-palm: (640 / $shell-g-user-agent-font-size) * 1em !default;
+$shell-g-breakpoints: (
 
-$shell-g-bp-lap: (641 / $shell-g-user-agent-font-size) * 1em !default;
+  // Palm
+  "palm": (640 / 16) * 1em,
 
-$shell-g-bp-lap-small: (768 / $shell-g-user-agent-font-size) * 1em !default;
+  // Lap
+  "lap": (641 / 16) * 1em,
+  "lap-small": (768 / 16) * 1em,
+  "lap-large": (901 / 16) * 1em,
 
-$shell-g-bp-lap-large: (901 / $shell-g-user-agent-font-size) * 1em !default;
+  // Desk
+  "desk": (1200 / 16) * 1em,
+  "desk-large": (1366 / 16) * 1em
 
-$shell-g-bp-desk: (1200 / $shell-g-user-agent-font-size) * 1em !default;
-
-$shell-g-bp-desk-large: (1366 / $shell-g-user-agent-font-size) * 1em !default;
+) !default;
 
 
 /**
- * The setting used for the default breakpoint applied to the
- * `generate-at-breakpoints()` mixin which allows the application of certain
- * Shell features to be applied at any breakpoint.
+ * The setting used (“Lap”) for the default breakpoint applied to the
+ * “Apply at breakpoints” mixin.
  */
 
-$shell-g-default-bp-for-generate-at-bp-mixin: $shell-g-bp-lap !default;
+$shell-g-default-breakpoint-for-apply-at-breakpoint-mixin: lap !default;
 
 
 
@@ -568,19 +577,20 @@ $shell-g-eleven-twelfths: (100 / 12) * 11%;
  *
  * Applying `z-index`s with this system is done like this:
  *
-   .c-header {
-     z-index: z("header");
-   }
+    .c-header {
+        z-index: z(header);
+    }
  *
  * And for nested stacking contexts (defined via a nested map):
  *
-   .c-modal__close-button {
-     z-index: z("modal-elements", "close-button");
-   }
+    .c-modal__close-button {
+        z-index: z(modal-elements, close-button);
+    }
  *
  * N.B. as we’re using a Sass map (and nested maps) we need to use a Sass
- * function to make it easier to apply the map values and to be able to
- * retrieve nested map values. The function lives in “Mixins/Functions”.
+ * function to make it easier to apply the map keys and to be able to
+ * retrieve nested map keys. The function lives in “Mixins/Functions ->
+ * Retrieve from maps”.
  *
  * @credit
  * http://www.sitepoint.com/better-solution-managing-z-index-sass/
@@ -590,14 +600,14 @@ $shell-g-eleven-twelfths: (100 / 12) * 11%;
 /**
  * Starting from highest to lowest:
  *
-   <body>
-     <modal>
-       <modal-close-button>
-     <modal-underlay>
-     <header>
-     <main>
-     <footer>
-   </body>
+    <body>
+        <modal>
+            <modal-close-button>
+        <modal-underlay>
+        <header>
+        <main>
+        <footer>
+    </body>
  */
 
 $shell-g-z-layers: (
@@ -619,8 +629,8 @@ $shell-g-z-layers: (
    ========================================================================= */
 
 /**
- * Device pixel ratio used for the HiDPI mixins, see “Mixins/Functions”. We
- * generate the `dpi` and `dppx` units from this.
+ * Device pixel ratio used for the “HiDPI background images” set in
+ * “Mixins/Functions”. We generate the `dpi` and `dppx` units from this.
  *
  * N.B. non-overridable.
  */
@@ -741,3 +751,24 @@ $shell-container-maximum-width-large: 2000 !default;
 $shell-container-maximum-width-small: 1000 !default;
 
 $shell-container-maximum-width-tiny: 640 !default;
+
+
+
+
+/* 10. Helpers (Local)
+   ========================================================================= */
+
+/**
+ * Booleans for applying certain “Helpers” at breakpoints.
+ */
+
+// Text truncate
+$shell-helper-apply-text-truncate-at-breakpoints: false !default;
+
+
+/**
+ * If opted in then define the breakpoints for certain “Helpers”.
+ */
+
+// Text truncate
+$shell-helper-define-text-truncate-breakpoints: $shell-g-default-breakpoint-for-apply-at-breakpoint-mixin !default;
