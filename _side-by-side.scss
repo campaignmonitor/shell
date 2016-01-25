@@ -2,7 +2,6 @@
    @SIDE-BY-SIDE
    ========================================================================= */
 
-
 /**
  * Place any two elements side-by-side, typically for an image- and text-like
  * content. This layout module uses flexbox.
@@ -24,7 +23,6 @@
 
 .l-side-by-side {
     display: flex;
-    margin-left: -(to-rem($shell-g-grid-gutter-base));
 }
 
 
@@ -32,62 +30,71 @@
  * Side-by-side items.
  */
 
-.l-side-by-side__item {
+.l-side-by-side__item:last-child {
+    flex: 1 1 0%;
     padding-left: to-rem($shell-g-grid-gutter-base);
 }
 
-.l-side-by-side__item:last-child {
-    flex: 1 1 0%;
+// Reversing the gutters for the “Reversed” modifier
+.l-side-by-side--reversed > .l-side-by-side__item:last-child {
+    padding-left: 0;
+    padding-right: to-rem($shell-g-grid-gutter-base);
 }
 
 
 /**
- * Modifiers: gutters.
+ * Modifiers: gutters, includes reversing the gutters for the
+ * “Reversed” modifier.
  */
 
 // Gutterless
-.l-side-by-side--gutterless {
-    margin-left: 0;
+.l-side-by-side--gutterless > .l-side-by-side__item:last-child {
+    padding-left: 0;
+}
 
-    > .l-side-by-side__item {
-        padding-left: 0;
-    }
+.l-side-by-side--gutterless.l-side-by-side--reversed > .l-side-by-side__item:last-child {
+    padding-left: 0;
+    padding-right: 0;
 }
 
 // Gutter tiny
-.l-side-by-side--gutter-tiny {
-    margin-left: -(to-rem($shell-g-grid-gutter-tiny));
+.l-side-by-side--gutter-tiny > .l-side-by-side__item:last-child {
+    padding-left: to-rem($shell-g-grid-gutter-tiny);
+}
 
-    .l-side-by-side__item {
-        padding-left: to-rem($shell-g-grid-gutter-tiny);
-    }
+.l-side-by-side--gutter-tiny.l-side-by-side--reversed > .l-side-by-side__item:last-child {
+    padding-left: 0;
+    padding-right: to-rem($shell-g-grid-gutter-tiny);
 }
 
 // Gutter small
-.l-side-by-side--gutter-small {
-    margin-left: -(to-rem($shell-g-grid-gutter-small));
+.l-side-by-side--gutter-small > .l-side-by-side__item:last-child {
+    padding-left: to-rem($shell-g-grid-gutter-small);
+}
 
-    .l-side-by-side__item {
-        padding-left: to-rem($shell-g-grid-gutter-small);
-    }
+.l-side-by-side--gutter-small.l-side-by-side--reversed > .l-side-by-side__item:last-child {
+    padding-left: 0;
+    padding-right: to-rem($shell-g-grid-gutter-small);
 }
 
 // Gutter large
-.l-side-by-side--gutter-large {
-    margin-left: -(to-rem($shell-g-grid-gutter-large));
+.l-side-by-side--gutter-large > .l-side-by-side__item:last-child {
+    padding-left: to-rem($shell-g-grid-gutter-large);
+}
 
-    .l-side-by-side__item {
-        padding-left: to-rem($shell-g-grid-gutter-large);
-    }
+.l-side-by-side--gutter-large.l-side-by-side--reversed > .l-side-by-side__item:last-child {
+    padding-left: 0;
+    padding-right: to-rem($shell-g-grid-gutter-large);
 }
 
 // Gutter huge
-.l-side-by-side--gutter-huge {
-    margin-left: -(to-rem($shell-g-grid-gutter-huge));
+.l-side-by-side--gutter-huge > .l-side-by-side__item:last-child {
+    margin-left: to-rem($shell-g-grid-gutter-huge);
+}
 
-    .l-side-by-side__item {
-        padding-left: to-rem($shell-g-grid-gutter-huge);
-    }
+.l-side-by-side--gutter-huge.l-side-by-side--reversed > .l-side-by-side__item:last-child {
+    padding-left: 0;
+    padding-right: to-rem($shell-g-grid-gutter-huge);
 }
 
 
@@ -96,13 +103,13 @@
  */
 
 // Middle alignment
-.l-side-by-side--align-middle {
-    align-items: center;
+.l-side-by-side--align-middle > .l-side-by-side__item {
+    align-self: center;
 }
 
 // Bottom alignment
-.l-side-by-side--align-bottom {
-    align-items: flex-end;
+.l-side-by-side--align-bottom > .l-side-by-side__item {
+    align-self: flex-end;
 }
 
 
@@ -113,9 +120,6 @@
  * markup will display in order 4, 3, 2, 1 on your page.
  */
 
-.l-side-by-side--reversed {
-
-    > .l-side-by-side__item:first-child {
-        order: 1;
-    }
+.l-side-by-side--reversed > .l-side-by-side__item:first-child {
+    order: 1;
 }
