@@ -18,19 +18,71 @@
 
 /**
  * Side-by-side container.
+ *
+ * Gutter widths can be found in Settings -> Grid
  */
 
 .l-side-by-side {
     display: flex;
-    margin-left: -$sbs-gutter;
+    margin-left: -(to-rem($shell-g-grid-gutter-base));
 }
 
 .l-side-by-side__item {
-    padding-left: $sbs-gutter;
+    padding-left: to-rem($shell-g-grid-gutter-base);
 }
 
 .l-side-by-side__item:last-child {
     flex: 1 1 0%;
+}
+
+
+/**
+ * Modifiers: gutters.
+ */
+
+// Gutterless
+.l-side-by-side--gutterless {
+    margin-left: 0;
+
+    > .l-side-by-side__item {
+        padding-left: 0;
+    }
+}
+
+// Gutter tiny
+.l-side-by-side--gutter-tiny {
+    margin-left: -(to-rem($shell-g-grid-gutter-tiny));
+
+    .l-side-by-side__item {
+        padding-left: to-rem($shell-g-grid-gutter-tiny);
+    }
+}
+
+// Gutter small
+.l-side-by-side--gutter-small {
+    margin-left: -(to-rem($shell-g-grid-gutter-small));
+
+    .l-side-by-side__item {
+        padding-left: to-rem($shell-g-grid-gutter-small);
+    }
+}
+
+// Gutter large
+.l-side-by-side--gutter-large {
+    margin-left: -(to-rem($shell-g-grid-gutter-large));
+
+    .l-side-by-side__item {
+        padding-left: to-rem($shell-g-grid-gutter-large);
+    }
+}
+
+// Gutter huge
+.l-side-by-side--gutter-huge {
+    margin-left: -(to-rem($shell-g-grid-gutter-huge));
+
+    .l-side-by-side__item {
+        padding-left: to-rem($shell-g-grid-gutter-huge);
+    }
 }
 
 
