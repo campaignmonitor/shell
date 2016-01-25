@@ -65,7 +65,7 @@
  * 7. Other (Global)
  * 8. Base (Local)
  * 9. Container (Local)
- *
+ * 10. Grid
  * More to come…
  */
 
@@ -651,11 +651,14 @@ $shell-g-textual-inputs: 'input[type="text"],
                           input[type="number"]' !default;
 
 
+/* 10. Grid (Local)
+   ========================================================================= */
+
 /**
- * Grid gutter
+ * Grid gutters.
  */
 
-$shell-g-grid-gutter: 10px !default;
+$shell-grid-gutter: to-rem(10px) !default;
 
 
 

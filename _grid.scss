@@ -3,7 +3,8 @@
    ========================================================================= */
 
 /**
- * A powerful fluid and nestable mobile first grid system. It makes use of flexbox and box-sizing to provide features that float-based layouts cannot.
+ * A powerful fluid and nestable mobile first grid system. It makes use of
+ * flexbox to provide features that float-based layouts cannot.
  *
  * N.B. grid systems should be thought of as shelves. They contain content but
  * are not content in themselves. You put up your shelves then fill them with
@@ -52,23 +53,24 @@
 .l-grid {
     display: flex;
     flex-flow: row wrap;
-    margin: 0 0 0 (-$shell-g-grid-gutter); // [1]
+    margin-left -$shell-grid-gutter; // [1]
 }
 
 
 /**
  * All content must be contained within child `grid__item` elements.
  *
- * 1. Space columns apart.
- * 2. Allows use of widths
- * 3. 100% width by default - mobile first
+ * 1. Allows use of widths
+ * 2. Bottom gutter
+ * 3. Space columns apart
+ * 4. 100% width by default - mobile first
  */
 
 .l-grid__item {
-  box-sizing: inherit;
-  padding: 0 0 $shell-g-grid-gutter $shell-g-grid-gutter; // [1]
-  flex-basis: auto; // [2]
-  width: 100%; // [3]
+    flex-basis: auto; // [1]
+    margin-bottom: $shell-grid-gutter; // [2]
+    padding-left:  $shell-grid-gutter; // [3]
+    width: 100%; // [4]
 }
 
 
@@ -78,29 +80,45 @@
 
 // Gutterless
 .l-grid--gutterless {
-    margin: 0;
+    margin-left: 0;
 
     > .l-grid__item {
-       padding: 0;
+        margin-bottom: 0;
+        padding-left: 0;
     }
 }
 
+// Gutterless Vertical
+.l-grid--gutterless-vertical > .l-grid__item {
+    margin-bottom: 0;
+}
+
+// Gutterless Horizontal
+.l-grid--gutterless-horizontal {
+    margin-left: 0;
+
+    > .l-grid__item {
+        padding-left: 0;
+    }
+}
 
 // Gutter small
-.l-grid--small {
-    margin-left: -$shell-g-grid-gutter / 2;
+.l-grid--gutter-small {
+    margin-left: -$shell-grid-gutter / 2;
 
     .l-grid__item {
-        padding: 0 0 ($shell-g-grid-gutter / 2) ($shell-g-grid-gutter / 2);
+        margin-bottom: $shell-grid-gutter / 2;
+        padding-left:  $shell-grid-gutter / 2;
     }
 }
 
 // Gutter large
-.l-grid--large {
-    margin-left: -$shell-g-grid-gutter * 2;
+.l-grid--gutter-large {
+    margin-left: -$shell-grid-gutter * 2;
 
     .l-grid__item {
-        padding: 0 0 ($shell-g-grid-gutter * 2) ($shell-g-grid-gutter * 2);
+        margin-bottom: $shell-grid-gutter * 2;
+        padding-left:  $shell-grid-gutter * 2;
     }
 }
 
@@ -144,8 +162,8 @@
     justify-content: space-between;
 
     > .l-grid__item {
-      flex: 1 1 0%;
-      flex-basis: none;
+        flex: 1 1 0%;
+        flex-basis: none;
     }
 }
 
@@ -160,8 +178,8 @@
  */
 
 .l-grid--fit > .l-grid__item {
-  flex: 1 1 0%; // [1]
-  flex-basis: none;
+    flex: 1 1 0%; // [1]
+    flex-basis: none;
 }
 
 /**
@@ -169,7 +187,7 @@
  */
 
 .l-grid--equal-height > .l-grid__item {
-  display: flex;
+    display: flex;
 }
 
 
@@ -181,7 +199,7 @@
  */
 
 .l-grid__item--center {
-  margin: 0 auto;
+    margin: 0 auto;
 }
 
 
@@ -193,11 +211,11 @@
  */
 
 .l-grid__item--1-col {
-   width: 8.3333%;
+    width: 8.3333%;
 }
 
 .l-grid__item--2-col {
-   width: 16.6666%;
+    width: 16.6666%;
 }
 
 .l-grid__item--3-col {
@@ -205,34 +223,34 @@
 }
 
 .l-grid__item--4-col {
-  width: 33.3333%;
+    width: 33.3333%;
 }
 
 .l-grid__item--5-col {
-  width: 41.6666%;
+    width: 41.6666%;
 }
 
 .l-grid__item--6-col {
-   width: 50%;
+    width: 50%;
 }
 
 .l-grid__item--7-col {
-  width: 58.3333%;
+    width: 58.3333%;
 }
 
 .l-grid__item--8-col {
-  width: 66.6666%;
+    width: 66.6666%;
 }
 
 .l-grid__item--9-col {
-  width: 75%;
+    width: 75%;
 }
 
 .l-grid__item--10-col {
-  width: 83.3333%;
+    width: 83.3333%;
 }
 
 .l-grid__item--11-col {
-  width: 91.6666%;
+    width: 91.6666%;
 }
 
