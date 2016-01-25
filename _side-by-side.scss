@@ -1,11 +1,11 @@
 /* ============================================================================
-   @LAYOUT -> SIDE-BY-SIDE
+   @SIDE-BY-SIDE
    ========================================================================= */
 
 
 /**
  * Place any two elements side-by-side, typically for an image- and text-like
- * content. This component uses flexbox.
+ * content. This layout module uses flexbox.
  *
  * @markup
    <div class="l-side-by-side [modifier(s)]">
