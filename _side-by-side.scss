@@ -27,6 +27,11 @@
     margin-left: -(to-rem($shell-g-grid-gutter-base));
 }
 
+
+/**
+ * Side-by-side items.
+ */
+
 .l-side-by-side__item {
     padding-left: to-rem($shell-g-grid-gutter-base);
 }
