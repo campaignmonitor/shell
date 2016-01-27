@@ -16,8 +16,8 @@
  * their CSS declarations we instead abstract them into nicely reusable
  * classes and mixins.
  *
- * Helpers all follow the single responsibility and open/closed principles
- * meaning they do one thing and one thing only and are never open to
+ * Helpers all follow the Single Responsibility Principle and the Open/Closed
+ * Principle meaning they do one thing and one thing only and are never open to
  * extension i.e. you cannot modify or add to them in any way. If you need to
  * modify any of Shell’s Helpers then you should simply not use them. Read more
  * about these principles and how they apply to CSS here:
@@ -32,7 +32,8 @@
  * `!important` keyword, this is because they always need to win in terms of
  * CSS specificity as they should always just work. For the mixin versions
  * this is optional as the mixin versions are typically being applied from
- * within Components therefore do not require the specificity boost.
+ * within Components therefore do not require the specificity boost. All the
+ * mixin versions are defined in “Mixins and Functions -> Helpers”.
  *
  * Applying Helpers via their *class* implementation would only be done in two
  * scenarios:
@@ -55,11 +56,11 @@
  *   applying it via the mixin implementation. However, this typically only
  *   ever applies to multi-line declaration Helpers, applying a single-line
  *   declaration Helper, for example:
- *   ```html
- *   .h-text-size-base {
- *     font-size: to-rem($shell-g-font-size) !important;
- *   }
- *   ```
+ *
+    .h-text-size-base {
+        font-size: rem($shell-g-font-size) !important;
+    }
+ *
  *   Wouldn’t be correct as you would simply write that single-line declaration
  *   directly into your Component or Layout Template CSS, and this is why
  *   single-line declaration Helpers do not come with a mixin version. An
@@ -69,28 +70,24 @@
  *   inside a “Drop Down Menu” Component needing to add a piece of text to the
  *   drop down menu trigger button that is only for screen reader users—using
  *   the “Hide visually” Helper. The correct way to achieve this would be:
- *   ```html
- *   <button type="button" class="c-drop-down-menu__trigger">
- *     My account
- *     <span class="h-hide-visually">Open the menu with the enter key and
- *     close it with the escape key; use the up and down arrow keys to
- *     navigate.</span>
- *   </button>
- *   ```
+ *
+    <button type="button" class="c-drop-down-menu__trigger">
+        My account
+        <span class="h-hide-visually">Open the menu with the enter key and close it with the escape key; use the up and down arrow keys to navigate.</span>
+    </button>
+ *
  *   Not:
- *   ```html
- *   <button type="button" class="c-drop-down-menu__trigger">
- *     My account
- *     <span class="c-drop-down-menu__trigger-assistive-text">Open the menu
- *     with the enter key and close it with the escape key; use the up and
- *     down arrow keys to navigate.</span>
- *   </button>
- *   ```
- *   ```css
- *   .c-drop-down-menu__trigger-assistive-text {
- *     @include h-hide-visually;
- *   }
- *   ```
+ *
+    <button type="button" class="c-drop-down-menu__trigger">
+        My account
+        <span class="c-drop-down-menu__trigger-assistive-text">Open the menu
+        with the enter key and close it with the escape key; use the up and
+        down arrow keys to navigate.</span>
+    </button>
+    .c-drop-down-menu__trigger-assistive-text {
+        @include h-hide-visually;
+    }
+ *
  *   Knowing when to do this isn’t always clear and it is very case dependant.
  *
  * Applying Helpers via their *mixin* implementation would only be done in one
@@ -102,31 +99,17 @@
  *   you may need to truncate a line of text in a site header Layout Template
  *   that is part of a main nav link item—using the “Text truncate” Helper.
  *   The correct way to achieve this would be:
- *   ```html
- *   <a href="some/url" class="l-header__nav-item">List &amp; Subscribers</a>
- *   ```
- *   ```css
- *   .l-header__nav-item {
- *     […]
- *     @include h-text-truncate;
- *   }
- *   ```
+ *
+    <a href="some/url" class="l-header__nav-item">List &amp; Subscribers</a>
+ *
+    .l-header__nav-item {
+        […]
+        @include h-text-truncate;
+    }
+ *
  *   Not:
- *   ```html
- *   <a href="some/url" class="l-header__nav-item  h-text-truncate">List &amp;
- *   Subscribers</a>
- *   ```
  *
- * All the mixins use the following annotations from the Sass Docs
- * documentation system:
- *
- * @access
- * @example
- * @parameter
- * @require
- * @throw
- *
- * See: http://sassdoc.com/annotations/
+    <a href="some/url" class="l-header__nav-item  h-text-truncate">List &amp; Subscribers</a>
  *
  * ----------------------------------------------------------------------------
  *
@@ -137,10 +120,16 @@
  *
  * ----------------------------------------------------------------------------
  *
- * Helpers including any of the Helper mixins are namespaced with “h” followed
- * by one hyphen, like this:
+ * N.B. some Helpers are available to be applied at any breakpoint the Shell
+ * consumer wishes, see “Mixins and Functions -> Apply at breakpoints” to
+ * understand how this works.
  *
-   h-
+ * ----------------------------------------------------------------------------
+ *
+ * Helpers are namespaced with “h” followed by one hyphen, like this:
+ *
+   h-clear-fix
+   h-text-truncate
  *
  * The “h” stands for “helper”.
  *
@@ -165,34 +154,13 @@
    ========================================================================= */
 
 /**
- * Make an element expand to contain floated children.
- */
-
-/**
- * @access public
+ * Makes an element expand to contain floated children.
  *
- * @param {boolean} $apply-important-keyword [false] — Whether to apply the
- * `!important` keyword
- *
- * @example
-   .selector {
-      […]
-      @include h-clear-fix();
-    }
+ * N.B. mixin is here: “Mixins and Functions -> Helpers”.
  */
-
-@mixin h-clear-fix($apply-important-keyword: false) {
-    $important-keyword: if($apply-important-keyword, " !important", "");
-
-    &::after {
-        clear: both#{$important-keyword};
-        content: ""#{$important-keyword};
-        display: table#{$important-keyword};
-    }
-}
 
 .h-clear-fix {
-    @include h-clear-fix(true);
+    @include clear-fix(true);
 }
 
 
@@ -205,43 +173,126 @@
  * Sizes.
  */
 
-// Base
+
+/**
+ * Base.
+ */
+
 .h-text-size-base {
-    font-size: to-rem($shell-g-font-size) !important;
+    font-size: rem($shell-g-font-size) !important;
 }
 
-// Smaller
+// Apply at breakpoints
+@if $shell-helper-apply-text-size-base-at-breakpoints {
+    @include apply-at-breakpoints(".h-text-size-base", $shell-helper-define-text-size-base-breakpoints) {
+        font-size: rem($shell-g-font-size) !important;
+    }
+}
+
+
+/**
+ * Decrease from base.
+ */
+
+// Small
 .h-text-size-small {
-    font-size: to-rem($shell-g-font-size-small) !important;
+    font-size: rem($shell-g-font-size-small) !important;
 }
 
+// Apply at breakpoints
+@if $shell-helper-apply-text-size-small-at-breakpoints {
+    @include apply-at-breakpoints(".h-text-size-small", $shell-helper-define-text-size-small-breakpoints) {
+        font-size: rem($shell-g-font-size-small) !important;
+    }
+}
+
+// X-small
 .h-text-size-x-small {
-    font-size: to-rem($shell-g-font-size-x-small) !important;
+    font-size: rem($shell-g-font-size-x-small) !important;
 }
 
+// Apply at breakpoints
+@if $shell-helper-apply-text-size-x-small-at-breakpoints {
+    @include apply-at-breakpoints(".h-text-size-x-small", $shell-helper-define-text-size-x-small-breakpoints) {
+        font-size: rem($shell-g-font-size-x-small) !important;
+    }
+}
+
+// XX-small
 .h-text-size-xx-small {
-    font-size: to-rem($shell-g-font-size-xx-small) !important;
+    font-size: rem($shell-g-font-size-xx-small) !important;
 }
 
+// Apply at breakpoints
+@if $shell-helper-apply-text-size-xx-small-at-breakpoints {
+    @include apply-at-breakpoints(".h-text-size-xx-small", $shell-helper-define-text-size-xx-small-breakpoints) {
+        font-size: rem($shell-g-font-size-xx-small) !important;
+    }
+}
+
+// XXX-small
 .h-text-size-xxx-small {
-    font-size: to-rem($shell-g-font-size-xxx-small) !important;
+    font-size: rem($shell-g-font-size-xxx-small) !important;
 }
 
-// Larger
+// Apply at breakpoints
+@if $shell-helper-apply-text-size-xxx-small-at-breakpoints {
+    @include apply-at-breakpoints(".h-text-size-xxx-small", $shell-helper-define-text-size-xxx-small-breakpoints) {
+        font-size: rem($shell-g-font-size-xxx-small) !important;
+    }
+}
+
+
+/**
+ * Increase from base.
+ */
+
+// Large
 .h-text-size-large {
-    font-size: to-rem($shell-g-font-size-large) !important;
+    font-size: rem($shell-g-font-size-large) !important;
 }
 
+// Apply at breakpoints
+@if $shell-helper-apply-text-size-large-at-breakpoints {
+    @include apply-at-breakpoints(".h-text-size-large", $shell-helper-define-text-size-large-breakpoints) {
+        font-size: rem($shell-g-font-size-large) !important;
+    }
+}
+
+// X-large
 .h-text-size-x-large {
-    font-size: to-rem($shell-g-font-size-x-large) !important;
+    font-size: rem($shell-g-font-size-x-large) !important;
 }
 
+// Apply at breakpoints
+@if $shell-helper-apply-text-size-x-large-at-breakpoints {
+    @include apply-at-breakpoints(".h-text-size-x-large", $shell-helper-define-text-size-x-large-breakpoints) {
+        font-size: rem($shell-g-font-size-x-large) !important;
+    }
+}
+
+// XX-large
 .h-text-size-xx-large {
-    font-size: to-rem($shell-g-font-size-xx-large) !important;
+    font-size: rem($shell-g-font-size-xx-large) !important;
 }
 
+// Apply at breakpoints
+@if $shell-helper-apply-text-size-xx-large-at-breakpoints {
+    @include apply-at-breakpoints(".h-text-size-xx-large", $shell-helper-define-text-size-xx-large-breakpoints) {
+        font-size: rem($shell-g-font-size-xx-large) !important;
+    }
+}
+
+// XXX-large
 .h-text-size-xxx-large {
-    font-size: to-rem($shell-g-font-size-xxx-large) !important;
+    font-size: rem($shell-g-font-size-xxx-large) !important;
+}
+
+// Apply at breakpoints
+@if $shell-helper-apply-text-size-xxx-large-at-breakpoints {
+    @include apply-at-breakpoints(".h-text-size-xxx-large", $shell-helper-define-text-size-xxx-large-breakpoints) {
+        font-size: rem($shell-g-font-size-xxx-large) !important;
+    }
 }
 
 
@@ -249,23 +300,47 @@
  * Alignments.
  */
 
+// Center
 .h-text-align-center {
     text-align: center !important;
 }
 
+// Apply at breakpoints
+@if $shell-helper-apply-text-align-center-at-breakpoints {
+    @include apply-at-breakpoints(".h-text-align-center", $shell-helper-define-text-align-center-breakpoints) {
+        text-align: center !important;
+    }
+}
+
+// Left
 .h-text-align-left {
     text-align: left !important;
 }
 
+// Apply at breakpoints
+@if $shell-helper-apply-text-align-left-at-breakpoints {
+    @include apply-at-breakpoints(".h-text-align-left", $shell-helper-define-text-align-left-breakpoints) {
+        text-align: left !important;
+    }
+}
+
+// Right
 .h-text-align-right {
     text-align: right !important;
 }
 
+// Apply at breakpoints
+@if $shell-helper-apply-text-align-right-at-breakpoints {
+    @include apply-at-breakpoints(".h-text-align-right", $shell-helper-define-text-align-right-breakpoints) {
+        text-align: right !important;
+    }
+}
+
 
 /**
- * Truncate using an ellipsis. This Helper will only work on block container
- * elements so the default is set to `display: block;`, to override this
- * to be, say, `display: inline-block;` you have two options:
+ * Truncate some text using an ellipsis. This Helper will only work on block
+ * container elements so the default is set to `display: block;`, to override
+ * this to be, say, `display: inline-block;` you have two options:
  *
  * 1. Use the “Inline” modifier class selector: `.h-text-truncate--inline`.
  * 2. Use the mixin assigning “inline-block” to the `$display` parameter:
@@ -274,34 +349,19 @@
  * You can assign other `display` values when using the mixin but not sure if
  * that’ll ever be required outside of `display: block;` and
  * `display: inline-block;`?
- */
-
-/**
- * @access public
  *
- * @param {boolean} $apply-important-keyword [false] — Whether to apply the
- * `!important` keyword
- * @param {string} $display [block] — The value of the `display` property
- *
- * @example
-   .selector {
-      […]
-      @include h-text-truncate(false, inline-block);
-    }
+ * N.B. mixin is here: “Mixins and Functions -> Helpers”.
  */
-
-@mixin h-text-truncate($apply-important-keyword: false, $display: block) {
-    $important-keyword: if($apply-important-keyword, " !important", "");
-    $display-property-value: if($display == block, "block", $display);
-
-    display: #{$display-property-value}#{$important-keyword};
-    overflow: hidden#{$important-keyword};
-    text-overflow: ellipsis#{$important-keyword};
-    white-space: nowrap#{$important-keyword};
-}
 
 .h-text-truncate {
-    @include h-text-truncate(true);
+    @include text-truncate(true);
+}
+
+// Apply at breakpoints
+@if $shell-helper-apply-text-truncate-at-breakpoints {
+    @include apply-at-breakpoints(".h-text-truncate", $shell-helper-define-text-truncate-breakpoints) {
+        @include text-truncate(true);
+    }
 }
 
 /**
@@ -312,39 +372,28 @@
     display: inline-block !important;
 }
 
+// Apply at breakpoints
+@if $shell-helper-apply-text-truncate-at-breakpoints {
+    @include apply-at-breakpoints(".h-text-truncate--inline", $shell-helper-define-text-truncate-breakpoints) {
+        display: inline-block !important;
+    }
+}
+
 
 /**
- * Fonts on OS X will look more consistent with other systems that do not
+ * Make text on OS X look more consistent with other systems that do not
  * render text using sub-pixel anti-aliasing.
+ *
+ * N.B. mixin is here: “Mixins and Functions -> Helpers”.
  *
  * N.B. we recommend not to use this. And this can be applied globally on the
  * `<html>` element in “Base” therefore it’s only applied here if that boolean
  * setting is set to “false”—which is the default.
  */
 
-/**
- * @access public
- *
- * @param {boolean} $apply-important-keyword [false] — Whether to apply the
- * `!important` keyword
- *
- * @example
-   .selector {
-      […]
-      @include h-text-osx-font-smoothing();
-    }
- */
-
-@mixin h-text-osx-font-smoothing($apply-important-keyword: false) {
-    $important-keyword: if($apply-important-keyword, " !important", "");
-
-    -moz-osx-font-smoothing: grayscale#{$important-keyword};
-    -webkit-font-smoothing: antialiased#{$important-keyword};
-}
-
 @if $shell-base-apply-osx-font-smoothing == false {
     .h-text-osx-font-smoothing {
-        @include h-text-osx-font-smoothing(true);
+        @include text-osx-font-smoothing(true);
     }
 }
 
@@ -362,39 +411,29 @@
     display: none !important;
 }
 
+// Apply at breakpoints
+@if $shell-helper-apply-hide-at-breakpoints {
+    @include apply-at-breakpoints(".h-hide", $shell-helper-define-hide-breakpoints) {
+        display: none !important;
+    }
+}
+
 
 /**
  * Hide elements only visually but have it available for screen readers.
- */
-
-/**
- * @access public
  *
- * @param {boolean} $apply-important-keyword [false] — Whether to apply the
- * `!important` keyword
- *
- * @example
-   .selector {
-      […]
-      @include h-hide-visually();
-    }
+ * N.B. mixin is here: “Mixins and Functions -> Helpers”.
  */
-
-@mixin h-hide-visually($apply-important-keyword: false) {
-    $important-keyword: if($apply-important-keyword, " !important", "");
-
-    border: 0#{$important-keyword};
-    clip: rect(0 0 0 0)#{$important-keyword};
-    height: 1px#{$important-keyword};
-    margin: -1px #{$important-keyword};
-    overflow: hidden#{$important-keyword};
-    padding: 0#{$important-keyword};
-    position: absolute#{$important-keyword};
-    width: 1px#{$important-keyword};
-}
 
 .h-hide-visually {
-    @include h-hide-visually(true);
+    @include hide-visually(true);
+}
+
+// Apply at breakpoints
+@if $shell-helper-apply-hide-visually-at-breakpoints {
+    @include apply-at-breakpoints(".h-hide-visually", $shell-helper-define-hide-visually-breakpoints) {
+        @include hide-visually(true);
+    }
 }
 
 
@@ -467,29 +506,75 @@
  * hence only `margin-bottom` being used.
  */
 
-// Base
+/**
+ * Base.
+ */
+
 .h-spacing-base {
-    margin-bottom: to-rem($shell-g-spacing-base) !important;
+    margin-bottom: rem($shell-g-spacing-base) !important;
 }
+
+// Apply at breakpoints
+@if $shell-helper-apply-spacing-base-at-breakpoints {
+    @include apply-at-breakpoints(".h-spacing-base", $shell-helper-define-spacing-base-breakpoints) {
+        margin-bottom: rem($shell-g-spacing-base) !important;
+    }
+}
+
+/**
+ * Decrease from base.
+ */
 
 // Tiny
 .h-spacing-tiny {
-    margin-bottom: to-rem($shell-g-spacing-tiny) !important;
+    margin-bottom: rem($shell-g-spacing-tiny) !important;
+}
+
+// Apply at breakpoints
+@if $shell-helper-apply-spacing-tiny-at-breakpoints {
+    @include apply-at-breakpoints(".h-spacing-tiny", $shell-helper-define-spacing-tiny-breakpoints) {
+        margin-bottom: rem($shell-g-spacing-tiny) !important;
+    }
 }
 
 // Small
 .h-spacing-small {
-    margin-bottom: to-rem($shell-g-spacing-small) !important;
+    margin-bottom: rem($shell-g-spacing-small) !important;
 }
+
+// Apply at breakpoints
+@if $shell-helper-apply-spacing-small-at-breakpoints {
+    @include apply-at-breakpoints(".h-spacing-small", $shell-helper-define-spacing-small-breakpoints) {
+        margin-bottom: rem($shell-g-spacing-small) !important;
+    }
+}
+
+/**
+ * Increase from base.
+ */
 
 // Large
 .h-spacing-large {
-    margin-bottom: to-rem($shell-g-spacing-large) !important;
+    margin-bottom: rem($shell-g-spacing-large) !important;
+}
+
+// Apply at breakpoints
+@if $shell-helper-apply-spacing-large-at-breakpoints {
+    @include apply-at-breakpoints(".h-spacing-large", $shell-helper-define-spacing-large-breakpoints) {
+        margin-bottom: rem($shell-g-spacing-large) !important;
+    }
 }
 
 // Huge
 .h-spacing-huge {
-    margin-bottom: to-rem($shell-g-spacing-huge) !important;
+    margin-bottom: rem($shell-g-spacing-huge) !important;
+}
+
+// Apply at breakpoints
+@if $shell-helper-apply-spacing-huge-at-breakpoints {
+    @include apply-at-breakpoints(".h-spacing-huge", $shell-helper-define-spacing-huge-breakpoints) {
+        margin-bottom: rem($shell-g-spacing-huge) !important;
+    }
 }
 
 
@@ -501,67 +586,28 @@
 /**
  * Flexbox version, must go on the parent of the element that needs the
  * alignment.
- */
-
-/**
- * @access public
  *
- * @param {boolean} $apply-important-keyword [false] — Whether to apply the
- * `!important` keyword
- *
- * @example
-   .selector {
-      […]
-      @include h-align-horizontally-and-vertically();
-    }
+ * N.B. mixin is here: “Mixins and Functions -> Helpers”.
  */
-
-@mixin h-align-horizontally-and-vertically($apply-important-keyword: false) {
-    $important-keyword: if($apply-important-keyword, " !important", "");
-
-    align-items: center#{$important-keyword};
-    display: flex#{$important-keyword};
-    justify-content: center#{$important-keyword};
-}
 
 .h-align-horizontally-and-vertically {
-    @include h-align-horizontally-and-vertically(true);
+    @include align-horizontally-and-vertically(true);
 }
 
 
 /**
  * Position and transform version, must go on the element that needs the
  * alignment and the elements parent must have `position: relative;`.
- */
-
-/**
- * @access public
  *
- * @param {boolean} $apply-important-keyword [false] — Whether to apply the
- * `!important` keyword
- *
- * @example
-   .selector {
-      […]
-      @include h-align-horizontally-and-vertically-alt();
-    }
+ * N.B. mixin is here: “Mixins and Functions -> Helpers”.
  */
-
-@mixin h-align-horizontally-and-vertically-alt($apply-important-keyword: false) {
-    $important-keyword: if($apply-important-keyword, " !important", "");
-
-    left: 50%#{$important-keyword};
-    position: absolute#{$important-keyword};
-    top: 50%#{$important-keyword};
-    transform: translate(-50%, -50%)#{$important-keyword};
-}
 
 .h-align-horizontally-and-vertically-parent {
     position: relative !important;
 }
 
 .h-align-horizontally-and-vertically-alt {
-    @include h-align-horizontally-and-vertically-alt(true);
+    @include align-horizontally-and-vertically-alt(true);
 }
 
 
@@ -578,6 +624,8 @@
  * `<video>`
  * `<iframe>`
  *
+ * N.B. mixin is here: “Mixins and Functions -> Helpers”.
+ *
  * @credit
  * https://github.com/suitcss/components-flex-embed/blob/master/lib/flex-embed.css
  */
@@ -587,38 +635,8 @@
  * The container, the default ratio is “16:9”.
  */
 
-/**
- * @access public
- *
- * @param {boolean} $apply-important-keyword [false] — Whether to apply the
- * `!important` keyword
- * @param {list} $ratio [16 9] - The ratio of the content e.g. `3 1`, `4 3`.
- *
- * @exception
- * $ratio must be a list
- *
- * @example
-   .selector {
-      […]
-      @include h-intrinsic-ratio-container(false, 3 1);
-    }
- */
-
-@mixin h-intrinsic-ratio-container($apply-important-keyword: false, $ratio: 16 9) {
-    $important-keyword: if($apply-important-keyword, " !important", "");
-    @if length($ratio) < 2 or length($ratio) > 2 {
-        @error "#{inspect($ratio)} must be a list with two values.";
-    }
-
-    display: block#{$important-keyword};
-    height: 0#{$important-keyword};
-    overflow: hidden#{$important-keyword};
-    padding-bottom: percentage(nth($ratio, 2) / nth($ratio, 1))#{$important-keyword};
-    position: relative#{$important-keyword};
- }
-
 .h-intrinsic-ratio {
-    @include h-intrinsic-ratio-container(true);
+    @include intrinsic-ratio-container(true);
 }
 
 /**
@@ -674,4 +692,3 @@
 .h-intrinsic-ratio__content {
     @include h-intrinsic-ratio-content(true);
 }
-

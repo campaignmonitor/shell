@@ -17,8 +17,8 @@ $l-main-left-padding: $shell-g-spacing-triple;
 
 
 .l-main {
-    margin-left: to-rem($l-main-left-margin);
-    padding-bottom: to-rem($shell-g-spacing-base-plus-half);
-    padding-left: to-rem($l-main-left-padding);
-    padding-top: to-rem($shell-g-spacing-base-plus-half);
+    margin-left: rem($l-main-left-margin);
+    padding-bottom: rem($shell-g-spacing-base-plus-half);
+    padding-left: rem($l-main-left-padding);
+    padding-top: rem($shell-g-spacing-base-plus-half);
 }

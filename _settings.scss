@@ -8,7 +8,7 @@
  *
  * The settings are broken into two categories:
  *
- * - “Global”.....settings for the entire framework.
+ * - “Global”.....settings for the entire library.
  * - “Local”......settings for a particular partial.
  *
  * N.B. usually “Local” settings exist in their relevant partial but we combine
@@ -19,10 +19,10 @@
  *
    $shell-apply-osx-font-smoothing: true;
    $shell-apply-link-transition: false;
-   @import "[framework/path]/base";
+   @import "[library/path]/base";
 
    $shell-grid-gutter: 24;
-   @import "[framework/path]/grid";
+   @import "[library/path]/grid";
  *
  * The above set up is more cumbersome to maintain due to “Local” settings
  * being dispersed throughout the master stylesheet plus the master stylesheet
@@ -56,16 +56,17 @@
  *
  * CONTENTS:
  *
- * 1. Colours (Global)
- * 2. Typography (Global)
- * 3. Spacing (Global)
- * 4. Breakpoints (Global)
- * 5. Grid (Global)
- * 6. Z-Index system (Global)
- * 7. Other (Global)
- * 8. Base (Local)
- * 9. Container (Local)
- * More to come…
+ * 1.  Colours (Global)
+ * 2.  Typography (Global)
+ * 3.  Spacing (Global)
+ * 4.  Breakpoints (Global)
+ * 5.  Z-Index system (Global)
+ * 6.  HiDPI units (Global)
+ * 7.  HTML textual `input`s (Global)
+ * 8.  Base (Local)
+ * 9.  Container (Local)
+ * 10. Grid (Local)
+ * 11. Helpers (Local)
  */
 
 
@@ -105,13 +106,6 @@ $shell-g-color-link: blue !default;
 $shell-g-color-link-hover: $shell-g-color-link !default;
 
 
-/**
- * `[placeholder]` attribute in an input field.
- */
-
-$shell-g-color-placeholder-attr: #999 !default;
-
-
 
 
 /* 2. Typography (Global)
@@ -123,7 +117,7 @@ $shell-g-color-placeholder-attr: #999 !default;
 
 $shell-g-font-size: 16 !default;
 
-// Smaller
+// Decrease from base
 $shell-g-font-size-small: $shell-g-font-size - 1 !default;
 
 $shell-g-font-size-x-small: $shell-g-font-size - 2 !default;
@@ -132,7 +126,7 @@ $shell-g-font-size-xx-small: $shell-g-font-size - 3 !default;
 
 $shell-g-font-size-xxx-small: $shell-g-font-size - 4 !default;
 
-// Larger
+// Increase from base
 $shell-g-font-size-large: $shell-g-font-size + 1 !default;
 
 $shell-g-font-size-x-large: $shell-g-font-size + 2 !default;
@@ -148,7 +142,7 @@ $shell-g-font-size-xxx-large: $shell-g-font-size + 4 !default;
 
 $shell-g-font-size-heading: 24 !default;
 
-// Smaller
+// Decrease from base
 $shell-g-font-size-heading-small: $shell-g-font-size-heading - 2 !default;
 
 $shell-g-font-size-heading-x-small: $shell-g-font-size-heading - 4 !default;
@@ -157,7 +151,7 @@ $shell-g-font-size-heading-xx-small: $shell-g-font-size-heading - 6 !default;
 
 $shell-g-font-size-heading-xxx-small: $shell-g-font-size-heading - 8 !default;
 
-// Larger
+// Increase from base
 $shell-g-font-size-heading-large: $shell-g-font-size-heading + 2 !default;
 
 $shell-g-font-size-heading-x-large: $shell-g-font-size-heading + 4 !default;
@@ -239,6 +233,14 @@ $shell-g-font-weight-heading: $shell-g-font-weight-bold !default;
 
 /* 3. Spacing (Global)
    ========================================================================= */
+
+/**
+ * Amounts of white space to use between elements—the “Base” unit is using the
+ * global “Line height” value set in the “Typography” section and the rest of
+ * the Spacing settings are using decrements and increments of “Base”, this is
+ * to try and maintain some sort of vertical rhythm.
+ */
+
 
 /**
  * Base.
@@ -328,6 +330,24 @@ $shell-g-spacing-large: $shell-g-spacing-double !default;
 $shell-g-spacing-huge: $shell-g-spacing-quadruple !default;
 
 
+/**
+ * Gutters.
+ *
+ * Used for white space between “Grid” items and other things like the
+ * “Side-by-side” Layout Module items.
+ */
+
+$shell-g-gutter-base: $shell-g-spacing-base !default;
+
+$shell-g-gutter-tiny: $shell-g-spacing-tiny !default;
+
+$shell-g-gutter-small: $shell-g-spacing-small !default;
+
+$shell-g-gutter-large: $shell-g-spacing-large !default;
+
+$shell-g-gutter-huge: $shell-g-spacing-huge !default;
+
+
 
 
 /* 4. Breakpoints (Global)
@@ -363,83 +383,52 @@ $shell-g-spacing-huge: $shell-g-spacing-quadruple !default;
  */
 
 
-// Divided by “16” (the default non-overridable user-agent font-size) as we
-// apply viewport width/height media queries via the `em` unit, not the `px`
-// unit e.g. `@media (min-width: $shell-g-bp-palm)`
-$shell-g-user-agent-font-size: 16;
+/**
+ * All the breakpoints divided by the default user-agent font-size setting
+ * that is non-overridable by Shell’s base font size setting:
+ * `$shell-g-font-size`. We do this division as all viewport width and height
+ * media queries are to be applied with the `em` unit. See:
+ * http://blog.cloudfour.com/the-ems-have-it-proportional-media-queries-ftw/.
+ *
+ * N.B. if you wish to override any of the breakpoints then don’t forget to
+ * apply this calculation:
+ *
+    ([breakpoint-value] / 16) * 1em
+ *
+ * N.B. as we’re using a Sass map we need to use a Sass function to make it
+ * easier to apply the map keys, the function lives in
+ * “Mixins/Functions -> Retrieve from maps”.
+ */
 
-$shell-g-bp-palm: (640 / $shell-g-user-agent-font-size) * 1em !default;
+$shell-g-breakpoints: (
 
-$shell-g-bp-lap: (641 / $shell-g-user-agent-font-size) * 1em !default;
+  // Palm
+  "palm": (640 / 16) * 1em,
 
-$shell-g-bp-lap-small: (768 / $shell-g-user-agent-font-size) * 1em !default;
+  // Lap
+  "lap": (641 / 16) * 1em,
+  "lap-small": (768 / 16) * 1em,
+  "lap-large": (901 / 16) * 1em,
 
-$shell-g-bp-lap-large: (901 / $shell-g-user-agent-font-size) * 1em !default;
+  // Desk
+  "desk": (1200 / 16) * 1em,
+  "desk-large": (1366 / 16) * 1em
 
-$shell-g-bp-desk: (1200 / $shell-g-user-agent-font-size) * 1em !default;
-
-$shell-g-bp-desk-large: (1366 / $shell-g-user-agent-font-size) * 1em !default;
+) !default;
 
 
 /**
  * The setting used for the default breakpoint applied to the
- * `generate-at-breakpoints()` mixin which allows the application of certain
- * Shell features to be applied at any breakpoint.
+ * “Mixins/Functions -> Apply at breakpoints” mixin, left empty to be
+ * populated by the Shell consumer.
  */
 
-$shell-g-default-bp-for-generate-at-bp-mixin: $shell-g-bp-lap !default;
+$shell-g-global-breakpoints: (lap) !default;
 
 
 
 
-/* 5. Grid (Global)
-   ========================================================================= */
-
-/**
- * Grid column widths.
- */
-
-$shell-g-grid-1-col: 8.3333% !default;
-
-$shell-g-grid-2-col: 16.6666% !default;
-
-$shell-g-grid-3-col: 25% !default;
-
-$shell-g-grid-4-col: 33.3333% !default;
-
-$shell-g-grid-5-col: 41.6666% !default;
-
-$shell-g-grid-6-col: 50% !default;
-
-$shell-g-grid-7-col: 58.3333% !default;
-
-$shell-g-grid-8-col: 66.6666% !default;
-
-$shell-g-grid-9-col: 75% !default;
-
-$shell-g-grid-10-col: 83.3333% !default;
-
-$shell-g-grid-11-col: 91.6666% !default;
-
-
-/**
- * Grid gutters.
- */
-
-$shell-g-grid-gutter-base: $shell-g-spacing-base !default;
-
-$shell-g-grid-gutter-tiny: $shell-g-spacing-tiny !default;
-
-$shell-g-grid-gutter-small: $shell-g-spacing-small !default;
-
-$shell-g-grid-gutter-large: $shell-g-spacing-large !default;
-
-$shell-g-grid-gutter-huge: $shell-g-spacing-huge !default;
-
-
-
-
-/* 6. Z-Index system (Global)
+/* 5. Z-Index system (Global)
    ========================================================================= */
 
 /**
@@ -456,19 +445,20 @@ $shell-g-grid-gutter-huge: $shell-g-spacing-huge !default;
  *
  * Applying `z-index`s with this system is done like this:
  *
-   .c-header {
-     z-index: z("header");
-   }
+    .c-header {
+        z-index: z(header);
+    }
  *
  * And for nested stacking contexts (defined via a nested map):
  *
-   .c-modal__close-button {
-     z-index: z("modal-elements", "close-button");
-   }
+    .c-modal__close-button {
+        z-index: z(modal-elements, close-button);
+    }
  *
  * N.B. as we’re using a Sass map (and nested maps) we need to use a Sass
- * function to make it easier to apply the map values and to be able to
- * retrieve nested map values. The function lives in “Mixins/Functions”.
+ * function to make it easier to apply the map keys and to be able to
+ * retrieve nested map keys. The function lives in
+ * “Mixins/Functions -> Retrieve from maps”.
  *
  * @credit
  * http://www.sitepoint.com/better-solution-managing-z-index-sass/
@@ -478,14 +468,14 @@ $shell-g-grid-gutter-huge: $shell-g-spacing-huge !default;
 /**
  * Starting from highest to lowest:
  *
-   <body>
-     <modal>
-       <modal-close-button>
-     <modal-underlay>
-     <header>
-     <main>
-     <footer>
-   </body>
+    <body>
+        <modal>
+            <modal-close-button>
+        <modal-underlay>
+        <header>
+        <main>
+        <footer>
+    </body>
  */
 
 $shell-g-z-layers: (
@@ -503,12 +493,12 @@ $shell-g-z-layers: (
 
 
 
-/* 7. Other (Global)
+/* 6. HiDPI units (Global)
    ========================================================================= */
 
 /**
- * Device pixel ratio used for the HiDPI mixins, see “Mixins/Functions”. We
- * generate the `dpi` and `dppx` units from this.
+ * HiDPI units, currently being used in:
+ * “Mixins/Functions -> HiDPI background images”.
  *
  * N.B. non-overridable.
  */
@@ -520,9 +510,10 @@ $shell-g-hidpi-dpi: ($shell-g-hidpi-dpr * 96) * 1dpi;
 $shell-g-hidpi-dppx: 1.3 * 1dppx;
 
 
-/**
- * HTML textual `input`s.
- */
+
+
+/* 7. HTML textual `input`s (Global)
+   ========================================================================= */
 
 $shell-g-textual-inputs: 'input[type="text"],
                           input[type="search"],
@@ -629,3 +620,188 @@ $shell-container-maximum-width-large: 2000 !default;
 $shell-container-maximum-width-small: 1000 !default;
 
 $shell-container-maximum-width-tiny: 640 !default;
+
+
+
+
+/* 10. Grid (Local)
+   ========================================================================= */
+
+/**
+ * Grid column widths.
+ */
+
+$shell-grid-1-col-width: 8.3333% !default;
+
+$shell-grid-2-col-width: 16.6666% !default;
+
+$shell-grid-3-col-width: 25% !default;
+
+$shell-grid-4-col-width: 33.3333% !default;
+
+$shell-grid-5-col-width: 41.6666% !default;
+
+$shell-grid-6-col-width: 50% !default;
+
+$shell-grid-7-col-width: 58.3333% !default;
+
+$shell-grid-8-col-width: 66.6666% !default;
+
+$shell-grid-9-col-width: 75% !default;
+
+$shell-grid-10-col-width: 83.3333% !default;
+
+$shell-grid-11-col-width: 91.6666% !default;
+
+/**
+ * For all grid item widths turn on the ability to apply breakpoints via
+ * boolean settings then define the breakpoints, see: “Mixins/Functions ->
+ * Apply at breakpoints” to understand how this works.
+ */
+
+// 1 col
+$shell-grid-apply-1-col-width-at-breakpoints: false !default;
+$shell-grid-define-1-col-width-breakpoints: $shell-g-global-breakpoints !default;
+
+// 2 col
+$shell-grid-apply-2-col-width-at-breakpoints: false !default;
+$shell-grid-define-2-col-width-breakpoints: $shell-g-global-breakpoints !default;
+
+// 3 col
+$shell-grid-apply-3-col-width-at-breakpoints: false !default;
+$shell-grid-define-3-col-width-breakpoints: $shell-g-global-breakpoints !default;
+
+// 4 col
+$shell-grid-apply-4-col-width-at-breakpoints: false !default;
+$shell-grid-define-4-col-width-breakpoints: $shell-g-global-breakpoints !default;
+
+// 5 col
+$shell-grid-apply-5-col-width-at-breakpoints: false !default;
+$shell-grid-define-5-col-width-breakpoints: $shell-g-global-breakpoints !default;
+
+// 6 col
+$shell-grid-apply-6-col-width-at-breakpoints: false !default;
+$shell-grid-define-6-col-width-breakpoints: $shell-g-global-breakpoints !default;
+
+// 7 col
+$shell-grid-apply-7-col-width-at-breakpoints: false !default;
+$shell-grid-define-7-col-width-breakpoints: $shell-g-global-breakpoints !default;
+
+// 8 col
+$shell-grid-apply-8-col-width-at-breakpoints: false !default;
+$shell-grid-define-8-col-width-breakpoints: $shell-g-global-breakpoints !default;
+
+// 9 col
+$shell-grid-apply-9-col-width-at-breakpoints: false !default;
+$shell-grid-define-9-col-width-breakpoints: $shell-g-global-breakpoints !default;
+
+// 10 col
+$shell-grid-apply-10-col-width-at-breakpoints: false !default;
+$shell-grid-define-10-col-width-breakpoints: $shell-g-global-breakpoints !default;
+
+// 11 col
+$shell-grid-apply-11-col-width-at-breakpoints: false !default;
+$shell-grid-define-11-col-width-breakpoints: $shell-g-global-breakpoints !default;
+
+
+
+
+/* 11. Helpers (Local)
+   ========================================================================= */
+
+/**
+ * For certain “Helpers” turn on the ability to apply breakpoints via boolean
+ * settings then define the breakpoints, see: “Mixins/Functions ->
+ * Apply at breakpoints” to understand how this works.
+ */
+
+/**
+ * Text sizes.
+ */
+
+// Base
+$shell-helper-apply-text-size-base-at-breakpoints: false !default;
+$shell-helper-define-text-size-base-breakpoints: $shell-g-global-breakpoints !default;
+
+// Decrease from base
+$shell-helper-apply-text-size-small-at-breakpoints: false !default;
+$shell-helper-define-text-size-small-breakpoints: $shell-g-global-breakpoints !default;
+
+$shell-helper-apply-text-size-x-small-at-breakpoints: false !default;
+$shell-helper-define-text-size-x-small-breakpoints: $shell-g-global-breakpoints !default;
+
+$shell-helper-apply-text-size-xx-small-at-breakpoints: false !default;
+$shell-helper-define-text-size-xx-small-breakpoints: $shell-g-global-breakpoints !default;
+
+$shell-helper-apply-text-size-xxx-small-at-breakpoints: false !default;
+$shell-helper-define-text-size-xxx-small-breakpoints: $shell-g-global-breakpoints !default;
+
+// Increase from base
+$shell-helper-apply-text-size-large-at-breakpoints: false !default;
+$shell-helper-define-text-size-large-breakpoints: $shell-g-global-breakpoints !default;
+
+$shell-helper-apply-text-size-x-large-at-breakpoints: false !default;
+$shell-helper-define-text-size-x-large-breakpoints: $shell-g-global-breakpoints !default;
+
+$shell-helper-apply-text-size-xx-large-at-breakpoints: false !default;
+$shell-helper-define-text-size-xx-large-breakpoints: $shell-g-global-breakpoints !default;
+
+$shell-helper-apply-text-size-xxx-large-at-breakpoints: false !default;
+$shell-helper-define-text-size-xxx-large-breakpoints: $shell-g-global-breakpoints !default;
+
+/**
+ * Alignments.
+ */
+
+// Center
+$shell-helper-apply-text-align-center-at-breakpoints: false !default;
+$shell-helper-define-text-align-center-breakpoints: $shell-g-global-breakpoints !default;
+
+// Left
+$shell-helper-apply-text-align-left-at-breakpoints: false !default;
+$shell-helper-define-text-align-left-breakpoints: $shell-g-global-breakpoints !default;
+
+// Right
+$shell-helper-apply-text-align-right-at-breakpoints: false !default;
+$shell-helper-define-text-align-right-breakpoints: $shell-g-global-breakpoints !default;
+
+/**
+ * Text truncate.
+ */
+
+$shell-helper-apply-text-truncate-at-breakpoints: false !default;
+$shell-helper-define-text-truncate-breakpoints: $shell-g-global-breakpoints !default;
+
+/**
+ * Hide.
+ */
+
+// Hide elements from both screen readers and the document flow
+$shell-helper-apply-hide-at-breakpoints: false !default;
+$shell-helper-define-hide-breakpoints: $shell-g-global-breakpoints !default;
+
+// Hide elements only visually but have it available for screen readers
+$shell-helper-apply-hide-visually-at-breakpoints: false !default;
+$shell-helper-define-hide-visually-breakpoints: $shell-g-global-breakpoints !default;
+
+/**
+ * Spacing.
+ */
+
+// Base
+$shell-helper-apply-spacing-base-at-breakpoints: false !default;
+$shell-helper-define-spacing-base-breakpoints: $shell-g-global-breakpoints !default;
+
+// Decrease from base
+$shell-helper-apply-spacing-tiny-at-breakpoints: false !default;
+$shell-helper-define-spacing-tiny-breakpoints: $shell-g-global-breakpoints !default;
+
+$shell-helper-apply-spacing-small-at-breakpoints: false !default;
+$shell-helper-define-spacing-small-breakpoints: $shell-g-global-breakpoints !default;
+
+// Increase from base
+$shell-helper-apply-spacing-large-at-breakpoints: false !default;
+$shell-helper-define-spacing-large-breakpoints: $shell-g-global-breakpoints !default;
+
+$shell-helper-apply-spacing-huge-at-breakpoints: false !default;
+$shell-helper-define-spacing-huge-breakpoints: $shell-g-global-breakpoints !default;

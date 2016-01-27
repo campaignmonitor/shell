@@ -12,7 +12,7 @@
  * CONTENTS:
  *
  * 1. Shell Docs settings
- * 2. Shell framework
+ * 2. Shell library
  * 3. Shell Docs styles
  *
  * N.B. the above order of sections #1 and #2 must be maintained otherwise Sass
@@ -30,11 +30,11 @@
 
 
 
-/* 2. Shell framework
+/* 2. Shell library
    ========================================================================= */
 
 /**
- * The entire framework is imported however only use what you need, you will
+ * The entire library is imported however only use what you need, you will
  * however need: “Settings” and “Mixins/Functions” for Shell to work.
  */
 
@@ -72,6 +72,20 @@
  */
 
 @import "../../../../container";
+
+
+/**
+ * Grid.
+ */
+
+@import "../../../../grid";
+
+
+/**
+ * Side-by-side.
+ */
+
+@import "../../../../side-by-side";
 
 
 /**

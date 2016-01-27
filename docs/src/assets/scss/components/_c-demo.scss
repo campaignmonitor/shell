@@ -46,13 +46,13 @@ $c-demo-github-icon-size: 26px;
 
 .c-demo {
     background-color: $c-demo-background-color;
-    font-size: to-rem($c-demo-font-size);
-    padding: to-rem($c-demo-padding / 2);
-    padding-left: to-rem($c-demo-padding);
-    padding-right: to-rem($c-demo-padding);
+    font-size: rem($c-demo-font-size);
+    padding: rem($c-demo-padding / 2);
+    padding-left: rem($c-demo-padding);
+    padding-right: rem($c-demo-padding);
     // TODO: move this out of the component and replace with a spacing helper
-    margin-bottom: to-rem($c-demo-padding);
-    margin-left: -(to-rem($c-demo-padding));
+    margin-bottom: rem($c-demo-padding);
+    margin-left: -(rem($c-demo-padding));
 }
 
 
@@ -63,11 +63,11 @@ $c-demo-github-icon-size: 26px;
  */
 
 .c-demo__spacing {
-    margin-bottom: to-rem($c-demo-base-spacing);
+    margin-bottom: rem($c-demo-base-spacing);
 }
 
 .c-demo__spacing-large {
-    margin-bottom: to-rem($c-demo-base-spacing + $shell-g-spacing-half);
+    margin-bottom: rem($c-demo-base-spacing + $shell-g-spacing-half);
 }
 
 
@@ -76,7 +76,7 @@ $c-demo-github-icon-size: 26px;
  */
 
 .c-demo__intro {
-    margin-bottom: to-rem($c-demo-base-spacing + $shell-g-spacing-half);
+    margin-bottom: rem($c-demo-base-spacing + $shell-g-spacing-half);
 }
 
 
@@ -87,7 +87,7 @@ $c-demo-github-icon-size: 26px;
 .c-demo__config-items {
     em {
         color: $c-demo-foreground-color-light-grey;
-        font-size: to-rem($c-demo-font-size-small);
+        font-size: rem($c-demo-font-size-small);
     }
 }
 
@@ -107,7 +107,7 @@ $c-demo-github-icon-size: 26px;
     > p {
         color: $c-demo-foreground-color-light-grey;
         font-family: $g-font-family-light;
-        font-size: to-rem($c-demo-font-size-small);
+        font-size: rem($c-demo-font-size-small);
     }
 }
 
@@ -118,8 +118,8 @@ $c-demo-github-icon-size: 26px;
 
 .c-demo__view-source-code {
     display: inline-block;
-    padding-left: to-rem($c-demo-view-source-code-padding);
-    padding-top: to-rem($c-demo-view-source-code-padding);
+    padding-left: rem($c-demo-view-source-code-padding);
+    padding-top: rem($c-demo-view-source-code-padding);
     text-decoration: none;
 
     // Remove padding when the demo doesn’t show an example.

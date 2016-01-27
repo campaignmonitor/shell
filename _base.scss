@@ -7,9 +7,10 @@
  * Here we provide very basic styling that most UI’s will need. These styles
  * are applied at the most global level being applied via element selectors,
  * except for “Headings” which are scoped to classes (see that section for the
- * info). Everything in Base needs to be easily overridden which is really
- * easy to do as everything in Base sits right at the bottom in terms of
- * specificity.
+ * info).
+ *
+ * Everything in Base needs to be easily overridden which is really easy to do
+ * as everything in Base sits right at the bottom in terms of specificity.
  *
  * ----------------------------------------------------------------------------
  *
@@ -156,7 +157,7 @@ img {
 
 @if $shell-base-apply-bottom-margin-to-paragraphs {
     p {
-        margin-bottom: to-rem($shell-g-spacing-base);
+        margin-bottom: rem($shell-g-spacing-base);
     }
 }
 
@@ -191,7 +192,7 @@ h4,
 h5,
 h6 {
     color: $shell-g-color-text-heading;
-    font-size: to-rem($shell-g-font-size);
+    font-size: rem($shell-g-font-size);
     font-weight: $shell-g-font-weight-normal;
     line-height: $shell-g-line-height-ratio;
 }
@@ -204,7 +205,7 @@ h6 {
 .heading {
     color: $shell-g-color-text-heading;
     font-family: $shell-g-font-family-heading;
-    font-size: to-rem($shell-g-font-size-heading);
+    font-size: rem($shell-g-font-size-heading);
     font-weight: $shell-g-font-weight-heading;
 }
 
@@ -212,38 +213,38 @@ h6 {
  * Modifiers: sizes.
  */
 
-// Decrease
+// Decrease from base
 .heading--size-small {
-    font-size: to-rem($shell-g-font-size-heading-small);
+    font-size: rem($shell-g-font-size-heading-small);
 }
 
 .heading--size-x-small {
-    font-size: to-rem($shell-g-font-size-heading-x-small);
+    font-size: rem($shell-g-font-size-heading-x-small);
 }
 
 .heading--size-xx-small {
-    font-size: to-rem($shell-g-font-size-heading-xx-small);
+    font-size: rem($shell-g-font-size-heading-xx-small);
 }
 
 .heading--size-xxx-small {
-    font-size: to-rem($shell-g-font-size-heading-xxx-small);
+    font-size: rem($shell-g-font-size-heading-xxx-small);
 }
 
-// Increase
+// Increase from base
 .heading--size-large {
-    font-size: to-rem($shell-g-font-size-heading-large);
+    font-size: rem($shell-g-font-size-heading-large);
 }
 
 .heading--size-x-large {
-    font-size: to-rem($shell-g-font-size-heading-x-large);
+    font-size: rem($shell-g-font-size-heading-x-large);
 }
 
 .heading--size-xx-large {
-    font-size: to-rem($shell-g-font-size-heading-xx-large);
+    font-size: rem($shell-g-font-size-heading-xx-large);
 }
 
 .heading--size-xxx-large {
-    font-size: to-rem($shell-g-font-size-heading-xxx-large);
+    font-size: rem($shell-g-font-size-heading-xxx-large);
 }
 
 /**
