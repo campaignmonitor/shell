@@ -56,18 +56,16 @@
  *
  * CONTENTS:
  *
- * 1.  Colours (Global)
- * 2.  Typography (Global)
- * 3.  Spacing (Global)
- * 4.  Breakpoints (Global)
- * 5.  Percentage widths (Global)
- * 6.  Z-Index system (Global)
- * 7.  Other (Global)
- * 8.  Base (Local)
- * 9.  Container (Local)
+ * 1. Colours (Global)
+ * 2. Typography (Global)
+ * 3. Spacing (Global)
+ * 4. Breakpoints (Global)
+ * 5. Grid (Global)
+ * 6. Z-Index system (Global)
+ * 7. Other (Global)
+ * 8. Base (Local)
+ * 9. Container (Local)
  * 10. Helpers (Local)
- *
- * More to come…
  */
 
 
@@ -371,8 +369,8 @@ $shell-g-spacing-huge: $shell-g-spacing-quadruple !default;
     ([breakpoint-value] / 16) * 1em
  *
  * N.B. as we’re using a Sass map we need to use a Sass function to make it
- * easier to apply the map keys, the function lives in “Mixins/Functions ->
- * Retrieve from maps”.
+ * easier to apply the map keys, the function lives in
+ * “Mixins/Functions -> Retrieve from maps”.
  */
 
 $shell-g-breakpoints: (
@@ -394,8 +392,8 @@ $shell-g-breakpoints: (
 
 /**
  * The setting used for the default breakpoint applied to the
- * “Apply at breakpoints” mixin, left empty to be populated by the Shell
- * consumer.
+ * “Mixins/Functions -> Apply at breakpoints” mixin, left empty to be
+ * populated by the Shell consumer.
  */
 
 $shell-g-global-breakpoints: () !default;
@@ -403,160 +401,49 @@ $shell-g-global-breakpoints: () !default;
 
 
 
-/* 5. Percentage widths (Global)
+/* 5. Grid (Global)
    ========================================================================= */
 
 /**
- * N.B. all these settings are non-overridable.
+ * Grid column widths.
  */
+
+$shell-g-grid-1-col: 8.3333% !default;
+
+$shell-g-grid-2-col: 16.6666% !default;
+
+$shell-g-grid-3-col: 25% !default;
+
+$shell-g-grid-4-col: 33.3333% !default;
+
+$shell-g-grid-5-col: 41.6666% !default;
+
+$shell-g-grid-6-col: 50% !default;
+
+$shell-g-grid-7-col: 58.3333% !default;
+
+$shell-g-grid-8-col: 66.6666% !default;
+
+$shell-g-grid-9-col: 75% !default;
+
+$shell-g-grid-10-col: 83.3333% !default;
+
+$shell-g-grid-11-col: 91.6666% !default;
 
 
 /**
- * Whole.
+ * Grid gutters.
  */
 
-$shell-g-one-whole: 100%;
+$shell-g-grid-gutter-base: $shell-g-spacing-base !default;
 
+$shell-g-grid-gutter-tiny: $shell-g-spacing-tiny !default;
 
-/**
- * Half.
- */
+$shell-g-grid-gutter-small: $shell-g-spacing-small !default;
 
-$shell-g-one-half: 50%;
+$shell-g-grid-gutter-large: $shell-g-spacing-large !default;
 
-
-/**
- * Thirds.
- */
-
-$shell-g-one-third: (100 / 3) * 1%;
-
-$shell-g-two-thirds: (100 / 3) * 2%;
-
-
-/**
- * Quarters.
- */
-
-$shell-g-one-quarter: (100 / 4) * 1%;
-
-$shell-g-two-quarters: $shell-g-one-half;
-
-$shell-g-three-quarters:  (100 / 4) * 3%;
-
-
-/**
- * Fifths.
- */
-
-$shell-g-one-fifth: (100 / 5) * 1%;
-
-$shell-g-two-fifths: (100 / 5) * 2%;
-
-$shell-g-three-fifths: (100 / 5) * 3%;
-
-$shell-g-four-fifths: (100 / 5) * 4%;
-
-
-/**
- * Sixths.
- */
-
-$shell-g-one-sixth: (100 / 6) * 1%;
-
-$shell-g-two-sixths: $shell-g-one-third;
-
-$shell-g-three-sixths: $shell-g-one-half;
-
-$shell-g-four-sixths: $shell-g-two-thirds;
-
-$shell-g-five-sixths: (100 / 6) * 5%;
-
-
-/**
- * Sevenths.
- */
-
-$shell-g-one-seventh: (100 / 7) * 1%;
-
-$shell-g-two-sevenths: (100 / 7) * 2%;
-
-$shell-g-three-sevenths: (100 / 7) * 3%;
-
-$shell-g-four-sevenths: (100 / 7) * 4%;
-
-$shell-g-five-sevenths: (100 / 7) * 5%;
-
-$shell-g-six-sevenths: (100 / 7) * 6%;
-
-
-/**
- * Eighths.
- */
-
-$shell-g-one-eighth: (100 / 8) * 1%;
-
-$shell-g-two-eighths: $shell-g-one-quarter;
-
-$shell-g-three-eighths: (100 / 8) * 3%;
-
-$shell-g-four-eighths: $shell-g-one-half;
-
-$shell-g-five-eighths: (100 / 8) * 5%;
-
-$shell-g-six-eighths: $shell-g-three-quarters;
-
-$shell-g-seven-eighths: (100 / 8) * 7%;
-
-
-/**
- * Tenths.
- */
-
-$shell-g-one-tenth: (100 / 10) * 1%;
-
-$shell-g-two-tenths: $shell-g-one-fifth;
-
-$shell-g-three-tenths: (100 / 10) * 3%;
-
-$shell-g-four-tenths: $shell-g-two-fifths;
-
-$shell-g-five-tenths: $shell-g-one-half;
-
-$shell-g-six-tenths: $shell-g-three-fifths;
-
-$shell-g-seven-tenths: (100 / 10) * 7%;
-
-$shell-g-eight-tenths: $shell-g-four-fifths;
-
-$shell-g-nine-tenths: (100 / 10) * 9%;
-
-
-/**
- * Twelfths.
- */
-
-$shell-g-one-twelfth: (100 / 12) * 1%;
-
-$shell-g-two-twelfths: $shell-g-one-sixth;
-
-$shell-g-three-twelfths: $shell-g-one-quarter;
-
-$shell-g-four-twelfths: $shell-g-one-third;
-
-$shell-g-five-twelfths: (100 / 12) * 5%;
-
-$shell-g-six-twelfths: $shell-g-one-half;
-
-$shell-g-seven-twelfths: (100 / 12) * 7%;
-
-$shell-g-eight-twelfths: $shell-g-two-thirds;
-
-$shell-g-nine-twelfths: $shell-g-three-quarters;
-
-$shell-g-ten-twelfths: $shell-g-five-sixths;
-
-$shell-g-eleven-twelfths: (100 / 12) * 11%;
+$shell-g-grid-gutter-huge: $shell-g-spacing-huge !default;
 
 
 
@@ -590,8 +477,8 @@ $shell-g-eleven-twelfths: (100 / 12) * 11%;
  *
  * N.B. as we’re using a Sass map (and nested maps) we need to use a Sass
  * function to make it easier to apply the map keys and to be able to
- * retrieve nested map keys. The function lives in “Mixins/Functions ->
- * Retrieve from maps”.
+ * retrieve nested map keys. The function lives in
+ * “Mixins/Functions -> Retrieve from maps”.
  *
  * @credit
  * http://www.sitepoint.com/better-solution-managing-z-index-sass/

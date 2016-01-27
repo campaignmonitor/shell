@@ -1,0 +1,274 @@
+/* ============================================================================
+   @GRID
+   ========================================================================= */
+
+/**
+ * A powerful fluid and nestable mobile first grid system. It makes use of
+ * flexbox to provide features that float-based layouts cannot.
+ *
+ * N.B. grid systems should be thought of as shelves. They contain content but
+ * are not content in themselves. You put up your shelves then fill them with
+ * your stuff. By setting up our grids separately to our components you can
+ * move components around a lot more easily than if they had dimensions
+ * applied to them; this makes our front-ends a lot more adaptable and quick
+ * to work with.
+ *
+ * N.B. you should NEVER apply any styles to a grid item, they are for layout
+ * purposes only. Apply styling to content inside a grid item.
+ *
+ * @markup
+    <div class="l-grid [modifier(s)]">
+        <div class="l-grid__item  l-grid__item--6-col"> [...] </div>
+        <div class="l-grid__item  l-grid__item--6-col"> [...] </div>
+    </div>
+    <div class="l-grid [modifier(s)]">
+        <div class="l-grid__item  l-grid__item--4-col"> [...] </div>
+        <div class="l-grid__item  l-grid__item--4-col"> [...] </div>
+        <div class="l-grid__item  l-grid__item--4-col"> [...] </div>
+    </div>
+ *
+ *
+ * @credit
+ * https://github.com/csswizardry/csswizardry-grids/blob/master/csswizardry-grids.scss
+ * https://github.com/suitcss/components-grid
+ *
+ * ----------------------------------------------------------------------------
+ *
+ * Grid is namespaced with “l” followed by one hyphen, like this:
+ *
+   l-
+ *
+ * The “l” stands for “layout” as Grid is a “Layout Module”.
+ *
+ * See: https://git.campmon.com/Freshview/coding-guidelines/blob/master/css/README.md#the-namespaces
+ */
+
+
+/**
+ * Grid container.
+ *
+ * 1. Negative `margin-left` to negate the columns gutters.
+ *
+ * Gutter widths can be found in Settings -> Grid (Global)
+ */
+
+.l-grid {
+    display: flex;
+    flex-flow: row wrap;
+    margin-left -(to-rem($shell-g-grid-gutter-base)); // [1]
+}
+
+
+/**
+ * All content must be contained within child `grid__item` elements.
+ *
+ * 1. Allows use of widths
+ * 2. Bottom gutter
+ * 3. Space columns apart
+ * 4. 100% width by default - mobile first
+ */
+
+.l-grid__item {
+    flex-basis: auto; // [1]
+    margin-bottom: to-rem($shell-g-grid-gutter-base); // [2]
+    padding-left: to-rem($shell-g-grid-gutter-base); // [3]
+    width: 100%; // [4]
+}
+
+
+/**
+ * Modifiers: gutters.
+ */
+
+// Gutterless
+.l-grid--gutterless {
+    margin-left: 0;
+
+    > .l-grid__item {
+        margin-bottom: 0;
+        padding-left: 0;
+    }
+}
+
+// Gutterless Vertical
+.l-grid--gutterless-vertical > .l-grid__item {
+    margin-bottom: 0;
+}
+
+// Gutterless Horizontal
+.l-grid--gutterless-horizontal {
+    margin-left: 0;
+
+    > .l-grid__item {
+        padding-left: 0;
+    }
+}
+
+
+// Gutter tiny
+.l-grid--gutter-tiny {
+    margin-left: -(to-rem($shell-g-grid-gutter-tiny));
+
+    .l-grid__item {
+        margin-bottom: to-rem($shell-g-grid-gutter-tiny);
+        padding-left:  to-rem($shell-g-grid-gutter-tiny);
+    }
+}
+
+// Gutter small
+.l-grid--gutter-small {
+    margin-left: -(to-rem($shell-g-grid-gutter-small));
+
+    .l-grid__item {
+        margin-bottom: to-rem($shell-g-grid-gutter-small);
+        padding-left:  to-rem($shell-g-grid-gutter-small);
+    }
+}
+
+// Gutter large
+.l-grid--gutter-large {
+    margin-left: -(to-rem($shell-g-grid-gutter-large));
+
+    .l-grid__item {
+        margin-bottom: to-rem($shell-g-grid-gutter-large);
+        padding-left:  to-rem($shell-g-grid-gutter-large);
+    }
+}
+
+// Gutter huge
+.l-grid--gutter-huge {
+    margin-left: -(to-rem($shell-g-grid-gutter-huge));
+
+    .l-grid__item {
+        margin-bottom: to-rem($shell-g-grid-gutter-huge);
+        padding-left:  to-rem($shell-g-grid-gutter-huge);
+    }
+}
+
+
+/**
+ * Modifiers: vertical alignments.
+ */
+
+// Center alignment
+.l-grid--align-middle {
+    align-items: center;
+}
+
+// Bottom alignment
+.l-grid--align-bottom {
+    align-items: flex-end;
+}
+
+
+/**
+ * Modifiers: horizontal alignments.
+ */
+
+// Right alignment
+.l-grid--align-right {
+    justify-content: flex-end;
+}
+
+// Center alignment
+.l-grid--align-center {
+    justify-content: center;
+}
+
+
+/**
+ * Modifiers: Space between
+ */
+
+.l-grid--space-between {
+    flex-direction: row;
+    justify-content: space-between;
+
+    > .l-grid__item {
+        flex: 1 1 0%;
+        flex-basis: none;
+    }
+}
+
+
+/**
+ * Modifiers: allow items to equal distribute width
+ *
+ * 1. Provide all values to avoid IE10 bug with shorthand flex -
+ * http://git.io/vllC7
+ *    Use `0%` to avoid bug in IE10/11 with unitless flex basis -
+ * http://git.io/vllWx
+ */
+
+.l-grid--fit > .l-grid__item {
+    flex: 1 1 0%; // [1]
+    flex-basis: none;
+}
+
+
+/**
+ * Modifiers: horizontally center one unit
+ *
+ * Set a specific unit to be horizontally centered. Doesn't affect
+ * any other units. Can still contain a child `grid` object.
+ */
+
+.l-grid__item--center {
+    margin: 0 auto;
+}
+
+
+/**
+ * Modifiers: cell widths
+ *
+ * Based on 12 column grid.
+ * `.l-grid__item--12-col` not needed as cells 100% by default
+ *
+ * Column widths can be found in Settings -> Grid (Global)
+ */
+
+
+.l-grid__item--1-col {
+    width: $shell-g-grid-1-col;
+}
+
+.l-grid__item--2-col {
+    width: $shell-g-grid-2-col;
+}
+
+.l-grid__item--3-col {
+    width: $shell-g-grid-3-col;
+}
+
+.l-grid__item--4-col {
+    width: $shell-g-grid-4-col;
+}
+
+.l-grid__item--5-col {
+    width: $shell-g-grid-5-col;
+}
+
+.l-grid__item--6-col {
+    width: $shell-g-grid-6-col;
+}
+
+.l-grid__item--7-col {
+    width: $shell-g-grid-7-col;
+}
+
+.l-grid__item--8-col {
+    width: $shell-g-grid-8-col;
+}
+
+.l-grid__item--9-col {
+    width: $shell-g-grid-9-col;
+}
+
+.l-grid__item--10-col {
+    width: $shell-g-grid-10-col;
+}
+
+.l-grid__item--11-col {
+    width: $shell-g-grid-11-col;
+}
+
