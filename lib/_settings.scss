@@ -1,20 +1,20 @@
 /* ============================================================================
-   @SETTINGS
+   SETTINGS
    ========================================================================= */
 
 
 /**
- * All of Shell’s settings (Sass variables).
+ * All of Shell's settings (Sass variables).
  *
  * The settings are broken into two categories:
  *
- * - “Global”.....settings for the entire library.
- * - “Local”......settings for a particular partial.
+ * - "Global".....settings for the entire library.
+ * - "Local"......settings for a particular partial.
  *
- * N.B. usually “Local” settings exist in their relevant partial but we combine
- * them for Shell to make them easier to override. It’s easier as you can
+ * N.B. usually "Local" settings exist in their relevant partial but we combine
+ * them for Shell to make them easier to override. It's easier as you can
  * override all of the settings in the one place—typically in a
- * “_settings.scss” partial—compared to overriding “Local” settings above
+ * "_settings.scss" partial—compared to overriding "Local" settings above
  * their relevant partial within the master stylesheet, like so:
  *
    $shell-apply-osx-font-smoothing: true;
@@ -24,7 +24,7 @@
    $shell-grid-gutter: 24;
    @import "[library/path]/grid";
  *
- * The above set up is more cumbersome to maintain due to “Local” settings
+ * The above set up is more cumbersome to maintain due to "Local" settings
  * being dispersed throughout the master stylesheet plus the master stylesheet
  * should only contain Sass partial imports.
  *
@@ -38,19 +38,19 @@
  *
    $shell-
  *
- * “Global” settings include a letter “g” to easily identify them, like so:
+ * "Global" settings include a letter "g" to easily identify them, like so:
  *
    $shell-g-
  *
- * “Local” settings include the name of its section to easily identify them, so
- * settings for the “Base” and “Grid” sections would be formatted like this:
+ * "Local" settings include the name of its section to easily identify them, so
+ * settings for the "Base" and "Grid" sections would be formatted like this:
  *
    $shell-base-
    $shell-grid-
  *
- * The `$shell` namespace prevents your project settings and Shell’s settings
+ * The `$shell` namespace prevents your project settings and Shell's settings
  * from clashing with each other, and allows you to easily see what is
- * coming from Shell and what isn’t.
+ * coming from Shell and what isn't.
  *
  * ----------------------------------------------------------------------------
  *
@@ -196,13 +196,13 @@ $shell-g-font-family-monospace: Consolas, "Andale Mono",
  * Weights.
  *
  * N.B. all the font weights other than `$shell-g-font-weight-normal` are there
- * to be used when you’re using Webfonts i.e. fonts brought in via the
- * `@font-face` declaration. It’s better to store each Webfont weights in
+ * to be used when you're using Webfonts i.e. fonts brought in via the
+ * `@font-face` declaration. It's better to store each Webfont weights in
  * settings rather than trying to remember each of the numbers that the
- * weights correspond to, plus it ensures that your project’s typography is
+ * weights correspond to, plus it ensures that your project's typography is
  * applied consistency. You can use these settings for none Webfonts i.e.
- * system fonts but typically you’ll only need to apply one weight which is
- * “bold” and in that case using `font-weight: bold;` is fine.
+ * system fonts but typically you'll only need to apply one weight which is
+ * "bold" and in that case using `font-weight: bold;` is fine.
  *
  * See: https://developer.mozilla.org/en/docs/Web/CSS/font-weight#Common_weight_name_mapping.
  */
@@ -235,9 +235,9 @@ $shell-g-font-weight-heading: $shell-g-font-weight-bold !default;
    ========================================================================= */
 
 /**
- * Amounts of white space to use between elements—the “Base” unit is using the
- * global “Line height” value set in the “Typography” section and the rest of
- * the Spacing settings are using decrements and increments of “Base”, this is
+ * Amounts of white space to use between elements—the "Base" unit is using the
+ * global "Line height" value set in the "Typography" section and the rest of
+ * the Spacing settings are using decrements and increments of "Base", this is
  * to try and maintain some sort of vertical rhythm.
  */
 
@@ -250,7 +250,7 @@ $shell-g-spacing-base: $shell-g-line-height !default;
 
 
 /**
- * Decrease from base: fractions and “tiny” / “small”.
+ * Decrease from base: fractions and "tiny" / "small".
  */
 
 // Half
@@ -286,7 +286,7 @@ $shell-g-spacing-small: $shell-g-spacing-half !default;
 
 
 /**
- * Increase from base: fractions and “large” / “huge”.
+ * Increase from base: fractions and "large" / "huge".
  */
 
 // Thirds
@@ -333,8 +333,8 @@ $shell-g-spacing-huge: $shell-g-spacing-quadruple !default;
 /**
  * Gutters.
  *
- * Used for white space between “Grid” items and other things like the
- * “Side-by-side” Layout Module items.
+ * Used for white space between "Grid" items and other things like the
+ * "Side-by-side" Layout Module items.
  */
 
 $shell-g-gutter-base: $shell-g-spacing-base !default;
@@ -357,7 +357,7 @@ $shell-g-gutter-huge: $shell-g-spacing-huge !default;
  * The breakdown of the breakpoints is based off this chart:
  * http://static.lukew.com/unified_device_design.png
  *
- * Here’s the thinking:
+ * Here's the thinking:
  *
  * - Palm..........smart-phones and feature phones—anything that can fit into
  *                 the palm of a hand.
@@ -365,7 +365,7 @@ $shell-g-gutter-huge: $shell-g-spacing-huge !default;
  *                 portable that doesn't include phones.
  * - Lap small.....smaller tablets/notebooks and e-readers e.g. Kindle.
  * - Lap large.....larger tablets and laptops.
- * - Desk..........desktop computers, TVs, etc.—anything that isn’t portable.
+ * - Desk..........desktop computers, TVs, etc.—anything that isn't portable.
  * - Desk large....larger desktop computer monitors, TVs, and who knows what
  *                 else?
  *
@@ -385,19 +385,19 @@ $shell-g-gutter-huge: $shell-g-spacing-huge !default;
 
 /**
  * All the breakpoints divided by the default user-agent font-size setting
- * that is non-overridable by Shell’s base font size setting:
+ * that is non-overridable by Shell's base font size setting:
  * `$shell-g-font-size`. We do this division as all viewport width and height
  * media queries are to be applied with the `em` unit. See:
  * http://blog.cloudfour.com/the-ems-have-it-proportional-media-queries-ftw/.
  *
- * N.B. if you wish to override any of the breakpoints then don’t forget to
+ * N.B. if you wish to override any of the breakpoints then don't forget to
  * apply this calculation:
  *
     ([breakpoint-value] / 16) * 1em
  *
- * N.B. as we’re using a Sass map we need to use a Sass function to make it
+ * N.B. as we're using a Sass map we need to use a Sass function to make it
  * easier to apply the map keys, the function lives in
- * “Mixins/Functions -> Retrieve from maps”.
+ * "Mixins/Functions -> Retrieve from maps".
  */
 
 $shell-g-breakpoints: (
@@ -419,7 +419,7 @@ $shell-g-breakpoints: (
 
 /**
  * The setting used for the default breakpoint applied to the
- * “Mixins/Functions -> Apply at breakpoints” mixin, left empty to be
+ * "Mixins/Functions -> Apply at breakpoints" mixin, left empty to be
  * populated by the Shell consumer.
  */
 
@@ -439,7 +439,7 @@ $shell-g-global-breakpoints: (lap) !default;
  * http://www.sitepoint.com/better-solution-managing-z-index-sass/
  *
  * Shell kicks it off by providing a standard stacking order that most projects
- * would require, you can then update the Sass map in your project “Settings”
+ * would require, you can then update the Sass map in your project "Settings"
  * partial, be sure to use nested maps to make this system aware of stacking
  * contexts as having a flat map will soon become a headache to maintain.
  *
@@ -455,10 +455,10 @@ $shell-g-global-breakpoints: (lap) !default;
         z-index: z(modal-elements, close-button);
     }
  *
- * N.B. as we’re using a Sass map (and nested maps) we need to use a Sass
+ * N.B. as we're using a Sass map (and nested maps) we need to use a Sass
  * function to make it easier to apply the map keys and to be able to
  * retrieve nested map keys. The function lives in
- * “Mixins/Functions -> Retrieve from maps”.
+ * "Mixins/Functions -> Retrieve from maps".
  *
  * @credit
  * http://www.sitepoint.com/better-solution-managing-z-index-sass/
@@ -498,7 +498,7 @@ $shell-g-z-layers: (
 
 /**
  * HiDPI units, currently being used in:
- * “Mixins/Functions -> HiDPI background images”.
+ * "Mixins/Functions -> HiDPI background images".
  *
  * N.B. non-overridable.
  */
@@ -655,8 +655,8 @@ $shell-grid-11-col-width: 91.6666% !default;
 
 /**
  * For all grid item widths turn on the ability to apply breakpoints via
- * boolean settings then define the breakpoints, see: “Mixins/Functions ->
- * Apply at breakpoints” to understand how this works.
+ * boolean settings then define the breakpoints, see: "Mixins/Functions ->
+ * Apply at breakpoints" to understand how this works.
  */
 
 // 1 col
@@ -710,9 +710,9 @@ $shell-grid-define-11-col-width-breakpoints: $shell-g-global-breakpoints !defaul
    ========================================================================= */
 
 /**
- * For certain “Helpers” turn on the ability to apply breakpoints via boolean
- * settings then define the breakpoints, see: “Mixins/Functions ->
- * Apply at breakpoints” to understand how this works.
+ * For certain "Helpers" turn on the ability to apply breakpoints via boolean
+ * settings then define the breakpoints, see: "Mixins/Functions ->
+ * Apply at breakpoints" to understand how this works.
  */
 
 /**

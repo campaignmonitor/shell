@@ -98,7 +98,7 @@ $c-demo-github-icon-size: 26px;
 
 /**
  * Modifier: apply extra styling to the example markup, this is needed when
- * we need additional markup like paragraphs that isn’t the actual example
+ * we need additional markup like paragraphs that isn't the actual example
  * markup.
  */
 
@@ -122,7 +122,7 @@ $c-demo-github-icon-size: 26px;
     padding-top: rem($c-demo-view-source-code-padding);
     text-decoration: none;
 
-    // Remove padding when the demo doesn’t show an example.
+    // Remove padding when the demo doesn't show an example.
     .has-no-example & {
         padding: 0;
     }

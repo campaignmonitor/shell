@@ -1,16 +1,16 @@
 /* ============================================================================
-   @SIDE-BY-SIDE
+   SIDE-BY-SIDE
    ========================================================================= */
 
 /**
  * Place any two elements side-by-side using Flexbox, typically for an image-
- * and text-like content. Like the “Grid” “Side-by-side” is a “Layout Module”
+ * and text-like content. Like the "Grid" "Side-by-side" is a "Layout Module"
  * and a workhorse for your UI builds, any layout you need always look to the
- * “Side-by-side” “Layout Module”—including within your “Components”, it exists
- * so you don’t have to write redundant CSS to construct layouts.
+ * "Side-by-side" "Layout Module"—including within your "Components", it exists
+ * so you don't have to write redundant CSS to construct layouts.
  *
- * Other styles cannot be applied to any “Side-by-side” elements.
- * “Side-by-side” is a “Layout Module” therefore the Single Responsibility
+ * Other styles cannot be applied to any "Side-by-side" elements.
+ * "Side-by-side" is a "Layout Module" therefore the Single Responsibility
  * Principle and the Open/Close Principle strictly applies. So this would be
  * invalid:
  *
@@ -18,8 +18,8 @@
         […]
     </div>
  *
- * Here we have wrongly applied a “Component” (`c-card`) to the same element as
- * a “Layout Module”, we’ve mixed concerns, this can result in this part of
+ * Here we have wrongly applied a "Component" (`c-card`) to the same element as
+ * a "Layout Module", we've mixed concerns, this can result in this part of
  * the UI being prone to breakages. The valid way to approach this would be:
  *
     <div class="l-side-by-side__item">
@@ -30,11 +30,11 @@
  *
  * ----------------------------------------------------------------------------
  *
- * “Side-by-side” is namespaced with “l” followed by one hyphen, like this:
+ * "Side-by-side" is namespaced with "l" followed by one hyphen, like this:
  *
    l-side-by-side
  *
- * The “l” stands for “layout” as “Side-by-side” is a “Layout Module”.
+ * The "l" stands for "layout" as "Side-by-side" is a "Layout Module".
  *
  * See: https://git.campmon.com/Freshview/coding-guidelines/blob/master/css/README.md#the-namespaces
  *
@@ -62,9 +62,9 @@
 
 
 /**
- * Each item, they’re only ever two items in a container.
+ * Each item, they're only ever two items in a container.
  *
- * N.B. all grid gutter sizes are in “Settings -> Grid (Local)”.
+ * N.B. all grid gutter sizes are in "Settings -> Grid (Local)".
  *
  * 1. Provide all values to avoid IE 10 bug with the shorthand `flex`
  *    property: http://git.io/vllC7.
@@ -79,7 +79,7 @@
     margin-left: rem($shell-g-gutter-base); // [2]
 }
 
-// Reversing the gutters for the “Reversed” modifier
+// Reversing the gutters for the "Reversed" modifier
 .l-side-by-side--reversed > .l-side-by-side__item:last-child {
     margin-left: 0;
     margin-right: rem($shell-g-gutter-base);
@@ -89,7 +89,7 @@
 /**
  * Modifier: gutterless.
  *
- * N.B. includes reversing the gutters for the “Reversed” modifier.
+ * N.B. includes reversing the gutters for the "Reversed" modifier.
  */
 
 .l-side-by-side--gutterless > .l-side-by-side__item:last-child {
@@ -105,13 +105,13 @@
 /**
  * Modifiers: gutter sizes.
  *
- * N.B. includes reversing the gutters for the “Reversed” modifier.
- * N.B. all grid gutter sizes are in “Settings -> Grid (Local)”.
+ * N.B. includes reversing the gutters for the "Reversed" modifier.
+ * N.B. all grid gutter sizes are in "Settings -> Grid (Local)".
  */
 
 // Base
-// N.B. having to reinstate the default so that any nested “Side-by-side’s”
-// that inherit a “Gutterless” modifier can be easily reapplied
+// N.B. having to reinstate the default so that any nested "Side-by-side's"
+// that inherit a "Gutterless" modifier can be easily reapplied
 .l-side-by-side--gutter-base > .l-side-by-side__item:last-child {
     margin-left: rem($shell-g-gutter-base);
 }

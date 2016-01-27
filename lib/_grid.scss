@@ -1,17 +1,17 @@
 /* ============================================================================
-   @GRID
+   GRID
    ========================================================================= */
 
 /**
- * A powerful “Mobile-first” Flexbox-based grid that is responsive ready (all
+ * A powerful "Mobile-first" Flexbox-based grid that is responsive ready (all
  * grid column widths are fluid using the `%` unit), nestable, and comes with
  * a bunch of handy modifiers. This makes the grid the workhorse of your UI
  * builds, any layout you need always look to the grid first—including within
- * your “Components”, it exists so you don’t have to write redundant CSS to
+ * your "Components", it exists so you don't have to write redundant CSS to
  * construct layouts.
  *
  * Every grid column width can be generated at any breakpoint thanks to the
- * mixin found here: “Mixins and Functions -> Apply at breakpoints”. So if you
+ * mixin found here: "Mixins and Functions -> Apply at breakpoints". So if you
  * wanted 2 columns at smaller viewports then go to 4 columns at larger
  * viewports you can easily do this just by passing in the breakpoints you need
  * into the relevant settings, like so:
@@ -38,7 +38,7 @@
         }
     }
  *
- * Other styles cannot be applied to a grid item. Grid is a “Layout Module”
+ * Other styles cannot be applied to a grid item. Grid is a "Layout Module"
  * therefore the Single Responsibility Principle and the Open/Close Principle
  * strictly applies. So this would be invalid:
  *
@@ -46,8 +46,8 @@
         […]
     </div>
  *
- * Here we have wrongly applied a “Component” (`c-card`) to the same element as
- * a “Layout Module”, we’ve mixed concerns, this can result in this part of
+ * Here we have wrongly applied a "Component" (`c-card`) to the same element as
+ * a "Layout Module", we've mixed concerns, this can result in this part of
  * the UI being prone to breakages. The valid way to approach this would be:
  *
     <div class="l-grid__item">
@@ -58,30 +58,30 @@
  *
  * As nicely put by Harry Roberts:
  *
- * “Grid systems grid should be thought of as shelves. They contain content but
+ * "Grid systems grid should be thought of as shelves. They contain content but
  * are not content in themselves. You put up your shelves then fill them with
  * your stuff. By setting up our grids separately to our components you can
  * move components around a lot more easily than if they had dimensions
  * applied to them; this makes our front-ends a lot more adaptable and quick
- * to work with.”
+ * to work with."
  *
- * N.B. they’re are a number of Flexbox bugs captured here:
+ * N.B. they're are a number of Flexbox bugs captured here:
  * https://github.com/philipwalton/flexbugs, these have been accounted for in
  * the Shell grid however if anything is missed please refer to this resource.
  *
  * ----------------------------------------------------------------------------
  *
- * N.B. some of the Grid’s modifiers and all of the Grid item widths are
+ * N.B. some of the Grid's modifiers and all of the Grid item widths are
  * available to be applied at any breakpoint the Shell consumer wishes, see
- * “Mixins and Functions -> Apply at breakpoints” to understand how this works.
+ * "Mixins and Functions -> Apply at breakpoints" to understand how this works.
  *
  * ----------------------------------------------------------------------------
  *
- * Grid is namespaced with “l” followed by one hyphen, like this:
+ * Grid is namespaced with "l" followed by one hyphen, like this:
  *
    l-grid
  *
- * The “l” stands for “layout” as Grid is a “Layout Module”.
+ * The "l" stands for "layout" as Grid is a "Layout Module".
  *
  * See: https://git.campmon.com/Freshview/coding-guidelines/blob/master/css/README.md#the-namespaces
  *
@@ -122,7 +122,7 @@
  *
  * 1. Negative margins to negate the gutters.
  *
- * N.B. all grid gutter sizes are in “Settings -> Grid (Local)”.
+ * N.B. all grid gutter sizes are in "Settings -> Grid (Local)".
  */
 
 .l-grid {
@@ -139,9 +139,9 @@
  * 1. Allows the use of widths.
  * 2. Vertical gutter.
  * 3. Horizontal gutter.
- * 4. 100% width by default—“Mobile-first”.
+ * 4. 100% width by default—"Mobile-first".
  *
- * N.B. all grid gutter sizes are in “Settings -> Grid (Local)”.
+ * N.B. all grid gutter sizes are in "Settings -> Grid (Local)".
  */
 
 .l-grid__item {
@@ -186,12 +186,12 @@
 /**
  * Modifiers: gutter sizes.
  *
- * N.B. all grid gutter sizes are in “Settings -> Grid (Local)”.
+ * N.B. all grid gutter sizes are in "Settings -> Grid (Local)".
  */
 
 // Base
 // N.B. having to reinstate the default so that any nested grids that inherit
-// a “Gutterless” modifier can be easily reapplied
+// a "Gutterless" modifier can be easily reapplied
 .l-grid--gutter-base {
     margin-left: -(rem($shell-g-gutter-base));
 
@@ -268,7 +268,7 @@
 
 
 /**
- * Modifiers: “space between” and “space around”.
+ * Modifiers: "space between" and "space around".
  */
 
 // Space between
@@ -317,7 +317,7 @@
 /**
  * Modifiers: grid column widths.
  *
- * N.B. grid column widths can be found in “Settings -> Grid (Local)”.
+ * N.B. grid column widths can be found in "Settings -> Grid (Local)".
  */
 
 // 1 col

@@ -16,7 +16,7 @@
  * 3. Shell Docs styles
  *
  * N.B. the above order of sections #1 and #2 must be maintained otherwise Sass
- * will not compile ಠ╭╮ಠ!
+ * will not compile!
  */
 
 
@@ -35,7 +35,7 @@
 
 /**
  * The entire library is imported however only use what you need, you will
- * however need: “Settings” and “Mixins/Functions” for Shell to work.
+ * however need: "Settings" and "Mixins/Functions" for Shell to work.
  */
 
 
@@ -43,56 +43,56 @@
  * Settings.
  */
 
-@import "../../../../settings";
+@import "../../../../lib/settings";
 
 
 /**
  * Mixins/Functions.
  */
 
-@import "../../../../mixins-functions";
+@import "../../../../lib/mixins-functions";
 
 
 /**
  * Normalise/Reset.
  */
 
-@import "../../../../normalise-reset";
+@import "../../../../lib/normalise-reset";
 
 
 /**
  * Base.
  */
 
-@import "../../../../base";
+@import "../../../../lib/base";
 
 
 /**
  * Container.
  */
 
-@import "../../../../container";
+@import "../../../../lib/container";
 
 
 /**
  * Grid.
  */
 
-@import "../../../../grid";
+@import "../../../../lib/grid";
 
 
 /**
  * Side-by-side.
  */
 
-@import "../../../../side-by-side";
+@import "../../../../lib/side-by-side";
 
 
 /**
  * Helpers.
  */
 
-@import "../../../../helpers";
+@import "../../../../lib/helpers";
 
 
 

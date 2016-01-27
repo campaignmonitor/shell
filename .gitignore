@@ -1,9 +1,3 @@
-# Specific files and folders #
-###################
-docs/node_modules
-docs/dist/css/style.css.map
-
-
 # Compiled source #
 ###################
 *.com

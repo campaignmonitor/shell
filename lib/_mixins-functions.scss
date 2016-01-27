@@ -1,10 +1,10 @@
 /* ============================================================================
-   @MIXINS AND FUNCTIONS
+   MIXINS AND FUNCTIONS
    ========================================================================= */
 
 
 /**
- * All of Shell’s mixins and functions.
+ * All of Shell's mixins and functions.
  *
  * N.B. all mixins and functions to be written in SassDoc documentation system,
  * see: http://sassdoc.com/.
@@ -62,8 +62,8 @@
 /* 2. HiDPI background images (Mixin)
    ========================================================================= */
 
-/// Easily apply HiDPI background images. We use a device pixel ratio (“dpr”)
-/// of “1.3” which captures almost all HiDPI aware devices, see:
+/// Easily apply HiDPI background images. We use a device pixel ratio ("dpr")
+/// of "1.3" which captures almost all HiDPI aware devices, see:
 /// https://gist.github.com/marcedwards/3446599.
 ///
 /// N.B. Autoprefixer will take care of generating the non-standard
@@ -199,56 +199,56 @@
  *
  * The mixin can also be used outside of Shell in project styles but its main
  * purpose is to allow Shell consumers to easily apply certain parts of Shell
- * at any breakpoint(s), mainly the “Grid”.
+ * at any breakpoint(s), mainly the "Grid".
  *
- * The mixin will accept any of the named breakpoints set in “Settings ->
- * Breakpoints” (which can be renamed and breakpoints redefined in your
+ * The mixin will accept any of the named breakpoints set in "Settings ->
+ * Breakpoints" (which can be renamed and breakpoints redefined in your
  * project) or any number (the pixel amount of the viewport). The breakpoints
  * get converted to the `em` unit which is best practice in Responsive Web
  * Design. You can also specify if you want a minimum or maximum width media
- * query by passing in the “min” or “max” labels after you define your
+ * query by passing in the "min" or "max" labels after you define your
  * breakpoint, the default is minimum width media queries to favour the
- * “Mobile-first” approach.
+ * "Mobile-first" approach.
  *
- * Using this mixin requires you to “opt in” as Shell doesn’t want to assume
- * all of its consumers are building responsive UI’s requiring the CSS this
+ * Using this mixin requires you to "opt in" as Shell doesn't want to assume
+ * all of its consumers are building responsive UI's requiring the CSS this
  * mixin generates. Opting in requires changing the relevant Boolean settings
- * found in: “Settings”. For example if you wanted the “Hide Visually” Helper
+ * found in: "Settings". For example if you wanted the "Hide Visually" Helper
  * to use this mixin you change its Boolean setting:
  * `$shell-helper-hide-visually-apply-at-breakpoints` to `true` then define
  * the breakpoints you need via its other setting:
- * `$shell-helper-hide-visually-define-breakpoints`. So in the “Shell
- * Overrides” section of your project “Settings” you will have something like
+ * `$shell-helper-hide-visually-define-breakpoints`. So in the "Shell
+ * Overrides" section of your project "Settings" you will have something like
  * this, depending on what breakpoints you choose:
  *
    $shell-helper-hide-visually-apply-at-breakpoints: true;
    $shell-helper-hide-visually-define-breakpoints: (400 max, lap, desk);
  *
  * You define your breakpoints in a comma separated list enclosed in curly
- * brackets with the “min” or “max” labels always coming *after* the
+ * brackets with the "min" or "max" labels always coming *after* the
  * breakpoint. If you want ALL of the named breakpoints defined here:
- * “Settings -> Breakpoints” then you can simply pass in the word “all”, like
+ * "Settings -> Breakpoints" then you can simply pass in the word "all", like
  * so:
  *
    $shell-helper-hide-visually-define-breakpoints: (all);
  *
- * Right now the mixin only allows “all” by itself i.e. you cannot add numbers
+ * Right now the mixin only allows "all" by itself i.e. you cannot add numbers
  * (non-named breakpoints), so doing this will not work:
  *
    $shell-helper-hide-visually-define-breakpoints: (all, 900);
  *
- * Shell has a global breakpoint setting set in “Settings -> Breakpoints” so
+ * Shell has a global breakpoint setting set in "Settings -> Breakpoints" so
  * that you can easily share breakpoints across everything that uses the
- * mixin. By default Shell doesn’t apply any breakpoints to this setting, this
+ * mixin. By default Shell doesn't apply any breakpoints to this setting, this
  * is for the Shell consumer to apply if they need the ability for shared
- * global breakpoints. So in the “Shell Overrides” section of your project
- * “Settings” you could do this:
+ * global breakpoints. So in the "Shell Overrides" section of your project
+ * "Settings" you could do this:
  *
    $shell-g-global-breakpoints: (lap, desk);
  */
 
-/// Outputs minimum and maximum width media-queries for some of Shell’s
-/// “Helpers” and all of Shell’s “Grid column widths” at breakpoints defined
+/// Outputs minimum and maximum width media-queries for some of Shell's
+/// "Helpers" and all of Shell's "Grid column widths" at breakpoints defined
 /// by the consumers of Shell.
 ///
 /// @author Chris Pearce
@@ -258,14 +258,14 @@
 /// @param {String} $class-selector - Class selector used to generate the final
 /// class e.g. `.h-hide-visually` -> `.h-hide-visually-from-lap`.
 /// @param {List} $breakpoints - A list of breakpoints either named
-/// breakpoints e.g. `(palm, lap)`, integers e.g. `(400, 740)`, or “all” to
+/// breakpoints e.g. `(palm, lap)`, integers e.g. `(400, 740)`, or "all" to
 /// generate all the named breakpoints e.g. `(all)`. Each breakpoint can be
-/// accompanied with a “max” or “min” limit label to tell the mixin to
+/// accompanied with a "max" or "min" limit label to tell the mixin to
 /// generate a `min-width` or `max-width` media query e.g.
 /// `(lap-large max, 460 max)`, the default is `min-width`.
 ///
 /// @todo
-/// Allow number breakpoints to be passed in along with “all”
+/// Allow number breakpoints to be passed in along with "all"
 /// Add @exception rules, see: https://gist.github.com/terkel/4373420
 ///
 /// @example scss - Usage
@@ -306,18 +306,18 @@
 
 @mixin apply-at-breakpoints($class-selector, $breakpoints: ()) {
 
-    // So we can pass in “all” which will generate all of the media queries
-    // using all of the named breakpoints from “Settings -> Breakpoints”
+    // So we can pass in "all" which will generate all of the media queries
+    // using all of the named breakpoints from "Settings -> Breakpoints"
     // N.B. you cannot pass in a limit when using this—the limit will use the
-    // default: `min-width` except for “Palm” which uses: `max-width`
+    // default: `min-width` except for "Palm" which uses: `max-width`
     $all-breakpoints: map-keys($shell-g-breakpoints);
     @if $breakpoints == "all" {
         $breakpoints: $all-breakpoints;
     }
 
-    // When defining a breakpoint with a limit: “max” or “min”, it needs to
+    // When defining a breakpoint with a limit: "max" or "min", it needs to
     // be cast into a list of lists otherwise the mixin assumes there is a
-    // breakpoint called “max” or “min”
+    // breakpoint called "max" or "min"
     @if length($breakpoints) == 2 and index((min max), nth($breakpoints, 2)) {
         $breakpoints-copy: $breakpoints;
         $breakpoints: ();
@@ -327,13 +327,13 @@
     // Loop through all the breakpoints passed in from the Shell consumer side
     @each $breakpoint in $breakpoints {
 
-        // The “max” or “min” limit used for the media feature part of the
-        // media query: `min-width` or `max-width`, default is always “min”
+        // The "max" or "min" limit used for the media feature part of the
+        // media query: `min-width` or `max-width`, default is always "min"
         $limit-min: "min";
         $limit-max: "max";
         $limit: $limit-min;
 
-        // The “max” or “min” limit label that gets appended to the
+        // The "max" or "min" limit label that gets appended to the
         // generated class selector
         $limit-label: "from";
 
@@ -362,7 +362,7 @@
             $generate-breakpoint: bp($breakpoint);
         }
 
-        // Change the limit label when a “max” limit is used
+        // Change the limit label when a "max" limit is used
         @if $limit == $limit-max {
             $limit-label: "up-to";
         }
@@ -394,11 +394,11 @@
    ========================================================================= */
 
 /**
- * An easier way to apply keys from the Shell maps defined in “Settings”
+ * An easier way to apply keys from the Shell maps defined in "Settings"
  * instead of using the native `map-get` function which can get tedious to
  * type again and again.
  *
- * For example, if you wanted to apply a key from the “Z-Index system” map
+ * For example, if you wanted to apply a key from the "Z-Index system" map
  * using the native `map-get` function you would have to do it like this:
  *
     z-index: map-get($shell-g-z-layers, header);
@@ -417,7 +417,7 @@
  */
 
 
-/// An easier way to apply keys from the “Breakpoints” map.
+/// An easier way to apply keys from the "Breakpoints" map.
 ///
 /// @author Chris Pearce
 ///
@@ -427,7 +427,7 @@
 /// name
 ///
 /// @returns {Number [unit]} - The breakpoint converted to an `em` unit, the
-/// conversion happens in the “Breakpoints” map values
+/// conversion happens in the "Breakpoints" map values
 ///
 /// @todo Add @exception rules, see: https://gist.github.com/terkel/4373420
 ///
@@ -448,13 +448,13 @@
 
 @function bp($breakpoint) {
     @if not map-has-key($shell-g-breakpoints, $breakpoint) {
-        @error "Sorry but `#{$breakpoint}` doesn’t exist as a breakpoint name in the “Breakpoints” map.";
+        @error "Sorry but `#{$breakpoint}` doesn't exist as a breakpoint name in the "Breakpoints" map.";
     }
     @return map-get($shell-g-breakpoints, $breakpoint);
 }
 
 
-/// An easier way to apply keys from the “Z-Index system” map.
+/// An easier way to apply keys from the "Z-Index system" map.
 ///
 /// @author Chris Pearce
 ///
@@ -486,7 +486,7 @@
 
 @function z($z-index-layer, $z-index-layer-nested: null) {
     @if not map-has-key($shell-g-z-layers, $z-index-layer) {
-        @error "Sorry but `#{$z-index-layer}` doesn’t exist as a `z-index` name in the 'Z-Index system' map.";
+        @error "Sorry but `#{$z-index-layer}` doesn't exist as a `z-index` name in the 'Z-Index system' map.";
     }
     @if ($z-index-layer-nested != null) {
         @return map-get(map-get($shell-g-z-layers, $z-index-layer), $z-index-layer-nested);

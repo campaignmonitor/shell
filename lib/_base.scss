@@ -1,12 +1,12 @@
 /* ============================================================================
-   @BASE
+   BASE
    ========================================================================= */
 
 
 /**
- * Here we provide very basic styling that most UI’s will need. These styles
+ * Here we provide very basic styling that most UI's will need. These styles
  * are applied at the most global level being applied via element selectors,
- * except for “Headings” which are scoped to classes (see that section for the
+ * except for "Headings" which are scoped to classes (see that section for the
  * info).
  *
  * Everything in Base needs to be easily overridden which is really easy to do
@@ -33,7 +33,7 @@
    ========================================================================= */
 
 /**
- * 1. Set the global typography rules sourced from “Settings”.
+ * 1. Set the global typography rules sourced from "Settings".
  * 2. Fonts on OS X will look more consistent with other systems that do not
  *    render text using sub-pixel anti-aliasing.
  *    N.B. we recommend not to use this.
@@ -95,7 +95,7 @@ hr {
 /**
  * 1. Make responsive, i.e. keep images from scaling beyond the width of their
  *    parents.
- * 2. `[alt]` text is visually offset if images don’t load.
+ * 2. `[alt]` text is visually offset if images don't load.
  */
 
 img {
@@ -111,8 +111,8 @@ img {
  * applying the two possible Google Map container selectors plus a generic
  * container selector to be used for other third-party widgets.
  *
- * N.B. it is okay to use `!important` here as we’re doing it preemptively
- * i.e. you know you will always want the rule it’s applied to to take
+ * N.B. it is okay to use `!important` here as we're doing it preemptively
+ * i.e. you know you will always want the rule it's applied to to take
  * precedence.
  */
 
@@ -132,9 +132,9 @@ img {
  * Apply an optional `opacity` style for disabled and read-only states.
  *
  * N.B. if developing for iOS be aware of this bug:
- * “Safari Mobile for iOS applies a default style of `opacity: 0.4` to disabled
- * textual `<input>` elements. Other major browsers don’t currently share this
- * particular default style.”
+ * "Safari Mobile for iOS applies a default style of `opacity: 0.4` to disabled
+ * textual `<input>` elements. Other major browsers don't currently share this
+ * particular default style."
  * —https://developer.mozilla.org/en-US/docs/Web/HTML/Element/Input#Browser_compatibility
  */
 
@@ -172,7 +172,7 @@ img {
  * selector so our styles are not tied to the semantics of the heading element,
  * i.e. if you want a `h4` to look like a `h2` you can easily do this.
  *
- * N.B. spacing (`bottom-margin`) is handled via the “Spacing” helpers.
+ * N.B. spacing (`bottom-margin`) is handled via the "Spacing" helpers.
  */
 
 
@@ -181,7 +181,7 @@ img {
  * `.heading` class and its modifiers. We make all the heading elements use the
  * default typography styles and we may as well apply the heading colour.
  *
- * N.B. `margin` and `padding` are taken care of in “Normalise/Reset”.
+ * N.B. `margin` and `padding` are taken care of in "Normalise/Reset".
  */
 
 
@@ -250,7 +250,7 @@ h6 {
 /**
  * Modifiers: weights.
  *
- * N.B. one of these weights is redundant as it’s the Base weight but we don’t
+ * N.B. one of these weights is redundant as it's the Base weight but we don't
  * know what that weight is so we have to include it.
  */
 
@@ -369,7 +369,7 @@ h6 {
             content: " (" attr(title) ")";
         }
 
-        // Don’t show links that are fragment identifiers, or use the
+        // Don't show links that are fragment identifiers, or use the
         // `javascript:` pseudo protocol
         a[href^="javascript:"]::after,
         a[href^="#"]::after {
