@@ -32,13 +32,13 @@
 
 .l-side-by-side__item:last-child {
     flex: 1 1 0%;
-    padding-left: to-rem($shell-g-grid-gutter-base);
+    padding-left: rem($shell-g-gutter-base);
 }
 
 // Reversing the gutters for the “Reversed” modifier
 .l-side-by-side--reversed > .l-side-by-side__item:last-child {
     padding-left: 0;
-    padding-right: to-rem($shell-g-grid-gutter-base);
+    padding-right: rem($shell-g-gutter-base);
 }
 
 
@@ -59,42 +59,42 @@
 
 // Gutter tiny
 .l-side-by-side--gutter-tiny > .l-side-by-side__item:last-child {
-    padding-left: to-rem($shell-g-grid-gutter-tiny);
+    padding-left: rem($shell-g-gutter-tiny);
 }
 
 .l-side-by-side--gutter-tiny.l-side-by-side--reversed > .l-side-by-side__item:last-child {
     padding-left: 0;
-    padding-right: to-rem($shell-g-grid-gutter-tiny);
+    padding-right: rem($shell-g-gutter-tiny);
 }
 
 // Gutter small
 .l-side-by-side--gutter-small > .l-side-by-side__item:last-child {
-    padding-left: to-rem($shell-g-grid-gutter-small);
+    padding-left: rem($shell-g-gutter-small);
 }
 
 .l-side-by-side--gutter-small.l-side-by-side--reversed > .l-side-by-side__item:last-child {
     padding-left: 0;
-    padding-right: to-rem($shell-g-grid-gutter-small);
+    padding-right: rem($shell-g-gutter-small);
 }
 
 // Gutter large
 .l-side-by-side--gutter-large > .l-side-by-side__item:last-child {
-    padding-left: to-rem($shell-g-grid-gutter-large);
+    padding-left: rem($shell-g-gutter-large);
 }
 
 .l-side-by-side--gutter-large.l-side-by-side--reversed > .l-side-by-side__item:last-child {
     padding-left: 0;
-    padding-right: to-rem($shell-g-grid-gutter-large);
+    padding-right: rem($shell-g-gutter-large);
 }
 
 // Gutter huge
 .l-side-by-side--gutter-huge > .l-side-by-side__item:last-child {
-    margin-left: to-rem($shell-g-grid-gutter-huge);
+    margin-left: rem($shell-g-gutter-huge);
 }
 
 .l-side-by-side--gutter-huge.l-side-by-side--reversed > .l-side-by-side__item:last-child {
     padding-left: 0;
-    padding-right: to-rem($shell-g-grid-gutter-huge);
+    padding-right: rem($shell-g-gutter-huge);
 }
 
 

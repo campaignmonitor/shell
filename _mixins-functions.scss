@@ -191,9 +191,8 @@
    ========================================================================= */
 
 /**
- * This mixin makes it really easy for a Shell consumer to apply certain Shell
- * “Helpers” and ALL of Shell’s “Grid column widths” at any width based
- * breakpoint(s).
+ * This mixin makes it really easy for a Shell consumer to apply certain parts
+ * of Shell at any width based breakpoint(s).
  *
  * N.B. the mixin does not support height based breakpoints or breakpoint
  * ranges.
@@ -211,17 +210,18 @@
  * breakpoint, the default is minimum width media queries to favour the
  * “Mobile First” approach.
  *
- * By default the mixin won’t generate any outputted CSS as Shell doesn’t want
- * to assume all of its consumers are building responsive UI’s requiring the
- * CSS this mixin generates. In order for the mixin to generate any outputted
- * CSS it requires assigning breakpoints to each of the relevant settings
- * found in: “Settings -> Grid” and “Settings -> Helpers”. For example, if you
- * want the “Hide Visually” Helper to use this mixin you define the
- * breakpoints you need via its setting:
+ * Using this mixin requires you to “opt in” as Shell doesn’t want to assume
+ * all of its consumers are building responsive UI’s requiring the CSS this
+ * mixin generates. Opting in requires changing the relevant Boolean settings
+ * found in: “Settings”. For example if you wanted the “Hide Visually” Helper
+ * to use this mixin you change its Boolean setting:
+ * `$shell-helper-hide-visually-apply-at-breakpoints` to `true` then define
+ * the breakpoints you need via its other setting:
  * `$shell-helper-hide-visually-define-breakpoints`. So in the “Shell
  * Overrides” section of your project “Settings” you will have something like
  * this, depending on what breakpoints you choose:
  *
+   $shell-helper-hide-visually-apply-at-breakpoints: true;
    $shell-helper-hide-visually-define-breakpoints: (400 max, lap, desk);
  *
  * You define your breakpoints in a comma separated list enclosed in curly
@@ -300,14 +300,14 @@
 ///
 ///     @media (min-width: 56.3125em) {
 ///         .l-grid--col-2-from-lap-large {
-///             width: 33%;
+///             width: 16.6666%;
 ///         }
 ///     }
 
 @mixin apply-at-breakpoints($class-selector, $breakpoints: ()) {
 
     // So we can pass in “all” which will generate all of the media queries
-    // using all of the named breakpoints
+    // using all of the named breakpoints from “Settings -> Breakpoints”
     // N.B. you cannot pass in a limit when using this—the limit will use the
     // default: `min-width` except for “Palm” which uses: `max-width`
     $all-breakpoints: map-keys($shell-g-breakpoints);
