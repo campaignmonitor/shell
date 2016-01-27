@@ -1,0 +1,125 @@
+/* ============================================================================
+   @SIDE-BY-SIDE
+   ========================================================================= */
+
+/**
+ * Place any two elements side-by-side, typically for an image- and text-like
+ * content. This layout module uses flexbox.
+ *
+ * @markup
+   <div class="l-side-by-side [modifier(s)]">
+     <div class="l-side-by-side__item"> [...] </div>
+     <div class="l-side-by-side__item"> [...] </div>
+   </div>
+ *
+ */
+
+
+/**
+ * Side-by-side container.
+ *
+ * Gutter widths can be found in Settings -> Grid
+ */
+
+.l-side-by-side {
+    display: flex;
+}
+
+
+/**
+ * Side-by-side items.
+ */
+
+.l-side-by-side__item:last-child {
+    flex: 1 1 0%;
+    padding-left: to-rem($shell-g-grid-gutter-base);
+}
+
+// Reversing the gutters for the “Reversed” modifier
+.l-side-by-side--reversed > .l-side-by-side__item:last-child {
+    padding-left: 0;
+    padding-right: to-rem($shell-g-grid-gutter-base);
+}
+
+
+/**
+ * Modifiers: gutters, includes reversing the gutters for the
+ * “Reversed” modifier.
+ */
+
+// Gutterless
+.l-side-by-side--gutterless > .l-side-by-side__item:last-child {
+    padding-left: 0;
+}
+
+.l-side-by-side--gutterless.l-side-by-side--reversed > .l-side-by-side__item:last-child {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+// Gutter tiny
+.l-side-by-side--gutter-tiny > .l-side-by-side__item:last-child {
+    padding-left: to-rem($shell-g-grid-gutter-tiny);
+}
+
+.l-side-by-side--gutter-tiny.l-side-by-side--reversed > .l-side-by-side__item:last-child {
+    padding-left: 0;
+    padding-right: to-rem($shell-g-grid-gutter-tiny);
+}
+
+// Gutter small
+.l-side-by-side--gutter-small > .l-side-by-side__item:last-child {
+    padding-left: to-rem($shell-g-grid-gutter-small);
+}
+
+.l-side-by-side--gutter-small.l-side-by-side--reversed > .l-side-by-side__item:last-child {
+    padding-left: 0;
+    padding-right: to-rem($shell-g-grid-gutter-small);
+}
+
+// Gutter large
+.l-side-by-side--gutter-large > .l-side-by-side__item:last-child {
+    padding-left: to-rem($shell-g-grid-gutter-large);
+}
+
+.l-side-by-side--gutter-large.l-side-by-side--reversed > .l-side-by-side__item:last-child {
+    padding-left: 0;
+    padding-right: to-rem($shell-g-grid-gutter-large);
+}
+
+// Gutter huge
+.l-side-by-side--gutter-huge > .l-side-by-side__item:last-child {
+    margin-left: to-rem($shell-g-grid-gutter-huge);
+}
+
+.l-side-by-side--gutter-huge.l-side-by-side--reversed > .l-side-by-side__item:last-child {
+    padding-left: 0;
+    padding-right: to-rem($shell-g-grid-gutter-huge);
+}
+
+
+/**
+ * Modifiers: vertical alignments.
+ */
+
+// Middle alignment
+.l-side-by-side--align-middle > .l-side-by-side__item {
+    align-self: center;
+}
+
+// Bottom alignment
+.l-side-by-side--align-bottom > .l-side-by-side__item {
+    align-self: flex-end;
+}
+
+
+/**
+ * Modifier: reversed.
+ *
+ * Reversed rendered order of layout items, e.g. items 1, 2, 3, 4 in your
+ * markup will display in order 4, 3, 2, 1 on your page.
+ */
+
+.l-side-by-side--reversed > .l-side-by-side__item:first-child {
+    order: 1;
+}
