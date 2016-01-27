@@ -10,7 +10,7 @@
  * CONTENTS:
  *
  * 1. Shell Docs settings
- * 2. Shell framework
+ * 2. Shell library
  * 3. Shell Docs styles
  *
  * N.B. the above order of sections #1 and #2 must be maintained otherwise Sass
@@ -23,9 +23,9 @@
    ========================================================================= */
 /**
  * All global settings (Sass variables) for the Shell Docs and any Shell
- * framework setting overrides.
+ * library setting overrides.
  *
- * Shell Docs settings can use any of the Shell framework settings, like so:
+ * Shell Docs settings can use any of the Shell library settings, like so:
  *
    $g-color-code-block-background: $shell-g-color-white;
  *
@@ -53,15 +53,51 @@
 /* 3. Shell overrides
    ========================================================================= */
 /**
- * Global.
+ * Colours (Global).
  */
 /**
- * Local.
+ * Typography (Global).
  */
-/* 2. Shell framework
+/**
+ * Breakpoints (Global).
+ */
+/**
+ * Z-Index system (Global).
+ */
+/**
+ * Container (Local).
+ */
+/**
+ * Grid (Local).
+ */
+/**
+ * Define breakpoints for all the grid item widths.
+ */
+/**
+ * Helpers (Local).
+ */
+/**
+ * Define breakpoints for all the applicable “Helpers”.
+ */
+/**
+ * Text sizes.
+ */
+/**
+ * Alignments.
+ */
+/**
+ * Text truncate.
+ */
+/**
+ * Hide.
+ */
+/**
+ * Spacing.
+ */
+/* 2. Shell library
    ========================================================================= */
 /**
- * The entire framework is imported however only use what you need, you will
+ * The entire library is imported however only use what you need, you will
  * however need: “Settings” and “Mixins/Functions” for Shell to work.
  */
 /**
@@ -75,7 +111,7 @@
  *
  * The settings are broken into two categories:
  *
- * - “Global”.....settings for the entire framework.
+ * - “Global”.....settings for the entire library.
  * - “Local”......settings for a particular partial.
  *
  * N.B. usually “Local” settings exist in their relevant partial but we combine
@@ -86,10 +122,10 @@
  *
    $shell-apply-osx-font-smoothing: true;
    $shell-apply-link-transition: false;
-   @import "[framework/path]/base";
+   @import "[library/path]/base";
 
    $shell-grid-gutter: 24;
-   @import "[framework/path]/grid";
+   @import "[library/path]/grid";
  *
  * The above set up is more cumbersome to maintain due to “Local” settings
  * being dispersed throughout the master stylesheet plus the master stylesheet
@@ -123,17 +159,17 @@
  *
  * CONTENTS:
  *
- * 1. Colours (Global)
- * 2. Typography (Global)
- * 3. Spacing (Global)
- * 4. Breakpoints (Global)
- * 5. Percentage widths (Global)
- * 6. Z-Index system (Global)
- * 7. Other (Global)
- * 8. Base (Local)
- * 9. Container (Local)
- *
- * More to come…
+ * 1.  Colours (Global)
+ * 2.  Typography (Global)
+ * 3.  Spacing (Global)
+ * 4.  Breakpoints (Global)
+ * 5.  Z-Index system (Global)
+ * 6.  HiDPI units (Global)
+ * 7.  HTML textual `input`s (Global)
+ * 8.  Base (Local)
+ * 9.  Container (Local)
+ * 10. Grid (Local)
+ * 11. Helpers (Local)
  */
 /* 1. Colours (Global)
    ========================================================================= */
@@ -147,9 +183,6 @@
  */
 /**
  * Links.
- */
-/**
- * `[placeholder]` attribute in an input field.
  */
 /* 2. Typography (Global)
    ========================================================================= */
@@ -187,6 +220,12 @@
 /* 3. Spacing (Global)
    ========================================================================= */
 /**
+ * Amounts of white space to use between elements—the “Base” unit is using the
+ * global “Line height” value set in the “Typography” section and the rest of
+ * the Spacing settings are using decrements and increments of “Base”, this is
+ * to try and maintain some sort of vertical rhythm.
+ */
+/**
  * Base.
  */
 /**
@@ -194,6 +233,12 @@
  */
 /**
  * Increase from base: fractions and “large” / “huge”.
+ */
+/**
+ * Gutters.
+ *
+ * Used for white space between “Grid” items and other things like the
+ * “Side-by-side” Layout Module items.
  */
 /* 4. Breakpoints (Global)
    ========================================================================= */
@@ -226,46 +271,27 @@
  * http://www.lukew.com/ff/entry.asp?1679
  */
 /**
+ * All the breakpoints divided by the default user-agent font-size setting
+ * that is non-overridable by Shell’s base font size setting:
+ * `$shell-g-font-size`. We do this division as all viewport width and height
+ * media queries are to be applied with the `em` unit. See:
+ * http://blog.cloudfour.com/the-ems-have-it-proportional-media-queries-ftw/.
+ *
+ * N.B. if you wish to override any of the breakpoints then don’t forget to
+ * apply this calculation:
+ *
+    ([breakpoint-value] / 16) * 1em
+ *
+ * N.B. as we’re using a Sass map we need to use a Sass function to make it
+ * easier to apply the map keys, the function lives in
+ * “Mixins/Functions -> Retrieve from maps”.
+ */
+/**
  * The setting used for the default breakpoint applied to the
- * `generate-at-breakpoints()` mixin which allows the application of certain
- * Shell features to be applied at any breakpoint.
+ * “Mixins/Functions -> Apply at breakpoints” mixin, left empty to be
+ * populated by the Shell consumer.
  */
-/* 5. Percentage widths (Global)
-   ========================================================================= */
-/**
- * N.B. all these settings are non-overridable.
- */
-/**
- * Whole.
- */
-/**
- * Half.
- */
-/**
- * Thirds.
- */
-/**
- * Quarters.
- */
-/**
- * Fifths.
- */
-/**
- * Sixths.
- */
-/**
- * Sevenths.
- */
-/**
- * Eighths.
- */
-/**
- * Tenths.
- */
-/**
- * Twelfths.
- */
-/* 6. Z-Index system (Global)
+/* 5. Z-Index system (Global)
    ========================================================================= */
 /**
  * A nice system that uses Sass maps to keep your project `z-index`s
@@ -281,19 +307,20 @@
  *
  * Applying `z-index`s with this system is done like this:
  *
-   .c-header {
-     z-index: z("header");
-   }
+    .c-header {
+        z-index: z(header);
+    }
  *
  * And for nested stacking contexts (defined via a nested map):
  *
-   .c-modal__close-button {
-     z-index: z("modal-elements", "close-button");
-   }
+    .c-modal__close-button {
+        z-index: z(modal-elements, close-button);
+    }
  *
  * N.B. as we’re using a Sass map (and nested maps) we need to use a Sass
- * function to make it easier to apply the map values and to be able to
- * retrieve nested map values. The function lives in “Mixins/Functions”.
+ * function to make it easier to apply the map keys and to be able to
+ * retrieve nested map keys. The function lives in
+ * “Mixins/Functions -> Retrieve from maps”.
  *
  * @credit
  * http://www.sitepoint.com/better-solution-managing-z-index-sass/
@@ -301,26 +328,25 @@
 /**
  * Starting from highest to lowest:
  *
-   <body>
-     <modal>
-       <modal-close-button>
-     <modal-underlay>
-     <header>
-     <main>
-     <footer>
-   </body>
+    <body>
+        <modal>
+            <modal-close-button>
+        <modal-underlay>
+        <header>
+        <main>
+        <footer>
+    </body>
  */
-/* 7. Other (Global)
+/* 6. HiDPI units (Global)
    ========================================================================= */
 /**
- * Device pixel ratio used for the HiDPI mixins, see “Mixins/Functions”. We
- * generate the `dpi` and `dppx` units from this.
+ * HiDPI units, currently being used in:
+ * “Mixins/Functions -> HiDPI background images”.
  *
  * N.B. non-overridable.
  */
-/**
- * HTML textual `input`s.
- */
+/* 7. HTML textual `input`s (Global)
+   ========================================================================= */
 /* 8. Base (Local)
    ========================================================================= */
 /**
@@ -346,6 +372,38 @@
 /**
  * Widths.
  */
+/* 10. Grid (Local)
+   ========================================================================= */
+/**
+ * Grid column widths.
+ */
+/**
+ * For all grid item widths turn on the ability to apply breakpoints via
+ * boolean settings then define the breakpoints, see: “Mixins/Functions ->
+ * Apply at breakpoints” to understand how this works.
+ */
+/* 11. Helpers (Local)
+   ========================================================================= */
+/**
+ * For certain “Helpers” turn on the ability to apply breakpoints via boolean
+ * settings then define the breakpoints, see: “Mixins/Functions ->
+ * Apply at breakpoints” to understand how this works.
+ */
+/**
+ * Text sizes.
+ */
+/**
+ * Alignments.
+ */
+/**
+ * Text truncate.
+ */
+/**
+ * Hide.
+ */
+/**
+ * Spacing.
+ */
 /**
  * Mixins/Functions.
  */
@@ -355,106 +413,117 @@
 /**
  * All of Shell’s mixins and functions.
  *
- * All mixins and functions use the following annotations from the Sass Docs
- * documentation system:
- *
- * @access
- * @example
- * @parameter
- * @require
- * @throw
- *
- * See: http://sassdoc.com/annotations/
+ * N.B. all mixins and functions to be written in SassDoc documentation system,
+ * see: http://sassdoc.com/.
  *
  * ----------------------------------------------------------------------------
  *
  * CONTENTS:
  *
- * 1. Shell-only mixins and functions
+ * 1. Private mixins and functions
  * 2. HiDPI background images (Mixin)
  * 3. Convert pixels to `rem`s or `em`s (Function)
+ * 4. Apply at breakpoints (Mixin)
+ * 5. Retrieve from maps (Function)
+ * 6. Helpers (Mixin)
  */
-/* 1. Shell-only mixins and functions
+/* 1. Private mixins and functions
    ========================================================================= */
 /**
  * Shell-only mixins and functions, not for Shell consumers although some can
  * be used if the need arises.
  */
-/**
- * Remove the unit of a length.
- *
- * @access private
- *
- * @param {number} $number — Number to remove unit from
- *
- * @example
-   strip-unit(24px)
- */
 /* 2. HiDPI background images (Mixin)
    ========================================================================= */
-/**
- * A mixin for easily applying HiDPI background images.
- *
- * We use a device pixel ratio (“dpr”) of “1.3” which captures almost all HiDPI
- * aware devices, see: https://gist.github.com/marcedwards/3446599.
- *
- * N.B. Autoprefixer will take care of generating the non-standard
- * `-webkit-device-pixel-ratio` for browsers/devices that need it, see:
- * http://caniuse.com/#feat=css-media-resolution.
- *
- * @access public
- *
- * @param {string} $img-url — The image url path
- * @param {number} $img-width [auto] — The image width in `px`
- * @param {number} $img-height [auto] — The image height in `px`
- *
- * @exception
- * $img-url must be within single or double quotes
- * $img-width and $img-height must be a number with a unit
- *
- * @example
-   .selector {
-      background: url("path/to/image/image.png") no-repeat;
-      @include hidpi-bg-img("path/to/image/image.png", 100px, 45px);
-    }
-
-    .selector {
-      background: url("path/to/image/image.png") no-repeat;
-      @include hidpi-bg-img("path/to/image/image.png", 32px);
-    }
- */
 /* 3. Convert pixels to `rem`s or `em`s (Function)
    ========================================================================= */
+/* 4. Apply at breakpoints
+   ========================================================================= */
 /**
- * A simple function to convert pixels to `rem`s or `em`s.
+ * This mixin makes it really easy for a Shell consumer to apply certain parts
+ * of Shell at any width based breakpoint(s).
  *
- * @access public
+ * N.B. the mixin does not support height based breakpoints or breakpoint
+ * ranges.
  *
- * @param {number} $value — The `px` amount to be converted
- * @param {number} $parent-value [$shell-g-font-size] — The `px` amount of the
- * parent (`em` only)
+ * The mixin can also be used outside of Shell in project styles but its main
+ * purpose is to allow Shell consumers to easily apply certain parts of Shell
+ * at any breakpoint(s), mainly the “Grid”.
  *
- * @requires
- * function strip-unit()
+ * The mixin will accept any of the named breakpoints set in “Settings ->
+ * Breakpoints” (which can be renamed and breakpoints redefined in your
+ * project) or any number (the pixel amount of the viewport). The breakpoints
+ * get converted to the `em` unit which is best practice in Responsive Web
+ * Design. You can also specify if you want a minimum or maximum width media
+ * query by passing in the “min” or “max” labels after you define your
+ * breakpoint, the default is minimum width media queries to favour the
+ * “Mobile-first” approach.
  *
- * @exception
- * $value must be a number
- * $parent-value must be a number
+ * Using this mixin requires you to “opt in” as Shell doesn’t want to assume
+ * all of its consumers are building responsive UI’s requiring the CSS this
+ * mixin generates. Opting in requires changing the relevant Boolean settings
+ * found in: “Settings”. For example if you wanted the “Hide Visually” Helper
+ * to use this mixin you change its Boolean setting:
+ * `$shell-helper-hide-visually-apply-at-breakpoints` to `true` then define
+ * the breakpoints you need via its other setting:
+ * `$shell-helper-hide-visually-define-breakpoints`. So in the “Shell
+ * Overrides” section of your project “Settings” you will have something like
+ * this, depending on what breakpoints you choose:
  *
- * @example
-   .selector {
-     margin-left: to-em(8, 20);
-   }
-
-   .selector {
-     padding: to-rem(8) 0;
-   }
+   $shell-helper-hide-visually-apply-at-breakpoints: true;
+   $shell-helper-hide-visually-define-breakpoints: (400 max, lap, desk);
+ *
+ * You define your breakpoints in a comma separated list enclosed in curly
+ * brackets with the “min” or “max” labels always coming *after* the
+ * breakpoint. If you want ALL of the named breakpoints defined here:
+ * “Settings -> Breakpoints” then you can simply pass in the word “all”, like
+ * so:
+ *
+   $shell-helper-hide-visually-define-breakpoints: (all);
+ *
+ * Right now the mixin only allows “all” by itself i.e. you cannot add numbers
+ * (non-named breakpoints), so doing this will not work:
+ *
+   $shell-helper-hide-visually-define-breakpoints: (all, 900);
+ *
+ * Shell has a global breakpoint setting set in “Settings -> Breakpoints” so
+ * that you can easily share breakpoints across everything that uses the
+ * mixin. By default Shell doesn’t apply any breakpoints to this setting, this
+ * is for the Shell consumer to apply if they need the ability for shared
+ * global breakpoints. So in the “Shell Overrides” section of your project
+ * “Settings” you could do this:
+ *
+   $shell-g-global-breakpoints: (lap, desk);
  */
+/* 5. Retrieve from maps
+   ========================================================================= */
 /**
- * `em`.
+ * An easier way to apply keys from the Shell maps defined in “Settings”
+ * instead of using the native `map-get` function which can get tedious to
+ * type again and again.
+ *
+ * For example, if you wanted to apply a key from the “Z-Index system” map
+ * using the native `map-get` function you would have to do it like this:
+ *
+    z-index: map-get($shell-g-z-layers, header);
+ *
+ * And when applying nested map keys, this:
+ *
+    z-index: map-get(map-get($shell-g-z-layers, modal-elements), close-button);
+ *
+ * Instead we can apply it in a much nicer way:
+ *
+    z-index: z(header);
+ *
+ * And for a nested map key:
+ *
+    z-index: z(modal-elements, close-button);
  */
+/* 6. Helpers
+   ========================================================================= */
 /**
- * `rem`.
+ * Here are all the Helper mixins, see the Helpers intro comment block for
+ * more information.
  */
 /**
  * Normalise/Reset.
@@ -600,9 +669,9 @@ var {
 /* 2. Block-level elements
    ========================================================================= */
 /**
- * Correct `block` display not defined for `<details>` or `<summary>` in
- * IE 10/11 and Firefox.
- * Correct `block` display not defined for `<main>` in IE 11.
+ * - Correct `block` display not defined for `<details>` or `<summary>` in
+ *   IE 10/11 and Firefox.
+ * - Correct `block` display not defined for `<main>` in IE 11.
  */
 details,
 main,
@@ -611,8 +680,8 @@ summary {
 }
 
 /**
- * Address `[hidden]` styling not present in IE 10.
- * Hide the `<template>` element in IE 10/11, Safari, and Firefox < 22.
+ * - Address `[hidden]` styling not present in IE 10.
+ * - Hide the `<template>` element in IE 10/11, Safari, and Firefox < 22.
  */
 [hidden],
 template {
@@ -620,9 +689,9 @@ template {
 }
 
 /**
- * Apply the pointer cursor to the `<summary>` element.
- * Remove the arrow from the `<summary>` element in WebKit browsers, to allow
- * for custom styling.
+ * - Apply the pointer cursor to the `<summary>` element.
+ * - Remove the arrow from the `<summary>` element in WebKit browsers, to allow
+ *   for custom styling.
  */
 summary {
   cursor: pointer;
@@ -704,7 +773,7 @@ small {
 }
 
 /**
- * Prevent `sub` and `sup` affecting `line-height` in all browsers.
+ * Prevent `<sub>` and `<sup>` affecting `line-height` in all browsers.
  */
 sub,
 sup {
@@ -773,12 +842,12 @@ canvas {
 /* 5. Form elements
    ========================================================================= */
 /**
- * Known limitation: by default, Chrome and Safari on OS X allow very limited
- * styling of `<select>`s, unless a `border` property is set.
+ * N.B. known limitation: by default, Chrome and Safari on OS X allow very
+ * limited styling of `<select>`s, unless a `border` property is set.
  */
 /**
  * 1. Correct colour not being inherited.
- *    Known issue: affects colour of disabled elements.
+ *    N.B. known issue: affects colour of disabled elements.
  * 2. Correct font property not being inherited.
  * 3. Address margins set differently in Firefox 4+, Safari, and Chrome.
  */
@@ -816,11 +885,10 @@ button {
 }
 
 /**
- * Address inconsistent `text-transform` inheritance for `<button>` and
- * `<select>`s. All other form control elements do not inherit `text-transform`
- * values.
- * Correct `<button>` style inheritance in Firefox, IE 10/11, and Opera.
- * Correct `<select>` style inheritance in Firefox.
+ * - Address inconsistent `text-transform` inheritance for `<button>` and
+ *   `<select>`s. All other form control elements do not inherit  *   `text-transform` values.
+ * - Correct `<button>` style inheritance in Firefox, IE 10/11, and Opera.
+ * - Correct `<select>` style inheritance in Firefox.
  */
 button,
 select {
@@ -1098,9 +1166,10 @@ textarea,
  * Here we provide very basic styling that most UI’s will need. These styles
  * are applied at the most global level being applied via element selectors,
  * except for “Headings” which are scoped to classes (see that section for the
- * info). Everything in Base needs to be easily overridden which is really
- * easy to do as everything in Base sits right at the bottom in terms of
- * specificity.
+ * info).
+ *
+ * Everything in Base needs to be easily overridden which is really easy to do
+ * as everything in Base sits right at the bottom in terms of specificity.
  *
  * ----------------------------------------------------------------------------
  *
@@ -1418,19 +1487,19 @@ h3 {
  * capped off at a certain width, and the main content area needing the same
  * treatment as the nested header and footer, we would mark it up like this:
  *
-   <header class="l-header" role="banner">
-     <div class="l-container">
-       […]
-     </div>
-   </header>
-   <main class="l-main l-container" role="main">
-     […]
-   </main>
-   <footer class="l-footer" role="contentinfo">
-     <div class="l-container">
-       […]
-     </div>
-   </footer>
+    <header class="l-header" role="banner">
+        <div class="l-container">
+            […]
+        </div>
+    </header>
+    <main class="l-main l-container" role="main">
+        […]
+    </main>
+    <footer class="l-footer" role="contentinfo">
+        <div class="l-container">
+            […]
+        </div>
+    </footer>
  *
  * In the main content area we may have an entire section: “Blog” requiring a
  * much narrower container for nice readable line lengths, we could achieve
@@ -1438,9 +1507,9 @@ h3 {
  * above master layout and using one of the “Size” modifiers provided by
  * Shell, like so:
  *
-   <div class="l-container l-container--tiny">
-     […]
-   </div>
+    <div class="l-container l-container--tiny">
+        […]
+    </div>
  *
  * Container(s) can be used anywhere it makes sense to do so including within
  * components.
@@ -1450,32 +1519,39 @@ h3 {
  * default.
  *
  * Other styles cannot be applied to an element using a container. Container is
- * a “Layout Module” therefore the “Single Responsibility Principle” and the
- * “Open/close Principle” strictly applies. So this would be invalid:
+ * a “Layout Module” therefore the Single Responsibility Principle and the
+ * Open/Close Principle strictly applies. So this would be invalid:
  *
-   <div class="l-container  c-card">
-     […]
-   </div>
+    <div class="l-container  c-card">
+        […]
+    </div>
  *
  * Here we have wrongly applied a “Component” (`c-card`) to the same element as
  * a “Layout Module”, we’ve mixed concerns, this can result in this part of
  * the UI being prone to breakages. The valid way to approach this would be:
  *
-   <div class="l-container">
-     <div class="c-card">
-       […]
-     </div>
-   </div>
+    <div class="l-container">
+        <div class="c-card">
+            […]
+        </div>
+    </div>
  *
  * ----------------------------------------------------------------------------
  *
  * Container is namespaced with “l” followed by one hyphen, like this:
  *
-   l-
+   l-container
  *
  * The “l” stands for “layout” as Container is a “Layout Module”.
  *
  * See: https://git.campmon.com/Freshview/coding-guidelines/blob/master/css/README.md#the-namespaces
+ *
+ * ----------------------------------------------------------------------------
+ *
+ * @markup
+    <div class="l-container [modifier(s)]">
+        […]
+    </div>
  */
 .l-container {
   max-width: 38.889rem;
@@ -1484,12 +1560,7 @@ h3 {
 }
 
 /**
- * Wider and narrower container modifiers that use our set size names:
- *
- * - Huge
- * - Large
- * - Small
- * - Tiny
+ * Modifiers: wider and narrower containers.
  */
 .l-container--huge {
   max-width: 133.333rem;
@@ -1505,6 +1576,589 @@ h3 {
 
 .l-container--tiny {
   max-width: 35.556rem;
+}
+
+/**
+ * Grid.
+ */
+/* ============================================================================
+   @GRID
+   ========================================================================= */
+/**
+ * A powerful “Mobile-first” Flexbox-based grid that is responsive ready (all
+ * grid column widths are fluid using the `%` unit), nestable, and comes with
+ * a bunch of handy modifiers. This makes the grid the workhorse of your UI
+ * builds, any layout you need always look to the grid first—including within
+ * your “Components”, it exists so you don’t have to write redundant CSS to
+ * construct layouts.
+ *
+ * Every grid column width can be generated at any breakpoint thanks to the
+ * mixin found here: “Mixins and Functions -> Apply at breakpoints”. So if you
+ * wanted 2 columns at smaller viewports then go to 4 columns at larger
+ * viewports you can easily do this just by passing in the breakpoints you need
+ * into the relevant settings, like so:
+ *
+   // 2 cols
+   $shell-grid-apply-2-col-width-at-breakpoints: true;
+   $shell-grid-define-2-col-width-breakpoints: (1199 max);
+
+   // 4 cols
+   $shell-grid-apply-4-col-width-at-breakpoints: true;
+   $shell-grid-define-4-col-width-breakpoints: (desk);
+ *
+ * This will to compile to:
+ *
+    @media (max-width: 74.9375em) {
+        .l-grid__item--2-col-up-to-desk {
+            width: 16.6666%;
+        }
+    }
+
+    @media (min-width: 75em) {
+        .l-grid__item--4-col-from-desk {
+            width: 33.3333%%;
+        }
+    }
+ *
+ * Other styles cannot be applied to a grid item. Grid is a “Layout Module”
+ * therefore the Single Responsibility Principle and the Open/Close Principle
+ * strictly applies. So this would be invalid:
+ *
+    <div class="l-grid__item  c-card">
+        […]
+    </div>
+ *
+ * Here we have wrongly applied a “Component” (`c-card`) to the same element as
+ * a “Layout Module”, we’ve mixed concerns, this can result in this part of
+ * the UI being prone to breakages. The valid way to approach this would be:
+ *
+    <div class="l-grid__item">
+        <div class="c-card">
+            […]
+        </div>
+    </div>
+ *
+ * As nicely put by Harry Roberts:
+ *
+ * “Grid systems grid should be thought of as shelves. They contain content but
+ * are not content in themselves. You put up your shelves then fill them with
+ * your stuff. By setting up our grids separately to our components you can
+ * move components around a lot more easily than if they had dimensions
+ * applied to them; this makes our front-ends a lot more adaptable and quick
+ * to work with.”
+ *
+ * N.B. they’re are a number of Flexbox bugs captured here:
+ * https://github.com/philipwalton/flexbugs, these have been accounted for in
+ * the Shell grid however if anything is missed please refer to this resource.
+ *
+ * ----------------------------------------------------------------------------
+ *
+ * N.B. some of the Grid’s modifiers and all of the Grid item widths are
+ * available to be applied at any breakpoint the Shell consumer wishes, see
+ * “Mixins and Functions -> Apply at breakpoints” to understand how this works.
+ *
+ * ----------------------------------------------------------------------------
+ *
+ * Grid is namespaced with “l” followed by one hyphen, like this:
+ *
+   l-grid
+ *
+ * The “l” stands for “layout” as Grid is a “Layout Module”.
+ *
+ * See: https://git.campmon.com/Freshview/coding-guidelines/blob/master/css/README.md#the-namespaces
+ *
+ * ----------------------------------------------------------------------------
+ *
+ * @markup
+    <div class="l-grid [modifier(s)]">
+        <div class="l-grid__item l-grid__item--2-col">
+            […]
+        </div>
+        <div class="l-grid__item l-grid__item--2-col">
+            […]
+        </div>
+    </div>
+
+    <div class="l-grid [modifier(s)]">
+        <div class="l-grid__item l-grid__item--4-col">
+            […]
+        </div>
+        <div class="l-grid__item l-grid__item--4-col">
+            […]
+        </div>
+        <div class="l-grid__item l-grid__item--4-col">
+            […]
+        </div>
+        <div class="l-grid__item l-grid__item--4-col">
+            […]
+        </div>
+    </div>
+ *
+ * @credit
+ * https://github.com/suitcss/components-grid
+ */
+/**
+ * Grid container.
+ *
+ * 1. Negative margins to negate the gutters.
+ *
+ * N.B. all grid gutter sizes are in “Settings -> Grid (Local)”.
+ */
+.l-grid {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-flow: row wrap;
+      flex-flow: row wrap;
+  margin-bottom: -1.444rem;
+  margin-left: -1.444rem;
+}
+
+/**
+ * Grid items.
+ *
+ * 1. Allows the use of widths.
+ * 2. Vertical gutter.
+ * 3. Horizontal gutter.
+ * 4. 100% width by default—“Mobile-first”.
+ *
+ * N.B. all grid gutter sizes are in “Settings -> Grid (Local)”.
+ */
+.l-grid__item {
+  -ms-flex-preferred-size: auto;
+      flex-basis: auto;
+  margin-bottom: 1.444rem;
+  padding-left: 1.444rem;
+  width: 100%;
+}
+
+/**
+ * Modifiers: gutterless.
+ */
+.l-grid--gutterless {
+  margin-bottom: 0;
+  margin-left: 0;
+}
+
+.l-grid--gutterless > .l-grid__item {
+  margin-bottom: 0;
+  padding-left: 0;
+}
+
+.l-grid--gutterless-vertical,
+.l-grid--gutterless-vertical > .l-grid__item {
+  margin-bottom: 0;
+}
+
+.l-grid--gutterless-horizontal {
+  margin-left: 0;
+}
+
+.l-grid--gutterless-horizontal > .l-grid__item {
+  padding-left: 0;
+}
+
+/**
+ * Modifiers: gutter sizes.
+ *
+ * N.B. all grid gutter sizes are in “Settings -> Grid (Local)”.
+ */
+.l-grid--gutter-base {
+  margin-left: -1.444rem;
+}
+
+.l-grid--gutter-base > .l-grid__item {
+  margin-bottom: 1.444rem;
+  padding-left: 1.444rem;
+}
+
+.l-grid--gutter-tiny {
+  margin-left: -0.361rem;
+}
+
+.l-grid--gutter-tiny > .l-grid__item {
+  margin-bottom: 0.361rem;
+  padding-left: 0.361rem;
+}
+
+.l-grid--gutter-small {
+  margin-left: -0.722rem;
+}
+
+.l-grid--gutter-small > .l-grid__item {
+  margin-bottom: 0.722rem;
+  padding-left: 0.722rem;
+}
+
+.l-grid--gutter-large {
+  margin-left: -2.889rem;
+}
+
+.l-grid--gutter-large > .l-grid__item {
+  margin-bottom: 2.889rem;
+  padding-left: 2.889rem;
+}
+
+.l-grid--gutter-huge {
+  margin-left: -5.778rem;
+}
+
+.l-grid--gutter-huge > .l-grid__item {
+  margin-bottom: 5.778rem;
+  padding-left: 5.778rem;
+}
+
+/**
+ * Modifiers: alignments.
+ */
+.l-grid--align-middle {
+  -ms-flex-align: center;
+      align-items: center;
+}
+
+.l-grid--align--bottom {
+  -ms-flex-align: end;
+      align-items: flex-end;
+}
+
+.l-grid--align-center {
+  -ms-flex-pack: center;
+      justify-content: center;
+}
+
+.l-grid--align-right {
+  -ms-flex-pack: end;
+      justify-content: flex-end;
+}
+
+/**
+ * Modifiers: “space between” and “space around”.
+ */
+.l-grid--space-between {
+  -ms-flex-pack: justify;
+      justify-content: space-between;
+}
+
+.l-grid--space-around {
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+.l-grid--space-between .l-grid__item,
+.l-grid--space-around .l-grid__item {
+  -ms-flex: 1 1 0%;
+      flex: 1 1 0%;
+}
+
+/**
+ * Modifier: fit—all grid items have an equal width.
+ */
+.l-grid--fit > .l-grid__item {
+  -ms-flex: 1 1 0%;
+      flex: 1 1 0%;
+}
+
+/**
+ * Modifier: horizontally center an individual grid item.
+ */
+.l-grid > .l-grid__item--align-center {
+  margin: 0 auto;
+}
+
+/**
+ * Modifiers: grid column widths.
+ *
+ * N.B. grid column widths can be found in “Settings -> Grid (Local)”.
+ */
+.l-grid__item--1-col {
+  width: 8.333%;
+}
+
+@media (min-width: 75em) {
+  .l-grid__item--1-col-from-desk {
+    width: 8.333%;
+  }
+}
+
+.l-grid__item--2-col {
+  width: 16.667%;
+}
+
+@media (min-width: 74.938em) {
+  .l-grid__item--2-col-from-1199 {
+    width: 16.667%;
+  }
+}
+
+@media (min-width: 43.75em) {
+  .l-grid__item--2-col-from-700 {
+    width: 16.667%;
+  }
+}
+
+.l-grid__item--3-col {
+  width: 25%;
+}
+
+@media (min-width: 14.562em) {
+  .l-grid__item--3-col-from-233 {
+    width: 25%;
+  }
+}
+
+@media (min-width: 85.375em) {
+  .l-grid__item--3-col-from-desk-large {
+    width: 25%;
+  }
+}
+
+.l-grid__item--4-col {
+  width: 33.333%;
+}
+
+@media (min-width: 56.25em) {
+  .l-grid__item--4-col-from-900 {
+    width: 33.333%;
+  }
+}
+
+.l-grid__item--5-col {
+  width: 41.667%;
+}
+
+@media (min-width: 25em) {
+  .l-grid__item--5-col-from-400 {
+    width: 41.667%;
+  }
+}
+
+.l-grid__item--6-col {
+  width: 50%;
+}
+
+@media (min-width: 75em) {
+  .l-grid__item--6-col-from-desk {
+    width: 50%;
+  }
+}
+
+.l-grid__item--7-col {
+  width: 58.333%;
+}
+
+@media (min-width: 75em) {
+  .l-grid__item--7-col-from-desk {
+    width: 58.333%;
+  }
+}
+
+.l-grid__item--8-col {
+  width: 66.667%;
+}
+
+@media (min-width: 75em) {
+  .l-grid__item--8-col-from-desk {
+    width: 66.667%;
+  }
+}
+
+.l-grid__item--9-col {
+  width: 75%;
+}
+
+@media (min-width: 75em) {
+  .l-grid__item--9-col-from-desk {
+    width: 75%;
+  }
+}
+
+.l-grid__item--10-col {
+  width: 83.333%;
+}
+
+@media (min-width: 75em) {
+  .l-grid__item--10-col-from-desk {
+    width: 83.333%;
+  }
+}
+
+.l-grid__item--11-col {
+  width: 91.667%;
+}
+
+@media (min-width: 75em) {
+  .l-grid__item--11-col-from-desk {
+    width: 91.667%;
+  }
+}
+
+/**
+ * Side-by-side.
+ */
+/* ============================================================================
+   @SIDE-BY-SIDE
+   ========================================================================= */
+/**
+ * Place any two elements side-by-side using Flexbox, typically for an image-
+ * and text-like content. Like the “Grid” “Side-by-side” is a “Layout Module”
+ * and a workhorse for your UI builds, any layout you need always look to the
+ * “Side-by-side” “Layout Module”—including within your “Components”, it exists
+ * so you don’t have to write redundant CSS to construct layouts.
+ *
+ * Other styles cannot be applied to any “Side-by-side” elements.
+ * “Side-by-side” is a “Layout Module” therefore the Single Responsibility
+ * Principle and the Open/Close Principle strictly applies. So this would be
+ * invalid:
+ *
+    <div class="l-side-by-side__item  c-card">
+        […]
+    </div>
+ *
+ * Here we have wrongly applied a “Component” (`c-card`) to the same element as
+ * a “Layout Module”, we’ve mixed concerns, this can result in this part of
+ * the UI being prone to breakages. The valid way to approach this would be:
+ *
+    <div class="l-side-by-side__item">
+        <div class="c-card">
+            […]
+        </div>
+    </div>
+ *
+ * ----------------------------------------------------------------------------
+ *
+ * “Side-by-side” is namespaced with “l” followed by one hyphen, like this:
+ *
+   l-side-by-side
+ *
+ * The “l” stands for “layout” as “Side-by-side” is a “Layout Module”.
+ *
+ * See: https://git.campmon.com/Freshview/coding-guidelines/blob/master/css/README.md#the-namespaces
+ *
+ * ----------------------------------------------------------------------------
+ *
+ * @markup
+    <div class="l-side-by-side [modifier(s)]">
+        <div class="l-side-by-side__item">
+            […]
+        </div>
+        <div class="l-side-by-side__item">
+            […]
+        </div>
+    </div>
+ */
+/**
+ * The container.
+ */
+.l-side-by-side {
+  display: -ms-flexbox;
+  display: flex;
+}
+
+/**
+ * Each item, they’re only ever two items in a container.
+ *
+ * N.B. all grid gutter sizes are in “Settings -> Grid (Local)”.
+ *
+ * 1. Provide all values to avoid IE 10 bug with the shorthand `flex`
+ *    property: http://git.io/vllC7.
+      Use `0%` to avoid bug in IE 10/11 with unitless `flex-basis`:
+      http://git.io/vllWx.
+ * 2. Apply a gutter.
+ */
+.l-side-by-side__item:last-child {
+  -ms-flex: 1 1 0%;
+      flex: 1 1 0%;
+  margin-left: 1.444rem;
+}
+
+.l-side-by-side--reversed > .l-side-by-side__item:last-child {
+  margin-left: 0;
+  margin-right: 1.444rem;
+}
+
+/**
+ * Modifier: gutterless.
+ *
+ * N.B. includes reversing the gutters for the “Reversed” modifier.
+ */
+.l-side-by-side--gutterless > .l-side-by-side__item:last-child {
+  margin-left: 0;
+}
+
+.l-side-by-side--gutterless.l-side-by-side--reversed > .l-side-by-side__item:last-child {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+/**
+ * Modifiers: gutter sizes.
+ *
+ * N.B. includes reversing the gutters for the “Reversed” modifier.
+ * N.B. all grid gutter sizes are in “Settings -> Grid (Local)”.
+ */
+.l-side-by-side--gutter-base > .l-side-by-side__item:last-child {
+  margin-left: 1.444rem;
+}
+
+.l-side-by-side--gutter-base.l-side-by-side--reversed > .l-side-by-side__item:last-child {
+  margin-left: 0;
+  margin-right: 1.444rem;
+}
+
+.l-side-by-side--gutter-tiny > .l-side-by-side__item:last-child {
+  margin-left: 0.361rem;
+}
+
+.l-side-by-side--gutter-tiny.l-side-by-side--reversed > .l-side-by-side__item:last-child {
+  margin-left: 0;
+  margin-right: 0.361rem;
+}
+
+.l-side-by-side--gutter-small > .l-side-by-side__item:last-child {
+  margin-left: 0.722rem;
+}
+
+.l-side-by-side--gutter-small.l-side-by-side--reversed > .l-side-by-side__item:last-child {
+  margin-left: 0;
+  margin-right: 0.722rem;
+}
+
+.l-side-by-side--gutter-large > .l-side-by-side__item:last-child {
+  margin-left: 2.889rem;
+}
+
+.l-side-by-side--gutter-large.l-side-by-side--reversed > .l-side-by-side__item:last-child {
+  margin-left: 0;
+  margin-right: 2.889rem;
+}
+
+.l-side-by-side--gutter-huge > .l-side-by-side__item:last-child {
+  margin-left: 5.778rem;
+}
+
+.l-side-by-side--gutter-huge.l-side-by-side--reversed > .l-side-by-side__item:last-child {
+  margin-left: 0;
+  margin-right: 5.778rem;
+}
+
+/**
+ * Modifiers: vertical alignments.
+ */
+.l-side-by-side--align-middle .l-side-by-side__item {
+  -ms-flex-item-align: center;
+      align-self: center;
+}
+
+.l-side-by-side--align-bottom .l-side-by-side__item {
+  -ms-flex-item-align: end;
+      align-self: flex-end;
+}
+
+/**
+ * Modifier: reversed.
+ */
+.l-side-by-side--reversed {
+  -ms-flex-direction: row-reverse;
+      flex-direction: row-reverse;
 }
 
 /**
@@ -1526,8 +2180,8 @@ h3 {
  * their CSS declarations we instead abstract them into nicely reusable
  * classes and mixins.
  *
- * Helpers all follow the single responsibility and open/closed principles
- * meaning they do one thing and one thing only and are never open to
+ * Helpers all follow the Single Responsibility Principle and the Open/Closed
+ * Principle meaning they do one thing and one thing only and are never open to
  * extension i.e. you cannot modify or add to them in any way. If you need to
  * modify any of Shell’s Helpers then you should simply not use them. Read more
  * about these principles and how they apply to CSS here:
@@ -1542,7 +2196,8 @@ h3 {
  * `!important` keyword, this is because they always need to win in terms of
  * CSS specificity as they should always just work. For the mixin versions
  * this is optional as the mixin versions are typically being applied from
- * within Components therefore do not require the specificity boost.
+ * within Components therefore do not require the specificity boost. All the
+ * mixin versions are defined in “Mixins and Functions -> Helpers”.
  *
  * Applying Helpers via their *class* implementation would only be done in two
  * scenarios:
@@ -1565,11 +2220,11 @@ h3 {
  *   applying it via the mixin implementation. However, this typically only
  *   ever applies to multi-line declaration Helpers, applying a single-line
  *   declaration Helper, for example:
- *   ```html
- *   .h-text-size-base {
- *     font-size: to-rem($shell-g-font-size) !important;
- *   }
- *   ```
+ *
+    .h-text-size-base {
+        font-size: rem($shell-g-font-size) !important;
+    }
+ *
  *   Wouldn’t be correct as you would simply write that single-line declaration
  *   directly into your Component or Layout Template CSS, and this is why
  *   single-line declaration Helpers do not come with a mixin version. An
@@ -1579,28 +2234,24 @@ h3 {
  *   inside a “Drop Down Menu” Component needing to add a piece of text to the
  *   drop down menu trigger button that is only for screen reader users—using
  *   the “Hide visually” Helper. The correct way to achieve this would be:
- *   ```html
- *   <button type="button" class="c-drop-down-menu__trigger">
- *     My account
- *     <span class="h-hide-visually">Open the menu with the enter key and
- *     close it with the escape key; use the up and down arrow keys to
- *     navigate.</span>
- *   </button>
- *   ```
+ *
+    <button type="button" class="c-drop-down-menu__trigger">
+        My account
+        <span class="h-hide-visually">Open the menu with the enter key and close it with the escape key; use the up and down arrow keys to navigate.</span>
+    </button>
+ *
  *   Not:
- *   ```html
- *   <button type="button" class="c-drop-down-menu__trigger">
- *     My account
- *     <span class="c-drop-down-menu__trigger-assistive-text">Open the menu
- *     with the enter key and close it with the escape key; use the up and
- *     down arrow keys to navigate.</span>
- *   </button>
- *   ```
- *   ```css
- *   .c-drop-down-menu__trigger-assistive-text {
- *     @include h-hide-visually;
- *   }
- *   ```
+ *
+    <button type="button" class="c-drop-down-menu__trigger">
+        My account
+        <span class="c-drop-down-menu__trigger-assistive-text">Open the menu
+        with the enter key and close it with the escape key; use the up and
+        down arrow keys to navigate.</span>
+    </button>
+    .c-drop-down-menu__trigger-assistive-text {
+        @include h-hide-visually;
+    }
+ *
  *   Knowing when to do this isn’t always clear and it is very case dependant.
  *
  * Applying Helpers via their *mixin* implementation would only be done in one
@@ -1612,31 +2263,17 @@ h3 {
  *   you may need to truncate a line of text in a site header Layout Template
  *   that is part of a main nav link item—using the “Text truncate” Helper.
  *   The correct way to achieve this would be:
- *   ```html
- *   <a href="some/url" class="l-header__nav-item">List &amp; Subscribers</a>
- *   ```
- *   ```css
- *   .l-header__nav-item {
- *     […]
- *     @include h-text-truncate;
- *   }
- *   ```
+ *
+    <a href="some/url" class="l-header__nav-item">List &amp; Subscribers</a>
+ *
+    .l-header__nav-item {
+        […]
+        @include h-text-truncate;
+    }
+ *
  *   Not:
- *   ```html
- *   <a href="some/url" class="l-header__nav-item  h-text-truncate">List &amp;
- *   Subscribers</a>
- *   ```
  *
- * All the mixins use the following annotations from the Sass Docs
- * documentation system:
- *
- * @access
- * @example
- * @parameter
- * @require
- * @throw
- *
- * See: http://sassdoc.com/annotations/
+    <a href="some/url" class="l-header__nav-item  h-text-truncate">List &amp; Subscribers</a>
  *
  * ----------------------------------------------------------------------------
  *
@@ -1647,10 +2284,16 @@ h3 {
  *
  * ----------------------------------------------------------------------------
  *
- * Helpers including any of the Helper mixins are namespaced with “h” followed
- * by one hyphen, like this:
+ * N.B. some Helpers are available to be applied at any breakpoint the Shell
+ * consumer wishes, see “Mixins and Functions -> Apply at breakpoints” to
+ * understand how this works.
  *
-   h-
+ * ----------------------------------------------------------------------------
+ *
+ * Helpers are namespaced with “h” followed by one hyphen, like this:
+ *
+   h-clear-fix
+   h-text-truncate
  *
  * The “h” stands for “helper”.
  *
@@ -1670,19 +2313,9 @@ h3 {
 /* 1. Clear fix
    ========================================================================= */
 /**
- * Make an element expand to contain floated children.
- */
-/**
- * @access public
+ * Makes an element expand to contain floated children.
  *
- * @param {boolean} $apply-important-keyword [false] — Whether to apply the
- * `!important` keyword
- *
- * @example
-   .selector {
-      […]
-      @include h-clear-fix();
-    }
+ * N.B. mixin is here: “Mixins and Functions -> Helpers”.
  */
 .h-clear-fix::after {
   clear: both !important;
@@ -1695,40 +2328,103 @@ h3 {
 /**
  * Sizes.
  */
+/**
+ * Base.
+ */
 .h-text-size-base {
   font-size: 1rem !important;
 }
 
+@media (min-width: 40.062em) {
+  .h-text-size-base-from-lap {
+    font-size: 1rem !important;
+  }
+}
+
+/**
+ * Decrease from base.
+ */
 .h-text-size-small {
   font-size: 0.944rem !important;
+}
+
+@media (min-width: 40.062em) {
+  .h-text-size-small-from-lap {
+    font-size: 0.944rem !important;
+  }
 }
 
 .h-text-size-x-small {
   font-size: 0.889rem !important;
 }
 
+@media (min-width: 40.062em) {
+  .h-text-size-x-small-from-lap {
+    font-size: 0.889rem !important;
+  }
+}
+
 .h-text-size-xx-small {
   font-size: 0.833rem !important;
+}
+
+@media (min-width: 40.062em) {
+  .h-text-size-xx-small-from-lap {
+    font-size: 0.833rem !important;
+  }
 }
 
 .h-text-size-xxx-small {
   font-size: 0.778rem !important;
 }
 
+@media (min-width: 40.062em) {
+  .h-text-size-xxx-small-from-lap {
+    font-size: 0.778rem !important;
+  }
+}
+
+/**
+ * Increase from base.
+ */
 .h-text-size-large {
   font-size: 1.056rem !important;
+}
+
+@media (min-width: 40.062em) {
+  .h-text-size-large-from-lap {
+    font-size: 1.056rem !important;
+  }
 }
 
 .h-text-size-x-large {
   font-size: 1.111rem !important;
 }
 
+@media (min-width: 40.062em) {
+  .h-text-size-x-large-from-lap {
+    font-size: 1.111rem !important;
+  }
+}
+
 .h-text-size-xx-large {
   font-size: 1.167rem !important;
 }
 
+@media (min-width: 40.062em) {
+  .h-text-size-xx-large-from-lap {
+    font-size: 1.167rem !important;
+  }
+}
+
 .h-text-size-xxx-large {
   font-size: 1.222rem !important;
+}
+
+@media (min-width: 40.062em) {
+  .h-text-size-xxx-large-from-lap {
+    font-size: 1.222rem !important;
+  }
 }
 
 /**
@@ -1738,18 +2434,36 @@ h3 {
   text-align: center !important;
 }
 
+@media (min-width: 40.062em) {
+  .h-text-align-center-from-lap {
+    text-align: center !important;
+  }
+}
+
 .h-text-align-left {
   text-align: left !important;
+}
+
+@media (min-width: 40.062em) {
+  .h-text-align-left-from-lap {
+    text-align: left !important;
+  }
 }
 
 .h-text-align-right {
   text-align: right !important;
 }
 
+@media (min-width: 40.062em) {
+  .h-text-align-right-from-lap {
+    text-align: right !important;
+  }
+}
+
 /**
- * Truncate using an ellipsis. This Helper will only work on block container
- * elements so the default is set to `display: block;`, to override this
- * to be, say, `display: inline-block;` you have two options:
+ * Truncate some text using an ellipsis. This Helper will only work on block
+ * container elements so the default is set to `display: block;`, to override
+ * this to be, say, `display: inline-block;` you have two options:
  *
  * 1. Use the “Inline” modifier class selector: `.h-text-truncate--inline`.
  * 2. Use the mixin assigning “inline-block” to the `$display` parameter:
@@ -1758,25 +2472,23 @@ h3 {
  * You can assign other `display` values when using the mixin but not sure if
  * that’ll ever be required outside of `display: block;` and
  * `display: inline-block;`?
- */
-/**
- * @access public
  *
- * @param {boolean} $apply-important-keyword [false] — Whether to apply the
- * `!important` keyword
- * @param {string} $display [block] — The value of the `display` property
- *
- * @example
-   .selector {
-      […]
-      @include h-text-truncate(false, inline-block);
-    }
+ * N.B. mixin is here: “Mixins and Functions -> Helpers”.
  */
 .h-text-truncate {
   display: block !important;
   overflow: hidden !important;
   text-overflow: ellipsis !important;
   white-space: nowrap !important;
+}
+
+@media (min-width: 40.062em) {
+  .h-text-truncate-from-lap {
+    display: block !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    white-space: nowrap !important;
+  }
 }
 
 /**
@@ -1786,25 +2498,21 @@ h3 {
   display: inline-block !important;
 }
 
+@media (min-width: 40.062em) {
+  .h-text-truncate--inline-from-lap {
+    display: inline-block !important;
+  }
+}
+
 /**
- * Fonts on OS X will look more consistent with other systems that do not
+ * Make text on OS X look more consistent with other systems that do not
  * render text using sub-pixel anti-aliasing.
+ *
+ * N.B. mixin is here: “Mixins and Functions -> Helpers”.
  *
  * N.B. we recommend not to use this. And this can be applied globally on the
  * `<html>` element in “Base” therefore it’s only applied here if that boolean
  * setting is set to “false”—which is the default.
- */
-/**
- * @access public
- *
- * @param {boolean} $apply-important-keyword [false] — Whether to apply the
- * `!important` keyword
- *
- * @example
-   .selector {
-      […]
-      @include h-text-osx-font-smoothing();
-    }
  */
 .h-text-osx-font-smoothing {
   -moz-osx-font-smoothing: grayscale !important;
@@ -1820,20 +2528,16 @@ h3 {
   display: none !important;
 }
 
+@media (min-width: 40.062em) {
+  .h-hide-from-lap {
+    display: none !important;
+  }
+}
+
 /**
  * Hide elements only visually but have it available for screen readers.
- */
-/**
- * @access public
  *
- * @param {boolean} $apply-important-keyword [false] — Whether to apply the
- * `!important` keyword
- *
- * @example
-   .selector {
-      […]
-      @include h-hide-visually();
-    }
+ * N.B. mixin is here: “Mixins and Functions -> Helpers”.
  */
 .h-hide-visually {
   border: 0 !important;
@@ -1844,6 +2548,32 @@ h3 {
   padding: 0 !important;
   position: absolute !important;
   width: 1px !important;
+}
+
+@media (max-width: 56.312em) {
+  .h-hide-visually-up-to-lap-large {
+    border: 0 !important;
+    clip: rect(0 0 0 0) !important;
+    height: 1px !important;
+    margin: -1px  !important;
+    overflow: hidden !important;
+    padding: 0 !important;
+    position: absolute !important;
+    width: 1px !important;
+  }
+}
+
+@media (min-width: 68.75em) {
+  .h-hide-visually-from-1100 {
+    border: 0 !important;
+    clip: rect(0 0 0 0) !important;
+    height: 1px !important;
+    margin: -1px  !important;
+    overflow: hidden !important;
+    padding: 0 !important;
+    position: absolute !important;
+    width: 1px !important;
+  }
 }
 
 /**
@@ -1901,24 +2631,63 @@ h3 {
  * Helpers unless handled by the “Grid”, and ALL spacing is downward facing
  * hence only `margin-bottom` being used.
  */
+/**
+ * Base.
+ */
 .h-spacing-base {
   margin-bottom: 1.444rem !important;
 }
 
+@media (min-width: 40.062em) {
+  .h-spacing-base-from-lap {
+    margin-bottom: 1.444rem !important;
+  }
+}
+
+/**
+ * Decrease from base.
+ */
 .h-spacing-tiny {
   margin-bottom: 0.361rem !important;
+}
+
+@media (min-width: 40.062em) {
+  .h-spacing-tiny-from-lap {
+    margin-bottom: 0.361rem !important;
+  }
 }
 
 .h-spacing-small {
   margin-bottom: 0.722rem !important;
 }
 
+@media (min-width: 40.062em) {
+  .h-spacing-small-from-lap {
+    margin-bottom: 0.722rem !important;
+  }
+}
+
+/**
+ * Increase from base.
+ */
 .h-spacing-large {
   margin-bottom: 2.889rem !important;
 }
 
+@media (min-width: 40.062em) {
+  .h-spacing-large-from-lap {
+    margin-bottom: 2.889rem !important;
+  }
+}
+
 .h-spacing-huge {
   margin-bottom: 5.778rem !important;
+}
+
+@media (min-width: 40.062em) {
+  .h-spacing-huge-from-lap {
+    margin-bottom: 5.778rem !important;
+  }
 }
 
 /* 5. Horizontal and vertical alignment
@@ -1926,18 +2695,8 @@ h3 {
 /**
  * Flexbox version, must go on the parent of the element that needs the
  * alignment.
- */
-/**
- * @access public
  *
- * @param {boolean} $apply-important-keyword [false] — Whether to apply the
- * `!important` keyword
- *
- * @example
-   .selector {
-      […]
-      @include h-align-horizontally-and-vertically();
-    }
+ * N.B. mixin is here: “Mixins and Functions -> Helpers”.
  */
 .h-align-horizontally-and-vertically {
   -ms-flex-align: center !important;
@@ -1951,18 +2710,8 @@ h3 {
 /**
  * Position and transform version, must go on the element that needs the
  * alignment and the elements parent must have `position: relative;`.
- */
-/**
- * @access public
  *
- * @param {boolean} $apply-important-keyword [false] — Whether to apply the
- * `!important` keyword
- *
- * @example
-   .selector {
-      […]
-      @include h-align-horizontally-and-vertically-alt();
-    }
+ * N.B. mixin is here: “Mixins and Functions -> Helpers”.
  */
 .h-align-horizontally-and-vertically-parent {
   position: relative !important;
@@ -1985,27 +2734,13 @@ h3 {
  * `<video>`
  * `<iframe>`
  *
+ * N.B. mixin is here: “Mixins and Functions -> Helpers”.
+ *
  * @credit
  * https://github.com/suitcss/components-flex-embed/blob/master/lib/flex-embed.css
  */
 /**
  * The container, the default ratio is “16:9”.
- */
-/**
- * @access public
- *
- * @param {boolean} $apply-important-keyword [false] — Whether to apply the
- * `!important` keyword
- * @param {list} $ratio [16 9] - The ratio of the content e.g. `3 1`, `4 3`.
- *
- * @exception
- * $ratio must be a list
- *
- * @example
-   .selector {
-      […]
-      @include h-intrinsic-ratio-container(false, 3 1);
-    }
  */
 .h-intrinsic-ratio {
   display: block !important;

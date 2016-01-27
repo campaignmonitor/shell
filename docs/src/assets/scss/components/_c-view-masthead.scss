@@ -23,7 +23,7 @@ $c-view-margin-bottom: $l-main-left-padding;
 
 .c-view-masthead {
     // TODO: move this out of the component and replace with a spacing helper
-    margin-bottom: to-rem($l-main-left-padding);
+    margin-bottom: rem($l-main-left-padding);
 }
 
 
@@ -32,7 +32,7 @@ $c-view-margin-bottom: $l-main-left-padding;
  */
 
 .c-view-masthead__heading {
-    margin-bottom: to-rem($shell-g-spacing-base);
+    margin-bottom: rem($shell-g-spacing-base);
 }
 
 
@@ -41,9 +41,9 @@ $c-view-margin-bottom: $l-main-left-padding;
  */
 
 .c-view-masthead__intro {
-    font-size: to-rem($shell-g-font-size-x-large);
+    font-size: rem($shell-g-font-size-x-large);
 
     > p {
-        margin-bottom: to-rem($shell-g-spacing-base);
+        margin-bottom: rem($shell-g-spacing-base);
     }
 }

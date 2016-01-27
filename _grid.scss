@@ -3,34 +3,71 @@
    ========================================================================= */
 
 /**
- * A powerful fluid and nestable mobile first grid system. It makes use of
- * flexbox to provide features that float-based layouts cannot.
+ * A powerful “Mobile-first” Flexbox-based grid that is responsive ready (all
+ * grid column widths are fluid using the `%` unit), nestable, and comes with
+ * a bunch of handy modifiers. This makes the grid the workhorse of your UI
+ * builds, any layout you need always look to the grid first—including within
+ * your “Components”, it exists so you don’t have to write redundant CSS to
+ * construct layouts.
  *
- * N.B. grid systems should be thought of as shelves. They contain content but
+ * Every grid column width can be generated at any breakpoint thanks to the
+ * mixin found here: “Mixins and Functions -> Apply at breakpoints”. So if you
+ * wanted 2 columns at smaller viewports then go to 4 columns at larger
+ * viewports you can easily do this just by passing in the breakpoints you need
+ * into the relevant settings, like so:
+ *
+   // 2 cols
+   $shell-grid-apply-2-col-width-at-breakpoints: true;
+   $shell-grid-define-2-col-width-breakpoints: (1199 max);
+
+   // 4 cols
+   $shell-grid-apply-4-col-width-at-breakpoints: true;
+   $shell-grid-define-4-col-width-breakpoints: (desk);
+ *
+ * This will to compile to:
+ *
+    @media (max-width: 74.9375em) {
+        .l-grid__item--2-col-up-to-desk {
+            width: 16.6666%;
+        }
+    }
+
+    @media (min-width: 75em) {
+        .l-grid__item--4-col-from-desk {
+            width: 33.3333%%;
+        }
+    }
+ *
+ * Other styles cannot be applied to a grid item. Grid is a “Layout Module”
+ * therefore the Single Responsibility Principle and the Open/Close Principle
+ * strictly applies. So this would be invalid:
+ *
+    <div class="l-grid__item  c-card">
+        […]
+    </div>
+ *
+ * Here we have wrongly applied a “Component” (`c-card`) to the same element as
+ * a “Layout Module”, we’ve mixed concerns, this can result in this part of
+ * the UI being prone to breakages. The valid way to approach this would be:
+ *
+    <div class="l-grid__item">
+        <div class="c-card">
+            […]
+        </div>
+    </div>
+ *
+ * As nicely put by Harry Roberts:
+ *
+ * “Grid systems grid should be thought of as shelves. They contain content but
  * are not content in themselves. You put up your shelves then fill them with
  * your stuff. By setting up our grids separately to our components you can
  * move components around a lot more easily than if they had dimensions
  * applied to them; this makes our front-ends a lot more adaptable and quick
- * to work with.
+ * to work with.”
  *
- * N.B. you should NEVER apply any styles to a grid item, they are for layout
- * purposes only. Apply styling to content inside a grid item.
- *
- * @markup
-    <div class="l-grid [modifier(s)]">
-        <div class="l-grid__item  l-grid__item--6-col"> [...] </div>
-        <div class="l-grid__item  l-grid__item--6-col"> [...] </div>
-    </div>
-    <div class="l-grid [modifier(s)]">
-        <div class="l-grid__item  l-grid__item--4-col"> [...] </div>
-        <div class="l-grid__item  l-grid__item--4-col"> [...] </div>
-        <div class="l-grid__item  l-grid__item--4-col"> [...] </div>
-    </div>
- *
- *
- * @credit
- * https://github.com/csswizardry/csswizardry-grids/blob/master/csswizardry-grids.scss
- * https://github.com/suitcss/components-grid
+ * N.B. they’re are a number of Flexbox bugs captured here:
+ * https://github.com/philipwalton/flexbugs, these have been accounted for in
+ * the Shell grid however if anything is missed please refer to this resource.
  *
  * ----------------------------------------------------------------------------
  *
@@ -47,31 +84,64 @@
  * The “l” stands for “layout” as Grid is a “Layout Module”.
  *
  * See: https://git.campmon.com/Freshview/coding-guidelines/blob/master/css/README.md#the-namespaces
+ *
+ * ----------------------------------------------------------------------------
+ *
+ * @markup
+    <div class="l-grid [modifier(s)]">
+        <div class="l-grid__item l-grid__item--2-col">
+            […]
+        </div>
+        <div class="l-grid__item l-grid__item--2-col">
+            […]
+        </div>
+    </div>
+
+    <div class="l-grid [modifier(s)]">
+        <div class="l-grid__item l-grid__item--4-col">
+            […]
+        </div>
+        <div class="l-grid__item l-grid__item--4-col">
+            […]
+        </div>
+        <div class="l-grid__item l-grid__item--4-col">
+            […]
+        </div>
+        <div class="l-grid__item l-grid__item--4-col">
+            […]
+        </div>
+    </div>
+ *
+ * @credit
+ * https://github.com/suitcss/components-grid
  */
 
 
 /**
  * Grid container.
  *
- * 1. Negative `margin-left` to negate the columns gutters.
+ * 1. Negative margins to negate the gutters.
  *
- * Gutter widths can be found in Settings -> Grid (Global)
+ * N.B. all grid gutter sizes are in “Settings -> Grid (Local)”.
  */
 
 .l-grid {
     display: flex;
     flex-flow: row wrap;
+    margin-bottom: -(rem($shell-g-gutter-base)); // [1]
     margin-left: -(rem($shell-g-gutter-base)); // [1]
 }
 
 
 /**
- * All content must be contained within child `grid__item` elements.
+ * Grid items.
  *
- * 1. Allows use of widths
- * 2. Bottom gutter
- * 3. Space columns apart
- * 4. 100% width by default - mobile first
+ * 1. Allows the use of widths.
+ * 2. Vertical gutter.
+ * 3. Horizontal gutter.
+ * 4. 100% width by default—“Mobile-first”.
+ *
+ * N.B. all grid gutter sizes are in “Settings -> Grid (Local)”.
  */
 
 .l-grid__item {
@@ -83,11 +153,12 @@
 
 
 /**
- * Modifiers: gutters.
+ * Modifiers: gutterless.
  */
 
-// Gutterless
+// All
 .l-grid--gutterless {
+    margin-bottom: 0;
     margin-left: 0;
 
     > .l-grid__item {
@@ -96,12 +167,13 @@
     }
 }
 
-// Gutterless Vertical
+// Just vertical
+.l-grid--gutterless-vertical,
 .l-grid--gutterless-vertical > .l-grid__item {
     margin-bottom: 0;
 }
 
-// Gutterless Horizontal
+// Just horizontal
 .l-grid--gutterless-horizontal {
     margin-left: 0;
 
@@ -110,7 +182,26 @@
     }
 }
 
-// Gutter tiny
+
+/**
+ * Modifiers: gutter sizes.
+ *
+ * N.B. all grid gutter sizes are in “Settings -> Grid (Local)”.
+ */
+
+// Base
+// N.B. having to reinstate the default so that any nested grids that inherit
+// a “Gutterless” modifier can be easily reapplied
+.l-grid--gutter-base {
+    margin-left: -(rem($shell-g-gutter-base));
+
+    > .l-grid__item {
+        margin-bottom: rem($shell-g-gutter-base);
+        padding-left:  rem($shell-g-gutter-base);
+    }
+}
+
+// Tiny
 .l-grid--gutter-tiny {
     margin-left: -(rem($shell-g-gutter-tiny));
 
@@ -120,7 +211,7 @@
     }
 }
 
-// Gutter small
+// Small
 .l-grid--gutter-small {
     margin-left: -(rem($shell-g-gutter-small));
 
@@ -130,7 +221,7 @@
     }
 }
 
-// Gutter large
+// Large
 .l-grid--gutter-large {
     margin-left: -(rem($shell-g-gutter-large));
 
@@ -140,7 +231,7 @@
     }
 }
 
-// Gutter huge
+// Huge
 .l-grid--gutter-huge {
     margin-left: -(rem($shell-g-gutter-huge));
 
@@ -152,85 +243,81 @@
 
 
 /**
- * Modifiers: vertical alignments.
+ * Modifiers: alignments.
  */
 
-// Center alignment
+// Middle
 .l-grid--align-middle {
     align-items: center;
 }
 
-// Bottom alignment
-.l-grid--align-bottom {
+// Bottom
+.l-grid--align--bottom {
     align-items: flex-end;
 }
 
-
-/**
- * Modifiers: horizontal alignments.
- */
-
-// Right alignment
-.l-grid--align-right {
-    justify-content: flex-end;
-}
-
-// Center alignment
+// Center
 .l-grid--align-center {
     justify-content: center;
 }
 
-
-/**
- * Modifiers: Space between
- */
-
-.l-grid--space-between {
-    flex-direction: row;
-    justify-content: space-between;
-
-    > .l-grid__item {
-        flex: 1 1 0%;
-        flex-basis: none;
-    }
+// Right
+.l-grid--align-right {
+    justify-content: flex-end;
 }
 
 
 /**
- * Modifiers: allow items to equal distribute width
- *
- * 1. Provide all values to avoid IE10 bug with shorthand flex -
- * http://git.io/vllC7
- *    Use `0%` to avoid bug in IE10/11 with unitless flex basis -
- * http://git.io/vllWx
+ * Modifiers: “space between” and “space around”.
+ */
+
+// Space between
+.l-grid--space-between {
+    justify-content: space-between;
+}
+
+// Space around
+.l-grid--space-around {
+    justify-content: space-around;
+}
+
+// Space between/around grid items
+.l-grid--space-between .l-grid__item,
+.l-grid--space-around .l-grid__item {
+    // Provide all values to avoid IE 10 bug with the shorthand `flex`
+    // property: http://git.io/vllC7
+    // Use `0%` to avoid bug in IE 10/11 with unitless `flex-basis`:
+    // http://git.io/vllWx.
+    flex: 1 1 0%;
+}
+
+
+/**
+ * Modifier: fit—all grid items have an equal width.
  */
 
 .l-grid--fit > .l-grid__item {
-    flex: 1 1 0%; // [1]
-    flex-basis: none;
+    // Provide all values to avoid IE 10 bug with the shorthand `flex`
+    // property: http://git.io/vllC7
+    // Use `0%` to avoid bug in IE 10/11 with unitless `flex-basis`:
+    // http://git.io/vllWx.
+    flex: 1 1 0%;
 }
 
 
 /**
- * Modifiers: horizontally center one unit
- *
- * Set a specific unit to be horizontally centered. Doesn't affect
- * any other units. Can still contain a child `grid` object.
+ * Modifier: horizontally center an individual grid item.
  */
 
-.l-grid__item--center {
+.l-grid > .l-grid__item--align-center {
     margin: 0 auto;
 }
 
 
 /**
- * Modifiers: grid item widths with the ability to apply at breakpoints, see
- * “Mixins and Functions -> Apply at breakpoints” to understand how this works.
+ * Modifiers: grid column widths.
  *
- * Based on 12 column grid.
- * `.l-grid__item--12-col` not needed as cells 100% by default
- *
- * N.B. grid item widths can be found in “Settings -> Grid (Local)”.
+ * N.B. grid column widths can be found in “Settings -> Grid (Local)”.
  */
 
 // 1 col

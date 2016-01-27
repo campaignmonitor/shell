@@ -4,9 +4,9 @@
 
 /**
  * All global settings (Sass variables) for the Shell Docs and any Shell
- * framework setting overrides.
+ * library setting overrides.
  *
- * Shell Docs settings can use any of the Shell framework settings, like so:
+ * Shell Docs settings can use any of the Shell library settings, like so:
  *
    $g-color-code-block-background: $shell-g-color-white;
  *
@@ -66,17 +66,20 @@ $g-font-family-light: "HelveticaNeue-Light", "Helvetica Neue Light",
    ========================================================================= */
 
 /**
- * Global.
+ * Colours (Global).
  */
 
-// Colours
 $shell-g-color-text-base: #333;
 
 $shell-g-color-link: $g-color-brand;
 
 $shell-g-color-link-hover: #1176a0;
 
-// Typography
+
+/**
+ * Typography (Global).
+ */
+
 $shell-g-font-size: 18;
 
 $shell-g-line-height: 26;
@@ -93,10 +96,183 @@ $shell-g-font-weight-heading: 200;
 
 
 /**
- * Local.
+ * Breakpoints (Global).
  */
 
-// Container
+// Global breakpoints that’ll apply to everything unless overridden at the
+// individual level
+$shell-g-global-breakpoints: (lap);
+
+
+/**
+ * Z-Index system (Global).
+ */
+
+$shell-g-z-layers: (
+    "header": 3,
+    "main": 2,
+    "footer": 1,
+    "underneath": -1
+);
+
+
+/**
+ * Container (Local).
+ */
+
 $shell-container-apply-center-alignment: false;
 
 $shell-container-maximum-width: 700;
+
+
+/**
+ * Grid (Local).
+ */
+
+/**
+ * Define breakpoints for all the grid item widths.
+ */
+
+// 1 col
+$shell-grid-apply-1-col-width-at-breakpoints: true;
+$shell-grid-define-1-col-width-breakpoints: (desk);
+
+// 2 col
+$shell-grid-apply-2-col-width-at-breakpoints: true;
+$shell-grid-define-2-col-width-breakpoints: (1199, 700);
+
+// 3 col
+$shell-grid-apply-3-col-width-at-breakpoints: true;
+$shell-grid-define-3-col-width-breakpoints: (233, desk-large);
+
+// 4 col
+$shell-grid-apply-4-col-width-at-breakpoints: true;
+$shell-grid-define-4-col-width-breakpoints: (900);
+
+// 5 col
+$shell-grid-apply-5-col-width-at-breakpoints: true;
+$shell-grid-define-5-col-width-breakpoints: (400);
+
+// 6 col
+$shell-grid-apply-6-col-width-at-breakpoints: true;
+$shell-grid-define-6-col-width-breakpoints: (desk);
+
+// 7 col
+$shell-grid-apply-7-col-width-at-breakpoints: true;
+$shell-grid-define-7-col-width-breakpoints: (desk);
+
+// 8 col
+$shell-grid-apply-8-col-width-at-breakpoints: true;
+$shell-grid-define-8-col-width-breakpoints: (desk);
+
+// 9 col
+$shell-grid-apply-9-col-width-at-breakpoints: true;
+$shell-grid-define-9-col-width-breakpoints: (desk);
+
+// 10 col
+$shell-grid-apply-10-col-width-at-breakpoints: true;
+$shell-grid-define-10-col-width-breakpoints: (desk);
+
+// 11 col
+$shell-grid-apply-11-col-width-at-breakpoints: true;
+$shell-grid-define-11-col-width-breakpoints: (desk);
+
+
+/**
+ * Helpers (Local).
+ */
+
+/**
+ * Define breakpoints for all the applicable “Helpers”.
+ */
+
+/**
+ * Text sizes.
+ */
+
+// Base
+$shell-helper-apply-text-size-base-at-breakpoints: true;
+$shell-helper-define-text-size-base-breakpoints: $shell-g-global-breakpoints;
+
+// Decrease from base
+$shell-helper-apply-text-size-small-at-breakpoints: true;
+$shell-helper-define-text-size-small-breakpoints: $shell-g-global-breakpoints;
+
+$shell-helper-apply-text-size-x-small-at-breakpoints: true;
+$shell-helper-define-text-size-x-small-breakpoints: $shell-g-global-breakpoints;
+
+$shell-helper-apply-text-size-xx-small-at-breakpoints: true;
+$shell-helper-define-text-size-xx-small-breakpoints: $shell-g-global-breakpoints;
+
+$shell-helper-apply-text-size-xxx-small-at-breakpoints: true;
+$shell-helper-define-text-size-xxx-small-breakpoints: $shell-g-global-breakpoints;
+
+// Increase from base
+$shell-helper-apply-text-size-large-at-breakpoints: true;
+$shell-helper-define-text-size-large-breakpoints: $shell-g-global-breakpoints;
+
+$shell-helper-apply-text-size-x-large-at-breakpoints: true;
+$shell-helper-define-text-size-x-large-breakpoints: $shell-g-global-breakpoints;
+
+$shell-helper-apply-text-size-xx-large-at-breakpoints: true;
+$shell-helper-define-text-size-xx-large-breakpoints: $shell-g-global-breakpoints;
+
+$shell-helper-apply-text-size-xxx-large-at-breakpoints: true;
+$shell-helper-define-text-size-xxx-large-breakpoints: $shell-g-global-breakpoints;
+
+/**
+ * Alignments.
+ */
+
+// Center
+$shell-helper-apply-text-align-center-at-breakpoints: true;
+$shell-helper-define-text-align-center-breakpoints: $shell-g-global-breakpoints;
+
+// Left
+$shell-helper-apply-text-align-left-at-breakpoints: true;
+$shell-helper-define-text-align-left-breakpoints: $shell-g-global-breakpoints;
+
+// Right
+$shell-helper-apply-text-align-right-at-breakpoints: true;
+$shell-helper-define-text-align-right-breakpoints: $shell-g-global-breakpoints;
+
+/**
+ * Text truncate.
+ */
+
+$shell-helper-apply-text-truncate-at-breakpoints: true;
+$shell-helper-define-text-truncate-breakpoints: $shell-g-global-breakpoints;
+
+/**
+ * Hide.
+ */
+
+// Hide elements from both screen readers and the document flow
+$shell-helper-apply-hide-at-breakpoints: true;
+$shell-helper-define-hide-breakpoints: $shell-g-global-breakpoints;
+
+// Hide elements only visually but have it available for screen readers
+$shell-helper-apply-hide-visually-at-breakpoints: true;
+$shell-helper-define-hide-visually-breakpoints: (lap-large max, 1100);
+
+/**
+ * Spacing.
+ */
+
+// Base
+$shell-helper-apply-spacing-base-at-breakpoints: true;
+$shell-helper-define-spacing-base-breakpoints: $shell-g-global-breakpoints;
+
+// Decrease from base
+$shell-helper-apply-spacing-tiny-at-breakpoints: true;
+$shell-helper-define-spacing-tiny-breakpoints: $shell-g-global-breakpoints;
+
+$shell-helper-apply-spacing-small-at-breakpoints: true;
+$shell-helper-define-spacing-small-breakpoints: $shell-g-global-breakpoints;
+
+// Increase from base
+$shell-helper-apply-spacing-large-at-breakpoints: true;
+$shell-helper-define-spacing-large-breakpoints: $shell-g-global-breakpoints;
+
+$shell-helper-apply-spacing-huge-at-breakpoints: true;
+$shell-helper-define-spacing-huge-breakpoints: $shell-g-global-breakpoints;

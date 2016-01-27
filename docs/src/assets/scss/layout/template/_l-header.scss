@@ -22,9 +22,9 @@ $l-header-link-hover-color: darken($l-header-link-color, 26%);
     background-color: $g-color-off-black;
     color: $shell-g-color-white;
     height: 100vh;
-    padding: to-rem($shell-g-spacing-base-plus-half) to-rem($shell-g-spacing-base-plus-half);
+    padding: rem($shell-g-spacing-base-plus-half) rem($shell-g-spacing-base-plus-half);
     position: fixed;
-    width: to-rem($l-header-width);
+    width: rem($l-header-width);
 }
 
 
@@ -34,7 +34,7 @@ $l-header-link-hover-color: darken($l-header-link-color, 26%);
 
 .l-header__logo-link {
     display: block;
-    margin-bottom: to-rem($shell-g-spacing-double);
+    margin-bottom: rem($shell-g-spacing-double);
 }
 
 .l-header__logo {
@@ -51,7 +51,7 @@ $l-header-link-hover-color: darken($l-header-link-color, 26%);
  */
 
 .l-header__nav__item {
-    margin-bottom: to-rem($shell-g-spacing-quarter);
+    margin-bottom: rem($shell-g-spacing-quarter);
 }
 
 /**

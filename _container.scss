@@ -74,6 +74,13 @@
  * The “l” stands for “layout” as Container is a “Layout Module”.
  *
  * See: https://git.campmon.com/Freshview/coding-guidelines/blob/master/css/README.md#the-namespaces
+ *
+ * ----------------------------------------------------------------------------
+ *
+ * @markup
+    <div class="l-container [modifier(s)]">
+        […]
+    </div>
  */
 
 
@@ -89,12 +96,7 @@
 
 
 /**
- * Wider and narrower container modifiers that use our set size names:
- *
- * - Huge
- * - Large
- * - Small
- * - Tiny
+ * Modifiers: wider and narrower containers.
  */
 
 .l-container--huge {
