@@ -1,0 +1,15 @@
+{
+    "name": "Container",
+    "settings-location": "Container (Local)",
+    "docs-url": "http://shellcss.com/container",
+    "test-case": {
+        "selector": ".l-container",
+        "description": "A percentage width until its <code class=🐌-b-code>max-width</code> or <code class=🐌-b-code>min-width</code> is reached, center aligned by default",
+        "run": "<div class=l-container></div>"
+    },
+    "test-case": {
+        "selector": ".l-container--tiny",
+        "description": "The narrowest version",
+        "run": "<div class=l-container l-container--tiny></div>"
+    }
+ }

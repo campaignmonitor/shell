@@ -12,43 +12,39 @@
  * Settings.
  */
 
-// Colours
-$c-test-case-block-background-color: $g-color-light-grey;
-
-$c-test-case-block-foreground-color: $g-color-dark-grey;
-
-$c-test-case-counter-color: $g-color-medium-grey;
-
 // Spacing
-$c-test-case-spacing-base: $shell-g-spacing-base;
+$c-test-case-spacing-between-elements: $shell-g-spacing-triple;
 
-$c-test-case-spacing-small: $shell-g-spacing-half;
+// Other
+$c-test-case-block-border-width: 5px;
 
-$c-test-case-spacing-large: $shell-g-spacing-double;
+$c-test-case-legend-key-size: 12;
 
 
 /**
- * The title.
+ * The header.
+ */
+
+.🐌-c-test-case__header {
+    margin-bottom: rem($c-test-case-spacing-between-elements);
+}
+
+
+/**
+ * The header title.
  */
 
 .🐌-c-test-case__title {
-    margin-bottom: rem($c-test-case-spacing-large);
-}
-
-/**
- * The heading element.
- */
-
-.🐌-c-test-case__title-heading {
     font-size: rem(40);
 }
 
+
 /**
- * An optional note for the title.
+ * Header blocks.
  */
 
-.🐌-c-test-case__title-note {
-    margin-top: rem($c-test-case-spacing-small);
+.🐌-c-test-case__header-block {
+    margin-top: rem($shell-g-spacing-half);
 }
 
 
@@ -57,7 +53,7 @@ $c-test-case-spacing-large: $shell-g-spacing-double;
  */
 
 .🐌-c-test-case__inner:not(:last-child) {
-    margin-bottom: rem($c-test-case-spacing-large);
+    margin-bottom: rem($c-test-case-spacing-between-elements);
 }
 
 
@@ -66,12 +62,18 @@ $c-test-case-spacing-large: $shell-g-spacing-double;
  */
 
 .🐌-c-test-case__block {
-    background-color: $c-test-case-block-background-color;
-    border-left: 5px solid $g-color-brand;
-    color: $c-test-case-block-foreground-color;
+    background-color: $g-color-light-grey;
+    border-left: $c-test-case-block-border-width solid $g-color-brand;
+    color: $g-color-dark-grey;
+    display: flex;
     font-weight: bold;
-    padding: rem($c-test-case-spacing-base);
-    margin-bottom: rem($c-test-case-spacing-base);
+    padding: rem($shell-g-spacing-base);
+    margin-bottom: rem($shell-g-spacing-base);
+}
+
+// Adjacent blocks get a thinner border width
+.🐌-c-test-case__block + .🐌-c-test-case__block {
+    border-left-width: $c-test-case-block-border-width - 1;
 }
 
 
@@ -81,16 +83,74 @@ $c-test-case-spacing-large: $shell-g-spacing-double;
  */
 
 .🐌-c-test-case__test-run {
-    background: red;
+    background-color: $g-color-test-case-canvas-background;
 
     /**
      * Shell: Container.
      */
 
     .l-container {
-        background-color: gold;
+        background-color: $g-color-test-case-subject-background;
         height: 300px;
     }
+}
+
+
+/**
+ * Legend.
+ */
+
+/**
+ * Legend container.
+ */
+
+.🐌-c-test-case__legend {
+    display: flex;
+    opacity: 0.65;
+    transition: opacity 0.1s ease-in;
+
+    &:hover {
+        opacity: 1;
+    }
+}
+
+/**
+ * Legend items.
+ */
+
+.🐌-c-test-case__legend-item {
+    align-items: center;
+    color: $g-color-dark-grey;
+    display: flex;
+    font-size: rem($shell-g-font-size-small);
+    text-transform: lowercase;
+
+    &:not(:last-child) {
+        margin-right: rem($shell-g-spacing-three-quarters);
+    }
+}
+
+/**
+ * Legend keys.
+ */
+
+.🐌-c-test-case__legend-key {
+    border-radius: 3px;
+    height: rem($c-test-case-legend-key-size);
+    margin-right: rem(5);
+    width: rem($c-test-case-legend-key-size);
+}
+
+/**
+ * Modifiers: colours for legend keys.
+ */
+
+.🐌-c-test-case__legend-key--canvas {
+    background-color: $g-color-test-case-canvas-background;
+}
+
+.🐌-c-test-case__legend-key--subject {
+    background-color: $g-color-test-case-subject-background;
 }
 
 
@@ -98,21 +158,16 @@ $c-test-case-spacing-large: $shell-g-spacing-double;
  * The counter styles.
  */
 
-// The container
+.🐌-c-test-case__block::before {
+    color: $g-color-medium-grey;
+    margin-right: rem($shell-g-spacing-small);
+}
+
+// The counter specific css
 .🐌-c-test-case {
     counter-reset: test-selector;
 }
 
-// Blocks
-.🐌-c-test-case__block--sub::before {
-    color: $c-test-case-counter-color;
-    display: inline-block;
-    margin-right: 10px;
-    min-width: 30px;
-    text-transform: uppercase;
-}
-
-// Selectors
 .🐌-c-test-case__selector {
     counter-reset: test-description;
 
@@ -122,7 +177,6 @@ $c-test-case-spacing-large: $shell-g-spacing-double;
     }
 }
 
-// Descriptions
 .🐌-c-test-case__test-desc::before {
     content: counter(test-selector) "." counter(test-description);
     counter-increment: test-description;

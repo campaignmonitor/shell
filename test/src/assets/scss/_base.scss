@@ -37,5 +37,10 @@ a {
    ========================================================================= */
 
 .🐌-b-code {
+    background-color: $shell-g-color-white;
+    border-radius: 3px;
+    color: $g-color-text-base;
     font-family: $shell-g-font-family-monospace;
+    font-weight: normal;
+    padding: rem(3) rem(6);
 }

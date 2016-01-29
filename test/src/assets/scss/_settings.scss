@@ -36,6 +36,9 @@
 // Brand
 $g-color-brand: #37393b;
 
+// Text base
+$g-color-text-base: #444;
+
 // Link
 $g-color-link: #185bd3;
 
@@ -51,6 +54,11 @@ $g-color-dark-grey: #666;
 // Others
 $g-color-dark-orange: darkorange;
 
+// Demo colours for test cases
+$g-color-test-case-canvas-background: crimson;
+
+$g-color-test-case-subject-background: lightblue;
+
 
 
 
@@ -60,6 +68,8 @@ $g-color-dark-orange: darkorange;
 /**
  * Colours (Global).
  */
+
+$shell-g-color-text-base: $g-color-text-base;
 
 $shell-g-color-link: $g-color-link;
 

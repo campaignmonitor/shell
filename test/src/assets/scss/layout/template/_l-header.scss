@@ -12,18 +12,11 @@
  */
 
 // Colours
-$l-header-color-background: $g-color-brand;
+$l-header-background-color: $g-color-brand;
 
 $l-header-nav-link-color: $shell-g-color-white;
 
-$l-header-nav-link-hover-color: lighten($l-header-color-background, 3%);
-
-// Spacing
-$l-header-base-spacing: $shell-g-spacing-base;
-
-$l-header-small-spacing: $shell-g-spacing-half;
-
-$l-header-large-spacing: $shell-g-spacing-double;
+$l-header-nav-link-hover-color: darken($l-header-nav-link-color, 26%);
 
 // Other
 $l-header-nav-link-underline-thickness: 3px;
@@ -34,9 +27,8 @@ $l-header-nav-link-underline-thickness: 3px;
  */
 
 .🐌-l-header {
-    background-color: $l-header-color-background;
-    //border-bottom: 1px solid $g-color-light-grey;
-    margin-bottom: rem($l-header-large-spacing);
+    background-color: $l-header-background-color;
+    margin-bottom: rem($shell-g-spacing-triple);
 }
 
 // Space logo and nav at either ends of each other
@@ -53,7 +45,7 @@ $l-header-nav-link-underline-thickness: 3px;
 .🐌-l-header__logo-link {
     border-bottom: 0;
     padding-bottom: rem($shell-g-spacing-tiny);
-    padding-top: rem($shell-g-spacing-tiny);
+    padding-top: rem($shell-g-spacing-third);
     width: rem(100);
 }
 
@@ -83,12 +75,13 @@ $l-header-nav-link-underline-thickness: 3px;
     align-items: center;
     color: $l-header-nav-link-color;
     border-bottom: 0;
-    padding-left: rem($l-header-base-spacing);
-    padding-right: rem($l-header-base-spacing);
+    padding-left: rem($shell-g-spacing-base);
+    padding-right: rem($shell-g-spacing-base);
     position: relative;
+    transition: all 0.1s ease-in;
 
     .🐌-l-header__nav__item:not(:last-child) & {
-        border-right: 1px solid $l-header-color-background;
+        border-right: 1px solid $l-header-background-color;
     }
 
     // Underline that sits off-canvas ready to be transitioned to the bottom
@@ -102,17 +95,17 @@ $l-header-nav-link-underline-thickness: 3px;
         position: absolute;
         right: 0;
         transform: translateY($l-header-nav-link-underline-thickness);
-        transition: transform 0.1s;
+        transition: transform 0.1s ease-in;
     }
 
     // States
     &:hover,
     &:focus,
     &.is-active {
-        color: $l-header-nav-link-color;
+        color: $l-header-nav-link-hover-color;
 
         &::after {
-            background-color: $l-header-nav-link-color;
+            background-color: $l-header-nav-link-hover-color;
             transform: translateY(0);
         }
     }

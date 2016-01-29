@@ -37,17 +37,21 @@ module.exports = function(grunt) {
         // Assemble
         assemble: {
             options: {
+                flatten: true,
                 assets: 'src/assets/',
                 layout: 'master.hbs',
                 layoutdir: 'src/layouts/',
                 partials: 'src/partials/**/*',
-                data: 'src/data/**/*'
+                data: ['src/data/**/*', 'package.json'],
+                helpers: ['helpers/helpers.js']
             },
             pages: {
-                cwd: 'src/views/',
-                dest: 'dist/',
-                expand: true,
-                src: '**/*.hbs'
+                files: [{
+                    expand: true,
+                    cwd: 'src/views/',
+                    src: '**/*.hbs',
+                    dest: 'dist/'
+                }]
             }
         },
 
