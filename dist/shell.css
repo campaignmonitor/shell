@@ -1,104 +1,8 @@
 @charset "UTF-8";
-/* ============================================================================
-   SHELL DOCS STYLESHEET
-   ========================================================================= */
 /**
- * Styles for the Shell Docs site.
- *
- * ----------------------------------------------------------------------------
- *
- * CONTENTS:
- *
- * 1. Shell Docs settings
- * 2. Shell library
- * 3. Shell Docs styles
- *
- * N.B. the above order of sections #1 and #2 must be maintained otherwise Sass
- * will not compile!
- */
-/* 1. Shell Docs settings incl. any Shell setting overrides
-   ========================================================================= */
-/* ============================================================================
-   SETTINGS
-   ========================================================================= */
-/**
- * All global settings (Sass variables) for the Shell Docs and any Shell
- * library setting overrides.
- *
- * Shell Docs settings can use any of the Shell library settings, like so:
- *
-   $g-color-code-block-background: $shell-g-color-white;
- *
- * ---------------------------------------------------------------------------
- *
- * All settings start with a global namespace: `$g` followed by one hyphen,
- * like this:
- *
-   $g-;
- *
- * The "g" stands for "global".
- *
- * ----------------------------------------------------------------------------
- *
- * CONTENTS:
- *
- * 1. Colours
- * 2. Typography
- * 3. Shell overrides
- */
-/* 1. Colours
-   ========================================================================= */
-/* 2. Typography
-   ========================================================================= */
-/* 3. Shell overrides
-   ========================================================================= */
-/**
- * Colours (Global).
- */
-/**
- * Typography (Global).
- */
-/**
- * Breakpoints (Global).
- */
-/**
- * Z-Index system (Global).
- */
-/**
- * Container (Local).
- */
-/**
- * Grid (Local).
- */
-/**
- * Define breakpoints for all the grid item widths.
- */
-/**
- * Helpers (Local).
- */
-/**
- * Define breakpoints for all the applicable "Helpers".
- */
-/**
- * Text sizes.
- */
-/**
- * Alignments.
- */
-/**
- * Text truncate.
- */
-/**
- * Hide.
- */
-/**
- * Spacing.
- */
-/* 2. Shell library
-   ========================================================================= */
-/**
- * The entire library is imported however only use what you need, you will
- * however need: "Settings" and "Mixins/Functions" for Shell to work.
+ * Shell CSS library by Campaign Monitor.
+ * http://shellcss.io
+ * Licensed under MIT ().
  */
 /**
  * Settings.
@@ -1194,30 +1098,30 @@ textarea,
  */
 html {
   background: #fff;
-  color: #333;
+  color: #444;
   font-family: sans-serif;
-  font-size: 1.125em;
+  font-size: 1em;
   font-weight: 400;
-  line-height: 1.444;
+  line-height: 1.5;
 }
 
 /* 2. Links
    ========================================================================= */
 a {
-  color: #19a9e5;
+  color: blue;
   text-decoration: underline;
   transition: color 0.15s linear;
 }
 
 a:hover, a:focus {
-  color: #1176a0;
+  color: blue;
   text-decoration: none;
 }
 
 /* 3. Horizontal rule
    ========================================================================= */
 hr {
-  border-top: 1px solid #333;
+  border-top: 1px solid #444;
   display: block;
   height: 1px;
 }
@@ -1294,55 +1198,55 @@ h3,
 h4,
 h5,
 h6 {
-  color: #333;
+  color: #444;
   font-size: 1rem;
   font-weight: 400;
-  line-height: 1.444;
+  line-height: 1.5;
 }
 
 /**
  * Base `.heading` styles.
  */
 .heading {
-  color: #333;
-  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
-  font-size: 3.222rem;
-  font-weight: 200;
+  color: #444;
+  font-family: sans-serif;
+  font-size: 1.5rem;
+  font-weight: 700;
 }
 
 /**
  * Modifiers: sizes.
  */
 .heading--size-small {
-  font-size: 2.333rem;
+  font-size: 1.375rem;
 }
 
 .heading--size-x-small {
-  font-size: 3rem;
+  font-size: 1.25rem;
 }
 
 .heading--size-xx-small {
-  font-size: 2.889rem;
+  font-size: 1.125rem;
 }
 
 .heading--size-xxx-small {
-  font-size: 0.944rem;
+  font-size: 1rem;
 }
 
 .heading--size-large {
-  font-size: 3.333rem;
+  font-size: 1.625rem;
 }
 
 .heading--size-x-large {
-  font-size: 3.444rem;
+  font-size: 1.75rem;
 }
 
 .heading--size-xx-large {
-  font-size: 3.556rem;
+  font-size: 1.875rem;
 }
 
 .heading--size-xxx-large {
-  font-size: 3.667rem;
+  font-size: 2rem;
 }
 
 /**
@@ -1554,28 +1458,29 @@ h3 {
     </div>
  */
 .l-container {
-  max-width: 38.889rem;
-  min-width: 17.778rem;
+  max-width: 100rem;
+  min-width: 20rem;
   width: 90%;
+  margin: 0 auto;
 }
 
 /**
- * Modifiers: narrower and wider containers.
+ * Modifiers: wider and narrower containers.
  */
-.l-container--tiny {
-  max-width: 35.556rem;
-}
-
-.l-container--small {
-  max-width: 55.556rem;
+.l-container--huge {
+  max-width: 150rem;
 }
 
 .l-container--large {
-  max-width: 111.111rem;
+  max-width: 125rem;
 }
 
-.l-container--huge {
-  max-width: 133.333rem;
+.l-container--small {
+  max-width: 62.5rem;
+}
+
+.l-container--tiny {
+  max-width: 40rem;
 }
 
 /**
@@ -1709,8 +1614,8 @@ h3 {
   display: flex;
   -ms-flex-flow: row wrap;
       flex-flow: row wrap;
-  margin-bottom: -1.444rem;
-  margin-left: -1.444rem;
+  margin-bottom: -1.5rem;
+  margin-left: -1.5rem;
 }
 
 /**
@@ -1726,8 +1631,8 @@ h3 {
 .l-grid__item {
   -ms-flex-preferred-size: auto;
       flex-basis: auto;
-  margin-bottom: 1.444rem;
-  padding-left: 1.444rem;
+  margin-bottom: 1.5rem;
+  padding-left: 1.5rem;
   width: 100%;
 }
 
@@ -1763,48 +1668,48 @@ h3 {
  * N.B. all grid gutter sizes are in "Settings -> Grid (Local)".
  */
 .l-grid--gutter-base {
-  margin-left: -1.444rem;
+  margin-left: -1.5rem;
 }
 
 .l-grid--gutter-base > .l-grid__item {
-  margin-bottom: 1.444rem;
-  padding-left: 1.444rem;
+  margin-bottom: 1.5rem;
+  padding-left: 1.5rem;
 }
 
 .l-grid--gutter-tiny {
-  margin-left: -0.361rem;
+  margin-left: -0.375rem;
 }
 
 .l-grid--gutter-tiny > .l-grid__item {
-  margin-bottom: 0.361rem;
-  padding-left: 0.361rem;
+  margin-bottom: 0.375rem;
+  padding-left: 0.375rem;
 }
 
 .l-grid--gutter-small {
-  margin-left: -0.722rem;
+  margin-left: -0.75rem;
 }
 
 .l-grid--gutter-small > .l-grid__item {
-  margin-bottom: 0.722rem;
-  padding-left: 0.722rem;
+  margin-bottom: 0.75rem;
+  padding-left: 0.75rem;
 }
 
 .l-grid--gutter-large {
-  margin-left: -2.889rem;
+  margin-left: -3rem;
 }
 
 .l-grid--gutter-large > .l-grid__item {
-  margin-bottom: 2.889rem;
-  padding-left: 2.889rem;
+  margin-bottom: 3rem;
+  padding-left: 3rem;
 }
 
 .l-grid--gutter-huge {
-  margin-left: -5.778rem;
+  margin-left: -6rem;
 }
 
 .l-grid--gutter-huge > .l-grid__item {
-  margin-bottom: 5.778rem;
-  padding-left: 5.778rem;
+  margin-bottom: 6rem;
+  padding-left: 6rem;
 }
 
 /**
@@ -1812,11 +1717,13 @@ h3 {
  */
 .l-grid--align-middle {
   -ms-flex-align: center;
+      -ms-grid-row-align: center;
       align-items: center;
 }
 
 .l-grid--align--bottom {
   -ms-flex-align: end;
+      -ms-grid-row-align: flex-end;
       align-items: flex-end;
 }
 
@@ -1873,122 +1780,44 @@ h3 {
   width: 8.333%;
 }
 
-@media (min-width: 75em) {
-  .l-grid__item--1-col-from-desk {
-    width: 8.333%;
-  }
-}
-
 .l-grid__item--2-col {
   width: 16.667%;
-}
-
-@media (min-width: 74.938em) {
-  .l-grid__item--2-col-from-1199 {
-    width: 16.667%;
-  }
-}
-
-@media (min-width: 43.75em) {
-  .l-grid__item--2-col-from-700 {
-    width: 16.667%;
-  }
 }
 
 .l-grid__item--3-col {
   width: 25%;
 }
 
-@media (min-width: 14.562em) {
-  .l-grid__item--3-col-from-233 {
-    width: 25%;
-  }
-}
-
-@media (min-width: 85.375em) {
-  .l-grid__item--3-col-from-desk-large {
-    width: 25%;
-  }
-}
-
 .l-grid__item--4-col {
   width: 33.333%;
-}
-
-@media (min-width: 56.25em) {
-  .l-grid__item--4-col-from-900 {
-    width: 33.333%;
-  }
 }
 
 .l-grid__item--5-col {
   width: 41.667%;
 }
 
-@media (min-width: 25em) {
-  .l-grid__item--5-col-from-400 {
-    width: 41.667%;
-  }
-}
-
 .l-grid__item--6-col {
   width: 50%;
-}
-
-@media (min-width: 75em) {
-  .l-grid__item--6-col-from-desk {
-    width: 50%;
-  }
 }
 
 .l-grid__item--7-col {
   width: 58.333%;
 }
 
-@media (min-width: 75em) {
-  .l-grid__item--7-col-from-desk {
-    width: 58.333%;
-  }
-}
-
 .l-grid__item--8-col {
   width: 66.667%;
-}
-
-@media (min-width: 75em) {
-  .l-grid__item--8-col-from-desk {
-    width: 66.667%;
-  }
 }
 
 .l-grid__item--9-col {
   width: 75%;
 }
 
-@media (min-width: 75em) {
-  .l-grid__item--9-col-from-desk {
-    width: 75%;
-  }
-}
-
 .l-grid__item--10-col {
   width: 83.333%;
 }
 
-@media (min-width: 75em) {
-  .l-grid__item--10-col-from-desk {
-    width: 83.333%;
-  }
-}
-
 .l-grid__item--11-col {
   width: 91.667%;
-}
-
-@media (min-width: 75em) {
-  .l-grid__item--11-col-from-desk {
-    width: 91.667%;
-  }
 }
 
 /**
@@ -2067,12 +1896,12 @@ h3 {
 .l-side-by-side__item:last-child {
   -ms-flex: 1 1 0%;
       flex: 1 1 0%;
-  margin-left: 1.444rem;
+  margin-left: 1.5rem;
 }
 
 .l-side-by-side--reversed > .l-side-by-side__item:last-child {
   margin-left: 0;
-  margin-right: 1.444rem;
+  margin-right: 1.5rem;
 }
 
 /**
@@ -2096,48 +1925,48 @@ h3 {
  * N.B. all grid gutter sizes are in "Settings -> Grid (Local)".
  */
 .l-side-by-side--gutter-base > .l-side-by-side__item:last-child {
-  margin-left: 1.444rem;
+  margin-left: 1.5rem;
 }
 
 .l-side-by-side--gutter-base.l-side-by-side--reversed > .l-side-by-side__item:last-child {
   margin-left: 0;
-  margin-right: 1.444rem;
+  margin-right: 1.5rem;
 }
 
 .l-side-by-side--gutter-tiny > .l-side-by-side__item:last-child {
-  margin-left: 0.361rem;
+  margin-left: 0.375rem;
 }
 
 .l-side-by-side--gutter-tiny.l-side-by-side--reversed > .l-side-by-side__item:last-child {
   margin-left: 0;
-  margin-right: 0.361rem;
+  margin-right: 0.375rem;
 }
 
 .l-side-by-side--gutter-small > .l-side-by-side__item:last-child {
-  margin-left: 0.722rem;
+  margin-left: 0.75rem;
 }
 
 .l-side-by-side--gutter-small.l-side-by-side--reversed > .l-side-by-side__item:last-child {
   margin-left: 0;
-  margin-right: 0.722rem;
+  margin-right: 0.75rem;
 }
 
 .l-side-by-side--gutter-large > .l-side-by-side__item:last-child {
-  margin-left: 2.889rem;
+  margin-left: 3rem;
 }
 
 .l-side-by-side--gutter-large.l-side-by-side--reversed > .l-side-by-side__item:last-child {
   margin-left: 0;
-  margin-right: 2.889rem;
+  margin-right: 3rem;
 }
 
 .l-side-by-side--gutter-huge > .l-side-by-side__item:last-child {
-  margin-left: 5.778rem;
+  margin-left: 6rem;
 }
 
 .l-side-by-side--gutter-huge.l-side-by-side--reversed > .l-side-by-side__item:last-child {
   margin-left: 0;
-  margin-right: 5.778rem;
+  margin-right: 6rem;
 }
 
 /**
@@ -2335,96 +2164,42 @@ h3 {
   font-size: 1rem !important;
 }
 
-@media (min-width: 40.062em) {
-  .h-text-size-base-from-lap {
-    font-size: 1rem !important;
-  }
-}
-
 /**
  * Decrease from base.
  */
 .h-text-size-small {
-  font-size: 0.944rem !important;
-}
-
-@media (min-width: 40.062em) {
-  .h-text-size-small-from-lap {
-    font-size: 0.944rem !important;
-  }
+  font-size: 0.938rem !important;
 }
 
 .h-text-size-x-small {
-  font-size: 0.889rem !important;
-}
-
-@media (min-width: 40.062em) {
-  .h-text-size-x-small-from-lap {
-    font-size: 0.889rem !important;
-  }
+  font-size: 0.875rem !important;
 }
 
 .h-text-size-xx-small {
-  font-size: 0.833rem !important;
-}
-
-@media (min-width: 40.062em) {
-  .h-text-size-xx-small-from-lap {
-    font-size: 0.833rem !important;
-  }
+  font-size: 0.812rem !important;
 }
 
 .h-text-size-xxx-small {
-  font-size: 0.778rem !important;
-}
-
-@media (min-width: 40.062em) {
-  .h-text-size-xxx-small-from-lap {
-    font-size: 0.778rem !important;
-  }
+  font-size: 0.75rem !important;
 }
 
 /**
  * Increase from base.
  */
 .h-text-size-large {
-  font-size: 1.056rem !important;
-}
-
-@media (min-width: 40.062em) {
-  .h-text-size-large-from-lap {
-    font-size: 1.056rem !important;
-  }
+  font-size: 1.062rem !important;
 }
 
 .h-text-size-x-large {
-  font-size: 1.111rem !important;
-}
-
-@media (min-width: 40.062em) {
-  .h-text-size-x-large-from-lap {
-    font-size: 1.111rem !important;
-  }
+  font-size: 1.125rem !important;
 }
 
 .h-text-size-xx-large {
-  font-size: 1.167rem !important;
-}
-
-@media (min-width: 40.062em) {
-  .h-text-size-xx-large-from-lap {
-    font-size: 1.167rem !important;
-  }
+  font-size: 1.188rem !important;
 }
 
 .h-text-size-xxx-large {
-  font-size: 1.222rem !important;
-}
-
-@media (min-width: 40.062em) {
-  .h-text-size-xxx-large-from-lap {
-    font-size: 1.222rem !important;
-  }
+  font-size: 1.25rem !important;
 }
 
 /**
@@ -2434,30 +2209,12 @@ h3 {
   text-align: center !important;
 }
 
-@media (min-width: 40.062em) {
-  .h-text-align-center-from-lap {
-    text-align: center !important;
-  }
-}
-
 .h-text-align-left {
   text-align: left !important;
 }
 
-@media (min-width: 40.062em) {
-  .h-text-align-left-from-lap {
-    text-align: left !important;
-  }
-}
-
 .h-text-align-right {
   text-align: right !important;
-}
-
-@media (min-width: 40.062em) {
-  .h-text-align-right-from-lap {
-    text-align: right !important;
-  }
 }
 
 /**
@@ -2482,26 +2239,11 @@ h3 {
   white-space: nowrap !important;
 }
 
-@media (min-width: 40.062em) {
-  .h-text-truncate-from-lap {
-    display: block !important;
-    overflow: hidden !important;
-    text-overflow: ellipsis !important;
-    white-space: nowrap !important;
-  }
-}
-
 /**
  * Modifier: inline.
  */
 .h-text-truncate--inline {
   display: inline-block !important;
-}
-
-@media (min-width: 40.062em) {
-  .h-text-truncate--inline-from-lap {
-    display: inline-block !important;
-  }
 }
 
 /**
@@ -2528,12 +2270,6 @@ h3 {
   display: none !important;
 }
 
-@media (min-width: 40.062em) {
-  .h-hide-from-lap {
-    display: none !important;
-  }
-}
-
 /**
  * Hide elements only visually but have it available for screen readers.
  *
@@ -2548,32 +2284,6 @@ h3 {
   padding: 0 !important;
   position: absolute !important;
   width: 1px !important;
-}
-
-@media (max-width: 56.312em) {
-  .h-hide-visually-up-to-lap-large {
-    border: 0 !important;
-    clip: rect(0 0 0 0) !important;
-    height: 1px !important;
-    margin: -1px  !important;
-    overflow: hidden !important;
-    padding: 0 !important;
-    position: absolute !important;
-    width: 1px !important;
-  }
-}
-
-@media (min-width: 68.75em) {
-  .h-hide-visually-from-1100 {
-    border: 0 !important;
-    clip: rect(0 0 0 0) !important;
-    height: 1px !important;
-    margin: -1px  !important;
-    overflow: hidden !important;
-    padding: 0 !important;
-    position: absolute !important;
-    width: 1px !important;
-  }
 }
 
 /**
@@ -2635,59 +2345,29 @@ h3 {
  * Base.
  */
 .h-spacing-base {
-  margin-bottom: 1.444rem !important;
-}
-
-@media (min-width: 40.062em) {
-  .h-spacing-base-from-lap {
-    margin-bottom: 1.444rem !important;
-  }
+  margin-bottom: 1.5rem !important;
 }
 
 /**
  * Decrease from base.
  */
 .h-spacing-tiny {
-  margin-bottom: 0.361rem !important;
-}
-
-@media (min-width: 40.062em) {
-  .h-spacing-tiny-from-lap {
-    margin-bottom: 0.361rem !important;
-  }
+  margin-bottom: 0.375rem !important;
 }
 
 .h-spacing-small {
-  margin-bottom: 0.722rem !important;
-}
-
-@media (min-width: 40.062em) {
-  .h-spacing-small-from-lap {
-    margin-bottom: 0.722rem !important;
-  }
+  margin-bottom: 0.75rem !important;
 }
 
 /**
  * Increase from base.
  */
 .h-spacing-large {
-  margin-bottom: 2.889rem !important;
-}
-
-@media (min-width: 40.062em) {
-  .h-spacing-large-from-lap {
-    margin-bottom: 2.889rem !important;
-  }
+  margin-bottom: 3rem !important;
 }
 
 .h-spacing-huge {
-  margin-bottom: 5.778rem !important;
-}
-
-@media (min-width: 40.062em) {
-  .h-spacing-huge-from-lap {
-    margin-bottom: 5.778rem !important;
-  }
+  margin-bottom: 6rem !important;
 }
 
 /* 5. Horizontal and vertical alignment
@@ -2781,465 +2461,4 @@ h3 {
   position: absolute !important;
   top: 0 !important;
   width: 100% !important;
-}
-
-/* 3. Shell Docs styles
-   ========================================================================= */
-/**
- * Base.
- */
-/* ============================================================================
-   BASE
-   ========================================================================= */
-/**
- * Here we provide very basic styling that most UI's will need. These styles
- * are applied at the most global level being applied via element selectors.
- * Everything in Base needs to be easily overridden which is really easy to do
- * as everything in Base sits right at the bottom in terms of specificity.
- *
- * CONTENTS:
- *
- * 1. Code element
- */
-/* 1. Code
-   ========================================================================= */
-code {
-  font-family: Consolas, "Andale Mono", "Bitstream Vera Sans Mono", "Courier New", Courier, monospace;
-}
-
-/* 2. Headings
-   ========================================================================= */
-/**
- * Settings.
- */
-/**
- * Styles for the nested anchor element rendered as a link icon.
- */
-.heading {
-  position: relative;
-}
-
-/**
- * The anchor.
- */
-.heading__anchor {
-  bottom: 4px;
-  left: 0;
-  line-height: 0;
-  position: absolute;
-  transition: none;
-  top: 4px;
-  background: aqua;
-  width: 40px;
-  /**
-     * The link icon.
-     */
-}
-
-.heading__anchor svg {
-  fill: #504f4f;
-  height: 100%;
-  opacity: 0.25;
-  transition: opacity 0.15s;
-  width: 100%;
-}
-
-.heading__anchor:hover svg,
-.heading__anchor:focus svg {
-  opacity: 1;
-}
-
-/**
- * Layout/Template.
- */
-/* ============================================================================
-   LAYOUT -> TEMPLATE -> HEADER
-   ========================================================================= */
-/**
- * The site header which is in the form of a left sidebar at wider viewports.
- */
-/**
- * Settings.
- */
-.l-header {
-  background-color: #37393b;
-  color: #fff;
-  height: 100vh;
-  padding: 2.167rem 2.167rem;
-  position: fixed;
-  width: 15.889rem;
-}
-
-/**
- * The SVG logo and the wrapping link.
- */
-.l-header__logo-link {
-  display: block;
-  margin-bottom: 2.889rem;
-}
-
-.l-header__logo {
-  fill: #fff;
-}
-
-/**
- * Main navigation.
- */
-/**
- * Items.
- */
-.l-header__nav__item {
-  margin-bottom: 0.361rem;
-}
-
-/**
- * Links.
- */
-.l-header__nav__link {
-  border-bottom: 1px solid transparent;
-  color: #fff;
-  display: inline-block;
-  text-decoration: none;
-  transition: all 0.10s ease-out;
-}
-
-.l-header__nav__link:hover, .l-header__nav__link:focus, .l-header__nav__link.is-active {
-  border-bottom-color: #b3b3b3;
-  color: #b3b3b3;
-}
-
-/* ============================================================================
-   LAYOUT -> TEMPLATE -> MAIN
-   ========================================================================= */
-/**
- * The main content area of the site.
- */
-/**
- * Settings.
- */
-.l-main {
-  margin-left: 15.889rem;
-  padding-bottom: 2.167rem;
-  padding-left: 4.333rem;
-  padding-top: 2.167rem;
-}
-
-/**
- * Components.
- */
-/* ============================================================================
-   COMPONENTS -> BULLETED LIST
-   ========================================================================= */
-/**
- * A simple component that applies styles for a bulleted list.
- */
-/**
- * Settings.
- */
-.c-bulleted-list {
-  list-style: disc;
-  list-style-position: outside;
-}
-
-/* ============================================================================
-   COMPONENTS -> VIEW MASTHEAD
-   ========================================================================= */
-/**
- * The masthead that sits at the top of each view (page), by default it
- * contains the view heading and an introduction.
- *
- * @markup
- * /partials/view-masthead.hbs
- */
-/**
- * Settings.
- */
-.c-view-masthead {
-  margin-bottom: 4.333rem;
-}
-
-/**
- * The heading.
- */
-.c-view-masthead__heading {
-  margin-bottom: 1.444rem;
-}
-
-/**
- * The introduction.
- */
-.c-view-masthead__intro {
-  font-size: 1.111rem;
-}
-
-.c-view-masthead__intro > p {
-  margin-bottom: 1.444rem;
-}
-
-/* ============================================================================
-   COMPONENTS -> DEMO
-   ========================================================================= */
-/**
- * A component that encapsulates a demo for something coming from Shell,
- * typically includes:
- *
- * - A heading
- * - An intro
- * - Configurable items
- * - An example
- * - The examples code
- * - View source code link
- *
- * @example
- * /partials/demo.hbs
- */
-/**
- * Settings.
- */
-.c-demo {
-  background-color: #f9f9f9;
-  font-size: 0.944rem;
-  padding: 2.167rem;
-  padding-left: 4.333rem;
-  padding-right: 4.333rem;
-  margin-bottom: 4.333rem;
-  margin-left: -4.333rem;
-}
-
-/**
- * Apply shared spacing.
- *
- * TODO: move this out of the component and replace with spacing helpers.
- */
-.c-demo__spacing {
-  margin-bottom: 1.444rem;
-}
-
-.c-demo__spacing-large {
-  margin-bottom: 2.167rem;
-}
-
-/**
- * Intro.
- */
-.c-demo__intro {
-  margin-bottom: 2.167rem;
-}
-
-/**
- * Configurable items.
- */
-.c-demo__config-items em {
-  color: #504f4f;
-  font-size: 0.889rem;
-}
-
-/**
- * Example.
- */
-/**
- * Modifier: apply extra styling to the example markup, this is needed when
- * we need additional markup like paragraphs that isn't the actual example
- * markup.
- */
-.c-demo__example--extra-styling > p {
-  color: #504f4f;
-  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
-  font-size: 0.889rem;
-}
-
-/**
- * View source code link.
- */
-.c-demo__view-source-code {
-  display: inline-block;
-  padding-left: 0.722rem;
-  padding-top: 0.722rem;
-  text-decoration: none;
-}
-
-.has-no-example .c-demo__view-source-code {
-  padding: 0;
-}
-
-/**
- * The link text.
- */
-.c-demo__view-source-code-text {
-  vertical-align: middle;
-}
-
-/**
- * The GitHub SVG icon.
- */
-.c-demo__view-source-code-icon {
-  fill: #19a9e5;
-  height: 26px;
-  transition: fill 0.15s linear;
-  width: 26px;
-}
-
-.c-demo__view-source-code:hover .c-demo__view-source-code-icon,
-.c-demo__view-source-code:focus .c-demo__view-source-code-icon {
-  fill: #1176a0;
-}
-
-/* ============================================================================
-   COMPONENTS -> INLINE CODE
-   ========================================================================= */
-/**
- * A component for inline code occurrences.
- *
- * @example
-   <code class="c-inline-code">[textnode]</code>
- */
-.c-inline-code {
-  color: #000080;
-  display: inline-block;
-  padding-left: 0.361rem;
-  padding-right: 0.361rem;
-}
-
-/**
- * Vendor.
- */
-/**
- * GitHub style syntax highlighting by Vasily Polovnyov (vast@whiteants.net).
- *
- * N.B. modified it by adding an attribute selector to the `<code>` element to
- * keep it encapsulated + changed the padding on this element. Also applied our
- * four space indentation.
- */
-/**
- * Here we have to set the background of the `<pre>` element using parent
- * elements as the JS Assemble uses for syntax highlighting does not provide a
- * selector on `<pre>` element only the child `<code>` element.
- */
-.c-demo__code > pre {
-  background-color: #fff;
-  border: 1px solid #efefef;
-  display: block;
-  padding: 0.722rem;
-}
-
-code[class*="language-"] {
-  color: #333;
-}
-
-code[class*="language-"] .comment,
-code[class*="language-"] .template_comment,
-code[class*="language-"] .diff .header,
-code[class*="language-"] .javadoc {
-  color: #998;
-  font-style: italic;
-}
-
-code[class*="language-"] .keyword,
-code[class*="language-"] .css .rule .keyword,
-code[class*="language-"] .winutils,
-code[class*="language-"] .javascript .title,
-code[class*="language-"] .nginx .title,
-code[class*="language-"] .subst,
-code[class*="language-"] .request,
-code[class*="language-"] .status {
-  color: #333;
-  font-weight: bold;
-}
-
-code[class*="language-"] .number,
-code[class*="language-"] .hexcolor,
-code[class*="language-"] .ruby .constant {
-  color: #099;
-}
-
-code[class*="language-"] .string,
-code[class*="language-"] .tag .value,
-code[class*="language-"] .phpdoc,
-code[class*="language-"] .tex .formula {
-  color: #960f4a;
-}
-
-code[class*="language-"] .title,
-code[class*="language-"] .id,
-code[class*="language-"] .coffeescript .params,
-code[class*="language-"] .scss .preprocessor {
-  color: #900;
-  font-weight: bold;
-}
-
-code[class*="language-"] .javascript .title,
-code[class*="language-"] .lisp .title,
-code[class*="language-"] .clojure .title,
-code[class*="language-"] .subst {
-  font-weight: normal;
-}
-
-code[class*="language-"] .class .title,
-code[class*="language-"] .haskell .type,
-code[class*="language-"] .vhdl .literal,
-code[class*="language-"] .tex .command {
-  color: #458;
-  font-weight: bold;
-}
-
-code[class*="language-"] .tag,
-code[class*="language-"] .tag .title,
-code[class*="language-"] .rules .property,
-code[class*="language-"] .django .tag .keyword {
-  color: #000080;
-  font-weight: normal;
-}
-
-code[class*="language-"] .attribute,
-code[class*="language-"] .variable,
-code[class*="language-"] .lisp .body {
-  color: #008080;
-}
-
-code[class*="language-"] .regexp {
-  color: #009926;
-}
-
-code[class*="language-"] .class {
-  color: #458;
-  font-weight: bold;
-}
-
-code[class*="language-"] .symbol,
-code[class*="language-"] .ruby .symbol .string,
-code[class*="language-"] .lisp .keyword,
-code[class*="language-"] .tex .special,
-code[class*="language-"] .prompt {
-  color: #990073;
-}
-
-code[class*="language-"] .built_in,
-code[class*="language-"] .lisp .title,
-code[class*="language-"] .clojure .built_in {
-  color: #0086b3;
-}
-
-code[class*="language-"] .preprocessor,
-code[class*="language-"] .pi,
-code[class*="language-"] .doctype,
-code[class*="language-"] .shebang,
-code[class*="language-"] .cdata {
-  color: #999;
-  font-weight: bold;
-}
-
-code[class*="language-"] .deletion {
-  background: #ffdddd;
-}
-
-code[class*="language-"] .addition {
-  background: #ddffdd;
-}
-
-code[class*="language-"] .diff .change {
-  background: #0086b3;
-}
-
-code[class*="language-"] .chunk {
-  color: #aaaaaa;
 }

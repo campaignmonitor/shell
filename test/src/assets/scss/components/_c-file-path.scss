@@ -1,0 +1,17 @@
+/* ============================================================================
+   COMPONENTS -> FILE PATH
+   ========================================================================= */
+
+/**
+ * Make a file path stand out.
+ */
+
+
+.🐌-c-file-path {
+    border: 1px solid $g-color-light-grey;
+    border-radius: 3px;
+    color: $g-color-dark-orange;
+    font-family: $shell-g-font-family-monospace;
+    font-weight: normal;
+    padding: rem(3) rem(6);
+}

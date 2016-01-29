@@ -1,19 +1,19 @@
 @charset "UTF-8";
 
 /* ============================================================================
-   SHELL DOCS STYLESHEET
+   SHELL TEST'S STYLESHEET
    ========================================================================= */
 
 /**
- * Styles for the Shell Docs site.
+ * Styles for the Shell Tests.
  *
  * ----------------------------------------------------------------------------
  *
  * CONTENTS:
  *
- * 1. Shell Docs settings
+ * 1. Shell Tests settings
  * 2. Shell library
- * 3. Shell Docs styles
+ * 3. Shell Tests styles
  *
  * N.B. the above order of sections #1 and #2 must be maintained otherwise Sass
  * will not compile!
@@ -22,7 +22,7 @@
 
 
 
-/* 1. Shell Docs settings incl. any Shell setting overrides
+/* 1. Shell Tests settings incl. any Shell setting overrides
    ========================================================================= */
 
 @import "settings";
@@ -32,12 +32,6 @@
 
 /* 2. Shell library
    ========================================================================= */
-
-/**
- * The entire library is imported however only use what you need, you will
- * however need: "Settings" and "Mixins/Functions" for Shell to work.
- */
-
 
 /**
  * Settings.
@@ -97,9 +91,8 @@
 
 
 
-/* 3. Shell Docs styles
+/* 3. Shell Tests styles
    ========================================================================= */
-
 
 /**
  * Base.
@@ -109,7 +102,7 @@
 
 
 /**
- * Layout/Template.
+ * Layout Template.
  */
 
 @import "layout/template/l-header";
@@ -121,18 +114,6 @@
  * Components.
  */
 
-@import "components/c-bulleted-list";
+@import "components/c-test-case";
 
-@import "components/c-view-masthead";
-
-@import "components/c-demo";
-
-@import "components/c-inline-code";
-
-
-/**
- * Vendor.
- */
-
-// GitHub style syntax highlighting
-@import "vendor/github-style-syntax-highlighting";
+@import "components/c-file-path";

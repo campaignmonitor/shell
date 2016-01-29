@@ -1,0 +1,129 @@
+/* ============================================================================
+   COMPONENTS -> TEST CASE
+   ========================================================================= */
+
+/**
+ * This component encapsulates the styles for each test case and includes
+ * adding styles to any Shell items that need to be visually recognisable.
+ */
+
+
+/**
+ * Settings.
+ */
+
+// Colours
+$c-test-case-block-background-color: $g-color-light-grey;
+
+$c-test-case-block-foreground-color: $g-color-dark-grey;
+
+$c-test-case-counter-color: $g-color-medium-grey;
+
+// Spacing
+$c-test-case-spacing-base: $shell-g-spacing-base;
+
+$c-test-case-spacing-small: $shell-g-spacing-half;
+
+$c-test-case-spacing-large: $shell-g-spacing-double;
+
+
+/**
+ * The title.
+ */
+
+.🐌-c-test-case__title {
+    margin-bottom: rem($c-test-case-spacing-large);
+}
+
+/**
+ * The heading element.
+ */
+
+.🐌-c-test-case__title-heading {
+    font-size: rem(40);
+}
+
+/**
+ * An optional note for the title.
+ */
+
+.🐌-c-test-case__title-note {
+    margin-top: rem($c-test-case-spacing-small);
+}
+
+
+/**
+ * Inner container, wraps everything except the Title.
+ */
+
+.🐌-c-test-case__inner:not(:last-child) {
+    margin-bottom: rem($c-test-case-spacing-large);
+}
+
+
+/**
+ * Block, a generic container.
+ */
+
+.🐌-c-test-case__block {
+    background-color: $c-test-case-block-background-color;
+    border-left: 5px solid $g-color-brand;
+    color: $c-test-case-block-foreground-color;
+    font-weight: bold;
+    padding: rem($c-test-case-spacing-base);
+    margin-bottom: rem($c-test-case-spacing-base);
+}
+
+
+/**
+ * Where the test is run, here we add styles to any Shell items that need to
+ * be visually recognisable e.g. `l-container`.
+ */
+
+.🐌-c-test-case__test-run {
+    background: red;
+
+    /**
+     * Shell: Container.
+     */
+
+    .l-container {
+        background-color: gold;
+        height: 300px;
+    }
+}
+
+
+/**
+ * The counter styles.
+ */
+
+// The container
+.🐌-c-test-case {
+    counter-reset: test-selector;
+}
+
+// Blocks
+.🐌-c-test-case__block--sub::before {
+    color: $c-test-case-counter-color;
+    display: inline-block;
+    margin-right: 10px;
+    min-width: 30px;
+    text-transform: uppercase;
+}
+
+// Selectors
+.🐌-c-test-case__selector {
+    counter-reset: test-description;
+
+    &::before {
+        content: counter(test-selector);
+        counter-increment: test-selector;
+    }
+}
+
+// Descriptions
+.🐌-c-test-case__test-desc::before {
+    content: counter(test-selector) "." counter(test-description);
+    counter-increment: test-description;
+}

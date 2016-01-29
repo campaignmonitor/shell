@@ -1,0 +1,26 @@
+---
+## View data ##
+title: Container
+page-style-hook: 🐌-s-container
+
+## Nav data ##
+slug: container
+nav-order: 1
+
+## Layout data ##
+layout: ../layouts/test-case.hbs
+docs-urls: http://shellcss.com/container
+---
+
+
+{{>test-case this
+             selector='.l-container'
+             description='A percentage width until its <code class="🐌-b-code">max-width</code> or <code class="🐌-b-code">min-width</code> is reached, center aligned by default.'
+             run='<div class="l-container"></div>'
+}}
+
+{{>test-case this
+             selector='.l-container--tiny'
+             description='A narrower version'
+             run='<div class="l-container l-container--tiny"></div>'
+}}

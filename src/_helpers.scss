@@ -661,34 +661,16 @@
     padding-bottom: 75% !important;
 }
 
+// 1:1 aspect ratio
+.h-intrinsic-ratio--1-by-1 {
+    padding-bottom: 100% !important;
+}
+
 
 /**
  * The content.
  */
 
-/**
- * @access public
- *
- * @param {boolean} $apply-important-keyword [false] — Whether to apply the
- * `!important` keyword
- *
- * @example
-   .selector {
-      […]
-      @include h-intrinsic-ratio-content();
-    }
- */
-
- @mixin h-intrinsic-ratio-content($apply-important-keyword: false) {
-    $important-keyword: if($apply-important-keyword, " !important", "");
-
-    height: 100%#{$important-keyword};
-    left: 0#{$important-keyword};
-    position: absolute#{$important-keyword};
-    top: 0#{$important-keyword};
-    width: 100%#{$important-keyword};
- }
-
 .h-intrinsic-ratio__content {
-    @include h-intrinsic-ratio-content(true);
+    @include intrinsic-ratio-content(true);
 }

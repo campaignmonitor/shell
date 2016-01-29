@@ -1,0 +1,18 @@
+---
+layout: master.hbs
+---
+
+<div class="🐌-c-test-case">
+
+    {{!-- Title --}}
+    <div class="🐌-c-test-case__title">
+        <div class="l-container">
+            <h1 class="🐌-c-test-case__title-heading"><a href="{{ docs-urls }}" title="→ Read more about {{ title }} in the docs"><strong>{{ title }}</strong></a> tests</h1>
+            <p class="🐌-c-test-case__title-note">All associated settings in <strong class="🐌-c-file-path">assets/scss/_settings.scss → {{ title }}</strong></p>
+        </div>
+    </div>
+    {{!-- //Title --}}
+
+    {{> body}}
+
+</div>

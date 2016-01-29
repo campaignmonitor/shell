@@ -1,0 +1,119 @@
+/* ============================================================================
+   LAYOUT -> TEMPLATE -> HEADER
+   ========================================================================= */
+
+/**
+ * The site header.
+ */
+
+
+/**
+ * Settings.
+ */
+
+// Colours
+$l-header-color-background: $g-color-brand;
+
+$l-header-nav-link-color: $shell-g-color-white;
+
+$l-header-nav-link-hover-color: lighten($l-header-color-background, 3%);
+
+// Spacing
+$l-header-base-spacing: $shell-g-spacing-base;
+
+$l-header-small-spacing: $shell-g-spacing-half;
+
+$l-header-large-spacing: $shell-g-spacing-double;
+
+// Other
+$l-header-nav-link-underline-thickness: 3px;
+
+
+/**
+ * The containers.
+ */
+
+.🐌-l-header {
+    background-color: $l-header-color-background;
+    //border-bottom: 1px solid $g-color-light-grey;
+    margin-bottom: rem($l-header-large-spacing);
+}
+
+// Space logo and nav at either ends of each other
+.🐌-l-header__inner {
+    display: flex;
+    justify-content: space-between;
+}
+
+
+/**
+ * The SVG logo and the wrapping link.
+ */
+
+.🐌-l-header__logo-link {
+    border-bottom: 0;
+    padding-bottom: rem($shell-g-spacing-tiny);
+    padding-top: rem($shell-g-spacing-tiny);
+    width: rem(100);
+}
+
+.🐌-l-header__logo {
+    fill: $l-header-nav-link-color;
+}
+
+
+/**
+ * Make all the nav elements `display: flex` so that the links can be the
+ * height of the container.
+ */
+
+.🐌-l-header__nav,
+.🐌-l-header__nav__list,
+.🐌-l-header__nav__item,
+.🐌-l-header__nav__link {
+    display: flex;
+}
+
+
+/**
+ * Nav links.
+ */
+
+.🐌-l-header__nav__link {
+    align-items: center;
+    color: $l-header-nav-link-color;
+    border-bottom: 0;
+    padding-left: rem($l-header-base-spacing);
+    padding-right: rem($l-header-base-spacing);
+    position: relative;
+
+    .🐌-l-header__nav__item:not(:last-child) & {
+        border-right: 1px solid $l-header-color-background;
+    }
+
+    // Underline that sits off-canvas ready to be transitioned to the bottom
+    // of the link on all states
+    &::after {
+        background-color: transparent;
+        bottom: 0;
+        content: "";
+        height: $l-header-nav-link-underline-thickness;
+        left: 0;
+        position: absolute;
+        right: 0;
+        transform: translateY($l-header-nav-link-underline-thickness);
+        transition: transform 0.1s;
+    }
+
+    // States
+    &:hover,
+    &:focus,
+    &.is-active {
+        color: $l-header-nav-link-color;
+
+        &::after {
+            background-color: $l-header-nav-link-color;
+            transform: translateY(0);
+        }
+    }
+}
