@@ -2,14 +2,36 @@
     "name": "Container",
     "settings-location": "Container (Local)",
     "docs-url": "http://shellcss.com/container",
-    "test-case": {
+    "source-code-url": "",
+    "tests": [{
         "selector": ".l-container",
-        "description": "A percentage width until its <code class=🐌-b-code>max-width</code> or <code class=🐌-b-code>min-width</code> is reached, center aligned by default",
-        "run": "<div class=l-container></div>"
-    },
-    "test-case": {
+        "test": [{
+            "description": "A percentage width until its <code class=🐌-b-code>max-width</code> or <code class=🐌-b-code>min-width</code> is reached, center aligned by default",
+            "run": "<div class=\"l-container\"></div>"
+        }]
+        },{
         "selector": ".l-container--tiny",
-        "description": "The narrowest version",
-        "run": "<div class=l-container l-container--tiny></div>"
-    }
+        "test": [{
+            "description": "The narrowest version",
+            "run": "<div class=\"l-container l-container--tiny\"></div>"
+        }]
+        },{
+        "selector": ".l-container--small",
+        "test": [{
+            "description": "A narrower version",
+            "run": "<div class=\"l-container l-container--small\"></div>"
+        }]
+        },{
+        "selector": ".l-container--large",
+        "test": [{
+            "description": "A wider version",
+            "run": "<div class=\"l-container l-container--large\"></div>"
+        }]
+        },{
+        "selector": ".l-container--huge",
+        "test": [{
+            "description": "The widest version",
+            "run": "<div class=\"l-container l-container--huge\"></div>"
+        }]
+    }]
  }

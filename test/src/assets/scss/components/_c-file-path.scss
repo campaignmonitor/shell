@@ -11,7 +11,8 @@
     border: 1px solid $g-color-light-grey;
     border-radius: 3px;
     color: $g-color-dark-orange;
+    display: inline-block;
     font-family: $shell-g-font-family-monospace;
     font-weight: normal;
-    padding: rem(3) rem(6);
+    padding: rem(1) rem(6);
 }

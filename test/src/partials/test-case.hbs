@@ -3,46 +3,52 @@
     {{!-- Header --}}
     <header class="🐌-c-test-case__header">
         <div class="l-container">
-            <h1 class="🐌-c-test-case__title"><a href="{{ docs-url }}" title="→ Read more about {{ name }} in the docs"><strong>{{ name }}</strong></a> tests</h1>
-            <p class="🐌-c-test-case__header-block">All associated settings in <strong class="🐌-c-file-path">assets/scss/_settings.scss → {{ settings-location }}</strong></p>
+            <h1 class="🐌-c-test-case__title"><strong>{{ name }}</strong> tests</h1>
+            <p class="🐌-c-test-case__header-block">
+                <a href="{{ docs-url }}" rel="external" class="🐌-b-link"><strong>Documentation</strong></a>
+                &nbsp;/&nbsp;
+                <a href="{{ source-code-url }}" rel="external" class="🐌-b-link"><strong>Source code</strong></a>
+            </p>
+            <p class="🐌-c-test-case__header-block">All associated settings ready for testing: <strong class="🐌-c-file-path">test/src/assets/scss/_settings.scss → {{ settings-location }}</strong></p>
         </div>
     </header>
     {{!-- //Header --}}
 
-    {{!-- Loop through each top-level test --}}
-    {{#each test-case}}
+    {{!-- Loop through each test --}}
+    {{#each this.tests}}
         <div class="🐌-c-test-case__inner">
 
-            <div class="l-container">
-
-                {{!-- The selector --}}
+            {{!-- The selector --}}
+            <div class="🐌-c-test-case__counter-master  l-container">
                 <div class="🐌-c-test-case__selector 🐌-c-test-case__block">
-                    <h2>
-                        <code class="🐌-b-code">{{ this.selector }}</code>
-                    </h2>
+                    <h2><code class="🐌-b-code">{{ selector }}</code></h2>
                 </div>
-                {{!-- //The selector --}}
+            </div>
+            {{!-- //The selector --}}
+
+            {{#each this.test}}
 
                 {{!-- The description --}}
-                <div class="🐌-c-test-case__test-desc 🐌-c-test-case__block">
-                    <p>{{{ this.description }}}</p>
+                <div class="🐌-c-test-case__counter-slave  l-container slave">
+                    <div class="🐌-c-test-case__test-desc 🐌-c-test-case__block">
+                        <p>{{{ description }}}</p>
+                    </div>
                 </div>
                 {{!-- //The description --}}
 
-            </div>
+                {{!-- Run the test --}}
+                <div class="🐌-c-test-case__test-run{{#if needs-styles}} 🐌-c-test-case__test-run--manipulate{{/if}}">
+                    {{{ run }}}
+                </div>
+                {{!-- //Run the test --}}
 
-            {{!-- Run the test --}}
-            <div class="🐌-c-test-case__test-run">
-                {{{ this.run }}}
-            </div>
-            {{!-- //Run the test --}}
+                {{!-- Test legend --}}
+                {{> test-case-legend}}
+                {{!-- //Test legend --}}
 
-            {{!-- Test legend --}}
-            {{> test-case-legend}}
-            {{!-- //Test legend --}}
-
+            {{/each}}
         </div>
     {{/each}}
-    {{!-- //Loop through each top-level test --}}
+    {{!-- //Loop through each test --}}
 
 </section>
