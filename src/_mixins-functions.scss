@@ -796,3 +796,46 @@
     padding-bottom: percentage(nth($ratio, 2) / nth($ratio, 1))#{$important-keyword};
     position: relative#{$important-keyword};
  }
+
+
+/// The content container for the "Intrinsic ratio container" mixin.
+///
+/// @author Chris Pearce
+///
+/// @access public
+///
+/// @param {boolean} $apply-important-keyword [false] — Whether to apply the
+/// `!important` keyword
+///
+/// @example scss - Usage
+///    .element-1 {
+///         @include intrinsic-ratio-content();
+///     }
+///     .element-2 {
+///         @include intrinsic-ratio-content(true);
+///     }
+/// @example css - CSS Output
+///    .element-1 {
+///         height: 100%;
+///         left: 0;
+///         position: absolute;
+///         top: 0;
+///         width: 100%;
+///     }
+///     .element-2 {
+///         height: 100% !important;
+///         left: 0 !important;
+///         position: absolute !important;
+///         top: 0 !important;
+///         width: 100% !important;
+///     }
+
+ @mixin intrinsic-ratio-content($apply-important-keyword: false) {
+    $important-keyword: if($apply-important-keyword, " !important", "");
+
+    height: 100%#{$important-keyword};
+    left: 0#{$important-keyword};
+    position: absolute#{$important-keyword};
+    top: 0#{$important-keyword};
+    width: 100%#{$important-keyword};
+ }

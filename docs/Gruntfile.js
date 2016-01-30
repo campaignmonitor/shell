@@ -5,12 +5,6 @@ module.exports = function(grunt) {
 
         pkg: grunt.file.readJSON('package.json'),
 
-        // Environment config
-        env: {
-            src: 'src',
-            dest: 'dist'
-        },
-
         // Watch
         watch: {
 

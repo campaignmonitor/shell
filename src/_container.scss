@@ -96,21 +96,21 @@
 
 
 /**
- * Modifiers: wider and narrower containers.
+ * Modifiers: narrower and wider containers.
  */
 
-.l-container--huge {
-    max-width: rem($shell-container-maximum-width-huge);
-}
-
-.l-container--large {
-    max-width: rem($shell-container-maximum-width-large);
+.l-container--tiny {
+    max-width: rem($shell-container-maximum-width-tiny);
 }
 
 .l-container--small {
     max-width: rem($shell-container-maximum-width-small);
 }
 
-.l-container--tiny {
-    max-width: rem($shell-container-maximum-width-tiny);
+.l-container--large {
+    max-width: rem($shell-container-maximum-width-large);
+}
+
+.l-container--huge {
+    max-width: rem($shell-container-maximum-width-huge);
 }
