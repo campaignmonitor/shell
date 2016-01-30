@@ -1,3 +1,5 @@
+<img src="../docs/src/assets/img/logo.svg" alt="Shell logo">
+
 # What is Shell?
 
 *Hold on to your hats, a docs website is in the works*, in the meantime Shell's
