@@ -1,4 +1,4 @@
-<img src="../docs/src/assets/img/logo.svg" alt="Shell logo">
+<img src="https://github.com/campaignmonitor/shell/blob/master/docs/src/assets/img/logo.svg" alt="Shell logo" width="200">
 
 # What is Shell?
 
@@ -22,7 +22,7 @@ In a nutshell this is Campaign Monitor's (CM) CSS Library that allows CM to buil
 
 # Installing Shell
 
-## NPM Package
+## NPM package
 
 Coming soon.
 
