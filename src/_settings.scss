@@ -419,8 +419,7 @@ $shell-g-breakpoints: (
 
 /**
  * The setting used for the default breakpoint applied to the
- * "Mixins/Functions -> Apply at breakpoints" mixin, left empty to be
- * populated by the Shell consumer.
+ * "Mixins/Functions -> Apply at breakpoints" mixin.
  */
 
 $shell-g-global-breakpoints: (lap) !default;
