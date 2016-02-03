@@ -7,7 +7,7 @@ code is heavily documented.
 
 In a nutshell this is Campaign Monitor's (CM) CSS Library that allows CM to build UI a lot faster and more consistently, plus makes our UI more robust and maintainable.
 
-**☞ Shell is not at MAJOR version 1—very soon it will be, until then anything may change at any time therefore the library should not be considered stable ([see](http://semver.org/#spec-item-4))) ☜**
+**☞ Shell is not at MAJOR version 1—very soon it will be, until then anything may change at any time therefore the library should not be considered stable ([see](http://semver.org/#spec-item-4)) ☜**
 
 Feedback is welcome via [Issues](https://github.com/campaignmonitor/shell/issues).
 
