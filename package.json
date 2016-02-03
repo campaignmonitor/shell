@@ -1,0 +1,34 @@
+{
+  "name": "shell-csslib",
+  "version": "0.1.0",
+  "description": "A lightweight CSS Library that allows you to build UI a lot faster, that is more consistent, robust, and maintainable",
+  "homepage": "https://github.com/campaignmonitor/shell",
+  "keywords": [
+    "shell",
+    "css",
+    "oocss",
+    "sass",
+    "bem",
+    "responsive"
+  ],
+  "author": [
+    {
+      "name": "Chris Pearce",
+      "email": "chrisp@campaignmonitor.com",
+      "url": "http://chris-pearce.me"
+    },
+    {
+      "name": "Dave Berner",
+      "email": "daveb@campaignmonitor.com",
+      "url": "http://davidberner.co.uk/"
+    }
+  ],
+  "repository": {
+    "type": "git",
+    "url":  "git@github.com:campaignmonitor/shell.git"
+  },
+  "bugs": {
+    "url": "https://github.com/campaignmonitor/shell/issues"
+  },
+  "license": "MIT"
+}
