@@ -1,0 +1,6 @@
+.gitignore
+.npmignore
+CHANGELOG.md
+NOTES.md
+docs
+test
