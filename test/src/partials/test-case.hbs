@@ -37,13 +37,15 @@
                 {{!-- //The description --}}
 
                 {{!-- Run the test --}}
-                <div class="🐌-c-test-case__test-run{{#if needs-styles}} 🐌-c-test-case__test-run--manipulate{{/if}}">
+                <div class="🐌-c-test-case__test-run{{#unless remove-test-canvas-bg}} 🐌-c-test-case__test-run--no-bg{{/unless}}">
                     {{{ run }}}
                 </div>
                 {{!-- //Run the test --}}
 
                 {{!-- Test legend --}}
-                {{> test-case-legend}}
+                {{#unless remove-legend}}
+                    {{> test-case-legend}}
+                {{/unless}}
                 {{!-- //Test legend --}}
 
             {{/each}}

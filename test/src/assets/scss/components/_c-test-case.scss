@@ -94,18 +94,14 @@ $c-test-case-legend-key-size: 12;
         background-color: $g-color-test-case-subject-background;
         height: 300px;
     }
+}
 
-    &.🐌-c-test-case__test-run--manipulate {
+/**
+ * Modifier: remove the background color on the test canvas.
+ */
 
-        /**
-         * Shell: Container.
-         */
-
-        .l-container {
-            margin-left: 0;
-            margin-right: 0;
-        }
-    }
+.🐌-c-test-case__test-run--no-bg {
+    background: none;
 }
 
 

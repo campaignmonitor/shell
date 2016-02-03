@@ -64,7 +64,7 @@ a {
     text-decoration: $shell-base-link-text-decoration;
 
     @if $shell-base-apply-link-transition {
-        transition: color $shell-base-link-transition-duration $shell-base-link-transition-timing-function;
+        transition: all $shell-base-link-transition-duration $shell-base-link-transition-timing-function;
     }
 
     &:hover,

@@ -1,0 +1,15 @@
+{
+    "name": "Base",
+    "settings-location": "Base (Local)",
+    "docs-url": "http://shellcss.com/base",
+    "source-code-url": "https://github.com/campaignmonitor/shell/tree/master/_base.scss",
+    "tests": [{
+        "selector": "a",
+        "test": [{
+            "description": "<code class=🐌-b-code>color</code> and <code class=🐌-b-code>text-decoration</code> for both default and hover/focus states, and optional <code class=🐌-b-code>transition</code>.",
+            "run": "<a href=http://campaignmonitor.com>Campaign Monitor website</a>",
+            "remove-legend": true,
+            "remove-test-canvas-bg": true
+        }]
+    }]
+ }
