@@ -192,8 +192,7 @@
  */
 /**
  * The setting used for the default breakpoint applied to the
- * "Mixins/Functions -> Apply at breakpoints" mixin, left empty to be
- * populated by the Shell consumer.
+ * "Mixins/Functions -> Apply at breakpoints" mixin.
  */
 /* 5. Z-Index system (Global)
    ========================================================================= */
@@ -1110,7 +1109,7 @@ html {
 a {
   color: blue;
   text-decoration: underline;
-  transition: color 0.15s linear;
+  transition: all 0.15s linear;
 }
 
 a:hover, a:focus {
