@@ -5,13 +5,20 @@ module.exports = function(grunt) {
 
         pkg: grunt.file.readJSON('package.json'),
 
+        // Store 'src' and 'dist' locations
+        app: {
+            src: 'src',
+            dist: 'dist',
+            shellCompiled: 'shell-compile'
+        },
+
         // Watch
         watch: {
 
             // Compile Shell
             compileShell: {
                 files: [
-                    '../src/**/*.scss'
+                    '../<%= app.src %>/**/*.scss'
                 ],
                 tasks: [
                     'sass:compileShell',
@@ -23,8 +30,8 @@ module.exports = function(grunt) {
             // Dev
             dev: {
                 files: [
-                    'src/assets/scss/**/*.scss',
-                    'src/**/*'
+                    '<%= app.src %>/_assets/scss/**/*.scss',
+                    '<%= app.src %>/**/*'
                 ],
                 tasks: [
                     'sass:dev',
@@ -38,19 +45,19 @@ module.exports = function(grunt) {
         assemble: {
             options: {
                 flatten: true,
-                assets: 'src/assets/',
+                _assets: '<%= app.src %>/_assets/',
                 layout: 'master.hbs',
-                layoutdir: 'src/layouts/',
-                partials: 'src/partials/**/*',
-                data: ['src/data/**/*', 'package.json'],
+                layoutdir: '<%= app.src %>/layouts/',
+                partials: '<%= app.src %>/partials/**/*',
+                data: ['<%= app.src %>/data/**/*', 'package.json'],
                 helpers: ['helpers/helpers.js']
             },
             pages: {
                 files: [{
                     expand: true,
-                    cwd: 'src/views/',
+                    cwd: '<%= app.src %>/views/',
                     src: '**/*.hbs',
-                    dest: 'dist/'
+                    dest: '<%= app.dist %>/'
                 }]
             }
         },
@@ -67,16 +74,16 @@ module.exports = function(grunt) {
                     expand: true,
                     cwd: '../src',
                     src: '**/*.scss',
-                    dest: '../dist',
+                    dest: '<%= app.shellCompiled %>',
                     ext: '.css'
                 }]
             },
             dev: {
                 files: [{
                     expand: true,
-                    cwd: 'src/assets/scss',
+                    cwd: '<%= app.src %>/_assets/scss',
                     src: '**/*.scss',
-                    dest: 'dist/css',
+                    dest: '<%= app.dist %>/css',
                     ext: '.css'
                 }]
             }
@@ -89,7 +96,12 @@ module.exports = function(grunt) {
             },
             minifyShell: {
                 files: {
-                    '../dist/shell.min.css': '../dist/shell.css'
+                    '<%= app.shellCompiled %>/shell.min.css': '<%= app.shellCompiled %>/shell.css'
+                }
+            },
+            prod: {
+                files: {
+                    '<%= app.dist %>/css/style.css': '<%= app.dist %>/css/style.css'
                 }
             }
         },
@@ -99,22 +111,16 @@ module.exports = function(grunt) {
             options: {
                 map: false,
                 processors: [
-                    require('autoprefixer')({
-                        browsers: ['last 1 version', 'ie 10', 'ie 11']
-                    })
+                    // This reads from 'browserslist' file in project root
+                    require('autoprefixer')(),
+                    require('stylelint')()
                 ]
             },
             compileShell: {
-                expand: true,
-                cwd: '../dist',
-                src: '*.css',
-                dest: '../dist'
+                src: '<%= app.shellCompiled %>/*.css'
             },
             dev: {
-                expand: true,
-                cwd: 'dist/css',
-                src: '*.css',
-                dest: 'dist/css'
+                src: '<%= app.dist %>/css/*.css'
             }
         },
 
@@ -123,7 +129,7 @@ module.exports = function(grunt) {
             dev: {
                 options: {
                     port: 9000,
-                    base: 'dist/'
+                    base: '<%= app.dist %>/'
                 }
             }
         },
@@ -131,18 +137,18 @@ module.exports = function(grunt) {
         // Clean
         clean: {
             compileShell: {
-                options: {
-                    force: true
-                },
                 files: [{
                     dot: true,
-                    src: ['../dist/*']
+                    src: ['<%= app.shellCompiled %>/*']
                 }]
             },
-            dev: {
+            dist: {
                 files: [{
                     dot: true,
-                    src: ['dist/*']
+                    src: [
+                        '<%= app.dist %>/*',
+                        '<%= app.shellCompiled %>'
+                    ]
                 }]
             }
         }
@@ -161,12 +167,21 @@ module.exports = function(grunt) {
 
     // Serve
     grunt.registerTask('serve', [
-        'clean:dev',
+        'clean:dist',
         'assemble',
         'sass:dev',
         'postcss:dev',
         'connect',
         'watch:dev'
+    ]);
+
+    // Production
+    grunt.registerTask('prod', [
+        'clean:dist',
+        'assemble',
+        'sass:dev',
+        'postcss:dev',
+        'cssnano:prod'
     ]);
 
     // Compile Shell
@@ -179,7 +194,9 @@ module.exports = function(grunt) {
 
     // Compile Shell & watch
     grunt.registerTask('compileShellWatch', [
-        'compileShell',
+        'clean:compileShell',
+        'sass:compileShell',
+        'postcss:compileShell',
         'watch:compileShell'
     ]);
 

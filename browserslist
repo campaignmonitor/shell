@@ -1,7 +1,5 @@
-# Browsers that Shell supports
-# https://campmon.com/wiki/display/DEV/Browser+Support+Policy+for+the+Campaign+Monitor+Product
 # https://github.com/ai/browserslist
 
 ie 10
 ie 11
-last 2 versions
+last 1 version

@@ -5,12 +5,18 @@ module.exports = function(grunt) {
 
         pkg: grunt.file.readJSON('package.json'),
 
+        // Store 'src' and 'dist' locations
+        app: {
+            src: 'src',
+            dist: 'dist'
+        },
+
         // Watch
         watch: {
 
             // Sass
             sass: {
-                files: 'src/assets/scss/**/*.scss',
+                files: '<%= app.src %>/_assets/scss/**/*.scss',
                 tasks: [
                     'sass',
                     'postcss'
@@ -19,13 +25,13 @@ module.exports = function(grunt) {
 
             // Assemble
             assemble: {
-                files: ['src/**/*'],
+                files: ['<%= app.src %>/**/*'],
                 tasks: ['assemble']
             },
 
             // Uglify
             uglify: {
-                files: ['src/assets/js/**/*.js'],
+                files: ['<%= app.src %>/_assets/js/**/*.js'],
                 tasks: ['uglify:dev'],
                 options: {
                     spawn: false
@@ -36,15 +42,15 @@ module.exports = function(grunt) {
         // Assemble
         assemble: {
             options: {
-                assets: 'src/assets/',
+                assets: '<%= app.src %>/_assets/',
                 layout: 'page.hbs',
-                layoutdir: 'src/layouts/',
-                partials: 'src/partials/**/*',
-                data: 'src/data/**/*'
+                layoutdir: '<%= app.src %>/layouts/',
+                partials: '<%= app.src %>/partials/**/*',
+                data: '<%= app.src %>/data/**/*'
             },
             pages: {
-                cwd: 'src/views/',
-                dest: 'dist/',
+                cwd: '<%= app.src %>/views/',
+                dest: '<%= app.dist %>/',
                 expand: true,
                 src: '**/*.hbs'
             }
@@ -60,9 +66,9 @@ module.exports = function(grunt) {
             dist: {
                 files: [{
                     expand: true,
-                    cwd: 'src/assets/scss',
+                    cwd: '<%= app.src %>/_assets/scss',
                     src: '**/*.scss',
-                    dest: 'dist/css',
+                    dest: '<%= app.dist %>/css',
                     ext: '.css'
                 }]
             }
@@ -73,13 +79,13 @@ module.exports = function(grunt) {
             options: {
                 map: false,
                 processors: [
-                    require('autoprefixer')({
-                        browsers: ['last 1 version', 'ie 10', 'ie 11']
-                    })
+                    // This reads from 'browserslist' file in project root
+                    require('autoprefixer')(),
+                    require('stylelint')()
                 ]
             },
             dist: {
-                src: 'dist/css/*.css'
+                src: '<%= app.dist %>/css/*.css'
             }
         },
 
@@ -95,11 +101,11 @@ module.exports = function(grunt) {
                     screwIE8: true
                 },
                 files: {
-                    'dist/js/script.js':
+                    '<%= app.dist %>/js/script.js':
                     [
-                        'src/assets/js/helpers.js',
-                        'src/assets/js/append-anchors.js',
-                        'src/assets/js/script.js'
+                        '<%= app.src %>/_assets/js/helpers.js',
+                        '<%= app.src %>/_assets/js/append-anchors.js',
+                        '<%= app.src %>/_assets/js/script.js'
                     ]
                 }
             },
@@ -107,14 +113,14 @@ module.exports = function(grunt) {
                 options: {
                     compress: true,
                     preserveComments: false,
-                    report: 'gzip',
+                    report: 'gzip'
                 },
                 files: {
-                    'dist/js/script.js':
+                    '<%= app.dist %>/js/script.js':
                     [
-                        'src/assets/js/helpers.js',
-                        'src/assets/js/append-anchors.js',
-                        'src/assets/js/script.js'
+                        '<%= app.src %>/_assets/js/helpers.js',
+                        '<%= app.src %>/_assets/js/append-anchors.js',
+                        '<%= app.src %>/_assets/js/script.js'
                     ]
                 }
             }
@@ -133,10 +139,22 @@ module.exports = function(grunt) {
             dist: {
                 files: [{
                     expand: true,
-                    cwd: 'src/assets/img/',
+                    cwd: '<%= app.src %>/_assets/img/',
                     src: ['*.svg'],
-                    dest: 'dist/img/'
+                    dest: '<%= app.dist %>/img/'
                 }]
+            }
+        },
+
+        // CSS minification
+        cssnano: {
+            options: {
+                sourcemap: false
+            },
+            dist: {
+                files: {
+                    '<%= app.dist %>/css/style.css': '<%= app.dist %>/css/style.css'
+                }
             }
         },
 
@@ -145,18 +163,18 @@ module.exports = function(grunt) {
             dev: {
                 options: {
                     port: 8000,
-                    base: 'dist/'
+                    base: '<%= app.dist %>/'
                 }
             }
         },
 
         // Clean
         clean: {
-            dev: ['dist'],
+            dev: ['<%= app.dist %>'],
             dist: {
                 files: [{
                     dot: true,
-                    src: ['dist/*']
+                    src: ['<%= app.dist %>/*']
                 }]
             }
         }
@@ -170,6 +188,7 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-connect');
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-watch');
+    grunt.loadNpmTasks('grunt-cssnano');
     grunt.loadNpmTasks('grunt-postcss');
     grunt.loadNpmTasks('grunt-sass');
     grunt.loadNpmTasks('grunt-svgmin');
@@ -186,14 +205,15 @@ module.exports = function(grunt) {
         'watch'
     ]);
 
-    // Build
-    grunt.registerTask('build', [
+    // Production
+    grunt.registerTask('prod', [
         'clean:dist',
         'sass',
         'postcss',
         'svgmin',
         'uglify:dist',
-        'assemble'
+        'assemble',
+        'cssnano:dist'
     ]);
 
     // Default

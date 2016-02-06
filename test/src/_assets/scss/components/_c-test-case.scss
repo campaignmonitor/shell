@@ -67,9 +67,9 @@ $c-test-case-legend-key-size: 12;
     color: $g-color-dark-grey;
     display: flex;
     font-weight: bold;
-    padding: rem($shell-g-spacing-base);
     margin-bottom: rem($shell-g-spacing-base);
     margin-top: rem($shell-g-spacing-base);
+    padding: rem($shell-g-spacing-base);
 }
 
 // Adjacent blocks get a thinner border width
@@ -128,7 +128,6 @@ $c-test-case-legend-key-size: 12;
  */
 
 .🐌-c-test-case__legend-item {
-    align-items: center;
     color: $g-color-dark-grey;
     display: flex;
     font-size: rem($shell-g-font-size-x-small);

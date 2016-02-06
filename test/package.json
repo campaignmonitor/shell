@@ -12,6 +12,8 @@
     "grunt-contrib-watch": "^0.6.1",
     "grunt-cssnano": "^2.0.1",
     "grunt-postcss": "^0.7.1",
-    "grunt-sass": "^1.1.0"
+    "grunt-sass": "^1.1.0",
+    "postcss": "^5.0.14",
+    "stylelint": "^4.2.0"
   }
 }
