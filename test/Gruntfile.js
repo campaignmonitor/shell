@@ -15,14 +15,14 @@ module.exports = function(grunt) {
         // Watch
         watch: {
 
-            // Compile Shell
-            compileShell: {
+            // Test Shell
+            testShell: {
                 files: [
                     '../<%= app.src %>/**/*.scss'
                 ],
                 tasks: [
-                    'sass:compileShell',
-                    'postcss:compileShell',
+                    'sass:testShell',
+                    'postcss:testShell',
                     'cssnano:minifyShell'
                 ]
             },
@@ -69,7 +69,7 @@ module.exports = function(grunt) {
                 outputStyle: 'expanded',
                 precision: 3
             },
-            compileShell: {
+            testShell: {
                 files: [{
                     expand: true,
                     cwd: '../src',
@@ -116,7 +116,7 @@ module.exports = function(grunt) {
                     require('stylelint')()
                 ]
             },
-            compileShell: {
+            testShell: {
                 src: '<%= app.shellCompiled %>/*.css'
             },
             dev: {
@@ -136,7 +136,7 @@ module.exports = function(grunt) {
 
         // Clean
         clean: {
-            compileShell: {
+            testShell: {
                 files: [{
                     dot: true,
                     src: ['<%= app.shellCompiled %>/*']
@@ -184,20 +184,20 @@ module.exports = function(grunt) {
         'cssnano:prod'
     ]);
 
-    // Compile Shell
-    grunt.registerTask('compileShell', [
-        'clean:compileShell',
-        'sass:compileShell',
-        'postcss:compileShell',
+    // Test Shell
+    grunt.registerTask('testShell', [
+        'clean:testShell',
+        'sass:testShell',
+        'postcss:testShell',
         'cssnano:minifyShell'
     ]);
 
-    // Compile Shell & watch
-    grunt.registerTask('compileShellWatch', [
-        'clean:compileShell',
-        'sass:compileShell',
-        'postcss:compileShell',
-        'watch:compileShell'
+    // Test Shell & watch
+    grunt.registerTask('testShellWatch', [
+        'clean:testShell',
+        'sass:testShell',
+        'postcss:testShell',
+        'watch:testShell'
     ]);
 
     // Default
