@@ -1,18 +1,13 @@
 {
     "rules": {
-
         "at-rule-empty-line-before": "always",
         "at-rule-no-vendor-prefix": true,
 
-        "block-closing-brace-newline-after": "always",
-        "block-closing-brace-newline-before": "always",
-        "block-closing-brace-space-after": "always",
-        "block-closing-brace-space-before": "always",
-        "block-no-empty": true,
         "block-opening-brace-newline-after": "always",
         "block-opening-brace-newline-before": "never-single-line",
-        "block-opening-brace-space-after": "never",
-        "block-opening-brace-space-before": "always",
+        "block-closing-brace-newline-after": "always",
+        "block-closing-brace-newline-before": "always",
+        "block-no-empty": true,
 
         "color-hex-case": "lower",
         "color-hex-length": "short",
@@ -31,13 +26,11 @@
 
         "declaration-block-semicolon-newline-after": "always",
         "declaration-block-semicolon-newline-before": "never-multi-line",
-        "declaration-block-semicolon-space-after": "never",
+        "declaration-block-semicolon-space-after": "never-single-line",
         "declaration-block-semicolon-space-before": "never",
-        "declaration-block-single-line-max-declarations": 1,
 
         "declaration-colon-space-after": "always",
         "declaration-colon-space-before": "never",
-
 
         "function-calc-no-unspaced-operator": true,
 
@@ -96,8 +89,6 @@
         "selector-combinator-space-before": "always",
         "selector-list-comma-newline-after": "always",
         "selector-list-comma-newline-before": "never-multi-line",
-        "selector-list-comma-space-after": "never",
-        "selector-list-comma-space-before": "never",
 
         "selector-no-id": true,
         "selector-pseudo-element-colon-notation": "double",

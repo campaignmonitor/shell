@@ -120,7 +120,7 @@
 /**
  * Grid container.
  *
- * 1. Negative margins to negate the gutters.
+ * 1. Negative left margin to negate the horizontal gutters.
  *
  * N.B. all grid gutter sizes are in "Settings -> Grid (Local)".
  */
@@ -128,7 +128,6 @@
 .l-grid {
     display: flex;
     flex-flow: row wrap;
-    margin-bottom: -(rem($shell-g-gutter-base)); // [1]
     margin-left: -(rem($shell-g-gutter-base)); // [1]
 }
 
@@ -137,44 +136,24 @@
  * Grid items.
  *
  * 1. Allows the use of widths.
- * 2. Vertical gutter.
- * 3. Horizontal gutter.
- * 4. 100% width by default—"Mobile-first".
+ * 2. Horizontal gutter.
+ * 3. 100% width by default—"Mobile-first".
  *
  * N.B. all grid gutter sizes are in "Settings -> Grid (Local)".
  */
 
 .l-grid__item {
     flex-basis: auto; // [1]
-    margin-bottom: rem($shell-g-gutter-base); // [2]
-    padding-left: rem($shell-g-gutter-base); // [3]
-    width: 100%; // [4]
+    padding-left: rem($shell-g-gutter-base); // [2]
+    width: 100%; // [3]
 }
 
 
 /**
- * Modifiers: gutterless.
+ * Modifier: gutterless.
  */
 
-// All
 .l-grid--gutterless {
-    margin-bottom: 0;
-    margin-left: 0;
-
-    > .l-grid__item {
-        margin-bottom: 0;
-        padding-left: 0;
-    }
-}
-
-// Just vertical
-.l-grid--gutterless-vertical,
-.l-grid--gutterless-vertical > .l-grid__item {
-    margin-bottom: 0;
-}
-
-// Just horizontal
-.l-grid--gutterless-horizontal {
     margin-left: 0;
 
     > .l-grid__item {
@@ -196,7 +175,6 @@
     margin-left: -(rem($shell-g-gutter-base));
 
     > .l-grid__item {
-        margin-bottom: rem($shell-g-gutter-base);
         padding-left:  rem($shell-g-gutter-base);
     }
 }
@@ -206,7 +184,6 @@
     margin-left: -(rem($shell-g-gutter-tiny));
 
     > .l-grid__item {
-        margin-bottom: rem($shell-g-gutter-tiny);
         padding-left:  rem($shell-g-gutter-tiny);
     }
 }
@@ -216,7 +193,6 @@
     margin-left: -(rem($shell-g-gutter-small));
 
     > .l-grid__item {
-        margin-bottom: rem($shell-g-gutter-small);
         padding-left:  rem($shell-g-gutter-small);
     }
 }
@@ -226,7 +202,6 @@
     margin-left: -(rem($shell-g-gutter-large));
 
     > .l-grid__item {
-        margin-bottom: rem($shell-g-gutter-large);
         padding-left:  rem($shell-g-gutter-large);
     }
 }
@@ -236,9 +211,40 @@
     margin-left: -(rem($shell-g-gutter-huge));
 
     > .l-grid__item {
-        margin-bottom: rem($shell-g-gutter-huge);
         padding-left:  rem($shell-g-gutter-huge);
     }
+}
+
+
+/**
+ * Modifiers: vertical gutters.
+ *
+ * N.B. all grid gutter sizes are in "Settings -> Grid (Local)".
+ */
+
+// Base
+.l-grid--gutter-vertical > .l-grid__item {
+    margin-bottom: rem($shell-g-gutter-base);
+}
+
+// Tiny
+.l-grid--gutter-vertical-tiny > .l-grid__item {
+    margin-bottom: rem($shell-g-gutter-tiny);
+}
+
+// Small
+.l-grid--gutter-vertical-small > .l-grid__item {
+    margin-bottom: rem($shell-g-gutter-small);
+}
+
+// Large
+.l-grid--gutter-vertical-large > .l-grid__item {
+    margin-bottom: rem($shell-g-gutter-large);
+}
+
+// Huge
+.l-grid--gutter-vertical-huge > .l-grid__item {
+    margin-bottom: rem($shell-g-gutter-huge);
 }
 
 
