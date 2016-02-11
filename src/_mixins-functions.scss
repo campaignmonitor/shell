@@ -692,11 +692,13 @@
 ///     .element-1 {
 ///         align-items: center;
 ///         display: flex;
+///         flex-flow: column;
 ///         justify-content: center;
 ///     }
 ///     .element-2 {
 ///         align-items: center !important;
 ///         display: flex !important;
+///         flex-flow: column;
 ///         justify-content: center !important;
 ///     }
 
@@ -704,6 +706,7 @@
     $important-keyword: if($apply-important-keyword, " !important", "");
     align-items: center#{$important-keyword};
     display: flex#{$important-keyword};
+    flex-flow: column;
     justify-content: center#{$important-keyword};
 }
 
