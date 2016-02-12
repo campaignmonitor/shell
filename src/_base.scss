@@ -118,7 +118,7 @@ img {
 
 .remove-responsive-images img,
 #map_canvas img,
-.map_canvas img, {
+.map_canvas img {
     max-width: none !important;
 }
 
@@ -272,6 +272,11 @@ h6 {
 // Medium
 .heading--weight-medium {
     font-weight: $shell-g-font-weight-medium;
+}
+
+// Normal
+.heading--weight-normal {
+    font-weight: $shell-g-font-weight-normal;
 }
 
 // Semi-bold

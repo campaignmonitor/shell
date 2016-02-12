@@ -195,14 +195,13 @@ $shell-g-font-family-monospace: Consolas, "Andale Mono",
 /**
  * Weights.
  *
- * N.B. all the font weights other than `$shell-g-font-weight-normal` are there
- * to be used when you're using Webfonts i.e. fonts brought in via the
- * `@font-face` declaration. It's better to store each Webfont weights in
- * settings rather than trying to remember each of the numbers that the
- * weights correspond to, plus it ensures that your project's typography is
- * applied consistency. You can use these settings for none Webfonts i.e.
- * system fonts but typically you'll only need to apply one weight which is
- * "bold" and in that case using `font-weight: bold;` is fine.
+ * N.B. all the font weights are there to be used when you're using Webfonts
+ * i.e. fonts brought in via the `@font-face` declaration. It's better to
+ * store each Webfont weights in settings rather than trying to remember each
+ * of the numbers that the weights correspond to, plus it ensures that your
+ * project's typography is applied consistency. You can use these settings for
+ * none Webfonts i.e. system fonts but typically you'll only need to apply one
+ * weight which is "bold" and in that case using `font-weight: bold;` is fine.
  *
  * See: https://developer.mozilla.org/en/docs/Web/CSS/font-weight#Common_weight_name_mapping.
  */

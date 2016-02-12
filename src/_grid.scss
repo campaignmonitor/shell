@@ -150,14 +150,18 @@
 
 
 /**
- * Modifier: gutterless.
+ * Modifier: gutterless for both horizontal and vertical gutters.
+ *
+ * N.B. we boost the specificity by chaining the base class to the modifier
+ * class to make sure we're always overriding any gutter modifier classes.
  */
 
-.l-grid--gutterless {
+.l-grid.l-grid--gutterless {
     margin-left: 0;
 
     > .l-grid__item {
         padding-left: 0;
+        margin-bottom: 0;
     }
 }
 
@@ -171,7 +175,7 @@
 // Base
 // N.B. having to reinstate the default so that any nested grids that inherit
 // a "Gutterless" modifier can be easily reapplied
-.l-grid--gutter-base {
+.l-grid--gutter-horizontal-base {
     margin-left: -(rem($shell-g-gutter-base));
 
     > .l-grid__item {
@@ -180,7 +184,7 @@
 }
 
 // Tiny
-.l-grid--gutter-tiny {
+.l-grid--gutter-horizontal-tiny {
     margin-left: -(rem($shell-g-gutter-tiny));
 
     > .l-grid__item {
@@ -189,7 +193,7 @@
 }
 
 // Small
-.l-grid--gutter-small {
+.l-grid--gutter-horizontal-small {
     margin-left: -(rem($shell-g-gutter-small));
 
     > .l-grid__item {
@@ -198,7 +202,7 @@
 }
 
 // Large
-.l-grid--gutter-large {
+.l-grid--gutter-horizontal-large {
     margin-left: -(rem($shell-g-gutter-large));
 
     > .l-grid__item {
@@ -207,7 +211,7 @@
 }
 
 // Huge
-.l-grid--gutter-huge {
+.l-grid--gutter-horizontal-huge {
     margin-left: -(rem($shell-g-gutter-huge));
 
     > .l-grid__item {
@@ -223,7 +227,7 @@
  */
 
 // Base
-.l-grid--gutter-vertical > .l-grid__item {
+.l-grid--gutter-vertical-base > .l-grid__item {
     margin-bottom: rem($shell-g-gutter-base);
 }
 
@@ -258,7 +262,7 @@
 }
 
 // Bottom
-.l-grid--align--bottom {
+.l-grid--align-bottom {
     align-items: flex-end;
 }
 
@@ -287,27 +291,18 @@
     justify-content: space-around;
 }
 
-// Space between/around grid items
-.l-grid--space-between .l-grid__item,
-.l-grid--space-around .l-grid__item {
-    // Provide all values to avoid IE 10 bug with the shorthand `flex`
-    // property: http://git.io/vllC7
-    // Use `0%` to avoid bug in IE 10/11 with unitless `flex-basis`:
-    // http://git.io/vllWx.
-    flex: 1 1 0%;
-}
-
 
 /**
- * Modifier: fit—all grid items have an equal width.
+ * Modifier: fit, all grid items have an equal width.
+ *
+ * 1. Provide all values to avoid IE 10 bug with the shorthand `flex`
+ *    property, see: http://git.io/vllC7.
+ *    Use `0%` to avoid bug in IE 10/11 with unitless `flex-basis`, see:
+ *    http://git.io/vllWx.
  */
 
-.l-grid--fit > .l-grid__item {
-    // Provide all values to avoid IE 10 bug with the shorthand `flex`
-    // property: http://git.io/vllC7
-    // Use `0%` to avoid bug in IE 10/11 with unitless `flex-basis`:
-    // http://git.io/vllWx.
-    flex: 1 1 0%;
+.l-grid--fit .l-grid__item {
+    flex: 1 1 0%;  // [1]
 }
 
 
@@ -315,7 +310,7 @@
  * Modifier: horizontally center an individual grid item.
  */
 
-.l-grid > .l-grid__item--align-center {
+.l-grid__item--align-center {
     margin: 0 auto;
 }
 
