@@ -45,7 +45,7 @@ module.exports = function(grunt) {
         assemble: {
             options: {
                 flatten: true,
-                _assets: '<%= app.src %>/_assets/',
+                _assets: '<%= app.src %>/_assets/**/*',
                 layout: 'master.hbs',
                 layoutdir: '<%= app.src %>/layouts/',
                 partials: '<%= app.src %>/partials/**/*',
@@ -112,8 +112,8 @@ module.exports = function(grunt) {
                 map: false,
                 processors: [
                     // This reads from 'browserslist' file in project root
-                    require('autoprefixer')(),
-                    require('stylelint')()
+                    require('autoprefixer')()
+                    //require('stylelint')()
                 ]
             },
             testShell: {

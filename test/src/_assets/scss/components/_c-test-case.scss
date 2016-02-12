@@ -20,6 +20,8 @@ $c-test-case-block-border-width: 5px;
 
 $c-test-case-legend-key-size: 12;
 
+$c-test-case-test-subject-height: 300;
+
 
 /**
  * The header.
@@ -66,7 +68,6 @@ $c-test-case-legend-key-size: 12;
     border-left: $c-test-case-block-border-width solid $g-color-brand;
     color: $g-color-dark-grey;
     display: flex;
-    font-weight: bold;
     margin-bottom: rem($shell-g-spacing-base);
     margin-top: rem($shell-g-spacing-base);
     padding: rem($shell-g-spacing-base);
@@ -92,12 +93,55 @@ $c-test-case-legend-key-size: 12;
 
     .l-container {
         background-color: $g-color-test-case-subject-background;
-        height: 300px;
+        height: $c-test-case-test-subject-height * 1px;
+    }
+
+    // Remove the above styles when the background canvas doesn't need a
+    // background colour
+    &.🐌-c-test-case__test-run--no-bg .l-container {
+        background: none;
+        height: auto;
+    }
+
+    /**
+     * Shell: Grid.
+     */
+
+    // Inner grid item including label
+    .l-grid__item > div {
+        align-items: center;
+        background-color: $g-color-test-case-subject-background;
+        display: flex;
+        font-family: $shell-g-font-family-monospace;
+        font-weight: normal;
+        height: $c-test-case-test-subject-height * 1px;
+        justify-content: center;
+    }
+
+    // Grid alignment modifiers
+    .l-grid--align-middle,
+    .l-grid--align-bottom,
+    .l-grid--align-center,
+    .l-grid--align-right {
+        height: $c-test-case-test-subject-height * 1px;
+
+        .l-grid__item > div {
+            height: $c-test-case-test-subject-height / 2 * 1px;
+        }
+    }
+
+    /**
+     * Highlight form elements.
+     */
+
+    #{$shell-g-textual-inputs},
+    textarea {
+        border: 1px solid $g-color-test-case-canvas-background;
     }
 }
 
 /**
- * Modifier: remove the background color on the test canvas.
+ * Modifier: remove the background colour on the test canvas.
  */
 
 .🐌-c-test-case__test-run--no-bg {
@@ -128,6 +172,7 @@ $c-test-case-legend-key-size: 12;
  */
 
 .🐌-c-test-case__legend-item {
+    align-items: center;
     color: $g-color-dark-grey;
     display: flex;
     font-size: rem($shell-g-font-size-x-small);

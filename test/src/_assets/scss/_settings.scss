@@ -33,6 +33,11 @@
 /* 1. Colours
    ========================================================================= */
 
+// White and black
+$g-color-white: #fff;
+
+$g-color-black: #000;
+
 // Brand
 $g-color-brand: #37393b;
 
@@ -83,20 +88,64 @@ $shell-g-color-link-hover: lighten($g-color-link, 10%);
 // Booleans
 $shell-base-apply-osx-font-smoothing: false;
 
-$shell-base-apply-link-transition: false;
+$shell-base-apply-link-transition: true;
 
 $shell-base-apply-style-to-disabled-and-readonly-states: true;
 
-$shell-base-apply-bottom-margin-to-paragraphs: false;
+$shell-base-apply-bottom-margin-to-paragraphs: true;
 
 $shell-base-apply-print-styles: true;
 
+// Root element
+$shell-base-root-element-background-color: $g-color-white;
+
 // Links
-$shell-base-link-text-decoration: none;
+$shell-base-link-text-decoration: underline;
 
-$shell-base-link-transition-duration: 0.1s;
+$shell-base-link-text-decoration-on-hover: none;
 
-$shell-base-link-transition-timing-function: ease-in;
+$shell-base-link-transition-duration: 0.15s;
+
+$shell-base-link-transition-timing-function: linear;
+
+// Horizontal rule
+$shell-base-hr-thickness: 2px;
+
+$shell-base-hr-style: dashed;
+
+$shell-base-hr-color: $g-color-test-case-canvas-background;
+
+// Forms
+$shell-base-disabled-and-readonly-state-opacity-strength: 0.6;
+
+$shell-base-target-ios-selector: ".ios";
+
+
+/**
+ * Grid (Local).
+ */
+
+$shell-grid-1-col-width: 8.3333% !default;
+
+$shell-grid-2-col-width: 16.6666% !default;
+
+$shell-grid-3-col-width: 25% !default;
+
+$shell-grid-4-col-width: 33.3333% !default;
+
+$shell-grid-5-col-width: 41.6666% !default;
+
+$shell-grid-6-col-width: 50% !default;
+
+$shell-grid-7-col-width: 58.3333% !default;
+
+$shell-grid-8-col-width: 66.6666% !default;
+
+$shell-grid-9-col-width: 75% !default;
+
+$shell-grid-10-col-width: 83.3333% !default;
+
+$shell-grid-11-col-width: 91.6666% !default;
 
 
 /**
@@ -107,7 +156,7 @@ $shell-container-apply-center-alignment: true;
 
 $shell-container-width: 90%;
 
-$shell-container-maximum-width: 1600;
+$shell-container-maximum-width: 1400;
 
 $shell-container-minimum-width: 320;
 
