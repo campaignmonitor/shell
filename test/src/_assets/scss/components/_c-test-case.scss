@@ -130,6 +130,12 @@ $c-test-case-test-subject-height: 300;
         }
     }
 
+    // Nested grids
+    .l-grid .l-grid .l-grid__item > div {
+        background-color: darken($g-color-test-case-subject-background, 7%);
+        height: $c-test-case-test-subject-height / 2 * 1px;
+    }
+
     /**
      * Highlight form elements.
      */
