@@ -31,7 +31,7 @@
         "selector": ".l-grid__item--2-col",
         "test": [{
             "description": "6 columns.",
-            "run": "<div class='l-grid'><div class='l-grid__item l-grid__item--2-col'><div>Item 1</div></div><div class='l-grid__item l-grid__item--2-col'><div>Item 2</div></div><div class='l-grid__item l-grid__item--2-col'><div>Item 3</div></div><div class='l-grid__item l-grid__item--2-col'><div>Item 4</div></div></div><div class='l-grid__item l-grid__item--2-col'><div>Item 5</div></div><div class='l-grid__item l-grid__item--2-col'><div>Item 6</div></div></div>"
+            "run": "<div class='l-grid'><div class='l-grid__item l-grid__item--2-col'><div>Item 1</div></div><div class='l-grid__item l-grid__item--2-col'><div>Item 2</div></div><div class='l-grid__item l-grid__item--2-col'><div>Item 3</div></div><div class='l-grid__item l-grid__item--2-col'><div>Item 4</div></div><div class='l-grid__item l-grid__item--2-col'><div>Item 5</div></div><div class='l-grid__item l-grid__item--2-col'><div>Item 6</div></div></div>"
         }]
         },{
         "selector": ".l-grid--gutterless",
