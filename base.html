@@ -1,0 +1,741 @@
+<!doctype html>
+<html lang="en-au" class="🐌-s-base">
+<head>
+    <meta charset="utf-8">
+    <link href="css/style.css" rel="stylesheet">
+    <title>Base &#10170; Shell's Tests</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+
+    <header class="🐌-l-header" role="banner">
+        <div class="l-container">
+            <div class="🐌-l-header__inner">
+    
+                <a href="/" rel="home" class="🐌-l-header__logo-link">
+                    <svg viewBox="0 0 1002.2 474.7" class="🐌-l-header__logo">
+                        <title>Shell logo</title>
+                        <path d="M900.4,421.5c-15.4,0,101.3-219.7,101.3-271.3c0-17.7-24.3-37.3-28.5-41.7c-1.8-1.9-1.7,7.5-10.5,21.6
+                        c-5.4,8.7-98.9,184.4-101.8,194c-9.2,8.6-68.4,89.8-91.3,90c-35.8,0.3,92.7-205.7,92.7-234c0-24.7-40.1-38-44.7-42.5
+                        c-1-1-0.2,6.6-3.8,13.7c-3.7,7.2-75.8,139-95.2,173.2c-0.3,2.5-72.8,101.2-131.7,101.2c-9.3,0-4.9-29.6-4.9-29.6
+                        s110.3-69.8,110.6-126.7c0-44.6-31.4-68.5-48.7-68.6c-22.7,0-115.2,90.7-115.2,158c0,6.7-62,91.3-74.7,91.3
+                        c-12.7,0-2.3-45.6-0.7-56c2-12.5,48.7-126,48.7-167.3c0-41.3-57.3-42-68-42c-15.2,0-61.7,80.4-76.7,102.7
+                        c0-47.3,99.3-206.9,110.8-236.5c10.3-26.4-38.5-38.4-45.3-45c-2.4-2.3-0.7,7.1-2.2,9.6c-1.6,2.5-128.3,166.6-128.3,299.8
+                        c0,45.8,25.1,72.8,27.7,74.7c2.8,2.1,18.2,2.3,22.7,0c2.5-1.3-1.3-25.2,7.4-39.9c8.9-15,77.6-144.8,88.6-144.8
+                        c10.7,0-46.7,106.7-47.3,166.7s32.7,102,52.7,102c40.8,0,85.3-87.3,85.3-87.3s20,61.2,52.4,60.4c63.1-1.7,124.8-86.2,132.6-95.7
+                        c0,29.5,14.3,90.7,50.7,90.7c29.3,0,87.3-84.7,87.3-84.7s-2.1,92.7,36.7,92.7c42.7,0,105.2-123.3,103.7-123.3
+                        C990.8,326.8,916.4,421.5,900.4,421.5z M624.7,305.8c16.6-24.7,35.9-47.1,41.4-47.1c5.2,0-1.8,32.9-24.2,60.6
+                        c-19.3,23.7-47.3,51-52.1,51C584.7,370.3,604.2,336.3,624.7,305.8z"/>
+                        <path d="M244.9,147.4c5.3,0,13.6-6.1,24.3-14.7c19-15.3,41.9-32.9,41.9-67.3c0-38.8-20.7-64.9-61.8-64.9
+                        C96.9,0.5,0.5,162.3,0.5,206.1c0,47.5,17.9,62.3,35.8,62.3c15.2,0,57.5-14.9,103.8-25c46.1-10.1,89.8-9.6,89.8,3.5
+                        c0,13.7-31.3,44-66.5,62.9c-38.3,20.6-81.3,33.5-87.3,33.5c-11.4,0-14.4-10.5-20.3-10.5c-2.4,0,4.3,15.4,4.3,21.6
+                        c0,5.2-2.6,44.2,44.1,44.2c37.6,0,76.2-16.5,106.1-40.4c36.2-29,60.2-67.8,60.2-88c0-31.2-26.4-82.4-59.2-82.4
+                        c-47.6,0-133.1,23.5-167.5,23.5c0-6,38.3-72,79.7-101.9c46.2-33.4,102.1-57.6,138.4-54.9c-14.7,9.4-45.4,35-45.5,55.2
+                        c0,4.8,4,5,3.5,8.8C217.2,141.7,232.7,147.4,244.9,147.4z"/>
+                    </svg>
+                </a>
+    
+                <nav class="🐌-l-header__nav" role="navigation">
+                        <ul class="🐌-l-header__nav__list">
+                                    <li class="🐌-l-header__nav__item">
+                                        <a href="index.html" class="🐌-l-header__nav__link ">
+                                            Home
+                                        </a>
+                                    </li>
+                                    <li class="🐌-l-header__nav__item">
+                                        <a href="base.html" class="🐌-l-header__nav__link is-active">
+                                            Base
+                                        </a>
+                                    </li>
+                                    <li class="🐌-l-header__nav__item">
+                                        <a href="container.html" class="🐌-l-header__nav__link ">
+                                            Container
+                                        </a>
+                                    </li>
+                                    <li class="🐌-l-header__nav__item">
+                                        <a href="grid.html" class="🐌-l-header__nav__link ">
+                                            Grid
+                                        </a>
+                                    </li>
+                        </ul>
+                </nav>
+    
+            </div>
+        </div>
+    </header>
+
+    <main class="l-main" role="main">
+        
+
+<section class="🐌-c-test-case">
+
+    <header class="🐌-c-test-case__header">
+        <div class="l-container">
+            <h1 class="🐌-c-test-case__title"><strong>Base</strong> tests</h1>
+            <div class="🐌-c-test-case__header-block">
+                <a href="#" rel="external" class="🐌-b-link" style="text-decoration: line-through; pointer-events: none;" title="Still being worked on sorry"><strong>Documentation</strong></a>
+                &nbsp;/&nbsp;
+                <a href="https://github.com/campaignmonitor/shell/blob/master/src/_base.scss" rel="external" class="🐌-b-link"><strong>Source code</strong></a>
+            </div>
+            <div class="🐌-c-test-case__header-block">All associated settings ready for testing: <strong class="🐌-c-file-path">test/src/assets/scss/_settings.scss → Base (Local)</strong></div>
+        </div>
+    </header>
+
+        <div class="🐌-c-test-case__inner">
+
+            <div class="🐌-c-test-case__counter-master  l-container">
+                <div class="🐌-c-test-case__selector 🐌-c-test-case__block">
+                    <h2>
+                            <code class="🐌-b-code">a</code>
+                    </h2>
+                </div>
+            </div>
+
+
+                <div class="🐌-c-test-case__counter-slave  l-container">
+                    <div class="🐌-c-test-case__test-desc 🐌-c-test-case__block">
+                        <div>Control <code class='🐌-b-code'>color</code>, <code class='🐌-b-code'>text-decoration</code> for both default and hover/focus states, and <code class='🐌-b-code'>transition</code>.</div>
+                    </div>
+                </div>
+
+                <div class="🐌-c-test-case__test-run 🐌-c-test-case__test-run--no-bg">
+                        <div class="l-container">
+                            <a href='http://campaignmonitor.com'>A link</a>
+                        </div>
+                </div>
+
+
+        </div>
+        <div class="🐌-c-test-case__inner">
+
+            <div class="🐌-c-test-case__counter-master  l-container">
+                <div class="🐌-c-test-case__selector 🐌-c-test-case__block">
+                    <h2>
+                            <code class="🐌-b-code">hr</code>
+                    </h2>
+                </div>
+            </div>
+
+
+                <div class="🐌-c-test-case__counter-slave  l-container">
+                    <div class="🐌-c-test-case__test-desc 🐌-c-test-case__block">
+                        <div>Control <code class='🐌-b-code'>border-top-width</code>, <code class='🐌-b-code'>border-top-color</code> and <code class='🐌-b-code'>border-top-style</code>.</div>
+                    </div>
+                </div>
+
+                <div class="🐌-c-test-case__test-run 🐌-c-test-case__test-run--no-bg">
+                        <div class="l-container">
+                            <hr>
+                        </div>
+                </div>
+
+
+        </div>
+        <div class="🐌-c-test-case__inner">
+
+            <div class="🐌-c-test-case__counter-master  l-container">
+                <div class="🐌-c-test-case__selector 🐌-c-test-case__block">
+                    <h2>
+                            <code class="🐌-b-code">img</code>
+                    </h2>
+                </div>
+            </div>
+
+
+                <div class="🐌-c-test-case__counter-slave  l-container">
+                    <div class="🐌-c-test-case__test-desc 🐌-c-test-case__block">
+                        <div>Make responsive: <code class='🐌-b-code'>max-width: 100%;</code> and <code class='🐌-b-code'>height: auto;</code>.</div>
+                    </div>
+                </div>
+
+                <div class="🐌-c-test-case__test-run 🐌-c-test-case__test-run--no-bg">
+                        <div class="l-container">
+                            <img src='img/test-img-shell.png' alt=''>
+                        </div>
+                </div>
+
+
+        </div>
+        <div class="🐌-c-test-case__inner">
+
+            <div class="🐌-c-test-case__counter-master  l-container">
+                <div class="🐌-c-test-case__selector 🐌-c-test-case__block">
+                    <h2>
+                            <code class='🐌-b-code'>.remove-responsive-images img</code> / <code class='🐌-b-code'>#map_canvas img</code> / <code class='🐌-b-code'>.map_canvas img</code>
+                    </h2>
+                </div>
+            </div>
+
+
+                <div class="🐌-c-test-case__counter-slave  l-container">
+                    <div class="🐌-c-test-case__test-desc 🐌-c-test-case__block">
+                        <div>Turn off responsive image behaviour when the direct parent is a certain selector.</div>
+                    </div>
+                </div>
+
+                <div class="🐌-c-test-case__test-run 🐌-c-test-case__test-run--no-bg">
+                        <div class="l-container">
+                            <div id='map_canvas'><img src='img/test-img-shell.png' alt=''></div><br><div class='map_canvas'><img src='img/test-img-shell.png' alt=''></div><br><div id='map_canvas'><img src='img/test-img-shell.png' alt=''></div>
+                        </div>
+                </div>
+
+
+        </div>
+        <div class="🐌-c-test-case__inner">
+
+            <div class="🐌-c-test-case__counter-master  l-container">
+                <div class="🐌-c-test-case__selector 🐌-c-test-case__block">
+                    <h2>
+                            <code class="🐌-b-code">:disabled</code>
+                    </h2>
+                </div>
+            </div>
+
+
+                <div class="🐌-c-test-case__counter-slave  l-container">
+                    <div class="🐌-c-test-case__test-desc 🐌-c-test-case__block">
+                        <div>Reduce <code class='🐌-b-code'>opacity</code> on all elements that the <code class='🐌-b-code'>disabled</code> attribute applies to.</div>
+                    </div>
+                </div>
+
+                <div class="🐌-c-test-case__test-run 🐌-c-test-case__test-run--no-bg">
+                        <div class="l-container">
+                            <button type='submit' disabled>Submit</button><br><br><button type='button' disabled>Button</button><br><br><button type='reset' disabled>Reset</button><br><br><input type='submit' value='Submit' disabled><br><br><input type='button' value='Button' disabled><br><br><input type='reset' value='Reset' disabled><br><br><input type='text' disabled><br><br><input type='search' disabled><br><br><input type='tel' disabled><br><br><input type='url' disabled><br><br><input type='email' disabled><br><br><input type='password' disabled><br><br><input type='month' disabled><br><br><input type='week' disabled><br><br><input type='time' disabled><br><br><input type='date' disabled><br><br><input type='datetime' disabled><br><br><input type='datetime-local' disabled><br><br><input type='number' disabled><br><br><textarea disabled></textarea><br><br><select><optgroup disabled><option>Option in an optgroup</option><option>Option in an optgroup</option></optgroup><option disabled>Option</option><option disabled>Option</option><option disabled>Option</option></select><br><br><fieldset disabled><legend>Fieldset</legend><input type='text' disabled><br><br><input type='text' disabled><br><br></fieldset>
+                        </div>
+                </div>
+
+
+        </div>
+        <div class="🐌-c-test-case__inner">
+
+            <div class="🐌-c-test-case__counter-master  l-container">
+                <div class="🐌-c-test-case__selector 🐌-c-test-case__block">
+                    <h2>
+                            <code class="🐌-b-code">[readonly]</code>
+                    </h2>
+                </div>
+            </div>
+
+
+                <div class="🐌-c-test-case__counter-slave  l-container">
+                    <div class="🐌-c-test-case__test-desc 🐌-c-test-case__block">
+                        <div>Reduce <code class='🐌-b-code'>opacity</code> on all elements that the <code class='🐌-b-code'>readonly</code> attribute applies to.</div>
+                    </div>
+                </div>
+
+                <div class="🐌-c-test-case__test-run 🐌-c-test-case__test-run--no-bg">
+                        <div class="l-container">
+                            <button type='submit' readonly>Submit</button><br><br><button type='button' readonly>Button</button><br><br><button type='reset' readonly>Reset</button><br><br><input type='submit' value='Submit' readonly><br><br><input type='button' value='Button' readonly><br><br><input type='reset' value='Reset' readonly><br><br><input type='text' readonly><br><br><input type='search' readonly><br><br><input type='tel' readonly><br><br><input type='url' readonly><br><br><input type='email' readonly><br><br><input type='password' readonly><br><br><input type='month' readonly><br><br><input type='week' readonly><br><br><input type='time' readonly><br><br><input type='date' readonly><br><br><input type='datetime' readonly><br><br><input type='datetime-local' readonly><br><br><input type='number' readonly><br><br><textarea readonly></textarea><br><br><select><optgroup readonly><option>Option in an optgroup</option><option>Option in an optgroup</option></optgroup><option readonly>Option</option><option readonly>Option</option><option readonly>Option</option></select>
+                        </div>
+                </div>
+
+
+        </div>
+        <div class="🐌-c-test-case__inner">
+
+            <div class="🐌-c-test-case__counter-master  l-container">
+                <div class="🐌-c-test-case__selector 🐌-c-test-case__block">
+                    <h2>
+                            <code class="🐌-b-code">p</code>
+                    </h2>
+                </div>
+            </div>
+
+
+                <div class="🐌-c-test-case__counter-slave  l-container">
+                    <div class="🐌-c-test-case__test-desc 🐌-c-test-case__block">
+                        <div>Apply a bottom margin to paragraphs.</div>
+                    </div>
+                </div>
+
+                <div class="🐌-c-test-case__test-run 🐌-c-test-case__test-run--no-bg">
+                        <div class="l-container">
+                            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim.</p><p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
+                        </div>
+                </div>
+
+
+        </div>
+        <div class="🐌-c-test-case__inner">
+
+            <div class="🐌-c-test-case__counter-master  l-container">
+                <div class="🐌-c-test-case__selector 🐌-c-test-case__block">
+                    <h2>
+                            <code class='🐌-b-code'>h1</code> / <code class='🐌-b-code'>h2</code> / <code class='🐌-b-code'>h3</code> / <code class='🐌-b-code'>h4</code> / <code class='🐌-b-code'>h5</code> / <code class='🐌-b-code'>h6</code>
+                    </h2>
+                </div>
+            </div>
+
+
+                <div class="🐌-c-test-case__counter-slave  l-container">
+                    <div class="🐌-c-test-case__test-desc 🐌-c-test-case__block">
+                        <div>Neutralise all the heading elements in favour of applying styles via the <code class='🐌-b-code'>.heading</code> class and its modifiers.</div>
+                    </div>
+                </div>
+
+                <div class="🐌-c-test-case__test-run 🐌-c-test-case__test-run--no-bg">
+                        <div class="l-container">
+                            <h1>Heading 1</h1><h2>Heading 2</h2><h3>Heading 3</h3><h4>Heading 4</h4><h5>Heading 5</h5><h6>Heading 6</h6>
+                        </div>
+                </div>
+
+
+        </div>
+        <div class="🐌-c-test-case__inner">
+
+            <div class="🐌-c-test-case__counter-master  l-container">
+                <div class="🐌-c-test-case__selector 🐌-c-test-case__block">
+                    <h2>
+                            <code class="🐌-b-code">.heading</code>
+                    </h2>
+                </div>
+            </div>
+
+
+                <div class="🐌-c-test-case__counter-slave  l-container">
+                    <div class="🐌-c-test-case__test-desc 🐌-c-test-case__block">
+                        <div>Scope all styles for heading elements to a class.</div>
+                    </div>
+                </div>
+
+                <div class="🐌-c-test-case__test-run 🐌-c-test-case__test-run--no-bg">
+                        <div class="l-container">
+                            <h1 class='heading'>Heading 1</h1><h2 class='heading'>Heading 2</h2><h3 class='heading'>Heading 3</h3><h4 class='heading'>Heading 4</h4><h5 class='heading'>Heading 5</h5><h6 class='heading'>Heading 6</h6>
+                        </div>
+                </div>
+
+
+        </div>
+        <div class="🐌-c-test-case__inner">
+
+            <div class="🐌-c-test-case__counter-master  l-container">
+                <div class="🐌-c-test-case__selector 🐌-c-test-case__block">
+                    <h2>
+                            <code class="🐌-b-code">.heading--size-small</code>
+                    </h2>
+                </div>
+            </div>
+
+
+                <div class="🐌-c-test-case__counter-slave  l-container">
+                    <div class="🐌-c-test-case__test-desc 🐌-c-test-case__block">
+                        <div>Small heading size.</div>
+                    </div>
+                </div>
+
+                <div class="🐌-c-test-case__test-run 🐌-c-test-case__test-run--no-bg">
+                        <div class="l-container">
+                            <h1 class='heading heading--size-small'>Heading 1</h1><h2 class='heading heading--size-small'>Heading 2</h2><h3 class='heading heading--size-small'>Heading 3</h3><h4 class='heading heading--size-small'>Heading 4</h4><h5 class='heading heading--size-small'>Heading 5</h5><h6 class='heading heading--size-small'>Heading 6</h6>
+                        </div>
+                </div>
+
+
+        </div>
+        <div class="🐌-c-test-case__inner">
+
+            <div class="🐌-c-test-case__counter-master  l-container">
+                <div class="🐌-c-test-case__selector 🐌-c-test-case__block">
+                    <h2>
+                            <code class="🐌-b-code">.heading--size-x-small</code>
+                    </h2>
+                </div>
+            </div>
+
+
+                <div class="🐌-c-test-case__counter-slave  l-container">
+                    <div class="🐌-c-test-case__test-desc 🐌-c-test-case__block">
+                        <div>X-Small heading size.</div>
+                    </div>
+                </div>
+
+                <div class="🐌-c-test-case__test-run 🐌-c-test-case__test-run--no-bg">
+                        <div class="l-container">
+                            <h1 class='heading heading--size-x-small'>Heading 1</h1><h2 class='heading heading--size-x-small'>Heading 2</h2><h3 class='heading heading--size-x-small'>Heading 3</h3><h4 class='heading heading--size-x-small'>Heading 4</h4><h5 class='heading heading--size-x-small'>Heading 5</h5><h6 class='heading heading--size-x-small'>Heading 6</h6>
+                        </div>
+                </div>
+
+
+        </div>
+        <div class="🐌-c-test-case__inner">
+
+            <div class="🐌-c-test-case__counter-master  l-container">
+                <div class="🐌-c-test-case__selector 🐌-c-test-case__block">
+                    <h2>
+                            <code class="🐌-b-code">.heading--size-xx-small</code>
+                    </h2>
+                </div>
+            </div>
+
+
+                <div class="🐌-c-test-case__counter-slave  l-container">
+                    <div class="🐌-c-test-case__test-desc 🐌-c-test-case__block">
+                        <div>XX-Small heading size.</div>
+                    </div>
+                </div>
+
+                <div class="🐌-c-test-case__test-run 🐌-c-test-case__test-run--no-bg">
+                        <div class="l-container">
+                            <h1 class='heading heading--size-xx-small'>Heading 1</h1><h2 class='heading heading--size-xx-small'>Heading 2</h2><h3 class='heading heading--size-xx-small'>Heading 3</h3><h4 class='heading heading--size-xx-small'>Heading 4</h4><h5 class='heading heading--size-xx-small'>Heading 5</h5><h6 class='heading heading--size-xx-small'>Heading 6</h6>
+                        </div>
+                </div>
+
+
+        </div>
+        <div class="🐌-c-test-case__inner">
+
+            <div class="🐌-c-test-case__counter-master  l-container">
+                <div class="🐌-c-test-case__selector 🐌-c-test-case__block">
+                    <h2>
+                            <code class="🐌-b-code">.heading--size-xxx-small</code>
+                    </h2>
+                </div>
+            </div>
+
+
+                <div class="🐌-c-test-case__counter-slave  l-container">
+                    <div class="🐌-c-test-case__test-desc 🐌-c-test-case__block">
+                        <div>XXX-Small heading size.</div>
+                    </div>
+                </div>
+
+                <div class="🐌-c-test-case__test-run 🐌-c-test-case__test-run--no-bg">
+                        <div class="l-container">
+                            <h1 class='heading heading--size-xxx-small'>Heading 1</h1><h2 class='heading heading--size-xxx-small'>Heading 2</h2><h3 class='heading heading--size-xxx-small'>Heading 3</h3><h4 class='heading heading--size-xxx-small'>Heading 4</h4><h5 class='heading heading--size-xxx-small'>Heading 5</h5><h6 class='heading heading--size-xxx-small'>Heading 6</h6>
+                        </div>
+                </div>
+
+
+        </div>
+        <div class="🐌-c-test-case__inner">
+
+            <div class="🐌-c-test-case__counter-master  l-container">
+                <div class="🐌-c-test-case__selector 🐌-c-test-case__block">
+                    <h2>
+                            <code class="🐌-b-code">.heading--size-large</code>
+                    </h2>
+                </div>
+            </div>
+
+
+                <div class="🐌-c-test-case__counter-slave  l-container">
+                    <div class="🐌-c-test-case__test-desc 🐌-c-test-case__block">
+                        <div>Large heading size.</div>
+                    </div>
+                </div>
+
+                <div class="🐌-c-test-case__test-run 🐌-c-test-case__test-run--no-bg">
+                        <div class="l-container">
+                            <h1 class='heading heading--size-large'>Heading 1</h1><h2 class='heading heading--size-large'>Heading 2</h2><h3 class='heading heading--size-large'>Heading 3</h3><h4 class='heading heading--size-large'>Heading 4</h4><h5 class='heading heading--size-large'>Heading 5</h5><h6 class='heading heading--size-large'>Heading 6</h6>
+                        </div>
+                </div>
+
+
+        </div>
+        <div class="🐌-c-test-case__inner">
+
+            <div class="🐌-c-test-case__counter-master  l-container">
+                <div class="🐌-c-test-case__selector 🐌-c-test-case__block">
+                    <h2>
+                            <code class="🐌-b-code">.heading--size-x-large</code>
+                    </h2>
+                </div>
+            </div>
+
+
+                <div class="🐌-c-test-case__counter-slave  l-container">
+                    <div class="🐌-c-test-case__test-desc 🐌-c-test-case__block">
+                        <div>X-Large heading size.</div>
+                    </div>
+                </div>
+
+                <div class="🐌-c-test-case__test-run 🐌-c-test-case__test-run--no-bg">
+                        <div class="l-container">
+                            <h1 class='heading heading--size-x-large'>Heading 1</h1><h2 class='heading heading--size-x-large'>Heading 2</h2><h3 class='heading heading--size-x-large'>Heading 3</h3><h4 class='heading heading--size-x-large'>Heading 4</h4><h5 class='heading heading--size-x-large'>Heading 5</h5><h6 class='heading heading--size-x-large'>Heading 6</h6>
+                        </div>
+                </div>
+
+
+        </div>
+        <div class="🐌-c-test-case__inner">
+
+            <div class="🐌-c-test-case__counter-master  l-container">
+                <div class="🐌-c-test-case__selector 🐌-c-test-case__block">
+                    <h2>
+                            <code class="🐌-b-code">.heading--size-xx-large</code>
+                    </h2>
+                </div>
+            </div>
+
+
+                <div class="🐌-c-test-case__counter-slave  l-container">
+                    <div class="🐌-c-test-case__test-desc 🐌-c-test-case__block">
+                        <div>XX-Large heading size.</div>
+                    </div>
+                </div>
+
+                <div class="🐌-c-test-case__test-run 🐌-c-test-case__test-run--no-bg">
+                        <div class="l-container">
+                            <h1 class='heading heading--size-xx-large'>Heading 1</h1><h2 class='heading heading--size-xx-large'>Heading 2</h2><h3 class='heading heading--size-xx-large'>Heading 3</h3><h4 class='heading heading--size-xx-large'>Heading 4</h4><h5 class='heading heading--size-xx-large'>Heading 5</h5><h6 class='heading heading--size-xx-large'>Heading 6</h6>
+                        </div>
+                </div>
+
+
+        </div>
+        <div class="🐌-c-test-case__inner">
+
+            <div class="🐌-c-test-case__counter-master  l-container">
+                <div class="🐌-c-test-case__selector 🐌-c-test-case__block">
+                    <h2>
+                            <code class="🐌-b-code">.heading--size-xxx-large</code>
+                    </h2>
+                </div>
+            </div>
+
+
+                <div class="🐌-c-test-case__counter-slave  l-container">
+                    <div class="🐌-c-test-case__test-desc 🐌-c-test-case__block">
+                        <div>XXX-Large heading size.</div>
+                    </div>
+                </div>
+
+                <div class="🐌-c-test-case__test-run 🐌-c-test-case__test-run--no-bg">
+                        <div class="l-container">
+                            <h1 class='heading heading--size-xxx-large'>Heading 1</h1><h2 class='heading heading--size-xxx-large'>Heading 2</h2><h3 class='heading heading--size-xxx-large'>Heading 3</h3><h4 class='heading heading--size-xxx-large'>Heading 4</h4><h5 class='heading heading--size-xxx-large'>Heading 5</h5><h6 class='heading heading--size-xxx-large'>Heading 6</h6>
+                        </div>
+                </div>
+
+
+        </div>
+        <div class="🐌-c-test-case__inner">
+
+            <div class="🐌-c-test-case__counter-master  l-container">
+                <div class="🐌-c-test-case__selector 🐌-c-test-case__block">
+                    <h2>
+                            <code class="🐌-b-code">.heading--weight-thin</code>
+                    </h2>
+                </div>
+            </div>
+
+
+                <div class="🐌-c-test-case__counter-slave  l-container">
+                    <div class="🐌-c-test-case__test-desc 🐌-c-test-case__block">
+                        <div>Thin heading font weight.</div>
+                    </div>
+                </div>
+
+                <div class="🐌-c-test-case__test-run 🐌-c-test-case__test-run--no-bg">
+                        <div class="l-container">
+                            <h1 class='heading heading--weight-thin'>Heading 1</h1><h2 class='heading heading--weight-thin'>Heading 2</h2><h3 class='heading heading--weight-thin'>Heading 3</h3><h4 class='heading heading--weight-thin'>Heading 4</h4><h5 class='heading heading--weight-thin'>Heading 5</h5><h6 class='heading heading--weight-thin'>Heading 6</h6>
+                        </div>
+                </div>
+
+
+        </div>
+        <div class="🐌-c-test-case__inner">
+
+            <div class="🐌-c-test-case__counter-master  l-container">
+                <div class="🐌-c-test-case__selector 🐌-c-test-case__block">
+                    <h2>
+                            <code class="🐌-b-code">.heading--weight-extra-light</code>
+                    </h2>
+                </div>
+            </div>
+
+
+                <div class="🐌-c-test-case__counter-slave  l-container">
+                    <div class="🐌-c-test-case__test-desc 🐌-c-test-case__block">
+                        <div>Extra light heading font weight.</div>
+                    </div>
+                </div>
+
+                <div class="🐌-c-test-case__test-run 🐌-c-test-case__test-run--no-bg">
+                        <div class="l-container">
+                            <h1 class='heading heading--weight-extra-light'>Heading 1</h1><h2 class='heading heading--weight-extra-light'>Heading 2</h2><h3 class='heading heading--weight-extra-light'>Heading 3</h3><h4 class='heading heading--weight-extra-light'>Heading 4</h4><h5 class='heading heading--weight-extra-light'>Heading 5</h5><h6 class='heading heading--weight-extra-light'>Heading 6</h6>
+                        </div>
+                </div>
+
+
+        </div>
+        <div class="🐌-c-test-case__inner">
+
+            <div class="🐌-c-test-case__counter-master  l-container">
+                <div class="🐌-c-test-case__selector 🐌-c-test-case__block">
+                    <h2>
+                            <code class="🐌-b-code">.heading--weight-light</code>
+                    </h2>
+                </div>
+            </div>
+
+
+                <div class="🐌-c-test-case__counter-slave  l-container">
+                    <div class="🐌-c-test-case__test-desc 🐌-c-test-case__block">
+                        <div>Light heading font weight.</div>
+                    </div>
+                </div>
+
+                <div class="🐌-c-test-case__test-run 🐌-c-test-case__test-run--no-bg">
+                        <div class="l-container">
+                            <h1 class='heading heading--weight-light'>Heading 1</h1><h2 class='heading heading--weight-light'>Heading 2</h2><h3 class='heading heading--weight-light'>Heading 3</h3><h4 class='heading heading--weight-light'>Heading 4</h4><h5 class='heading heading--weight-light'>Heading 5</h5><h6 class='heading heading--weight-light'>Heading 6</h6>
+                        </div>
+                </div>
+
+
+        </div>
+        <div class="🐌-c-test-case__inner">
+
+            <div class="🐌-c-test-case__counter-master  l-container">
+                <div class="🐌-c-test-case__selector 🐌-c-test-case__block">
+                    <h2>
+                            <code class="🐌-b-code">.heading--weight-normal</code>
+                    </h2>
+                </div>
+            </div>
+
+
+                <div class="🐌-c-test-case__counter-slave  l-container">
+                    <div class="🐌-c-test-case__test-desc 🐌-c-test-case__block">
+                        <div>Normal heading font weight.</div>
+                    </div>
+                </div>
+
+                <div class="🐌-c-test-case__test-run 🐌-c-test-case__test-run--no-bg">
+                        <div class="l-container">
+                            <h1 class='heading heading--weight-normal'>Heading 1</h1><h2 class='heading heading--weight-normal'>Heading 2</h2><h3 class='heading heading--weight-normal'>Heading 3</h3><h4 class='heading heading--weight-normal'>Heading 4</h4><h5 class='heading heading--weight-normal'>Heading 5</h5><h6 class='heading heading--weight-normal'>Heading 6</h6>
+                        </div>
+                </div>
+
+
+        </div>
+        <div class="🐌-c-test-case__inner">
+
+            <div class="🐌-c-test-case__counter-master  l-container">
+                <div class="🐌-c-test-case__selector 🐌-c-test-case__block">
+                    <h2>
+                            <code class="🐌-b-code">.heading--weight-medium</code>
+                    </h2>
+                </div>
+            </div>
+
+
+                <div class="🐌-c-test-case__counter-slave  l-container">
+                    <div class="🐌-c-test-case__test-desc 🐌-c-test-case__block">
+                        <div>Medium heading font weight.</div>
+                    </div>
+                </div>
+
+                <div class="🐌-c-test-case__test-run 🐌-c-test-case__test-run--no-bg">
+                        <div class="l-container">
+                            <h1 class='heading heading--weight-medium'>Heading 1</h1><h2 class='heading heading--weight-medium'>Heading 2</h2><h3 class='heading heading--weight-medium'>Heading 3</h3><h4 class='heading heading--weight-medium'>Heading 4</h4><h5 class='heading heading--weight-medium'>Heading 5</h5><h6 class='heading heading--weight-medium'>Heading 6</h6>
+                        </div>
+                </div>
+
+
+        </div>
+        <div class="🐌-c-test-case__inner">
+
+            <div class="🐌-c-test-case__counter-master  l-container">
+                <div class="🐌-c-test-case__selector 🐌-c-test-case__block">
+                    <h2>
+                            <code class="🐌-b-code">.heading--weight-semi-bold</code>
+                    </h2>
+                </div>
+            </div>
+
+
+                <div class="🐌-c-test-case__counter-slave  l-container">
+                    <div class="🐌-c-test-case__test-desc 🐌-c-test-case__block">
+                        <div>Semi-bold heading font weight.</div>
+                    </div>
+                </div>
+
+                <div class="🐌-c-test-case__test-run 🐌-c-test-case__test-run--no-bg">
+                        <div class="l-container">
+                            <h1 class='heading heading--weight-semi-bold'>Heading 1</h1><h2 class='heading heading--weight-semi-bold'>Heading 2</h2><h3 class='heading heading--weight-semi-bold'>Heading 3</h3><h4 class='heading heading--weight-semi-bold'>Heading 4</h4><h5 class='heading heading--weight-semi-bold'>Heading 5</h5><h6 class='heading heading--weight-semi-bold'>Heading 6</h6>
+                        </div>
+                </div>
+
+
+        </div>
+        <div class="🐌-c-test-case__inner">
+
+            <div class="🐌-c-test-case__counter-master  l-container">
+                <div class="🐌-c-test-case__selector 🐌-c-test-case__block">
+                    <h2>
+                            <code class="🐌-b-code">.heading--weight-bold</code>
+                    </h2>
+                </div>
+            </div>
+
+
+                <div class="🐌-c-test-case__counter-slave  l-container">
+                    <div class="🐌-c-test-case__test-desc 🐌-c-test-case__block">
+                        <div>Bold heading font weight.</div>
+                    </div>
+                </div>
+
+                <div class="🐌-c-test-case__test-run 🐌-c-test-case__test-run--no-bg">
+                        <div class="l-container">
+                            <h1 class='heading heading--weight-bold'>Heading 1</h1><h2 class='heading heading--weight-bold'>Heading 2</h2><h3 class='heading heading--weight-bold'>Heading 3</h3><h4 class='heading heading--weight-bold'>Heading 4</h4><h5 class='heading heading--weight-bold'>Heading 5</h5><h6 class='heading heading--weight-bold'>Heading 6</h6>
+                        </div>
+                </div>
+
+
+        </div>
+        <div class="🐌-c-test-case__inner">
+
+            <div class="🐌-c-test-case__counter-master  l-container">
+                <div class="🐌-c-test-case__selector 🐌-c-test-case__block">
+                    <h2>
+                            <code class="🐌-b-code">.heading--weight-extra-bold</code>
+                    </h2>
+                </div>
+            </div>
+
+
+                <div class="🐌-c-test-case__counter-slave  l-container">
+                    <div class="🐌-c-test-case__test-desc 🐌-c-test-case__block">
+                        <div>Extra bold heading font weight.</div>
+                    </div>
+                </div>
+
+                <div class="🐌-c-test-case__test-run 🐌-c-test-case__test-run--no-bg">
+                        <div class="l-container">
+                            <h1 class='heading heading--weight-extra-bold'>Heading 1</h1><h2 class='heading heading--weight-extra-bold'>Heading 2</h2><h3 class='heading heading--weight-extra-bold'>Heading 3</h3><h4 class='heading heading--weight-extra-bold'>Heading 4</h4><h5 class='heading heading--weight-extra-bold'>Heading 5</h5><h6 class='heading heading--weight-extra-bold'>Heading 6</h6>
+                        </div>
+                </div>
+
+
+        </div>
+        <div class="🐌-c-test-case__inner">
+
+            <div class="🐌-c-test-case__counter-master  l-container">
+                <div class="🐌-c-test-case__selector 🐌-c-test-case__block">
+                    <h2>
+                            <code class="🐌-b-code">.heading--weight-black</code>
+                    </h2>
+                </div>
+            </div>
+
+
+                <div class="🐌-c-test-case__counter-slave  l-container">
+                    <div class="🐌-c-test-case__test-desc 🐌-c-test-case__block">
+                        <div>Black heading font weight.</div>
+                    </div>
+                </div>
+
+                <div class="🐌-c-test-case__test-run 🐌-c-test-case__test-run--no-bg">
+                        <div class="l-container">
+                            <h1 class='heading heading--weight-black'>Heading 1</h1><h2 class='heading heading--weight-black'>Heading 2</h2><h3 class='heading heading--weight-black'>Heading 3</h3><h4 class='heading heading--weight-black'>Heading 4</h4><h5 class='heading heading--weight-black'>Heading 5</h5><h6 class='heading heading--weight-black'>Heading 6</h6>
+                        </div>
+                </div>
+
+
+        </div>
+
+</section>
+
+    </main>
+
+</body>
+</html>
