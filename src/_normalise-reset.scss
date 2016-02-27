@@ -237,13 +237,14 @@ a:hover {
 
 
 /**
- * 1. Address styling not present in IE 10/11, Safari, and Chrome.
- * 2. Apply the help cursor.
+ * 1. Correct styling in Firefox 39 and Opera 12.
+ * 2. Correct missing styling in Chrome, Edge, IE, Opera, and Safari.
  */
 
 abbr[title] {
-    border-bottom: 1px dotted; // [1]
-    cursor: help; // [2]
+    border-bottom: none; // [1]
+    text-decoration: underline; // [2]
+    text-decoration: underline dotted; // [2]
 }
 
 
@@ -380,10 +381,8 @@ canvas {
 
 
 /**
- * 1. Correct colour not being inherited.
- *    N.B. known issue: affects colour of disabled elements.
- * 2. Correct font property not being inherited.
- * 3. Address margins set differently in Firefox 4+, Safari, and Chrome.
+ * 1. Correct font property not being inherited.
+ * 2. Address margins set differently in Firefox 4+, Safari, and Chrome.
  */
 
 button,
@@ -391,9 +390,8 @@ input,
 optgroup,
 select,
 textarea {
-    color: inherit; // [1]
-    font: inherit; // [2]
-    margin: 0; // [3]
+    font: inherit; // [1]
+    margin: 0; // [2]
 }
 
 
