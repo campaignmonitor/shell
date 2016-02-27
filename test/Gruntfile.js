@@ -99,7 +99,7 @@ module.exports = function(grunt) {
                     '<%= app.shellCompiled %>/shell.min.css': '<%= app.shellCompiled %>/shell.css'
                 }
             },
-            prod: {
+            build: {
                 files: {
                     '<%= app.dist %>/css/style.css': '<%= app.dist %>/css/style.css'
                 }
@@ -151,6 +151,43 @@ module.exports = function(grunt) {
                     ]
                 }]
             }
+        },
+
+        // Copy
+        copy: {
+            images: {
+                files: [{
+                    expand: true,
+                    dot: true,
+                    cwd: '<%= app.src %>/_assets/img',
+                    src: '**/*',
+                    dest: '<%= app.dist %>/img'
+                }]
+            }
+        },
+
+        // Optimise images
+        imagemin: {
+            options: {
+                progressive: true,
+                optimizationLevel: 4
+            },
+            dist: {
+                files: [{
+                  expand: true,
+                  cwd: '<%= app.src %>/_assets/img',
+                  src: ['**/*.{png,jpg,gif}'],
+                  dest: '<%= app.dist %>/img'
+                }]
+            }
+        },
+
+        // GH Pages
+        'gh-pages': {
+            options: {
+                base: 'dist'
+            },
+            src: ['**']
         }
     });
 
@@ -160,14 +197,19 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-assemble');
     grunt.loadNpmTasks('grunt-contrib-clean');
     grunt.loadNpmTasks('grunt-contrib-connect');
+    grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-cssnano');
+    grunt.loadNpmTasks('grunt-gh-pages');
+    grunt.loadNpmTasks('grunt-contrib-imagemin');
     grunt.loadNpmTasks('grunt-postcss');
     grunt.loadNpmTasks('grunt-sass');
 
     // Serve
     grunt.registerTask('serve', [
         'clean:dist',
+        'imagemin',
+        'copy',
         'assemble',
         'sass:dev',
         'postcss:dev',
@@ -175,13 +217,15 @@ module.exports = function(grunt) {
         'watch:dev'
     ]);
 
-    // Production
-    grunt.registerTask('prod', [
+    // Build
+    grunt.registerTask('build', [
         'clean:dist',
+        'imagemin',
+        'copy',
         'assemble',
         'sass:dev',
         'postcss:dev',
-        'cssnano:prod'
+        'cssnano:build'
     ]);
 
     // Test Shell
@@ -200,7 +244,13 @@ module.exports = function(grunt) {
         'watch:testShell'
     ]);
 
-    // Default
+    // Deploy
+    grunt.registerTask('deploy', [
+        'build',
+        'gh-pages'
+    ]);
+
+    // Default—serve
     grunt.registerTask('default', [
         'serve'
     ]);

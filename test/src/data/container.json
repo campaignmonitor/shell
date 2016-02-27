@@ -1,8 +1,8 @@
 {
     "name": "Container",
     "settings-location": "Container (Local)",
-    "docs-url": "http://shell-csslib.io/container",
-    "source-code-url": "https://github.com/campaignmonitor/shell/tree/master/_container.scss",
+    "docs-url": "#",
+    "source-code-url": "https://github.com/campaignmonitor/shell/blob/master/src/_container.scss",
     "tests": [{
         "selector": ".l-container",
         "test": [{

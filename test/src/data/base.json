@@ -1,8 +1,8 @@
 {
     "name": "Base",
     "settings-location": "Base (Local)",
-    "docs-url": "http://shell-csslib.io/base",
-    "source-code-url": "https://github.com/campaignmonitor/shell/tree/master/_base.scss",
+    "docs-url": "#",
+    "source-code-url": "https://github.com/campaignmonitor/shell/blob/master/src/_base.scss",
     "tests": [{
         "selector": "a",
         "test": [{
