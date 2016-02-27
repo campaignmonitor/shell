@@ -8,6 +8,9 @@
  * with modern standards, and let's nuke certain user-agent styles so that
  * everything is on an even playing field.
  *
+ * N.B. we should be keeping an eye on the normalize.css repo especially the
+ * Issues: https://github.com/necolas/normalize.css/issues/.
+ *
  * ----------------------------------------------------------------------------
  *
  * @credit
@@ -37,16 +40,14 @@
 
 /**
  * 1. Reset the `box-sizing` property to the more friendly `border-box` value.
- * 2. Set default font family to sans-serif.
- * 3. Prevent iOS and IE text size adjust after device orientation change,
+ * 2. Prevent iOS and IE text size adjust after device orientation change,
  *    without disabling user zoom.
  */
 
 html {
     box-sizing: border-box; // [1]
-    font-family: sans-serif; // [2]
-    -ms-text-size-adjust: 100%; // [3]
-    -webkit-text-size-adjust: 100%; // [3]
+    -ms-text-size-adjust: 100%; // [2]
+    -webkit-text-size-adjust: 100%; // [2]
 }
 
 // [1]
