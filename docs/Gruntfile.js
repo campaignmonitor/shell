@@ -81,7 +81,7 @@ module.exports = function(grunt) {
                 processors: [
                     // This reads from 'browserslist' file in project root
                     require('autoprefixer')(),
-                    require('stylelint')()
+                    //require('stylelint')()
                 ]
             },
             dist: {
@@ -151,7 +151,7 @@ module.exports = function(grunt) {
             options: {
                 sourcemap: false
             },
-            dist: {
+            build: {
                 files: {
                     '<%= app.dist %>/css/style.css': '<%= app.dist %>/css/style.css'
                 }
@@ -177,6 +177,43 @@ module.exports = function(grunt) {
                     src: ['<%= app.dist %>/*']
                 }]
             }
+        },
+
+        // Copy
+        copy: {
+            images: {
+                files: [{
+                    expand: true,
+                    dot: true,
+                    cwd: '<%= app.src %>/_assets/img',
+                    src: '**/*',
+                    dest: '<%= app.dist %>/img'
+                }]
+            }
+        },
+
+        // Optimise images
+        imagemin: {
+            options: {
+                progressive: true,
+                optimizationLevel: 4
+            },
+            dist: {
+                files: [{
+                  expand: true,
+                  cwd: '<%= app.src %>/_assets/img',
+                  src: ['**/*.{png,jpg,gif}'],
+                  dest: '<%= app.dist %>/img'
+                }]
+            }
+        },
+
+        // GH Pages
+        'gh-pages': {
+            options: {
+                base: 'dist'
+            },
+            src: ['**']
         }
     });
 
@@ -186,9 +223,12 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-assemble');
     grunt.loadNpmTasks('grunt-contrib-clean');
     grunt.loadNpmTasks('grunt-contrib-connect');
+    grunt.loadNpmTasks('grunt-contrib-copy');
+    grunt.loadNpmTasks('grunt-contrib-imagemin');
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-cssnano');
+    grunt.loadNpmTasks('grunt-gh-pages');
     grunt.loadNpmTasks('grunt-postcss');
     grunt.loadNpmTasks('grunt-sass');
     grunt.loadNpmTasks('grunt-svgmin');
@@ -196,6 +236,8 @@ module.exports = function(grunt) {
     // Serve
     grunt.registerTask('serve', [
         'clean:dev',
+        'imagemin',
+        'copy',
         'assemble',
         'sass',
         'postcss',
@@ -205,18 +247,26 @@ module.exports = function(grunt) {
         'watch'
     ]);
 
-    // Production
-    grunt.registerTask('prod', [
+    // Build
+    grunt.registerTask('build', [
         'clean:dist',
+        'imagemin',
+        'copy',
         'sass',
         'postcss',
         'svgmin',
         'uglify:dist',
         'assemble',
-        'cssnano:dist'
+        'cssnano:build'
     ]);
 
-    // Default
+    // Deploy
+    grunt.registerTask('deploy', [
+        'build',
+        'gh-pages'
+    ]);
+
+    // Default—serve
     grunt.registerTask('default', [
         'serve'
     ]);

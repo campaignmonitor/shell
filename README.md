@@ -17,6 +17,14 @@ Feedback is welcome via [Issues](https://github.com/campaignmonitor/shell/issues
 `npm shell-csslib`
 
 
+# Docs & Tests
+
+See:
+
+- [Test README.md](test/README.md)
+- [Docs README.md](docs/README.md)
+
+
 # Linting & Guidelines
 
 Shell is written and linted against these [guidelines](https://github.com/chris-pearce/css-guidelines).
@@ -58,6 +66,11 @@ for this command: `npm install postcss stylelint`, like this: `npm install postc
 - Safari
 - Edge
 - IE 10/11
+
+
+# Contributing
+
+Coming soon.
 
 
 # License
