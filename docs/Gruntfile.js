@@ -211,7 +211,11 @@ module.exports = function(grunt) {
         // GH Pages
         'gh-pages': {
             options: {
-                base: 'dist'
+                base: 'dist',
+                // We don't want to remove anything in the test sub-folder only
+                // everything in the root, the test 'gh-pages' task will do the
+                // opposite
+                only: ['**/*', '!test']
             },
             src: ['**']
         }

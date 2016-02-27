@@ -8,7 +8,7 @@ module.exports = function(grunt) {
         // Store 'src' and 'dist' locations
         app: {
             src: 'src',
-            dist: 'dist',
+            dist: 'dist/test',
             shellCompiled: 'shell-compile'
         },
 
@@ -146,7 +146,7 @@ module.exports = function(grunt) {
                 files: [{
                     dot: true,
                     src: [
-                        '<%= app.dist %>/*',
+                        'dist',
                         '<%= app.shellCompiled %>'
                     ]
                 }]
@@ -185,7 +185,8 @@ module.exports = function(grunt) {
         // GH Pages
         'gh-pages': {
             options: {
-                base: 'dist'
+                base: 'dist',
+                only: ['test/**/*', '!/*', '!/*/']
             },
             src: ['**']
         }
