@@ -28,8 +28,7 @@
  * 3. Inline elements
  * 4. Embedded, image, and multimedia, elements
  * 5. Form elements
- * 6. Table elements
- * 7. Interactions
+ * 6. Interactions
  */
 
 
@@ -698,22 +697,7 @@ progress {
 
 
 
-/* 6. Table elements
-   ========================================================================= */
-
-/**
- * Remove most spacing between table cells.
- */
-
-table {
-    border-collapse: collapse;
-    border-spacing: 0;
-}
-
-
-
-
-/* 7. Interactions
+/* 6. Interactions
    ========================================================================= */
 
 /**
