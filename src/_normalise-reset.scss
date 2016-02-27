@@ -501,8 +501,7 @@ input::-moz-focus-inner {
 input[type="submit"],
 input[type="button"],
 input[type="image"],
-input[type="reset"],
-select {
+input[type="reset"] {
     border-radius: 0;
 }
 
