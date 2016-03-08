@@ -57,3 +57,4 @@ npm-debug.log
 node_modules
 /workshop
 /workshop.zip
+.grunt

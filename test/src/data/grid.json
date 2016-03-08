@@ -1,8 +1,8 @@
 {
     "name": "Grid",
     "settings-location": "Grid (Local)",
-    "docs-url": "http://shell-csslib.io/grid",
-    "source-code-url": "https://github.com/campaignmonitor/shell/tree/master/_grid.scss",
+    "docs-url": "#",
+    "source-code-url": "https://github.com/campaignmonitor/shell/blob/master/src/_grid.scss",
     "tests": [{
         "selector": ".l-grid__item",
         "test": [{
