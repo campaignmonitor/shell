@@ -55,13 +55,6 @@
 
 
 /**
- * @font-face.
- */
-
-@import "../../../../src/@font-face";
-
-
-/**
  * Base.
  */
 
@@ -104,6 +97,8 @@
 /**
  * Base.
  */
+
+@import "@font-face";
 
 @import "base";
 
