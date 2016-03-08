@@ -76,13 +76,13 @@
 // The last item
 .l-side-by-side__item:last-child {
     flex: 1 1 0%; // [1]
-    margin-left: rem($shell-g-gutter-base); // [2]
+    margin-left: rem($shell-g-spacing-base); // [2]
 }
 
 // Reversing the gutters for the "Reversed" modifier
 .l-side-by-side--reversed > .l-side-by-side__item:last-child {
     margin-left: 0;
-    margin-right: rem($shell-g-gutter-base);
+    margin-right: rem($shell-g-spacing-base);
 }
 
 
@@ -113,52 +113,52 @@
 // N.B. having to reinstate the default so that any nested "Side-by-side's"
 // that inherit a "Gutterless" modifier can be easily reapplied
 .l-side-by-side--gutter-base > .l-side-by-side__item:last-child {
-    margin-left: rem($shell-g-gutter-base);
+    margin-left: rem($shell-g-spacing-base);
 }
 
 .l-side-by-side--gutter-base.l-side-by-side--reversed > .l-side-by-side__item:last-child {
     margin-left: 0;
-    margin-right: rem($shell-g-gutter-base);
+    margin-right: rem($shell-g-spacing-base);
 }
 
 // Tiny
 .l-side-by-side--gutter-tiny > .l-side-by-side__item:last-child {
-    margin-left: rem($shell-g-gutter-tiny);
+    margin-left: rem($shell-g-spacing-tiny);
 }
 
 .l-side-by-side--gutter-tiny.l-side-by-side--reversed > .l-side-by-side__item:last-child {
     margin-left: 0;
-    margin-right: rem($shell-g-gutter-tiny);
+    margin-right: rem($shell-g-spacing-tiny);
 }
 
 // Small
 .l-side-by-side--gutter-small > .l-side-by-side__item:last-child {
-    margin-left: rem($shell-g-gutter-small);
+    margin-left: rem($shell-g-spacing-small);
 }
 
 .l-side-by-side--gutter-small.l-side-by-side--reversed > .l-side-by-side__item:last-child {
     margin-left: 0;
-    margin-right: rem($shell-g-gutter-small);
+    margin-right: rem($shell-g-spacing-small);
 }
 
 // Large
 .l-side-by-side--gutter-large > .l-side-by-side__item:last-child {
-    margin-left: rem($shell-g-gutter-large);
+    margin-left: rem($shell-g-spacing-large);
 }
 
 .l-side-by-side--gutter-large.l-side-by-side--reversed > .l-side-by-side__item:last-child {
     margin-left: 0;
-    margin-right: rem($shell-g-gutter-large);
+    margin-right: rem($shell-g-spacing-large);
 }
 
 // Huge
 .l-side-by-side--gutter-huge > .l-side-by-side__item:last-child {
-    margin-left: rem($shell-g-gutter-huge);
+    margin-left: rem($shell-g-spacing-huge);
 }
 
 .l-side-by-side--gutter-huge.l-side-by-side--reversed > .l-side-by-side__item:last-child {
     margin-left: 0;
-    margin-right: rem($shell-g-gutter-huge);
+    margin-right: rem($shell-g-spacing-huge);
 }
 
 
