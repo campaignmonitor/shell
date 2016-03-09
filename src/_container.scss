@@ -62,6 +62,7 @@
     min-width: rem($shell-container-minimum-width);
     padding-left: rem($shell-container-gutter);
     padding-right: rem($shell-container-gutter);
+    width: 100%;
 
     @if $shell-container-apply-center-alignment {
         margin: 0 auto;
