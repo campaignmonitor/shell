@@ -163,6 +163,15 @@ module.exports = function(grunt) {
                     src: '**/*',
                     dest: '<%= app.dist %>/img'
                 }]
+            },
+            fonts: {
+                files: [{
+                    expand: true,
+                    dot: true,
+                    cwd: '<%= app.src %>/_assets/fonts',
+                    src: '**/*',
+                    dest: '<%= app.dist %>/fonts'
+                }]
             }
         },
 

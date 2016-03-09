@@ -13,7 +13,7 @@
  */
 
 // Spacing
-$c-test-case-spacing-between-elements: $shell-g-spacing-double;
+$c-test-case-spacing-between-elements: $shell-g-spacing-large;
 
 // Other
 $c-test-case-block-border-width: 5px;
@@ -46,7 +46,7 @@ $c-test-case-test-subject-height: 300;
  */
 
 .🐌-c-test-case__header-block {
-    margin-top: rem($shell-g-spacing-half);
+    margin-top: rem($shell-g-spacing-small);
 }
 
 
@@ -181,11 +181,11 @@ $c-test-case-test-subject-height: 300;
     align-items: center;
     color: $g-color-dark-grey;
     display: flex;
-    font-size: rem($shell-g-font-size-x-small);
+    font-size: rem($shell-g-font-size-small);
     text-transform: lowercase;
 
     &:not(:last-child) {
-        margin-right: rem($shell-g-spacing-three-quarters);
+        margin-right: rem($shell-g-spacing-small);
     }
 }
 

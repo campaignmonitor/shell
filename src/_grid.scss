@@ -128,7 +128,7 @@
 .l-grid {
     display: flex;
     flex-flow: row wrap;
-    margin-left: -(rem($shell-g-gutter-base)); // [1]
+    margin-left: -(rem($shell-g-spacing-base)); // [1]
 }
 
 
@@ -144,7 +144,7 @@
 
 .l-grid__item {
     flex-basis: auto; // [1]
-    padding-left: rem($shell-g-gutter-base); // [2]
+    padding-left: rem($shell-g-spacing-base); // [2]
     width: 100%; // [3]
 }
 
@@ -176,46 +176,46 @@
 // N.B. having to reinstate the default so that any nested grids that inherit
 // a "Gutterless" modifier can be easily reapplied
 .l-grid--gutter-horizontal-base {
-    margin-left: -(rem($shell-g-gutter-base));
+    margin-left: -(rem($shell-g-spacing-base));
 
     > .l-grid__item {
-        padding-left:  rem($shell-g-gutter-base);
+        padding-left:  rem($shell-g-spacing-base);
     }
 }
 
 // Tiny
 .l-grid--gutter-horizontal-tiny {
-    margin-left: -(rem($shell-g-gutter-tiny));
+    margin-left: -(rem($shell-g-spacing-tiny));
 
     > .l-grid__item {
-        padding-left:  rem($shell-g-gutter-tiny);
+        padding-left:  rem($shell-g-spacing-tiny);
     }
 }
 
 // Small
 .l-grid--gutter-horizontal-small {
-    margin-left: -(rem($shell-g-gutter-small));
+    margin-left: -(rem($shell-g-spacing-small));
 
     > .l-grid__item {
-        padding-left:  rem($shell-g-gutter-small);
+        padding-left:  rem($shell-g-spacing-small);
     }
 }
 
 // Large
 .l-grid--gutter-horizontal-large {
-    margin-left: -(rem($shell-g-gutter-large));
+    margin-left: -(rem($shell-g-spacing-large));
 
     > .l-grid__item {
-        padding-left:  rem($shell-g-gutter-large);
+        padding-left:  rem($shell-g-spacing-large);
     }
 }
 
 // Huge
 .l-grid--gutter-horizontal-huge {
-    margin-left: -(rem($shell-g-gutter-huge));
+    margin-left: -(rem($shell-g-spacing-huge));
 
     > .l-grid__item {
-        padding-left:  rem($shell-g-gutter-huge);
+        padding-left:  rem($shell-g-spacing-huge);
     }
 }
 
@@ -228,27 +228,27 @@
 
 // Base
 .l-grid--gutter-vertical-base > .l-grid__item {
-    margin-bottom: rem($shell-g-gutter-base);
+    margin-bottom: rem($shell-g-spacing-base);
 }
 
 // Tiny
 .l-grid--gutter-vertical-tiny > .l-grid__item {
-    margin-bottom: rem($shell-g-gutter-tiny);
+    margin-bottom: rem($shell-g-spacing-tiny);
 }
 
 // Small
 .l-grid--gutter-vertical-small > .l-grid__item {
-    margin-bottom: rem($shell-g-gutter-small);
+    margin-bottom: rem($shell-g-spacing-small);
 }
 
 // Large
 .l-grid--gutter-vertical-large > .l-grid__item {
-    margin-bottom: rem($shell-g-gutter-large);
+    margin-bottom: rem($shell-g-spacing-large);
 }
 
 // Huge
 .l-grid--gutter-vertical-huge > .l-grid__item {
-    margin-bottom: rem($shell-g-gutter-huge);
+    margin-bottom: rem($shell-g-spacing-huge);
 }
 
 

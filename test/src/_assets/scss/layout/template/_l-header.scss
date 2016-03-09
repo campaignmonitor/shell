@@ -28,7 +28,7 @@ $l-header-nav-link-underline-thickness: 3px;
 
 .🐌-l-header {
     background-color: $l-header-background-color;
-    margin-bottom: rem($shell-g-spacing-double);
+    margin-bottom: rem($shell-g-spacing-large);
 }
 
 // Space logo and nav at either ends of each other
@@ -45,7 +45,7 @@ $l-header-nav-link-underline-thickness: 3px;
 .🐌-l-header__logo-link {
     border-bottom: 0;
     padding-bottom: rem($shell-g-spacing-tiny);
-    padding-top: rem($shell-g-spacing-third);
+    padding-top: rem($shell-g-spacing-tiny);
     width: rem(100);
 }
 

@@ -98,6 +98,8 @@
  * Base.
  */
 
+@import "@font-face";
+
 @import "base";
 
 
@@ -124,3 +126,14 @@
  */
 
 //@import "vendor/github-style-syntax-highlighting";
+
+
+.__test-paragraphs {
+    background: #333;
+    color: #fff;
+}
+
+.h-text-size-small {
+    line-height: 1.25;
+    line-height: 1.428;
+}

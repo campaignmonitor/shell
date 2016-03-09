@@ -194,6 +194,18 @@
  * Decrease from base.
  */
 
+// Tiny
+.h-text-size-tiny {
+    font-size: rem($shell-g-font-size-tiny) !important;
+}
+
+// Apply at breakpoints
+@if $shell-helper-apply-text-size-tiny-at-breakpoints {
+    @include apply-at-breakpoints(".h-text-size-tiny", $shell-helper-define-text-size-tiny-breakpoints) {
+        font-size: rem($shell-g-font-size-tiny) !important;
+    }
+}
+
 // Small
 .h-text-size-small {
     font-size: rem($shell-g-font-size-small) !important;
@@ -203,42 +215,6 @@
 @if $shell-helper-apply-text-size-small-at-breakpoints {
     @include apply-at-breakpoints(".h-text-size-small", $shell-helper-define-text-size-small-breakpoints) {
         font-size: rem($shell-g-font-size-small) !important;
-    }
-}
-
-// X-small
-.h-text-size-x-small {
-    font-size: rem($shell-g-font-size-x-small) !important;
-}
-
-// Apply at breakpoints
-@if $shell-helper-apply-text-size-x-small-at-breakpoints {
-    @include apply-at-breakpoints(".h-text-size-x-small", $shell-helper-define-text-size-x-small-breakpoints) {
-        font-size: rem($shell-g-font-size-x-small) !important;
-    }
-}
-
-// XX-small
-.h-text-size-xx-small {
-    font-size: rem($shell-g-font-size-xx-small) !important;
-}
-
-// Apply at breakpoints
-@if $shell-helper-apply-text-size-xx-small-at-breakpoints {
-    @include apply-at-breakpoints(".h-text-size-xx-small", $shell-helper-define-text-size-xx-small-breakpoints) {
-        font-size: rem($shell-g-font-size-xx-small) !important;
-    }
-}
-
-// XXX-small
-.h-text-size-xxx-small {
-    font-size: rem($shell-g-font-size-xxx-small) !important;
-}
-
-// Apply at breakpoints
-@if $shell-helper-apply-text-size-xxx-small-at-breakpoints {
-    @include apply-at-breakpoints(".h-text-size-xxx-small", $shell-helper-define-text-size-xxx-small-breakpoints) {
-        font-size: rem($shell-g-font-size-xxx-small) !important;
     }
 }
 
@@ -259,39 +235,15 @@
     }
 }
 
-// X-large
-.h-text-size-x-large {
-    font-size: rem($shell-g-font-size-x-large) !important;
+// Huge
+.h-text-size-huge {
+    font-size: rem($shell-g-font-size-huge) !important;
 }
 
 // Apply at breakpoints
-@if $shell-helper-apply-text-size-x-large-at-breakpoints {
-    @include apply-at-breakpoints(".h-text-size-x-large", $shell-helper-define-text-size-x-large-breakpoints) {
-        font-size: rem($shell-g-font-size-x-large) !important;
-    }
-}
-
-// XX-large
-.h-text-size-xx-large {
-    font-size: rem($shell-g-font-size-xx-large) !important;
-}
-
-// Apply at breakpoints
-@if $shell-helper-apply-text-size-xx-large-at-breakpoints {
-    @include apply-at-breakpoints(".h-text-size-xx-large", $shell-helper-define-text-size-xx-large-breakpoints) {
-        font-size: rem($shell-g-font-size-xx-large) !important;
-    }
-}
-
-// XXX-large
-.h-text-size-xxx-large {
-    font-size: rem($shell-g-font-size-xxx-large) !important;
-}
-
-// Apply at breakpoints
-@if $shell-helper-apply-text-size-xxx-large-at-breakpoints {
-    @include apply-at-breakpoints(".h-text-size-xxx-large", $shell-helper-define-text-size-xxx-large-breakpoints) {
-        font-size: rem($shell-g-font-size-xxx-large) !important;
+@if $shell-helper-apply-text-size-huge-at-breakpoints {
+    @include apply-at-breakpoints(".h-text-size-huge", $shell-helper-define-text-size-huge-breakpoints) {
+        font-size: rem($shell-g-font-size-huge) !important;
     }
 }
 

@@ -204,7 +204,6 @@ h6 {
 
 .heading {
     color: $shell-g-color-text-heading;
-    font-family: $shell-g-font-family-heading;
     font-size: rem($shell-g-font-size-heading);
     font-weight: $shell-g-font-weight-heading;
 }
@@ -213,45 +212,26 @@ h6 {
  * Modifiers: sizes.
  */
 
-// Decrease from base
+// Decrease
+.heading--size-tiny {
+    font-size: rem($shell-g-font-size-heading-tiny);
+}
+
 .heading--size-small {
     font-size: rem($shell-g-font-size-heading-small);
 }
 
-.heading--size-x-small {
-    font-size: rem($shell-g-font-size-heading-x-small);
-}
-
-.heading--size-xx-small {
-    font-size: rem($shell-g-font-size-heading-xx-small);
-}
-
-.heading--size-xxx-small {
-    font-size: rem($shell-g-font-size-heading-xxx-small);
-}
-
-// Increase from base
+// Increase
 .heading--size-large {
     font-size: rem($shell-g-font-size-heading-large);
 }
 
-.heading--size-x-large {
-    font-size: rem($shell-g-font-size-heading-x-large);
-}
-
-.heading--size-xx-large {
-    font-size: rem($shell-g-font-size-heading-xx-large);
-}
-
-.heading--size-xxx-large {
-    font-size: rem($shell-g-font-size-heading-xxx-large);
+.heading--size-huge {
+    font-size: rem($shell-g-font-size-heading-huge);
 }
 
 /**
  * Modifiers: weights.
- *
- * N.B. one of these weights is redundant as it's the Base weight but we don't
- * know what that weight is so we have to include it.
  */
 
 // Thin
