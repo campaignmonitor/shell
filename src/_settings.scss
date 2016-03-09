@@ -173,6 +173,7 @@ $shell-g-line-height: $shell-g-base-number * 1.5 !default;
 
 $shell-g-line-height-ratio: $shell-g-line-height / $shell-g-font-size;
 
+
 /**
  * Families.
  */
@@ -186,13 +187,35 @@ $shell-g-font-family-monospace: Consolas, monospace !default;
 
 /**
  * Weights.
+ *
+ * N.B. all the font weights are there to be used when you're using Webfonts
+ * i.e. fonts brought in via the `@font-face` declaration. It's better to
+ * store each Webfont weights in settings rather than trying to remember each
+ * of the numbers that the weights correspond to, plus it ensures that your
+ * project's typography is applied consistency. You can use these settings for
+ * none Webfonts i.e. system fonts but typically you'll only need to apply one
+ * weight which is "bold" and in that case using `font-weight: bold;` is fine.
+ *
+ * See: https://developer.mozilla.org/en/docs/Web/CSS/font-weight#Common_weight_name_mapping.
  */
 
 $shell-g-font-weight-normal: 400 !default;
 
+$shell-g-font-weight-thin: 100 !default;
+
+$shell-g-font-weight-extra-light: 200 !default;
+
 $shell-g-font-weight-light: 300 !default;
 
+$shell-g-font-weight-medium: 500 !default;
+
+$shell-g-font-weight-semi-bold: 600 !default;
+
 $shell-g-font-weight-bold: 700 !default;
+
+$shell-g-font-weight-extra-bold: 800 !default;
+
+$shell-g-font-weight-black: 900 !default;
 
 // Heading weight
 $shell-g-font-weight-heading: $shell-g-font-weight-bold !default;

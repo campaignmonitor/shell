@@ -234,9 +234,24 @@ h6 {
  * Modifiers: weights.
  */
 
+// Thin
+.heading--weight-thin {
+    font-weight: $shell-g-font-weight-thin;
+}
+
+// Extra light
+.heading--weight-extra-light {
+    font-weight: $shell-g-font-weight-extra-light;
+}
+
 // Light
 .heading--weight-light {
     font-weight: $shell-g-font-weight-light;
+}
+
+// Medium
+.heading--weight-medium {
+    font-weight: $shell-g-font-weight-medium;
 }
 
 // Normal
@@ -244,9 +259,24 @@ h6 {
     font-weight: $shell-g-font-weight-normal;
 }
 
+// Semi-bold
+.heading--weight-semi-bold {
+    font-weight: $shell-g-font-weight-semi-bold;
+}
+
 // Bold
 .heading--weight-bold {
     font-weight: $shell-g-font-weight-bold;
+}
+
+// Extra bold
+.heading--weight-extra-bold {
+    font-weight: $shell-g-font-weight-extra-bold;
+}
+
+// Black
+.heading--weight-black {
+    font-weight: $shell-g-font-weight-black;
 }
 
 
