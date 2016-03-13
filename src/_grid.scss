@@ -150,6 +150,15 @@
 
 
 /**
+ * Modifier: all items match height of tallest item in a row
+ */
+
+.l-grid--equal-height > .l-grid__item {
+  display: flex;
+}
+
+
+/**
  * Modifier: gutterless for both horizontal and vertical gutters.
  *
  * N.B. we boost the specificity by chaining the base class to the modifier
