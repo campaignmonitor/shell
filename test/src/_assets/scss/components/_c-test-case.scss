@@ -109,13 +109,12 @@ $c-test-case-test-subject-height: 300;
 
     // Inner grid item including label
     .l-grid__item > div {
-        align-items: center;
         background-color: $g-color-test-case-subject-background;
-        display: flex;
         font-family: $shell-g-font-family-monospace;
         font-weight: normal;
-        height: $c-test-case-test-subject-height * 1px;
+        padding: 1rem;
         justify-content: center;
+        width: 100%;
     }
 
     // Grid alignment modifiers
