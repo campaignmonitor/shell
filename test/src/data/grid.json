@@ -34,6 +34,12 @@
             "run": "<div class='l-grid'><div class='l-grid__item l-grid__item--2-col'><div>Item 1</div></div><div class='l-grid__item l-grid__item--2-col'><div>Item 2</div></div><div class='l-grid__item l-grid__item--2-col'><div>Item 3</div></div><div class='l-grid__item l-grid__item--2-col'><div>Item 4</div></div><div class='l-grid__item l-grid__item--2-col'><div>Item 5</div></div><div class='l-grid__item l-grid__item--2-col'><div>Item 6</div></div></div>"
         }]
         },{
+        "selector": ".l-grid--equal-height",
+        "test": [{
+            "description": "Equal Height—cells on the same row are equal in height regardless of content.",
+            "run": "<div class='l-grid l-grid--equal-height l-grid--gutter-vertical-small'><div class='l-grid__item l-grid__item--3-col'><div><p>Item 1a</p><p>Item 1b</p><p>Item 1c</p></div></div><div class='l-grid__item l-grid__item--3-col'><div>Item 2</div></div><div class='l-grid__item l-grid__item--3-col'><div>Item 3</div></div><div class='l-grid__item l-grid__item--3-col'><div>Item 4</div></div><div class='l-grid__item l-grid__item--3-col'><div>Item 5</div></div><div class='l-grid__item l-grid__item--3-col'><div><p>Item 6a</p><p>Item 6b</p></div></div><div class='l-grid__item l-grid__item--3-col'><div>Item 7</div></div><div class='l-grid__item l-grid__item--3-col'><div>Item 8</div></div></div>"
+        }]
+        },{
         "selector": ".l-grid--gutterless",
         "test": [{
             "description": "Gutterless—both horizontally and vertically.",
