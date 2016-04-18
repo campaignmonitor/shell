@@ -8,16 +8,13 @@
  * with modern standards, and let's nuke certain user-agent styles so that
  * everything is on an even playing field.
  *
+ * We can also be a bit opinionated about CM specific style treatments.
+ *
  * N.B. we should be keeping an eye on the normalize.css repo especially the
  * Issues: https://github.com/necolas/normalize.css/issues/.
  *
- * ----------------------------------------------------------------------------
- *
  * @credit
  * https://necolas.github.io/normalize.css/
- * https://html5boilerplate.com/
- * https://suitcss.github.io/
- * https://github.com/twbs/bootstrap/blob/v4.0.0-alpha.2/
  *
  * ----------------------------------------------------------------------------
  *
@@ -150,60 +147,58 @@ var {
    ========================================================================= */
 
 /**
- * - Correct `block` display not defined for `<details>` or `<summary>` in
- *   IE 10/11 and Firefox.
- * - Correct `block` display not defined for `<main>` in IE 11.
+ * Add the correct display in IE 9-.
+ * 1. Add the correct display in Edge, IE, and Firefox.
+ * 2. Add the correct display in IE.
  */
 
-details,
-main,
-summary {
+article,
+aside,
+details, // [1]
+figcaption,
+figure,
+footer,
+header,
+main, // [2]
+menu,
+nav,
+section,
+summary { // [1]
     display: block;
 }
 
 
 /**
- * - Address `[hidden]` styling not present in IE 10.
- * - Hide the `<template>` element in IE 10/11, Safari, and Firefox < 22.
+ * Add the correct display in IE 10-.
+ * 1. Add the correct display in IE.
  */
 
-[hidden],
-template {
+template, // [1]
+[hidden] {
     display: none;
 }
 
 
 /**
- * - Apply the pointer cursor to the `<summary>` element.
- * - Remove the arrow from the `<summary>` element in WebKit browsers, to allow
- *   for custom styling.
- */
-
-summary {
-    cursor: pointer;
-}
-
-summary::-webkit-details-marker {
-    display: none;
-}
-
-
-/**
- * Contain overflow in all browsers.
- */
-
-pre {
-    overflow: auto;
-}
-
-
-/**
- * Reset lists, this is in addition to removing `margin` and `padding`.
+ * Reset lists, this is in addition to removing `margin` and `padding` in
+ * **Root element and global resets**.
  */
 
 ul,
 ol {
     list-style-type: none;
+}
+
+
+/**
+ * 1. Add the correct box sizing in Firefox.
+ * 2. Show the overflow in Edge and IE.
+ */
+
+hr {
+    box-sizing: content-box; // [1]
+    height: 0; // [1]
+    overflow: visible; // [2]
 }
 
 
@@ -213,28 +208,42 @@ ol {
    ========================================================================= */
 
 /**
- * Remove the grey background colour from active links in IE 10.
+ * Add the correct display in IE 9-.
  */
 
-a {
-    background-color: transparent;
+audio,
+canvas,
+progress,
+video {
+    display: inline-block;
 }
 
 
 /**
- * Improve readability of focused elements when they are also in an
- * active/hover state.
+ * 1. Remove the gray background on active links in IE 10.
+ * 2. Remove gaps in links underline in iOS 8+ and Safari 8+.
+ */
+
+a {
+    background-color: transparent; // [1]
+    -webkit-text-decoration-skip: objects; // [2]
+}
+
+
+/**
+ * Remove the outline on focused links when they are also active or hovered
+ * in all browsers.
  */
 
 a:active,
 a:hover {
-    outline: 0;
+    outline-width: 0;
 }
 
 
 /**
- * 1. Correct styling in Firefox 39 and Opera 12.
- * 2. Correct missing styling in Chrome, Edge, IE, Opera, and Safari.
+ * 1. Remove the bottom border in Firefox 39-.
+ * 2. Add the correct text decoration in Chrome, Edge, IE, Opera, and Safari.
  */
 
 abbr[title] {
@@ -245,30 +254,31 @@ abbr[title] {
 
 
 /**
- * Address style set to `bolder` in Firefox 4+, Safari, and Chrome.
+ * Prevent the duplicate application of `bolder` by the next rule in Safari 6.
  */
 
 b,
 strong {
-    font-weight: bold;
+    font-weight: inherit;
 }
 
 
 /**
- * Address styling not present in Safari and Chrome.
+ * Add the correct font weight in Chrome, Edge, and Safari.
+ */
+
+b,
+strong {
+    font-weight: bolder;
+}
+
+
+/**
+ * Add the correct font style in Android 4.3-.
  */
 
 dfn {
     font-style: italic;
-}
-
-
-/**
- * Apply faux underlines to inserted text via `border-bottom`.
- */
-
-ins {
-    border-bottom: 1px solid;
 }
 
 
@@ -282,7 +292,7 @@ small {
 
 
 /**
- * Prevent `<sub>` and `<sup>` affecting `line-height` in all browsers.
+ * Prevent `<sub>` and `<sup>` affecting line height in all browsers.
  */
 
 sub,
@@ -293,18 +303,18 @@ sup {
     vertical-align: baseline;
 }
 
-sup {
-    top: -0.5em;
-}
-
 sub {
     bottom: -0.25em;
 }
 
+sup {
+    top: -0.5em;
+}
+
 
 /**
- * 1. Correct inheritance and scaling of font-size for preformatted text.
- * 2. Address odd `em`-unit font size rendering in all browsers.
+ * 1. Correct the inheritance and scaling of font size in all browsers.
+ * 2. Correct the odd `em` font sizing in all browsers.
  */
 
 code,
@@ -337,7 +347,7 @@ video {
 
 
 /**
- * Prevent displaying `audio` without controls in Mobile Safari 4/5/6/7.
+ * Add the correct display in iOS 4-7.
  */
 
 audio:not([controls]) {
@@ -347,21 +357,11 @@ audio:not([controls]) {
 
 
 /**
- * Correct overflow not hidden in IE 10/11.
+ * Hide the overflow in IE.
  */
 
 svg:not(:root) {
     overflow: hidden;
-}
-
-
-/**
- * Set the default behaviour for touch-based browsing in IE 10 on devices
- * running Windows 8.
- */
-
-canvas {
-    -ms-touch-action: double-tap-zoom;
 }
 
 
@@ -377,13 +377,12 @@ canvas {
 
 
 /**
- * 1. Correct font property not being inherited.
- * 2. Address margins set differently in Firefox 4+, Safari, and Chrome.
+ * 1. Change font properties to `inherit` in all browsers.
+ * 2. Remove the margin in Firefox and Safari.
  */
 
 button,
 input,
-optgroup,
 select,
 textarea {
     font: inherit; // [1]
@@ -392,173 +391,83 @@ textarea {
 
 
 /**
- * Correct `line-height` property not being inherited.
+ * Restore the font weight unset by the previous rule.
  */
 
-button,
-input,
-legend,
-optgroup,
-select,
-textarea {
-    line-height: inherit;
+optgroup {
+    font-weight: bold;
 }
 
 
 /**
- * 1. Reset styles.
- * 2. Address `overflow` set to `hidden` in IE 10/11.
+ * Show the overflow in IE.
+ * 1. Show the overflow in Edge.
  */
 
-button {
-    background: transparent; // [1]
-    border: 0; // [1]
-    padding: 0; // [1]
-    overflow: visible; // [2]
+button,
+input { // [1]
+    overflow: visible;
 }
 
 
 /**
- * - Address inconsistent `text-transform` inheritance for `<button>` and
- *   `<select>`s. All other form control elements do not inherit \
- *   `text-transform` values.
- * - Correct `<button>` style inheritance in Firefox, IE 10/11, and Opera.
- * - Correct `<select>` style inheritance in Firefox.
+ * Remove the inheritance of text transform in Edge, Firefox, and IE.
+ * 1. Remove the inheritance of text transform in Firefox.
  */
 
 button,
-select {
+select { // [1]
     text-transform: none;
 }
 
 
 /**
- * 1. Avoid the WebKit bug in Android 4.0.* where [2] destroys native `<audio>`
- *    and `<video>` controls.
- * 2. Improve usability and consistency of cursor style between image-type
- *    `<input>` and others.
- * 3. Correct inability to style clickable `<input>` types in iOS.
+ * Reset all styles so we have a blank canvas.
  */
 
-button,
-html input[type="button"], // [1]
-input[type="reset"],
-input[type="submit"] {
-    cursor: pointer; // [2]
-    -webkit-appearance: button; // [3]
-}
-
-
-/**
- * Remove inner padding and border in Firefox 4+.
- */
-
-button::-moz-focus-inner,
-input::-moz-focus-inner {
+button {
+    background: transparent;
     border: 0;
     padding: 0;
 }
 
 
 /**
- * Restore focus style in Firefox 4+ (unset by a rule above)
+ * 1. Prevent a WebKit bug where (2) destroys native `<audio>` and `<video>`
+ *    controls in Android 4.
+ * 2. Correct the inability to style clickable types in iOS and Safari.
+ */
+
+button,
+html [type="button"], // [1]
+[type="reset"],
+[type="submit"] {
+    -webkit-appearance: button; // [2]
+}
+
+
+/**
+ * Remove the inner border and padding in Firefox.
+ */
+
+button::-moz-focus-inner,
+[type="button"]::-moz-focus-inner,
+[type="reset"]::-moz-focus-inner,
+[type="submit"]::-moz-focus-inner {
+    border-style: none;
+    padding: 0;
+}
+
+
+/**
+ * Restore the focus styles unset by the previous rule.
  */
 
 button:-moz-focusring,
-input:-moz-focusring {
-  outline: 1px dotted ButtonText;
-}
-
-
-/**
- * Reset `not-allowed` cursor for disabled elements (`<button>`, `<input>`,
- * `<textarea>`, `<optgroup>`, `<option>` and `<fieldset>`) and disable
- * pointer events.
- */
-
-:disabled {
-    cursor: not-allowed;
-    pointer-events: none;
-}
-
-
-/**
- * iOS "clickable elements" fix for `[role="button"]`.
- *
- * Fixes "clickability" issue (and more generally, the firing of events such
- * as focus as well) for traditionally non-focusable elements with
- * `[role="button"]`, see:
- * https://developer.mozilla.org/en-US/docs/Web/Events/click#Safari_Mobile
- */
-
-[role="button"] {
-    cursor: pointer;
-}
-
-
-/**
- * Fix for IE and old versions of some other browsers not wrapping text within
- * a `<legend>`.
- *
- * 1. Enable line-wrapping in IE8+.
- * 2. Enable line-wrapping in old versions of some other browsers.
- *
- * N.B. this may not be needed any more? Let's see how testing goes, we might
- * need this instead: https://github.com/twbs/bootstrap/blob/v4.0.0-alpha.2/scss/_reboot.scss#L316-L318
- */
-
-legend {
-    display: table; // [1]
-    white-space: normal; // [2]
-}
-
-
-/**
- * It's recommended that you don't attempt to style these elements.
- * Firefox's implementation doesn't respect `box-sizing`, `padding`, or
- * `width`.
- *
- * 1. Address box sizing set to `content-box` in IE 10.
- * 2. Remove excess padding in IE 10.
- */
-
-input[type="checkbox"],
-input[type="radio"] {
-    box-sizing: border-box; // [1]
-    padding: 0; // [2]
-}
-
-
-/**
- * Fix the cursor style for Chrome's increment/decrement buttons. For certain
- * `font-size` values of the `<input>`, it causes the cursor style of the
- * decrement button to change from `default` to `text`.
- */
-
-input[type="number"]::-webkit-inner-spin-button,
-input[type="number"]::-webkit-outer-spin-button {
-    height: auto;
-}
-
-
-/**
- * Address `appearance` set to `searchfield` in Safari and Chrome.
- */
-
-input[type="search"] {
-    -webkit-appearance: textfield;
-}
-
-
-/**
- * Remove inner padding and search cancel button in Safari and Chrome on OS X.
- * Safari (but not Chrome) clips the cancel button when the search input has
- * padding (and `<textfield>` appearance).
- */
-
-input[type="search"]::-webkit-search-cancel-button,
-input[type="search"]::-webkit-search-decoration {
-    -webkit-appearance: none;
+[type="button"]:-moz-focusring,
+[type="reset"]:-moz-focusring,
+[type="submit"]:-moz-focusring {
+    outline: 1px dotted ButtonText;
 }
 
 
@@ -573,42 +482,49 @@ label {
 
 
 /**
- * 1. Make sure `<textarea>`s takes on height automatically.
- * 2. Remove default vertical scrollbar in IE 10/11.
- * 3. Disable `<textarea>`s from being resized horizontally.
+ * 1. Remove the default vertical scrollbar in IE.
+ * 2. Disable `<textarea>`s from being resized horizontally.
  */
 
 textarea {
-    height: auto; // [1]
-    overflow: auto; // [2]
-    resize: vertical; // [3]
+    overflow: auto; // [1]
+    resize: vertical; // [2]
 }
 
 
 /**
  * Chrome and Firefox set a `min-width: min-content;` on `<fieldset>`s, so we
  * reset that to ensure it behaves more like a standard block element, see:
- * https://github.com/twbs/bootstrap/issues/12359.
+ * http://stackoverflow.com/questions/17408815/fieldset-resizes-wrong-appears-to-have-unremovable-min-width-min-content.
  */
 
 fieldset {
     min-width: 0;
 }
 
-
-/**
- * Don't inherit the `font-weight` (applied by a rule above).
- *
- * N.B. the default cannot safely be changed in Chrome and Safari on OS X.
- */
-
-optgroup {
-    font-weight: bold;
+// Firefox only
+@-moz-document url-prefix() {
+    fieldset {
+        display: table-cell;
+    }
 }
 
 
 /**
- * Normalise vertical alignment of `<progress>` in Chrome, Firefox, and Opera.
+ * 1. Correct the text wrapping in Edge and IE.
+ * 2. Correct the colour inheritance from `<fieldset>` elements in IE.
+ */
+
+legend {
+    color: inherit; // [2]
+    display: table; // [1]
+    max-width: 100%; // [1]
+    white-space: normal; // [1]
+}
+
+
+/**
+ * Add the correct vertical alignment in Chrome, Firefox, and Opera.
  */
 
 progress {
@@ -617,10 +533,84 @@ progress {
 
 
 /**
+ * Apply the `not-allowed` cursor for disabled elements (`<button>`, `<input>`,
+ * `<textarea>`, `<optgroup>`, `<option>` and `<fieldset>`) and disable pointer
+ * events.
+ */
+
+:disabled {
+    cursor: not-allowed;
+    pointer-events: none;
+}
+
+
+/**
+ * 1. Add the correct box sizing in IE 10-.
+ * 2. Remove the padding in IE 10-.
+ */
+
+[type="checkbox"],
+[type="radio"] {
+    box-sizing: border-box; // [1]
+    padding: 0; // [2]
+}
+
+
+/**
+ * Correct the cursor style of increment and decrement buttons in Chrome.
+ */
+
+[type="number"]::-webkit-inner-spin-button,
+[type="number"]::-webkit-outer-spin-button {
+    height: auto;
+}
+
+
+/**
+ * 1. Correct the odd appearance in Chrome and Safari.
+ * 2. Correct the outline style in Safari.
+ */
+
+[type="search"] {
+    -webkit-appearance: textfield; // [1]
+    outline-offset: -2px; // [2]
+}
+
+
+/**
+ * Remove the inner padding and cancel buttons in Chrome and Safari on OS X.
+ */
+
+[type="search"]::-webkit-search-cancel-button,
+[type="search"]::-webkit-search-decoration {
+    -webkit-appearance: none;
+}
+
+
+/**
+ * Correct the text style of placeholders in Chrome, Edge, and Safari.
+ */
+
+::-webkit-input-placeholder {
+    color: inherit;
+    opacity: 0.54;
+}
+
+
+/**
+ * 1. Correct the inability to style clickable types in iOS and Safari.
+ * 2. Change font properties to `inherit` in Safari.
+ */
+
+::-webkit-file-upload-button {
+    -webkit-appearance: button; // [1]
+    font: inherit; // [2]
+}
+
+
+/**
  * Remove the clear field button (an "X" icon) and the reveal password button
- * (an "eye" icon) that is generated by IE 10+ for textual inputs.
- *
- * @credit
+ * (an "eye" icon) that is generated by IE 10+ for textual inputs. See:
  * http://stackoverflow.com/a/21869433/1116204
  */
 
@@ -643,22 +633,31 @@ progress {
 /**
  * Rules for iOS devices.
  *
- * We isolate these rules behind a `.ios` class—or whatever name you apply to
- * the `$shell-base-target-ios-selector` setting—that is appended to the
+ * We isolate these rules behind an `.target-ios` class that is appended to the
  * `<html>` element via user-agent sniffing, for example:
  *
-    <html class="ios">
+    <html class="target-ios">
  *
- * N.B. this functionality is not part of the Shell framework, you will need to
+ * N.B. this functionality is not part of the Shell library, you will need to
  * add it yourself to the project Shell applies too.
  */
 
-#{$shell-base-target-ios-selector} {
+.target-ios {
 
     /**
-     * Remove the top inner shadow from iOS inputs.
-     *
-     * @credit
+     * Fixes "clickability" issue (and more generally, the firing of events
+     * such as focus as well) for traditionally non-focusable elements with
+     * `[role="button"]`, see:
+     * https://developer.mozilla.org/en-US/docs/Web/Events/click#Safari_Mobile
+     */
+
+    [role="button"] {
+        cursor: pointer;
+    }
+
+
+    /**
+     * Remove the top inner shadow from iOS inputs. See:
      * https://davidwalsh.name/input-shadows-ipad
      */
 
@@ -672,20 +671,11 @@ progress {
      * Remove rounded corners that iOS applies to all `<input>` buttons.
      */
 
-    input[type="submit"],
-    input[type="button"],
-    input[type="image"],
-    input[type="reset"] {
+    [type="submit"],
+    [type="button"],
+    [type="image"],
+    [type="reset"] {
         border-radius: 0;
-    }
-
-
-    /**
-     * Remove rounded corners from iOS search inputs.
-     */
-
-    input[type="search"] {
-        appearance: none;
     }
 }
 
@@ -736,4 +726,16 @@ summary,
 textarea,
 [tabindex]:not([tabindex="-1"]) {
     touch-action: manipulation;
+}
+
+
+/**
+ * Remove `:focus` styles for `coarse` input mechanisms, and on the `:hover`
+ * pseudo class.
+ */
+
+@media (pointer: coarse) and (hover: none) {
+    :focus {
+        outline: none;
+    }
 }
