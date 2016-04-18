@@ -11,6 +11,7 @@
         "bem",
         "responsive"
     ],
+    "main": "index.js",
     "author": [
         {
             "name": "Chris Pearce",
