@@ -80,7 +80,7 @@
  * The baseline number from which everything else is derived.
  */
 
-$shell-g-base-number: 16;
+$shell-g-base-number: 16 !default;
 
 
 
@@ -90,13 +90,11 @@ $shell-g-base-number: 16;
 
 /**
  * Black and white.
- *
- * N.B. non-overridable.
  */
 
-$shell-g-color-white: #fff;
+$shell-g-color-white: #fff !default;
 
-$shell-g-color-black: #000;
+$shell-g-color-black: #000 !default;
 
 
 /**
@@ -104,10 +102,7 @@ $shell-g-color-black: #000;
  */
 
 // Base (global text colour)
-$shell-g-color-text-base: #444 !default;
-
-// Heading
-$shell-g-color-text-heading: $shell-g-color-text-base !default;
+$shell-g-color-text-base: #434D5D !default;
 
 
 /**
@@ -131,31 +126,20 @@ $shell-g-color-link-hover: $shell-g-color-link !default;
 $shell-g-font-size: $shell-g-base-number !default;
 
 // Decrease
-$shell-g-font-size-tiny: $shell-g-font-size - 4 !default;
-
 $shell-g-font-size-small: $shell-g-font-size - 2 !default;
 
-// Increase
-$shell-g-font-size-large: $shell-g-font-size + 2 !default;
+$shell-g-font-size-x-small: $shell-g-font-size - 3 !default;
 
-$shell-g-font-size-huge: $shell-g-font-size + 4 !default;
+$shell-g-font-size-xx-small: $shell-g-font-size - 4 !default;
 
-
-/**
- * Heading sizes.
- */
-
-$shell-g-font-size-heading: $shell-g-base-number * 1.25 !default;
-
-// Decrease
-$shell-g-font-size-heading-tiny: $shell-g-font-size-heading - 4 !default;
-
-$shell-g-font-size-heading-small: $shell-g-font-size-heading - 2 !default;
+$shell-g-font-size-xxx-small: $shell-g-font-size - 5 !default;
 
 // Increase
-$shell-g-font-size-heading-large: $shell-g-font-size-heading + 4 !default;
+$shell-g-font-size-heading-large: $shell-g-font-size + 2 !default;
 
-$shell-g-font-size-heading-huge: $shell-g-font-size-heading + 8 !default;
+$shell-g-font-size-heading-x-large: $shell-g-font-size + 4 !default;
+
+$shell-g-font-size-heading-xx-large: $shell-g-font-size + 8 !default;
 
 
 /**
@@ -168,7 +152,7 @@ $shell-g-line-height: $shell-g-base-number * 1.5 !default;
 /**
  * Line height ratio.
  *
- * N.B. non-overridable.
+ * N.B. non-over-ridable.
  */
 
 $shell-g-line-height-ratio: $shell-g-line-height / $shell-g-font-size;
@@ -217,16 +201,6 @@ $shell-g-font-weight-extra-bold: 800 !default;
 
 $shell-g-font-weight-black: 900 !default;
 
-// Heading weight
-$shell-g-font-weight-heading: $shell-g-font-weight-bold !default;
-
-
-/**
- * Maximum line length.
- */
-
-$shell-g-max-line-length: 600 !default;
-
 
 
 
@@ -236,14 +210,22 @@ $shell-g-max-line-length: 600 !default;
 $shell-g-spacing-base: $shell-g-base-number !default;
 
 // Decrease
-$shell-g-spacing-tiny: $shell-g-spacing-base / 3 !default;
+$shell-g-spacing-small: floor($shell-g-spacing-base ???) !default;
 
-$shell-g-spacing-small: $shell-g-spacing-base / 2 !default;
+$shell-g-spacing-x-small: floor($shell-g-spacing-base ???) !default;
+
+$shell-g-spacing-xx-small: floor($shell-g-spacing-base ???) !default;
+
+$shell-g-spacing-xxx-small: floor($shell-g-spacing-base ???) !default;
 
 // Increase
-$shell-g-spacing-large: $shell-g-spacing-base * 2 !default;
+$shell-g-spacing-large: ceil($shell-g-spacing-base ???) !default;
 
-$shell-g-spacing-huge: $shell-g-spacing-base * 3 !default;
+$shell-g-spacing-x-large: ceil($shell-g-spacing-base ???) !default;
+
+$shell-g-spacing-xx-large: ceil($shell-g-spacing-base ???) !default;
+
+$shell-g-spacing-xxx-large: ceil($shell-g-spacing-base ???) !default;
 
 
 
@@ -397,7 +379,7 @@ $shell-g-z-layers: (
  * HiDPI units, currently being used in:
  * "Mixins/Functions -> HiDPI background images".
  *
- * N.B. non-overridable.
+ * N.B. non-over-ridable.
  */
 
 $shell-g-hidpi-dpr: 1.3;
