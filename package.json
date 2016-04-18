@@ -23,6 +23,7 @@
             "url": "http://davidberner.co.uk/"
         }
     ],
+    "main": "index.js",
     "repository": {
         "type": "git",
         "url":  "git@github.com:campaignmonitor/shell.git"
