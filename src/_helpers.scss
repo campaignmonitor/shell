@@ -194,19 +194,17 @@
  * Decrease from base.
  */
 
-// Tiny
-.h-text-size-tiny {
-    font-size: rem($shell-g-font-size-tiny) !important;
+.h-text-size-x-small {
+    font-size: rem($shell-g-font-size-x-small) !important;
 }
 
 // Apply at breakpoints
-@if $shell-helper-apply-text-size-tiny-at-breakpoints {
-    @include apply-at-breakpoints(".h-text-size-tiny", $shell-helper-define-text-size-tiny-breakpoints) {
-        font-size: rem($shell-g-font-size-tiny) !important;
+@if $shell-helper-apply-text-size-x-small-at-breakpoints {
+    @include apply-at-breakpoints(".h-text-size-x-small", $shell-helper-define-text-size-x-small-breakpoints) {
+        font-size: rem($shell-g-font-size-x-small) !important;
     }
 }
 
-// Small
 .h-text-size-small {
     font-size: rem($shell-g-font-size-small) !important;
 }
@@ -236,14 +234,14 @@
 }
 
 // Huge
-.h-text-size-huge {
-    font-size: rem($shell-g-font-size-huge) !important;
+.h-text-size-x-large {
+    font-size: rem($shell-g-font-size-x-large) !important;
 }
 
 // Apply at breakpoints
-@if $shell-helper-apply-text-size-huge-at-breakpoints {
-    @include apply-at-breakpoints(".h-text-size-huge", $shell-helper-define-text-size-huge-breakpoints) {
-        font-size: rem($shell-g-font-size-huge) !important;
+@if $shell-helper-apply-text-size-x-large-at-breakpoints {
+    @include apply-at-breakpoints(".h-text-size-x-large", $shell-helper-define-text-size-x-large-breakpoints) {
+        font-size: rem($shell-g-font-size-x-large) !important;
     }
 }
 
@@ -328,24 +326,6 @@
 @if $shell-helper-apply-text-truncate-at-breakpoints {
     @include apply-at-breakpoints(".h-text-truncate--inline", $shell-helper-define-text-truncate-breakpoints) {
         display: inline-block !important;
-    }
-}
-
-
-/**
- * Make text on OS X look more consistent with other systems that do not
- * render text using sub-pixel anti-aliasing.
- *
- * N.B. mixin is here: "Mixins and Functions -> Helpers".
- *
- * N.B. we recommend not to use this. And this can be applied globally on the
- * `<html>` element in "Base" therefore it's only applied here if that boolean
- * setting is set to "false"—which is the default.
- */
-
-@if $shell-base-apply-osx-font-smoothing == false {
-    .h-text-osx-font-smoothing {
-        @include text-osx-font-smoothing(true);
     }
 }
 
@@ -477,19 +457,17 @@
  * Decrease from base.
  */
 
-// Tiny
-.h-spacing-tiny {
-    margin-bottom: rem($shell-g-spacing-tiny) !important;
+.h-spacing-x-small {
+    margin-bottom: rem($shell-g-spacing-x-small) !important;
 }
 
 // Apply at breakpoints
-@if $shell-helper-apply-spacing-tiny-at-breakpoints {
-    @include apply-at-breakpoints(".h-spacing-tiny", $shell-helper-define-spacing-tiny-breakpoints) {
-        margin-bottom: rem($shell-g-spacing-tiny) !important;
+@if $shell-helper-apply-spacing-x-small-at-breakpoints {
+    @include apply-at-breakpoints(".h-spacing-x-small", $shell-helper-define-spacing-x-small-breakpoints) {
+        margin-bottom: rem($shell-g-spacing-x-small) !important;
     }
 }
 
-// Small
 .h-spacing-small {
     margin-bottom: rem($shell-g-spacing-small) !important;
 }
@@ -505,7 +483,6 @@
  * Increase from base.
  */
 
-// Large
 .h-spacing-large {
     margin-bottom: rem($shell-g-spacing-large) !important;
 }
@@ -517,15 +494,14 @@
     }
 }
 
-// Huge
-.h-spacing-huge {
-    margin-bottom: rem($shell-g-spacing-huge) !important;
+.h-spacing-x-large {
+    margin-bottom: rem($shell-g-spacing-x-large) !important;
 }
 
 // Apply at breakpoints
-@if $shell-helper-apply-spacing-huge-at-breakpoints {
-    @include apply-at-breakpoints(".h-spacing-huge", $shell-helper-define-spacing-huge-breakpoints) {
-        margin-bottom: rem($shell-g-spacing-huge) !important;
+@if $shell-helper-apply-spacing-x-large-at-breakpoints {
+    @include apply-at-breakpoints(".h-spacing-x-large", $shell-helper-define-spacing-x-large-breakpoints) {
+        margin-bottom: rem($shell-g-spacing-x-large) !important;
     }
 }
 

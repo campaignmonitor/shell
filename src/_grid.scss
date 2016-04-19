@@ -192,16 +192,15 @@
     }
 }
 
-// Tiny
-.l-grid--gutter-horizontal-tiny {
-    margin-left: -(rem($shell-g-spacing-tiny));
+// Decrease
+.l-grid--gutter-horizontal-x-small {
+    margin-left: -(rem($shell-g-spacing-x-small));
 
     > .l-grid__item {
-        padding-left:  rem($shell-g-spacing-tiny);
+        padding-left:  rem($shell-g-spacing-x-small);
     }
 }
 
-// Small
 .l-grid--gutter-horizontal-small {
     margin-left: -(rem($shell-g-spacing-small));
 
@@ -210,7 +209,7 @@
     }
 }
 
-// Large
+// Increase
 .l-grid--gutter-horizontal-large {
     margin-left: -(rem($shell-g-spacing-large));
 
@@ -219,12 +218,11 @@
     }
 }
 
-// Huge
-.l-grid--gutter-horizontal-huge {
-    margin-left: -(rem($shell-g-spacing-huge));
+.l-grid--gutter-horizontal-x-large {
+    margin-left: -(rem($shell-g-spacing-x-large));
 
     > .l-grid__item {
-        padding-left:  rem($shell-g-spacing-huge);
+        padding-left:  rem($shell-g-spacing-x-large);
     }
 }
 
@@ -240,24 +238,22 @@
     margin-bottom: rem($shell-g-spacing-base);
 }
 
-// Tiny
-.l-grid--gutter-vertical-tiny > .l-grid__item {
-    margin-bottom: rem($shell-g-spacing-tiny);
+// Decrease
+.l-grid--gutter-vertical-x-small > .l-grid__item {
+    margin-bottom: rem($shell-g-spacing-x-small);
 }
 
-// Small
 .l-grid--gutter-vertical-small > .l-grid__item {
     margin-bottom: rem($shell-g-spacing-small);
 }
 
-// Large
+// Increase
 .l-grid--gutter-vertical-large > .l-grid__item {
     margin-bottom: rem($shell-g-spacing-large);
 }
 
-// Huge
-.l-grid--gutter-vertical-huge > .l-grid__item {
-    margin-bottom: rem($shell-g-spacing-huge);
+.l-grid--gutter-vertical-x-large > .l-grid__item {
+    margin-bottom: rem($shell-g-spacing-x-large);
 }
 
 
