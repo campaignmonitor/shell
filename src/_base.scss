@@ -34,9 +34,6 @@
 
 /**
  * 1. Set the global typography rules sourced from "Settings".
- * 2. Fonts on OS X will look more consistent with other systems that do not
- *    render text using sub-pixel anti-aliasing.
- *    N.B. we recommend not to use this.
  */
 
 html {
@@ -46,11 +43,6 @@ html {
     font-size: $shell-g-font-size / 16 * 1em; // [1]
     font-weight: $shell-g-font-weight-normal; // [1]
     line-height: $shell-g-line-height-ratio; // [1]
-
-    @if $shell-base-apply-osx-font-smoothing {
-        -moz-osx-font-smoothing: grayscale; // [2]
-        -webkit-font-smoothing: antialiased; // [2]
-    }
 }
 
 
@@ -62,10 +54,6 @@ html {
 a {
     color: $shell-g-color-link;
     text-decoration: $shell-base-link-text-decoration;
-
-    @if $shell-base-apply-link-transition {
-        transition: all $shell-base-link-transition-duration $shell-base-link-transition-timing-function;
-    }
 
     &:hover,
     &:focus {
@@ -158,6 +146,10 @@ img {
 @if $shell-base-apply-bottom-margin-to-paragraphs {
     p {
         margin-bottom: rem($shell-g-spacing-base);
+
+        &:last-child {
+            margin-bottom: 0;
+        }
     }
 }
 
@@ -191,7 +183,7 @@ h3,
 h4,
 h5,
 h6 {
-    color: $shell-g-color-text-heading;
+    color: $shell-g-color-text-base;
     font-size: rem($shell-g-font-size);
     font-weight: $shell-g-font-weight-normal;
     line-height: $shell-g-line-height-ratio;
@@ -203,81 +195,12 @@ h6 {
  */
 
 .heading {
-    color: $shell-g-color-text-heading;
-    font-size: rem($shell-g-font-size-heading);
-    font-weight: $shell-g-font-weight-heading;
-}
-
-/**
- * Modifiers: sizes.
- */
-
-// Decrease
-.heading--size-tiny {
-    font-size: rem($shell-g-font-size-heading-tiny);
-}
-
-.heading--size-small {
-    font-size: rem($shell-g-font-size-heading-small);
-}
-
-// Increase
-.heading--size-large {
-    font-size: rem($shell-g-font-size-heading-large);
-}
-
-.heading--size-huge {
-    font-size: rem($shell-g-font-size-heading-huge);
-}
-
-/**
- * Modifiers: weights.
- */
-
-// Thin
-.heading--weight-thin {
-    font-weight: $shell-g-font-weight-thin;
-}
-
-// Extra light
-.heading--weight-extra-light {
-    font-weight: $shell-g-font-weight-extra-light;
-}
-
-// Light
-.heading--weight-light {
-    font-weight: $shell-g-font-weight-light;
-}
-
-// Medium
-.heading--weight-medium {
-    font-weight: $shell-g-font-weight-medium;
-}
-
-// Normal
-.heading--weight-normal {
+    color: $shell-g-color-text-base;
+    font-size: rem($shell-g-font-size);
     font-weight: $shell-g-font-weight-normal;
 }
 
-// Semi-bold
-.heading--weight-semi-bold {
-    font-weight: $shell-g-font-weight-semi-bold;
-}
-
-// Bold
-.heading--weight-bold {
-    font-weight: $shell-g-font-weight-bold;
-}
-
-// Extra bold
-.heading--weight-extra-bold {
-    font-weight: $shell-g-font-weight-extra-bold;
-}
-
-// Black
-.heading--weight-black {
-    font-weight: $shell-g-font-weight-black;
-}
+// The specific headings to come…
 
 
 
@@ -290,111 +213,109 @@ h6 {
  * you know you will always want the rule it's applied too to take precedence.
  */
 
-@if $shell-base-apply-print-styles {
-    @media print {
+@media print {
 
-        /**
-         * Apply print friendly styles to all the things.
-         */
+    /**
+     * Apply print friendly styles to all the things.
+     */
 
-        *,
-        *::before,
-        *::after,
-        *::first-child,
-        *::first-line {
-            background: transparent !important;
-            box-shadow: none !important;
-            color: $shell-g-color-black !important;
-            text-shadow: none !important;
-        }
-
-
-        /**
-         * Hide elements not really useful on a piece of paper.
-         */
-
-        nav,
-        video,
-        audio {
-            display: none !important;
-        }
+    *,
+    *::before,
+    *::after,
+    *::first-letter,
+    *::first-line {
+        background: transparent !important;
+        box-shadow: none !important;
+        color: #000 !important;
+        text-shadow: none !important;
+    }
 
 
-        /**
-         * Ensure all images are responsive.
-         */
+    /**
+     * Hide elements not really useful on a piece of paper.
+     */
 
-        img {
-            height: auto !important;
-            max-width: 100% !important;
-        }
-
-
-        /**
-         * Make links always stand out.
-         */
-
-        a,
-        a:visited {
-            border-bottom: 0 !important;
-            text-decoration: underline !important;
-        }
+    nav,
+    video,
+    audio {
+        display: none !important;
+    }
 
 
-        /**
-         * Show the `[href]` and `[title]` attribute values of links and
-         * abbreviations via their `::after` pseudo element.
-         */
+    /**
+     * Ensure all images are responsive.
+     */
 
-        a[href]::after {
-            content: " (" attr(href) ")";
-        }
-
-        abbr[title]::after {
-            content: " (" attr(title) ")";
-        }
-
-        // Don't show links that are fragment identifiers, or use the
-        // `javascript:` pseudo protocol
-        a[href^="javascript:"]::after,
-        a[href^="#"]::after {
-            content: "";
-        }
+    img {
+        height: auto !important;
+        max-width: 100% !important;
+    }
 
 
-        /**
-         * Make the header row repeated at the top of each printed page, see:
-         * http://css-discuss.incutio.com/wiki/Printing_Tables
-         */
+    /**
+     * Make links always stand out.
+     */
 
-        thead {
-            display: table-header-group;
-        }
+    a,
+    a:visited {
+        border-bottom: 0 !important;
+        text-decoration: underline !important;
+    }
 
 
-        /**
-         * Set page breaks, orphans and widows.
-         */
+    /**
+     * Show the `[href]` and `[title]` attribute values of links and
+     * abbreviations via their `::after` pseudo element.
+     */
 
-        // Page breaks
-        h2
-        h3 {
-            page-break-after: avoid;
-        }
+    a[href]::after {
+        content: " (" attr(href) ")";
+    }
 
-        tr,
-        img,
-        pre,
-        blockquote {
-            page-break-inside: avoid;
-        }
+    abbr[title]::after {
+        content: " (" attr(title) ")";
+    }
 
-        // Orphans and widows
-        p,
-        h2,
-        h3 {
-            orphans: 3;
-            widows: 3;
-        }
+    // Don't show links that are fragment identifiers, or use the
+    // `javascript:` pseudo protocol
+    a[href^="javascript:"]::after,
+    a[href^="#"]::after {
+        content: "";
+    }
+
+
+    /**
+     * Make the header row repeated at the top of each printed page, see:
+     * http://css-discuss.incutio.com/wiki/Printing_Tables
+     */
+
+    thead {
+        display: table-header-group;
+    }
+
+
+    /**
+     * Set page breaks, orphans and widows.
+     */
+
+    // Page breaks
+    h2
+    h3 {
+        page-break-after: avoid;
+    }
+
+    tr,
+    img,
+    pre,
+    blockquote {
+        page-break-inside: avoid;
+    }
+
+    // Orphans and widows
+    p,
+    h2,
+    h3 {
+        orphans: 3;
+        widows: 3;
     }
 }
