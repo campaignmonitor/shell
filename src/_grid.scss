@@ -193,19 +193,19 @@
 }
 
 // Decrease
-.l-grid--gutter-horizontal-x-small {
-    margin-left: -(rem($shell-g-spacing-x-small));
-
-    > .l-grid__item {
-        padding-left:  rem($shell-g-spacing-x-small);
-    }
-}
-
 .l-grid--gutter-horizontal-small {
     margin-left: -(rem($shell-g-spacing-small));
 
     > .l-grid__item {
         padding-left:  rem($shell-g-spacing-small);
+    }
+}
+
+.l-grid--gutter-horizontal-x-small {
+    margin-left: -(rem($shell-g-spacing-x-small));
+
+    > .l-grid__item {
+        padding-left:  rem($shell-g-spacing-x-small);
     }
 }
 
@@ -239,12 +239,12 @@
 }
 
 // Decrease
-.l-grid--gutter-vertical-x-small > .l-grid__item {
-    margin-bottom: rem($shell-g-spacing-x-small);
-}
-
 .l-grid--gutter-vertical-small > .l-grid__item {
     margin-bottom: rem($shell-g-spacing-small);
+}
+
+.l-grid--gutter-vertical-x-small > .l-grid__item {
+    margin-bottom: rem($shell-g-spacing-x-small);
 }
 
 // Increase

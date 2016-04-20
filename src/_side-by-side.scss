@@ -122,15 +122,6 @@
 }
 
 // Decrease
-.l-side-by-side--gutter-x-small > .l-side-by-side__item:last-child {
-    margin-left: rem($shell-g-spacing-x-small);
-}
-
-.l-side-by-side--gutter-x-small.l-side-by-side--reversed > .l-side-by-side__item:last-child {
-    margin-left: 0;
-    margin-right: rem($shell-g-spacing-x-small);
-}
-
 .l-side-by-side--gutter-small > .l-side-by-side__item:last-child {
     margin-left: rem($shell-g-spacing-small);
 }
@@ -138,6 +129,15 @@
 .l-side-by-side--gutter-small.l-side-by-side--reversed > .l-side-by-side__item:last-child {
     margin-left: 0;
     margin-right: rem($shell-g-spacing-small);
+}
+
+.l-side-by-side--gutter-x-small > .l-side-by-side__item:last-child {
+    margin-left: rem($shell-g-spacing-x-small);
+}
+
+.l-side-by-side--gutter-x-small.l-side-by-side--reversed > .l-side-by-side__item:last-child {
+    margin-left: 0;
+    margin-right: rem($shell-g-spacing-x-small);
 }
 
 // Increase

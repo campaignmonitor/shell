@@ -513,6 +513,7 @@ $shell-grid-10-col-width: 83.333% !default;
 
 $shell-grid-11-col-width: 91.666% !default;
 
+
 /**
  * For all grid item widths turn on the ability to apply breakpoints via
  * boolean settings then define the breakpoints, see: "Mixins/Functions ->
@@ -586,34 +587,81 @@ $shell-grid-define-11-col-width-breakpoints: $shell-g-global-breakpoints !defaul
  * Apply at breakpoints" to understand how this works.
  */
 
+
 /**
  * Text sizes.
  */
 
-// Base
+/**
+ * Base.
+ */
+
 $shell-helper-apply-text-size-base-at-breakpoints: false !default;
 
 $shell-helper-define-text-size-base-breakpoints: $shell-g-global-breakpoints !default;
 
-// Tiny
-$shell-helper-apply-text-size-x-small-at-breakpoints: false !default;
-
-$shell-helper-define-text-size-x-small-breakpoints: $shell-g-global-breakpoints !default;
+/**
+ * Decrease from base.
+ */
 
 // Small
 $shell-helper-apply-text-size-small-at-breakpoints: false !default;
 
 $shell-helper-define-text-size-small-breakpoints: $shell-g-global-breakpoints !default;
 
+// X-Small
+$shell-helper-apply-text-size-x-small-at-breakpoints: false !default;
+
+$shell-helper-define-text-size-x-small-breakpoints: $shell-g-global-breakpoints !default;
+
+// 2X-Small
+$shell-helper-apply-text-size-2x-small-at-breakpoints: false !default;
+
+$shell-helper-define-text-size-2x-small-breakpoints: $shell-g-global-breakpoints !default;
+
+/**
+ * Increase from base.
+ */
+
 // Large
 $shell-helper-apply-text-size-large-at-breakpoints: false !default;
 
 $shell-helper-define-text-size-large-breakpoints: $shell-g-global-breakpoints !default;
 
-// Huge
+// X-Large
 $shell-helper-apply-text-size-x-large-at-breakpoints: false !default;
 
 $shell-helper-define-text-size-x-large-breakpoints: $shell-g-global-breakpoints !default;
+
+// 2X-Large
+$shell-helper-apply-text-size-2x-large-at-breakpoints: false !default;
+
+$shell-helper-define-text-size-2x-large-breakpoints: $shell-g-global-breakpoints !default;
+
+// 3X-Large
+$shell-helper-apply-text-size-3x-large-at-breakpoints: false !default;
+
+$shell-helper-define-text-size-3x-large-breakpoints: $shell-g-global-breakpoints !default;
+
+// 4X-Large
+$shell-helper-apply-text-size-4x-large-at-breakpoints: false !default;
+
+$shell-helper-define-text-size-4x-large-breakpoints: $shell-g-global-breakpoints !default;
+
+// 5X-Large
+$shell-helper-apply-text-size-5x-large-at-breakpoints: false !default;
+
+$shell-helper-define-text-size-5x-large-breakpoints: $shell-g-global-breakpoints !default;
+
+// 6X-Large
+$shell-helper-apply-text-size-6x-large-at-breakpoints: false !default;
+
+$shell-helper-define-text-size-6x-large-breakpoints: $shell-g-global-breakpoints !default;
+
+// 7X-Large
+$shell-helper-apply-text-size-7x-large-at-breakpoints: false !default;
+
+$shell-helper-define-text-size-7x-large-breakpoints: $shell-g-global-breakpoints !default;
 
 /**
  * Alignments.
@@ -642,6 +690,7 @@ $shell-helper-apply-text-truncate-at-breakpoints: false !default;
 
 $shell-helper-define-text-truncate-breakpoints: $shell-g-global-breakpoints !default;
 
+
 /**
  * Hide.
  */
@@ -656,31 +705,63 @@ $shell-helper-apply-hide-visually-at-breakpoints: false !default;
 
 $shell-helper-define-hide-visually-breakpoints: $shell-g-global-breakpoints !default;
 
+
 /**
  * Spacing.
  */
 
-// Base
+/**
+ * Base.
+ */
+
 $shell-helper-apply-spacing-base-at-breakpoints: false !default;
 
 $shell-helper-define-spacing-base-breakpoints: $shell-g-global-breakpoints !default;
 
-// Tiny
-$shell-helper-apply-spacing-x-small-at-breakpoints: false !default;
-
-$shell-helper-define-spacing-x-small-breakpoints: $shell-g-global-breakpoints !default;
+/**
+ * Decrease from base.
+ */
 
 // Small
 $shell-helper-apply-spacing-small-at-breakpoints: false !default;
 
 $shell-helper-define-spacing-small-breakpoints: $shell-g-global-breakpoints !default;
 
+// X-Small
+$shell-helper-apply-spacing-x-small-at-breakpoints: false !default;
+
+$shell-helper-define-spacing-x-small-breakpoints: $shell-g-global-breakpoints !default;
+
+/**
+ * Increase from base.
+ */
+
 // Large
 $shell-helper-apply-spacing-large-at-breakpoints: false !default;
 
 $shell-helper-define-spacing-large-breakpoints: $shell-g-global-breakpoints !default;
 
-// Huge
+// X-Large
 $shell-helper-apply-spacing-x-large-at-breakpoints: false !default;
 
 $shell-helper-define-spacing-x-large-breakpoints: $shell-g-global-breakpoints !default;
+
+// 2X-Large
+$shell-helper-apply-spacing-2x-large-at-breakpoints: false !default;
+
+$shell-helper-define-spacing-2x-large-breakpoints: $shell-g-global-breakpoints !default;
+
+// 3X-Large
+$shell-helper-apply-spacing-3x-large-at-breakpoints: false !default;
+
+$shell-helper-define-spacing-3x-large-breakpoints: $shell-g-global-breakpoints !default;
+
+// 4X-Large
+$shell-helper-apply-spacing-4x-large-at-breakpoints: false !default;
+
+$shell-helper-define-spacing-4x-large-breakpoints: $shell-g-global-breakpoints !default;
+
+// 5X-Large
+$shell-helper-apply-spacing-5x-large-at-breakpoints: false !default;
+
+$shell-helper-define-spacing-5x-large-breakpoints: $shell-g-global-breakpoints !default;

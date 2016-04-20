@@ -95,7 +95,7 @@ img {
  * applying the two possible Google Map container selectors plus a generic
  * container selector to be used for other third-party widgets.
  *
- * N.B. it is okay to use `!important` here as we're doing it preemptively
+ * N.B. it is okay to use `!important` here as we're doing it pre-emptively
  * i.e. you know you will always want the rule it's applied to to take
  * precedence.
  */
@@ -196,7 +196,22 @@ h6 {
     font-weight: $shell-g-font-weight-normal;
 }
 
-// The specific headings to come…
+/**
+ * Modifiers: Main heading.
+ */
+
+.heading--main {
+    font-size: rem($shell-g-font-size-large);
+    font-weight: $shell-g-font-weight-light;
+}
+
+/**
+ * Modifiers: Section heading.
+ */
+
+.heading--section {
+    font-weight: bold;
+}
 
 
 
@@ -205,8 +220,9 @@ h6 {
    ========================================================================= */
 
 /**
- * N.B. it is okay to use `!important` here as we're doing it preemptively i.e.
- * you know you will always want the rule it's applied too to take precedence.
+ * N.B. it is okay to use `!important` here as we're doing it pre-emptively
+ * i.e. you know you will always want the rule it's applied too to take
+ * precedence.
  */
 
 @media print {

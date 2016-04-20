@@ -74,12 +74,12 @@
  * Modifiers: narrower and wider containers.
  */
 
-.l-container--x-small {
-    max-width: rem($shell-container-maximum-width-x-small);
-}
-
 .l-container--small {
     max-width: rem($shell-container-maximum-width-small);
+}
+
+.l-container--x-small {
+    max-width: rem($shell-container-maximum-width-x-small);
 }
 
 .l-container--large {
