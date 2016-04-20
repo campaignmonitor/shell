@@ -690,7 +690,7 @@ progress {
  * This prevents an unwanted focus outline from appearing around elements that
  * might still respond to pointer events.
  *
- * N.B. it is okay to use `!important` here as we're doing it preemptively
+ * N.B. it is okay to use `!important` here as we're doing it pre-emptively
  * i.e. you know you will always want the rule it's applied too to take
  * precedence.
  */

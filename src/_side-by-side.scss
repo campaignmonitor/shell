@@ -121,17 +121,7 @@
     margin-right: rem($shell-g-spacing-base);
 }
 
-// Tiny
-.l-side-by-side--gutter-tiny > .l-side-by-side__item:last-child {
-    margin-left: rem($shell-g-spacing-tiny);
-}
-
-.l-side-by-side--gutter-tiny.l-side-by-side--reversed > .l-side-by-side__item:last-child {
-    margin-left: 0;
-    margin-right: rem($shell-g-spacing-tiny);
-}
-
-// Small
+// Decrease
 .l-side-by-side--gutter-small > .l-side-by-side__item:last-child {
     margin-left: rem($shell-g-spacing-small);
 }
@@ -141,7 +131,16 @@
     margin-right: rem($shell-g-spacing-small);
 }
 
-// Large
+.l-side-by-side--gutter-x-small > .l-side-by-side__item:last-child {
+    margin-left: rem($shell-g-spacing-x-small);
+}
+
+.l-side-by-side--gutter-x-small.l-side-by-side--reversed > .l-side-by-side__item:last-child {
+    margin-left: 0;
+    margin-right: rem($shell-g-spacing-x-small);
+}
+
+// Increase
 .l-side-by-side--gutter-large > .l-side-by-side__item:last-child {
     margin-left: rem($shell-g-spacing-large);
 }
@@ -151,14 +150,13 @@
     margin-right: rem($shell-g-spacing-large);
 }
 
-// Huge
-.l-side-by-side--gutter-huge > .l-side-by-side__item:last-child {
-    margin-left: rem($shell-g-spacing-huge);
+.l-side-by-side--gutter-x-large > .l-side-by-side__item:last-child {
+    margin-left: rem($shell-g-spacing-x-large);
 }
 
-.l-side-by-side--gutter-huge.l-side-by-side--reversed > .l-side-by-side__item:last-child {
+.l-side-by-side--gutter-x-large.l-side-by-side--reversed > .l-side-by-side__item:last-child {
     margin-left: 0;
-    margin-right: rem($shell-g-spacing-huge);
+    margin-right: rem($shell-g-spacing-x-large);
 }
 
 

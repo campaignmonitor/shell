@@ -173,7 +173,6 @@
  * Sizes.
  */
 
-
 /**
  * Base.
  */
@@ -189,22 +188,9 @@
     }
 }
 
-
 /**
  * Decrease from base.
  */
-
-// Tiny
-.h-text-size-tiny {
-    font-size: rem($shell-g-font-size-tiny) !important;
-}
-
-// Apply at breakpoints
-@if $shell-helper-apply-text-size-tiny-at-breakpoints {
-    @include apply-at-breakpoints(".h-text-size-tiny", $shell-helper-define-text-size-tiny-breakpoints) {
-        font-size: rem($shell-g-font-size-tiny) !important;
-    }
-}
 
 // Small
 .h-text-size-small {
@@ -218,6 +204,29 @@
     }
 }
 
+// X-small
+.h-text-size-x-small {
+    font-size: rem($shell-g-font-size-x-small) !important;
+}
+
+// Apply at breakpoints
+@if $shell-helper-apply-text-size-x-small-at-breakpoints {
+    @include apply-at-breakpoints(".h-text-size-x-small", $shell-helper-define-text-size-x-small-breakpoints) {
+        font-size: rem($shell-g-font-size-x-small) !important;
+    }
+}
+
+// 2X-small
+.h-text-size-2x-small {
+    font-size: rem($shell-g-font-size-2x-small) !important;
+}
+
+// Apply at breakpoints
+@if $shell-helper-apply-text-size-x-small-at-breakpoints {
+    @include apply-at-breakpoints(".h-text-size-2x-small", $shell-helper-define-text-size-2x-small-breakpoints) {
+        font-size: rem($shell-g-font-size-2x-small) !important;
+    }
+}
 
 /**
  * Increase from base.
@@ -230,20 +239,92 @@
 
 // Apply at breakpoints
 @if $shell-helper-apply-text-size-large-at-breakpoints {
-    @include apply-at-breakpoints(".h-text-size-large", $shell-helper-define-text-size-large-breakpoints) {
+    @include apply-at-breakpoints('.h-text-size-large', $shell-helper-define-text-size-large-breakpoints) {
         font-size: rem($shell-g-font-size-large) !important;
     }
 }
 
-// Huge
-.h-text-size-huge {
-    font-size: rem($shell-g-font-size-huge) !important;
+// X-Large
+.h-text-size-x-large {
+    font-size: rem($shell-g-font-size-x-large) !important;
 }
 
 // Apply at breakpoints
-@if $shell-helper-apply-text-size-huge-at-breakpoints {
-    @include apply-at-breakpoints(".h-text-size-huge", $shell-helper-define-text-size-huge-breakpoints) {
-        font-size: rem($shell-g-font-size-huge) !important;
+@if $shell-helper-apply-text-size-x-large-at-breakpoints {
+    @include apply-at-breakpoints('.h-text-size-x-large', $shell-helper-define-text-size-x-large-breakpoints) {
+        font-size: rem($shell-g-font-size-x-large) !important;
+    }
+}
+
+// 2X-Large
+.h-text-size-2x-large {
+    font-size: rem($shell-g-font-size-2x-large) !important;
+}
+
+// Apply at breakpoints
+@if $shell-helper-apply-text-size-2x-large-at-breakpoints {
+    @include apply-at-breakpoints('.h-text-size-2x-large', $shell-helper-define-text-size-2x-large-breakpoints) {
+        font-size: rem($shell-g-font-size-2x-large) !important;
+    }
+}
+
+// 3X-Large
+.h-text-size-3x-large {
+    font-size: rem($shell-g-font-size-3x-large) !important;
+}
+
+// Apply at breakpoints
+@if $shell-helper-apply-text-size-3x-large-at-breakpoints {
+    @include apply-at-breakpoints('.h-text-size-3x-large', $shell-helper-define-text-size-3x-large-breakpoints) {
+        font-size: rem($shell-g-font-size-3x-large) !important;
+    }
+}
+
+// 4X-Large
+.h-text-size-4x-large {
+    font-size: rem($shell-g-font-size-4x-large) !important;
+}
+
+// Apply at breakpoints
+@if $shell-helper-apply-text-size-4x-large-at-breakpoints {
+    @include apply-at-breakpoints('.h-text-size-4x-large', $shell-helper-define-text-size-4x-large-breakpoints) {
+        font-size: rem($shell-g-font-size-4x-large) !important;
+    }
+}
+
+// 5X-Large
+.h-text-size-5x-large {
+    font-size: rem($shell-g-font-size-5x-large) !important;
+}
+
+// Apply at breakpoints
+@if $shell-helper-apply-text-size-5x-large-at-breakpoints {
+    @include apply-at-breakpoints('.h-text-size-5x-large', $shell-helper-define-text-size-5x-large-breakpoints) {
+        font-size: rem($shell-g-font-size-5x-large) !important;
+    }
+}
+
+// 6X-Large
+.h-text-size-6x-large {
+    font-size: rem($shell-g-font-size-6x-large) !important;
+}
+
+// Apply at breakpoints
+@if $shell-helper-apply-text-size-6x-large-at-breakpoints {
+    @include apply-at-breakpoints('.h-text-size-6x-large', $shell-helper-define-text-size-6x-large-breakpoints) {
+        font-size: rem($shell-g-font-size-6x-large) !important;
+    }
+}
+
+// 7X-Large
+.h-text-size-7x-large {
+    font-size: rem($shell-g-font-size-7x-large) !important;
+}
+
+// Apply at breakpoints
+@if $shell-helper-apply-text-size-7x-large-at-breakpoints {
+    @include apply-at-breakpoints('.h-text-size-7x-large', $shell-helper-define-text-size-7x-large-breakpoints) {
+        font-size: rem($shell-g-font-size-7x-large) !important;
     }
 }
 
@@ -259,7 +340,7 @@
 
 // Apply at breakpoints
 @if $shell-helper-apply-text-align-center-at-breakpoints {
-    @include apply-at-breakpoints(".h-text-align-center", $shell-helper-define-text-align-center-breakpoints) {
+    @include apply-at-breakpoints('.h-text-align-center', $shell-helper-define-text-align-center-breakpoints) {
         text-align: center !important;
     }
 }
@@ -271,7 +352,7 @@
 
 // Apply at breakpoints
 @if $shell-helper-apply-text-align-left-at-breakpoints {
-    @include apply-at-breakpoints(".h-text-align-left", $shell-helper-define-text-align-left-breakpoints) {
+    @include apply-at-breakpoints('.h-text-align-left', $shell-helper-define-text-align-left-breakpoints) {
         text-align: left !important;
     }
 }
@@ -283,7 +364,7 @@
 
 // Apply at breakpoints
 @if $shell-helper-apply-text-align-right-at-breakpoints {
-    @include apply-at-breakpoints(".h-text-align-right", $shell-helper-define-text-align-right-breakpoints) {
+    @include apply-at-breakpoints('.h-text-align-right', $shell-helper-define-text-align-right-breakpoints) {
         text-align: right !important;
     }
 }
@@ -311,7 +392,7 @@
 
 // Apply at breakpoints
 @if $shell-helper-apply-text-truncate-at-breakpoints {
-    @include apply-at-breakpoints(".h-text-truncate", $shell-helper-define-text-truncate-breakpoints) {
+    @include apply-at-breakpoints('.h-text-truncate', $shell-helper-define-text-truncate-breakpoints) {
         @include text-truncate(true);
     }
 }
@@ -326,26 +407,8 @@
 
 // Apply at breakpoints
 @if $shell-helper-apply-text-truncate-at-breakpoints {
-    @include apply-at-breakpoints(".h-text-truncate--inline", $shell-helper-define-text-truncate-breakpoints) {
+    @include apply-at-breakpoints('.h-text-truncate--inline', $shell-helper-define-text-truncate-breakpoints) {
         display: inline-block !important;
-    }
-}
-
-
-/**
- * Make text on OS X look more consistent with other systems that do not
- * render text using sub-pixel anti-aliasing.
- *
- * N.B. mixin is here: "Mixins and Functions -> Helpers".
- *
- * N.B. we recommend not to use this. And this can be applied globally on the
- * `<html>` element in "Base" therefore it's only applied here if that boolean
- * setting is set to "false"—which is the default.
- */
-
-@if $shell-base-apply-osx-font-smoothing == false {
-    .h-text-osx-font-smoothing {
-        @include text-osx-font-smoothing(true);
     }
 }
 
@@ -365,7 +428,7 @@
 
 // Apply at breakpoints
 @if $shell-helper-apply-hide-at-breakpoints {
-    @include apply-at-breakpoints(".h-hide", $shell-helper-define-hide-breakpoints) {
+    @include apply-at-breakpoints('.h-hide', $shell-helper-define-hide-breakpoints) {
         display: none !important;
     }
 }
@@ -383,7 +446,7 @@
 
 // Apply at breakpoints
 @if $shell-helper-apply-hide-visually-at-breakpoints {
-    @include apply-at-breakpoints(".h-hide-visually", $shell-helper-define-hide-visually-breakpoints) {
+    @include apply-at-breakpoints('.h-hide-visually', $shell-helper-define-hide-visually-breakpoints) {
         @include hide-visually(true);
     }
 }
@@ -468,7 +531,7 @@
 
 // Apply at breakpoints
 @if $shell-helper-apply-spacing-base-at-breakpoints {
-    @include apply-at-breakpoints(".h-spacing-base", $shell-helper-define-spacing-base-breakpoints) {
+    @include apply-at-breakpoints('.h-spacing-base', $shell-helper-define-spacing-base-breakpoints) {
         margin-bottom: rem($shell-g-spacing-base) !important;
     }
 }
@@ -477,18 +540,6 @@
  * Decrease from base.
  */
 
-// Tiny
-.h-spacing-tiny {
-    margin-bottom: rem($shell-g-spacing-tiny) !important;
-}
-
-// Apply at breakpoints
-@if $shell-helper-apply-spacing-tiny-at-breakpoints {
-    @include apply-at-breakpoints(".h-spacing-tiny", $shell-helper-define-spacing-tiny-breakpoints) {
-        margin-bottom: rem($shell-g-spacing-tiny) !important;
-    }
-}
-
 // Small
 .h-spacing-small {
     margin-bottom: rem($shell-g-spacing-small) !important;
@@ -496,8 +547,20 @@
 
 // Apply at breakpoints
 @if $shell-helper-apply-spacing-small-at-breakpoints {
-    @include apply-at-breakpoints(".h-spacing-small", $shell-helper-define-spacing-small-breakpoints) {
+    @include apply-at-breakpoints('.h-spacing-small', $shell-helper-define-spacing-small-breakpoints) {
         margin-bottom: rem($shell-g-spacing-small) !important;
+    }
+}
+
+// X-Small
+.h-spacing-x-small {
+    margin-bottom: rem($shell-g-spacing-x-small) !important;
+}
+
+// Apply at breakpoints
+@if $shell-helper-apply-spacing-x-small-at-breakpoints {
+    @include apply-at-breakpoints('.h-spacing-x-small', $shell-helper-define-spacing-x-small-breakpoints) {
+        margin-bottom: rem($shell-g-spacing-x-small) !important;
     }
 }
 
@@ -512,20 +575,68 @@
 
 // Apply at breakpoints
 @if $shell-helper-apply-spacing-large-at-breakpoints {
-    @include apply-at-breakpoints(".h-spacing-large", $shell-helper-define-spacing-large-breakpoints) {
+    @include apply-at-breakpoints('.h-spacing-large', $shell-helper-define-spacing-large-breakpoints) {
         margin-bottom: rem($shell-g-spacing-large) !important;
     }
 }
 
-// Huge
-.h-spacing-huge {
-    margin-bottom: rem($shell-g-spacing-huge) !important;
+// X-Large
+.h-spacing-x-large {
+    margin-bottom: rem($shell-g-spacing-x-large) !important;
 }
 
 // Apply at breakpoints
-@if $shell-helper-apply-spacing-huge-at-breakpoints {
-    @include apply-at-breakpoints(".h-spacing-huge", $shell-helper-define-spacing-huge-breakpoints) {
-        margin-bottom: rem($shell-g-spacing-huge) !important;
+@if $shell-helper-apply-spacing-x-large-at-breakpoints {
+    @include apply-at-breakpoints('.h-spacing-x-large', $shell-helper-define-spacing-x-large-breakpoints) {
+        margin-bottom: rem($shell-g-spacing-x-large) !important;
+    }
+}
+
+// 2X-Large
+.h-spacing-2x-large {
+    margin-bottom: rem($shell-g-spacing-2x-large) !important;
+}
+
+// Apply at breakpoints
+@if $shell-helper-apply-spacing-2x-large-at-breakpoints {
+    @include apply-at-breakpoints('.h-spacing-2x-large', $shell-helper-define-spacing-2x-large-breakpoints) {
+        margin-bottom: rem($shell-g-spacing-2x-large) !important;
+    }
+}
+
+// 3X-Large
+.h-spacing-3x-large {
+    margin-bottom: rem($shell-g-spacing-3x-large) !important;
+}
+
+// Apply at breakpoints
+@if $shell-helper-apply-spacing-3x-large-at-breakpoints {
+    @include apply-at-breakpoints('.h-spacing-3x-large', $shell-helper-define-spacing-3x-large-breakpoints) {
+        margin-bottom: rem($shell-g-spacing-3x-large) !important;
+    }
+}
+
+// 4X-Large
+.h-spacing-4x-large {
+    margin-bottom: rem($shell-g-spacing-4x-large) !important;
+}
+
+// Apply at breakpoints
+@if $shell-helper-apply-spacing-4x-large-at-breakpoints {
+    @include apply-at-breakpoints('.h-spacing-4x-large', $shell-helper-define-spacing-4x-large-breakpoints) {
+        margin-bottom: rem($shell-g-spacing-4x-large) !important;
+    }
+}
+
+// 5X-Large
+.h-spacing-5x-large {
+    margin-bottom: rem($shell-g-spacing-5x-large) !important;
+}
+
+// Apply at breakpoints
+@if $shell-helper-apply-spacing-5x-large-at-breakpoints {
+    @include apply-at-breakpoints('.h-spacing-5x-large', $shell-helper-define-spacing-5x-large-breakpoints) {
+        margin-bottom: rem($shell-g-spacing-5x-large) !important;
     }
 }
 

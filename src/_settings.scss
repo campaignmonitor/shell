@@ -80,7 +80,7 @@
  * The baseline number from which everything else is derived.
  */
 
-$shell-g-base-number: 16;
+$shell-g-base-number: 16 !default;
 
 
 
@@ -90,24 +90,18 @@ $shell-g-base-number: 16;
 
 /**
  * Black and white.
- *
- * N.B. non-overridable.
  */
 
-$shell-g-color-white: #fff;
+$shell-g-color-white: #fff !default;
 
-$shell-g-color-black: #000;
+$shell-g-color-black: #000 !default;
 
 
 /**
- * Text.
+ * Base text.
  */
 
-// Base (global text colour)
-$shell-g-color-text-base: #444 !default;
-
-// Heading
-$shell-g-color-text-heading: $shell-g-color-text-base !default;
+$shell-g-color-text-base: #434D5D !default;
 
 
 /**
@@ -125,53 +119,44 @@ $shell-g-color-link-hover: $shell-g-color-link !default;
    ========================================================================= */
 
 /**
- * Base sizes.
+ * The scale based on `$shell-g-base-number` being 16:
+ *
+ * Decrease: 14, 13, 12
+ * Increase: 18, 24, 28, 32, 40, 48, 56, 72
  */
 
 $shell-g-font-size: $shell-g-base-number !default;
 
 // Decrease
-$shell-g-font-size-tiny: $shell-g-font-size - 4 !default;
-
 $shell-g-font-size-small: $shell-g-font-size - 2 !default;
+
+$shell-g-font-size-x-small: $shell-g-font-size - 3 !default;
+
+$shell-g-font-size-2x-small: $shell-g-font-size - 4 !default;
 
 // Increase
 $shell-g-font-size-large: $shell-g-font-size + 2 !default;
 
-$shell-g-font-size-huge: $shell-g-font-size + 4 !default;
+$shell-g-font-size-x-large: ceil($shell-g-font-size / 2 * 3) !default;
 
+$shell-g-font-size-2x-large: ceil($shell-g-font-size / 2 * 3.5) !default;
 
-/**
- * Heading sizes.
- */
+$shell-g-font-size-3x-large: ceil($shell-g-font-size / 2 * 4) !default;
 
-$shell-g-font-size-heading: $shell-g-base-number * 1.25 !default;
+$shell-g-font-size-4x-large: ceil($shell-g-font-size / 2 * 5) !default;
 
-// Decrease
-$shell-g-font-size-heading-tiny: $shell-g-font-size-heading - 4 !default;
+$shell-g-font-size-5x-large: ceil($shell-g-font-size / 2 * 6) !default;
 
-$shell-g-font-size-heading-small: $shell-g-font-size-heading - 2 !default;
+$shell-g-font-size-6x-large: ceil($shell-g-font-size / 2 * 7) !default;
 
-// Increase
-$shell-g-font-size-heading-large: $shell-g-font-size-heading + 4 !default;
-
-$shell-g-font-size-heading-huge: $shell-g-font-size-heading + 8 !default;
+$shell-g-font-size-7x-large: ceil($shell-g-font-size / 2 * 9) !default;
 
 
 /**
  * Line height.
  */
 
-$shell-g-line-height: $shell-g-base-number * 1.5 !default;
-
-
-/**
- * Line height ratio.
- *
- * N.B. non-overridable.
- */
-
-$shell-g-line-height-ratio: $shell-g-line-height / $shell-g-font-size;
+$shell-g-line-height: 1.5 !default;
 
 
 /**
@@ -179,53 +164,21 @@ $shell-g-line-height-ratio: $shell-g-line-height / $shell-g-font-size;
  */
 
 // Base
-$shell-g-font-family-base: sans-serif !default;
+$shell-g-font-family-base: 'Helvetica Neue', sans-serif !default;
 
 // Mono-space
-$shell-g-font-family-monospace: Consolas, monospace !default;
+$shell-g-font-family-monospace: monospace, monospace !default;
 
 
 /**
  * Weights.
- *
- * N.B. all the font weights are there to be used when you're using Webfonts
- * i.e. fonts brought in via the `@font-face` declaration. It's better to
- * store each Webfont weights in settings rather than trying to remember each
- * of the numbers that the weights correspond to, plus it ensures that your
- * project's typography is applied consistency. You can use these settings for
- * none Webfonts i.e. system fonts but typically you'll only need to apply one
- * weight which is "bold" and in that case using `font-weight: bold;` is fine.
- *
- * See: https://developer.mozilla.org/en/docs/Web/CSS/font-weight#Common_weight_name_mapping.
  */
 
 $shell-g-font-weight-normal: 400 !default;
 
-$shell-g-font-weight-thin: 100 !default;
-
-$shell-g-font-weight-extra-light: 200 !default;
-
 $shell-g-font-weight-light: 300 !default;
 
-$shell-g-font-weight-medium: 500 !default;
-
-$shell-g-font-weight-semi-bold: 600 !default;
-
 $shell-g-font-weight-bold: 700 !default;
-
-$shell-g-font-weight-extra-bold: 800 !default;
-
-$shell-g-font-weight-black: 900 !default;
-
-// Heading weight
-$shell-g-font-weight-heading: $shell-g-font-weight-bold !default;
-
-
-/**
- * Maximum line length.
- */
-
-$shell-g-max-line-length: 600 !default;
 
 
 
@@ -233,17 +186,32 @@ $shell-g-max-line-length: 600 !default;
 /* 4. Spacing (Global)
    ========================================================================= */
 
+/**
+ * The scale based on `$shell-g-base-number` being 16:
+ *
+ * Decrease: 8, 4
+ * Increase: 24, 32, 40, 48, 56, 72
+ */
+
 $shell-g-spacing-base: $shell-g-base-number !default;
 
 // Decrease
-$shell-g-spacing-tiny: $shell-g-spacing-base / 3 !default;
+$shell-g-spacing-small: floor($shell-g-spacing-base / 2) !default;
 
-$shell-g-spacing-small: $shell-g-spacing-base / 2 !default;
+$shell-g-spacing-x-small: floor($shell-g-spacing-base / 4) !default;
 
 // Increase
-$shell-g-spacing-large: $shell-g-spacing-base * 2 !default;
+$shell-g-spacing-large: ceil($shell-g-spacing-base / 2 * 3) !default;
 
-$shell-g-spacing-huge: $shell-g-spacing-base * 3 !default;
+$shell-g-spacing-x-large: ceil($shell-g-spacing-base / 2 * 4) !default;
+
+$shell-g-spacing-2x-large: ceil($shell-g-spacing-base / 2 * 5) !default;
+
+$shell-g-spacing-3x-large: ceil($shell-g-spacing-base / 2 * 6) !default;
+
+$shell-g-spacing-4x-large: ceil($shell-g-spacing-base / 2 * 7) !default;
+
+$shell-g-spacing-5x-large: ceil($shell-g-spacing-base / 2 * 9) !default;
 
 
 
@@ -348,8 +316,8 @@ $shell-g-global-breakpoints: (lap) !default;
  *
  * And for nested stacking contexts (defined via a nested map):
  *
-    .c-modal__close-button {
-        z-index: z(modal-elements, close-button);
+    .c-dialog__close-button {
+        z-index: z(dialog-elements, close-button);
     }
  *
  * N.B. as we're using a Sass map (and nested maps) we need to use a Sass
@@ -366,9 +334,9 @@ $shell-g-global-breakpoints: (lap) !default;
  * Starting from highest to lowest:
  *
     <body>
-        <modal>
-            <modal-close-button>
-        <modal-underlay>
+        <dialog>
+            <dialog-close-button>
+        <dialog-underlay>
         <header>
         <main>
         <footer>
@@ -376,11 +344,11 @@ $shell-g-global-breakpoints: (lap) !default;
  */
 
 $shell-g-z-layers: (
-    "modal-elements": (
+    "dialog-elements": (
         "close-button": 1
     ),
-    "modal": 5,
-    "modal-underlay": 4,
+    "dialog": 5,
+    "dialog-underlay": 4,
     "header": 3,
     "main": 2,
     "footer": 1,
@@ -397,7 +365,7 @@ $shell-g-z-layers: (
  * HiDPI units, currently being used in:
  * "Mixins/Functions -> HiDPI background images".
  *
- * N.B. non-overridable.
+ * N.B. non-over-ridable.
  */
 
 $shell-g-hidpi-dpr: 1.3;
@@ -436,15 +404,9 @@ $shell-g-textual-inputs: 'input[type="text"],
  * Booleans.
  */
 
-$shell-base-apply-osx-font-smoothing: false !default;
-
-$shell-base-apply-link-transition: true !default;
-
 $shell-base-apply-style-to-disabled-and-readonly-states: true !default;
 
 $shell-base-apply-bottom-margin-to-paragraphs: false !default;
-
-$shell-base-apply-print-styles: true !default;
 
 
 /**
@@ -461,10 +423,6 @@ $shell-base-root-element-background-color: $shell-g-color-white !default;
 $shell-base-link-text-decoration: underline !default;
 
 $shell-base-link-text-decoration-on-hover: none !default;
-
-$shell-base-link-transition-duration: 0.15s !default;
-
-$shell-base-link-transition-timing-function: linear !default;
 
 
 /**
@@ -484,7 +442,7 @@ $shell-base-hr-color: $shell-g-color-text-base !default;
 
 $shell-base-disabled-and-readonly-state-opacity-strength: 0.6 !default;
 
-$shell-base-target-ios-selector: ".ios" !default;
+$shell-base-target-ios-selector: '.target-ios' !default;
 
 
 
@@ -508,20 +466,20 @@ $shell-container-maximum-width: $shell-g-base-number * 100 !default;
 $shell-container-minimum-width: 320 !default;
 
 // Size modifiers
-$shell-container-maximum-width-huge: $shell-g-base-number * 150 !default;
+$shell-container-maximum-width-x-large: $shell-g-base-number * 150 !default;
 
 $shell-container-maximum-width-large: $shell-g-base-number * 125 !default;
 
 $shell-container-maximum-width-small: $shell-g-base-number * 62.5 !default;
 
-$shell-container-maximum-width-tiny: $shell-g-base-number * 42 !default;
+$shell-container-maximum-width-x-small: $shell-g-base-number * 42 !default;
 
 
 /**
  * Gutter size.
  */
 
-$shell-container-gutter: $shell-g-spacing-huge !default;
+$shell-container-gutter: $shell-g-spacing-3x-large !default;
 
 
 
@@ -554,6 +512,7 @@ $shell-grid-9-col-width: 75% !default;
 $shell-grid-10-col-width: 83.333% !default;
 
 $shell-grid-11-col-width: 91.666% !default;
+
 
 /**
  * For all grid item widths turn on the ability to apply breakpoints via
@@ -628,34 +587,81 @@ $shell-grid-define-11-col-width-breakpoints: $shell-g-global-breakpoints !defaul
  * Apply at breakpoints" to understand how this works.
  */
 
+
 /**
  * Text sizes.
  */
 
-// Base
+/**
+ * Base.
+ */
+
 $shell-helper-apply-text-size-base-at-breakpoints: false !default;
 
 $shell-helper-define-text-size-base-breakpoints: $shell-g-global-breakpoints !default;
 
-// Tiny
-$shell-helper-apply-text-size-tiny-at-breakpoints: false !default;
-
-$shell-helper-define-text-size-tiny-breakpoints: $shell-g-global-breakpoints !default;
+/**
+ * Decrease from base.
+ */
 
 // Small
 $shell-helper-apply-text-size-small-at-breakpoints: false !default;
 
 $shell-helper-define-text-size-small-breakpoints: $shell-g-global-breakpoints !default;
 
+// X-Small
+$shell-helper-apply-text-size-x-small-at-breakpoints: false !default;
+
+$shell-helper-define-text-size-x-small-breakpoints: $shell-g-global-breakpoints !default;
+
+// 2X-Small
+$shell-helper-apply-text-size-2x-small-at-breakpoints: false !default;
+
+$shell-helper-define-text-size-2x-small-breakpoints: $shell-g-global-breakpoints !default;
+
+/**
+ * Increase from base.
+ */
+
 // Large
 $shell-helper-apply-text-size-large-at-breakpoints: false !default;
 
 $shell-helper-define-text-size-large-breakpoints: $shell-g-global-breakpoints !default;
 
-// Huge
-$shell-helper-apply-text-size-huge-at-breakpoints: false !default;
+// X-Large
+$shell-helper-apply-text-size-x-large-at-breakpoints: false !default;
 
-$shell-helper-define-text-size-huge-breakpoints: $shell-g-global-breakpoints !default;
+$shell-helper-define-text-size-x-large-breakpoints: $shell-g-global-breakpoints !default;
+
+// 2X-Large
+$shell-helper-apply-text-size-2x-large-at-breakpoints: false !default;
+
+$shell-helper-define-text-size-2x-large-breakpoints: $shell-g-global-breakpoints !default;
+
+// 3X-Large
+$shell-helper-apply-text-size-3x-large-at-breakpoints: false !default;
+
+$shell-helper-define-text-size-3x-large-breakpoints: $shell-g-global-breakpoints !default;
+
+// 4X-Large
+$shell-helper-apply-text-size-4x-large-at-breakpoints: false !default;
+
+$shell-helper-define-text-size-4x-large-breakpoints: $shell-g-global-breakpoints !default;
+
+// 5X-Large
+$shell-helper-apply-text-size-5x-large-at-breakpoints: false !default;
+
+$shell-helper-define-text-size-5x-large-breakpoints: $shell-g-global-breakpoints !default;
+
+// 6X-Large
+$shell-helper-apply-text-size-6x-large-at-breakpoints: false !default;
+
+$shell-helper-define-text-size-6x-large-breakpoints: $shell-g-global-breakpoints !default;
+
+// 7X-Large
+$shell-helper-apply-text-size-7x-large-at-breakpoints: false !default;
+
+$shell-helper-define-text-size-7x-large-breakpoints: $shell-g-global-breakpoints !default;
 
 /**
  * Alignments.
@@ -684,6 +690,7 @@ $shell-helper-apply-text-truncate-at-breakpoints: false !default;
 
 $shell-helper-define-text-truncate-breakpoints: $shell-g-global-breakpoints !default;
 
+
 /**
  * Hide.
  */
@@ -698,31 +705,63 @@ $shell-helper-apply-hide-visually-at-breakpoints: false !default;
 
 $shell-helper-define-hide-visually-breakpoints: $shell-g-global-breakpoints !default;
 
+
 /**
  * Spacing.
  */
 
-// Base
+/**
+ * Base.
+ */
+
 $shell-helper-apply-spacing-base-at-breakpoints: false !default;
 
 $shell-helper-define-spacing-base-breakpoints: $shell-g-global-breakpoints !default;
 
-// Tiny
-$shell-helper-apply-spacing-tiny-at-breakpoints: false !default;
-
-$shell-helper-define-spacing-tiny-breakpoints: $shell-g-global-breakpoints !default;
+/**
+ * Decrease from base.
+ */
 
 // Small
 $shell-helper-apply-spacing-small-at-breakpoints: false !default;
 
 $shell-helper-define-spacing-small-breakpoints: $shell-g-global-breakpoints !default;
 
+// X-Small
+$shell-helper-apply-spacing-x-small-at-breakpoints: false !default;
+
+$shell-helper-define-spacing-x-small-breakpoints: $shell-g-global-breakpoints !default;
+
+/**
+ * Increase from base.
+ */
+
 // Large
 $shell-helper-apply-spacing-large-at-breakpoints: false !default;
 
 $shell-helper-define-spacing-large-breakpoints: $shell-g-global-breakpoints !default;
 
-// Huge
-$shell-helper-apply-spacing-huge-at-breakpoints: false !default;
+// X-Large
+$shell-helper-apply-spacing-x-large-at-breakpoints: false !default;
 
-$shell-helper-define-spacing-huge-breakpoints: $shell-g-global-breakpoints !default;
+$shell-helper-define-spacing-x-large-breakpoints: $shell-g-global-breakpoints !default;
+
+// 2X-Large
+$shell-helper-apply-spacing-2x-large-at-breakpoints: false !default;
+
+$shell-helper-define-spacing-2x-large-breakpoints: $shell-g-global-breakpoints !default;
+
+// 3X-Large
+$shell-helper-apply-spacing-3x-large-at-breakpoints: false !default;
+
+$shell-helper-define-spacing-3x-large-breakpoints: $shell-g-global-breakpoints !default;
+
+// 4X-Large
+$shell-helper-apply-spacing-4x-large-at-breakpoints: false !default;
+
+$shell-helper-define-spacing-4x-large-breakpoints: $shell-g-global-breakpoints !default;
+
+// 5X-Large
+$shell-helper-apply-spacing-5x-large-at-breakpoints: false !default;
+
+$shell-helper-define-spacing-5x-large-breakpoints: $shell-g-global-breakpoints !default;
