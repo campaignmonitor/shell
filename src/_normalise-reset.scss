@@ -435,14 +435,17 @@ button {
 /**
  * 1. Prevent a WebKit bug where (2) destroys native `<audio>` and `<video>`
  *    controls in Android 4.
- * 2. Correct the inability to style clickable types in iOS and Safari.
+ * 2. Improve usability and consistency of cursor style between image-type
+ *    `<input>` and others.
+ * 3. Correct the inability to style clickable types in iOS and Safari.
  */
 
 button,
 html [type="button"], // [1]
 [type="reset"],
 [type="submit"] {
-    -webkit-appearance: button; // [2]
+    cursor: pointer; // [2]
+    -webkit-appearance: button; // [3]
 }
 
 
