@@ -1,6 +1,6 @@
 {
     "name": "shell-csslib",
-    "version": "0.9.0",
+    "version": "0.9.1",
     "description": "A lightweight CSS Library that allows you to build UI a lot faster, that is more consistent, robust, and maintainable",
     "homepage": "https://github.com/campaignmonitor/shell",
     "keywords": [
