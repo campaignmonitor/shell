@@ -14,7 +14,7 @@ Feedback is welcome via [Issues](https://github.com/campaignmonitor/shell/issues
 
 # Install Shell
 
-`npm shell-csslib`
+`npm install shell-csslib`
 
 
 # Docs & Tests
