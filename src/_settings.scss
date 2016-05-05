@@ -190,7 +190,7 @@ $shell-g-font-weight-bold: 700 !default;
  * The scale based on `$shell-g-base-number` being 16:
  *
  * Decrease: 12, 8, 4
- * Increase: 24, 32, 40, 48, 56, 72
+ * Increase: 24, 32, 40, 48, 56, 72, 96
  */
 
 $shell-g-spacing-base: $shell-g-base-number !default;
@@ -214,6 +214,8 @@ $shell-g-spacing-3x-large: ceil($shell-g-spacing-base / 2 * 6) !default;
 $shell-g-spacing-4x-large: ceil($shell-g-spacing-base / 2 * 7) !default;
 
 $shell-g-spacing-5x-large: ceil($shell-g-spacing-base / 2 * 9) !default;
+
+$shell-g-spacing-6x-large: ceil($shell-g-spacing-base / 2 * 12) !default;
 
 
 
