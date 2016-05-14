@@ -60,7 +60,7 @@
  * 2.  Colours (Global)
  * 3.  Typography (Global)
  * 4.  Spacing (Global)
- * 5.  Border Radius (Global)
+ * 5.  Cosmetics (Global)
  * 6.  Breakpoints (Global)
  * 7.  Z-Index system (Global)
  * 8.  HiDPI units (Global)
@@ -221,7 +221,7 @@ $shell-g-spacing-6x-large: ceil($shell-g-spacing-base / 2 * 12) !default;
 
 
 
-/* 5. Border Radius (Global)
+/* 5. Cosmetics (Global)
    ========================================================================= */
 
 $shell-g-border-radius: 3px;
