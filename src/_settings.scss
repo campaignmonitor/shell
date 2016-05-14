@@ -60,14 +60,15 @@
  * 2.  Colours (Global)
  * 3.  Typography (Global)
  * 4.  Spacing (Global)
- * 5.  Breakpoints (Global)
- * 6.  Z-Index system (Global)
- * 7.  HiDPI units (Global)
- * 8.  HTML textual `input`s (Global)
- * 9.  Base (Local)
- * 10. Container (Local)
- * 11. Grid (Local)
- * 12. Helpers (Local)
+ * 5.  Cosmetics (Global)
+ * 6.  Breakpoints (Global)
+ * 7.  Z-Index system (Global)
+ * 8.  HiDPI units (Global)
+ * 9.  HTML textual `input`s (Global)
+ * 10. Base (Local)
+ * 11. Container (Local)
+ * 12. Grid (Local)
+ * 13. Helpers (Local)
  */
 
 
@@ -220,7 +221,15 @@ $shell-g-spacing-6x-large: ceil($shell-g-spacing-base / 2 * 12) !default;
 
 
 
-/* 5. Breakpoints (Global)
+/* 5. Cosmetics (Global)
+   ========================================================================= */
+
+$shell-g-border-radius: 3px;
+
+
+
+
+/* 6. Breakpoints (Global)
    ========================================================================= */
 
 /**
@@ -297,7 +306,7 @@ $shell-g-global-breakpoints: (lap) !default;
 
 
 
-/* 6. Z-Index system (Global)
+/* 7. Z-Index system (Global)
    ========================================================================= */
 
 /**
@@ -362,7 +371,7 @@ $shell-g-z-layers: (
 
 
 
-/* 7. HiDPI units (Global)
+/* 8. HiDPI units (Global)
    ========================================================================= */
 
 /**
@@ -381,7 +390,7 @@ $shell-g-hidpi-dppx: 1.3 * 1dppx;
 
 
 
-/* 8. HTML textual `input`s (Global)
+/* 9. HTML textual `input`s (Global)
    ========================================================================= */
 
 $shell-g-textual-inputs: 'input[type="text"],
@@ -401,7 +410,7 @@ $shell-g-textual-inputs: 'input[type="text"],
 
 
 
-/* 9. Base (Local)
+/* 10. Base (Local)
    ========================================================================= */
 
 /**
@@ -451,7 +460,7 @@ $shell-base-target-ios-selector: '.target-ios' !default;
 
 
 
-/* 10. Container (Local)
+/* 11. Container (Local)
    ========================================================================= */
 
 /**
@@ -488,7 +497,7 @@ $shell-container-gutter: $shell-g-spacing-3x-large !default;
 
 
 
-/* 11. Grid (Local)
+/* 12. Grid (Local)
    ========================================================================= */
 
 /**
@@ -582,7 +591,7 @@ $shell-grid-define-11-col-width-breakpoints: $shell-g-global-breakpoints !defaul
 
 
 
-/* 12. Helpers (Local)
+/* 13. Helpers (Local)
    ========================================================================= */
 
 /**
