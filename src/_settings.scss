@@ -495,27 +495,29 @@ $shell-container-gutter: $shell-g-spacing-3x-large !default;
  * Grid column widths.
  */
 
-$shell-grid-1-col-width: 8.333% !default;
+$shell-grid-1-col-width: calc(100% / 12) !default;
 
-$shell-grid-2-col-width: 16.666% !default;
+$shell-grid-2-col-width: calc((100% / 12) * 2) !default;
 
 $shell-grid-3-col-width: 25% !default;
 
-$shell-grid-4-col-width: 33.333% !default;
+$shell-grid-4-col-width: calc((100% / 12) * 4) !default;
 
-$shell-grid-5-col-width: 41.666% !default;
+$shell-grid-5-col-width: calc((100% / 12) * 5) !default;
 
 $shell-grid-6-col-width: 50% !default;
 
-$shell-grid-7-col-width: 58.333% !default;
+$shell-grid-7-col-width: calc((100% / 12) * 7) !default;
 
-$shell-grid-8-col-width: 66.666% !default;
+$shell-grid-8-col-width: calc((100% / 12) * 8) !default;
 
 $shell-grid-9-col-width: 75% !default;
 
-$shell-grid-10-col-width: 83.333% !default;
+$shell-grid-10-col-width: calc((100% / 12) * 10) !default;
 
-$shell-grid-11-col-width: 91.666% !default;
+$shell-grid-11-col-width: calc((100% / 12) * 11) !default;
+
+$shell-grid-12-col-width: 100% !default;
 
 
 /**
