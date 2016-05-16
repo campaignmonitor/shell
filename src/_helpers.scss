@@ -437,32 +437,14 @@
  * necessary when building accessible and progressively enhanced UI's. This
  * will require functionality that can append a hook to an element
  * (typically the `html` element) if JavaScript is on.
- *
- * N.B. it is okay to use `!important` here as we're doing it preemptively
- * i.e. you know you will always want the rule it's applied too to take
- * precedence.
  */
 
-.h-hide-if-js-is-on {
+.js .h-hide-if-js-is-on {
     display: none !important;
 }
 
-// Apply at breakpoints
-@if $shell-helper-apply-hide-if-js-is-on-at-breakpoints {
-    @include apply-at-breakpoints('.h-hide-if-js-is-on', $shell-helper-define-hide-if-js-is-on-breakpoints) {
-        display: none !important;
-    }
-}
-
-.h-hide-if-js-is-off {
+.no-js .h-hide-if-js-is-off {
     display: none !important;
-}
-
-// Apply at breakpoints
-@if $shell-helper-apply-hide-if-js-is-off-at-breakpoints {
-    @include apply-at-breakpoints('.h-hide-if-js-is-off', $shell-helper-define-hide-if-js-is-off-breakpoints) {
-        display: none !important;
-    }
 }
 
 
