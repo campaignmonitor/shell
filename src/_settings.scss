@@ -101,7 +101,7 @@ $shell-g-color-black: #000 !default;
  * Base text.
  */
 
-$shell-g-color-text-base: #434d5d !default;
+$shell-g-color-text: #434d5d !default;
 
 
 /**
@@ -164,7 +164,7 @@ $shell-g-line-height: 1.5 !default;
  */
 
 // Base
-$shell-g-font-family-base: 'Helvetica Neue', sans-serif !default;
+$shell-g-font-family: 'Helvetica Neue', sans-serif !default;
 
 // Mono-space
 $shell-g-font-family-monospace: monospace, monospace !default;
@@ -437,7 +437,7 @@ $shell-base-hr-thickness: 1px !default;
 
 $shell-base-hr-style: solid !default;
 
-$shell-base-hr-color: $shell-g-color-text-base !default;
+$shell-base-hr-color: $shell-g-color-text !default;
 
 
 /**
@@ -600,9 +600,9 @@ $shell-grid-define-11-col-width-breakpoints: $shell-g-global-breakpoints !defaul
  * Base.
  */
 
-$shell-helper-apply-text-size-base-at-breakpoints: false !default;
+$shell-helper-apply-text-size-at-breakpoints: false !default;
 
-$shell-helper-define-text-size-base-breakpoints: $shell-g-global-breakpoints !default;
+$shell-helper-define-text-size-breakpoints: $shell-g-global-breakpoints !default;
 
 /**
  * Decrease from base.

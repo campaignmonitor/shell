@@ -182,7 +182,7 @@
 // Base
 // N.B. having to reinstate the default so that any nested grids that inherit
 // a "Gutterless" modifier can be easily reapplied
-.l-grid--gutter-horizontal-base {
+.l-grid--gutter-horizontal {
     margin-left: -(rem($shell-g-spacing));
 
     > .l-grid__item {
@@ -232,7 +232,7 @@
  */
 
 // Base
-.l-grid--gutter-vertical-base > .l-grid__item {
+.l-grid--gutter-vertical > .l-grid__item {
     margin-bottom: rem($shell-g-spacing);
 }
 
