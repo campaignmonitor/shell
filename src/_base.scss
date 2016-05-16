@@ -141,7 +141,7 @@ img {
 
 @if $shell-base-apply-bottom-margin-to-paragraphs {
     p {
-        margin-bottom: rem($shell-g-spacing-base);
+        margin-bottom: rem($shell-g-spacing);
 
         &:last-child {
             margin-bottom: 0;

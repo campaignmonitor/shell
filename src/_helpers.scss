@@ -523,14 +523,14 @@
  * Base.
  */
 
-.h-spacing-base {
-    margin-bottom: rem($shell-g-spacing-base) !important;
+.h-spacing {
+    margin-bottom: rem($shell-g-spacing) !important;
 }
 
 // Apply at breakpoints
-@if $shell-helper-apply-spacing-base-at-breakpoints {
-    @include apply-at-breakpoints('.h-spacing-base', $shell-helper-define-spacing-base-breakpoints) {
-        margin-bottom: rem($shell-g-spacing-base) !important;
+@if $shell-helper-apply-spacing-at-breakpoints {
+    @include apply-at-breakpoints('.h-spacing', $shell-helper-define-spacing-breakpoints) {
+        margin-bottom: rem($shell-g-spacing) !important;
     }
 }
 
