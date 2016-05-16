@@ -110,11 +110,11 @@
 // Base
 // N.B. having to reinstate the default so that any nested "Side-by-side's"
 // that inherit a "Gutterless" modifier can be easily reapplied
-.l-side-by-side--gutter-base > .l-side-by-side__item:last-child {
+.l-side-by-side--gutter > .l-side-by-side__item:last-child {
     margin-left: rem($shell-g-spacing);
 }
 
-.l-side-by-side--gutter-base.l-side-by-side--reversed > .l-side-by-side__item:last-child {
+.l-side-by-side--gutter.l-side-by-side--reversed > .l-side-by-side__item:last-child {
     margin-left: 0;
     margin-right: rem($shell-g-spacing);
 }
