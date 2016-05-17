@@ -660,6 +660,15 @@ progress {
 
 
     /**
+     * Allows textual input values to be positioned by padding alone.
+     */
+
+    #{$shell-g-textual-inputs} {
+        line-height: 1;
+    }
+
+
+    /**
      * Remove the top inner shadow from iOS inputs. See:
      * https://davidwalsh.name/input-shadows-ipad
      */
