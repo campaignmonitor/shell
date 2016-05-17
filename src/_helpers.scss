@@ -433,6 +433,22 @@
 
 
 /**
+ * Hide elements for JavaScript users and non-JavaScript users, this is
+ * necessary when building accessible and progressively enhanced UI's. This
+ * will require functionality that can append a hook to an element
+ * (typically the `html` element) if JavaScript is on.
+ */
+
+.js .h-hide-if-js-is-on {
+    display: none !important;
+}
+
+.no-js .h-hide-if-js-is-off {
+    display: none !important;
+}
+
+
+/**
  * Hide elements only visually but have it available for screen readers.
  *
  * N.B. mixin is here: "Mixins and Functions -> Helpers".
