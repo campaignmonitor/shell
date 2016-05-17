@@ -138,6 +138,15 @@
     margin-right: rem($shell-g-spacing-x-small);
 }
 
+.l-side-by-side--gutter-2x-small > .l-side-by-side__item:last-child {
+    margin-left: rem($shell-g-spacing-2x-small);
+}
+
+.l-side-by-side--gutter-2x-small.l-side-by-side--reversed > .l-side-by-side__item:last-child {
+    margin-left: 0;
+    margin-right: rem($shell-g-spacing-2x-small);
+}
+
 // Increase
 .l-side-by-side--gutter-large > .l-side-by-side__item:last-child {
     margin-left: rem($shell-g-spacing-large);
@@ -155,6 +164,51 @@
 .l-side-by-side--gutter-x-large.l-side-by-side--reversed > .l-side-by-side__item:last-child {
     margin-left: 0;
     margin-right: rem($shell-g-spacing-x-large);
+}
+
+.l-side-by-side--gutter-2x-large > .l-side-by-side__item:last-child {
+    margin-left: rem($shell-g-spacing-2x-large);
+}
+
+.l-side-by-side--gutter-2x-large.l-side-by-side--reversed > .l-side-by-side__item:last-child {
+    margin-left: 0;
+    margin-right: rem($shell-g-spacing-2x-large);
+}
+
+.l-side-by-side--gutter-3x-large > .l-side-by-side__item:last-child {
+    margin-left: rem($shell-g-spacing-3x-large);
+}
+
+.l-side-by-side--gutter-3x-large.l-side-by-side--reversed > .l-side-by-side__item:last-child {
+    margin-left: 0;
+    margin-right: rem($shell-g-spacing-3x-large);
+}
+
+.l-side-by-side--gutter-4x-large > .l-side-by-side__item:last-child {
+    margin-left: rem($shell-g-spacing-4x-large);
+}
+
+.l-side-by-side--gutter-4x-large.l-side-by-side--reversed > .l-side-by-side__item:last-child {
+    margin-left: 0;
+    margin-right: rem($shell-g-spacing-4x-large);
+}
+
+.l-side-by-side--gutter-5x-large > .l-side-by-side__item:last-child {
+    margin-left: rem($shell-g-spacing-5x-large);
+}
+
+.l-side-by-side--gutter-5x-large.l-side-by-side--reversed > .l-side-by-side__item:last-child {
+    margin-left: 0;
+    margin-right: rem($shell-g-spacing-5x-large);
+}
+
+.l-side-by-side--gutter-6x-large > .l-side-by-side__item:last-child {
+    margin-left: rem($shell-g-spacing-6x-large);
+}
+
+.l-side-by-side--gutter-6x-large.l-side-by-side--reversed > .l-side-by-side__item:last-child {
+    margin-left: 0;
+    margin-right: rem($shell-g-spacing-6x-large);
 }
 
 
