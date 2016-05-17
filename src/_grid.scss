@@ -135,7 +135,6 @@
  *
  * 1. Allows the use of widths.
  * 2. Horizontal gutter.
- * 3. 100% width by default—"Mobile-first".
  *
  * N.B. all grid gutter sizes are in "Settings -> Grid (Local)".
  */
@@ -143,7 +142,6 @@
 .l-grid__item {
     flex-basis: auto; // [1]
     padding-left: rem($shell-g-spacing-base); // [2]
-    width: 100%; // [3]
 }
 
 
