@@ -34,8 +34,8 @@
 
 html {
     background: $shell-base-root-element-background-color;
-    color: $shell-g-color-text-base;
-    font-family: $shell-g-font-family-base;
+    color: $shell-g-color-text;
+    font-family: $shell-g-font-family;
     font-size: $shell-g-font-size / 16 * 1em;
     font-weight: $shell-g-font-weight-normal;
     line-height: $shell-g-line-height;
@@ -141,7 +141,7 @@ img {
 
 @if $shell-base-apply-bottom-margin-to-paragraphs {
     p {
-        margin-bottom: rem($shell-g-spacing-base);
+        margin-bottom: rem($shell-g-spacing);
 
         &:last-child {
             margin-bottom: 0;
@@ -179,7 +179,7 @@ h3,
 h4,
 h5,
 h6 {
-    color: $shell-g-color-text-base;
+    color: $shell-g-color-text;
     font-size: rem($shell-g-font-size);
     font-weight: $shell-g-font-weight-normal;
     line-height: $shell-g-line-height;
@@ -191,7 +191,7 @@ h6 {
  */
 
 .heading {
-    color: $shell-g-color-text-base;
+    color: $shell-g-color-text;
     font-size: rem($shell-g-font-size);
     font-weight: $shell-g-font-weight-normal;
 }

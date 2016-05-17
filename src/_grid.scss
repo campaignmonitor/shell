@@ -126,7 +126,7 @@
 .l-grid {
     display: flex;
     flex-flow: row wrap;
-    margin-left: -(rem($shell-g-spacing-base)); // [1]
+    margin-left: -(rem($shell-g-spacing)); // [1]
 }
 
 
@@ -180,11 +180,11 @@
 // Base
 // N.B. having to reinstate the default so that any nested grids that inherit
 // a "Gutterless" modifier can be easily reapplied
-.l-grid--gutter-horizontal-base {
-    margin-left: -(rem($shell-g-spacing-base));
+.l-grid--gutter-horizontal {
+    margin-left: -(rem($shell-g-spacing));
 
     > .l-grid__item {
-        padding-left:  rem($shell-g-spacing-base);
+        padding-left:  rem($shell-g-spacing);
     }
 }
 
@@ -230,8 +230,8 @@
  */
 
 // Base
-.l-grid--gutter-vertical-base > .l-grid__item {
-    margin-bottom: rem($shell-g-spacing-base);
+.l-grid--gutter-vertical > .l-grid__item {
+    margin-bottom: rem($shell-g-spacing);
 }
 
 // Decrease

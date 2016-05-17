@@ -57,7 +57,7 @@
  *   ever applies to multi-line declaration Helpers, applying a single-line
  *   declaration Helper, for example:
  *
-    .h-text-size-base {
+    .h-text-size {
         font-size: rem($shell-g-font-size) !important;
     }
  *
@@ -175,13 +175,13 @@
  * Base.
  */
 
-.h-text-size-base {
+.h-text-size {
     font-size: rem($shell-g-font-size) !important;
 }
 
 // Apply at breakpoints
-@if $shell-helper-apply-text-size-base-at-breakpoints {
-    @include apply-at-breakpoints(".h-text-size-base", $shell-helper-define-text-size-base-breakpoints) {
+@if $shell-helper-apply-text-size-at-breakpoints {
+    @include apply-at-breakpoints(".h-text-size", $shell-helper-define-text-size-breakpoints) {
         font-size: rem($shell-g-font-size) !important;
     }
 }
@@ -539,14 +539,14 @@
  * Base.
  */
 
-.h-spacing-base {
-    margin-bottom: rem($shell-g-spacing-base) !important;
+.h-spacing {
+    margin-bottom: rem($shell-g-spacing) !important;
 }
 
 // Apply at breakpoints
-@if $shell-helper-apply-spacing-base-at-breakpoints {
-    @include apply-at-breakpoints('.h-spacing-base', $shell-helper-define-spacing-base-breakpoints) {
-        margin-bottom: rem($shell-g-spacing-base) !important;
+@if $shell-helper-apply-spacing-at-breakpoints {
+    @include apply-at-breakpoints('.h-spacing', $shell-helper-define-spacing-breakpoints) {
+        margin-bottom: rem($shell-g-spacing) !important;
     }
 }
 
