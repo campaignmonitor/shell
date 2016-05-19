@@ -1,0 +1,149 @@
+/* ============================================================================
+   COLOURS
+   ========================================================================= */
+
+
+/**
+ * The number colour scale works like the standard typography numbering
+ * system, lower numbers represent lighter shades of the colour, with the
+ * higher numbers representing the darker shades. Here's the scale:
+ *
+ *  50 - The lightiest of lights
+ * 100 – Ultra-light.
+ * 200 – Extra-light.
+ * 300 – Semi-light.
+ * 400 – Light.
+ * 500 – Normal.
+ * 600 – Dark.
+ * 700 – Semi-dark.
+ * 800 – Extra-dark.
+ * 900 – Ultra-dark.
+ */
+
+
+/**
+ * Grey.
+ */
+
+$g-color-grey-50: #fafafb;
+
+$g-color-grey-100: #f5f6f8;
+
+$g-color-grey-200: #e9ebef;
+
+$g-color-grey-300: #d2d7df;
+
+$g-color-grey-400: #c7cdd6;
+
+$g-color-grey-500: #bcc3ce;
+
+$g-color-grey-600: #a5afbe;
+
+$g-color-grey-700: #8e9aad;
+
+$g-color-grey-800: #717a8a;
+
+$g-color-grey-900: #434d5d;
+
+/**
+ * Green.
+ */
+
+$g-color-green-50: #f3fbf7;
+
+$g-color-green-100: #bae8cf;
+
+$g-color-green-200: #98ddb8;
+
+$g-color-green-300: #76d1a1;
+
+$g-color-green-400: #23c576;
+
+$g-color-green-500: #1bb362;
+
+$g-color-green-600: #14a553;
+
+$g-color-green-700: #0e9843;
+
+$g-color-green-800: #088a35;
+
+$g-color-green-900: #016a19;
+
+/**
+ * Legacy green.
+ */
+
+$g-color-legacy-green-50: #f8fbf5;
+
+$g-color-legacy-green-100: #d9e8c7;
+
+$g-color-legacy-green-200: #c7ddac;
+
+$g-color-legacy-green-300: #b3d18f;
+
+$g-color-legacy-green-400: #97c456;
+
+$g-color-legacy-green-500: #81b245;
+
+$g-color-legacy-green-600: #70a438;
+
+$g-color-legacy-green-700: #61962b;
+
+$g-color-legacy-green-800: #518a1f;
+
+$g-color-legacy-green-900: #30690b;
+
+/**
+ * Blue.
+ */
+
+$g-color-blue-50: #eef5ff;
+
+$g-color-blue-100: #cae1fc;
+
+$g-color-blue-200: #b0d2fb;
+
+$g-color-blue-300: #96c4fa;
+
+$g-color-blue-400: #63b1f9;
+
+$g-color-blue-500: #509cf6;
+
+$g-color-blue-600: #428cf4;
+
+$g-color-blue-700: #347df1;
+
+$g-color-blue-800: #266ef0;
+
+$g-color-blue-900: #104ce8;
+
+/**
+ * Red.
+ */
+
+$g-color-red-50: #fef7f6;
+
+$g-color-red-100: #f9cbc7;
+
+$g-color-red-200: #f5b1ab;
+
+$g-color-red-300: #f2988f;
+
+$g-color-red-400: #f26d5c;
+
+$g-color-red-500: #e85244;
+
+$g-color-red-600: #e24437;
+
+$g-color-red-700: #dd362a;
+
+$g-color-red-800: #d8281e;
+
+$g-color-red-900: #ad0201;
+
+
+/**
+ * Brand: CM blue.
+ */
+
+$g-color-brand: #19a9e5;
