@@ -166,7 +166,7 @@ img {
 
 /**
  * Neutralise all the heading elements in favour of applying styles via the
- * `.heading` class and its modifiers. We make all the heading elements use the
+ * `.heading-` class and its variants. We make all the heading elements use the
  * default typography styles and we may as well apply the heading colour.
  *
  * N.B. `margin` and `padding` are taken care of in "Normalise/Reset".
@@ -185,32 +185,21 @@ h6 {
     line-height: $shell-g-line-height;
 }
 
-
-/**
- * Base `.heading` styles.
- */
-
-.heading {
-    color: $shell-g-color-text;
-    font-size: rem($shell-g-font-size);
-    font-weight: $shell-g-font-weight-normal;
+.heading-headline {
+    font-size: rem($shell-g-font-x-size-large);
+    font-weight: $shell-g-font-weight-bold;
 }
 
-/**
- * Modifiers: Main heading.
- */
+.heading-headline--large {
+    font-size: rem($shell-g-font-size-2x-large);
+}
 
-.heading--main {
+.heading-title {
     font-size: rem($shell-g-font-size-large);
-    font-weight: $shell-g-font-weight-light;
 }
 
-/**
- * Modifiers: Section heading.
- */
-
-.heading--section {
-    font-weight: bold;
+.heading-sub-title {
+    font-weight: $shell-g-font-weight-bold;
 }
 
 
