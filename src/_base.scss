@@ -130,6 +130,15 @@ img {
 }
 
 
+/**
+ * Allows textual input values to be positioned by padding alone.
+ */
+
+#{$shell-g-textual-inputs} {
+    line-height: 1;
+}
+
+
 
 
 /* 6. Paragraphs
