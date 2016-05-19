@@ -31,5 +31,8 @@
         "bugs": {
         "url": "https://github.com/campaignmonitor/shell/issues"
     },
+    "devDependencies": {
+        "stylelint": "^6.3.3"
+    },
     "license": "MIT"
 }
