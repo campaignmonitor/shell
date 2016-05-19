@@ -185,38 +185,19 @@ h6 {
     line-height: $shell-g-line-height;
 }
 
-
-/**
- * Headline. `.heading-headline` styles.
- */
-
 .heading-headline {
     font-size: rem($shell-g-font-x-size-large);
     font-weight: $shell-g-font-weight-bold;
 }
-
-/**
- * Modifier: Large headline.
- */
 
 .heading-headline--large {
     font-size: rem($shell-g-font-size-2x-large);
     font-weight: $shell-g-font-weight-bold;
 }
 
-
-/**
- * Title. `.heading-title` styles.
- */
-
 .heading-title {
     font-size: rem($shell-g-font-size-large);
 }
-
-
-/**
- * Sub-title. `.heading-sub-title` styles.
- */
 
 .heading-sub-title {
     font-weight: $shell-g-font-weight-bold;
