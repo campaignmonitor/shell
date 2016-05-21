@@ -654,7 +654,25 @@
     }
 }
 
+// 6X-Large
+.h-spacing-6x-large {
+    margin-bottom: rem($shell-g-spacing-6x-large) !important;
+}
 
+// Apply at breakpoints
+@if $shell-helper-apply-spacing-6x-large-at-breakpoints {
+    @include apply-at-breakpoints('.h-spacing-6x-large', $shell-helper-define-spacing-6x-large-breakpoints) {
+        margin-bottom: rem($shell-g-spacing-6x-large) !important;
+    }
+}
+
+/**
+ * Remove spacing.
+ */
+
+.h-spacing-none {
+    margin-bottom: 0 !important;
+}
 
 
 /* 5. Horizontal and vertical alignment
