@@ -501,6 +501,8 @@ $shell-grid-11-col-width: calc((100% / 12) * 11) !default;
 $shell-grid-12-col-width: 100% !default;
 
 
+/* stylelint-disable max-line-length */
+
 /**
  * For all grid item widths turn on the ability to apply breakpoints via
  * boolean settings then define the breakpoints, see: "Mixins/Functions ->
@@ -510,110 +512,65 @@ $shell-grid-12-col-width: 100% !default;
 // 1 col
 $shell-grid-apply-1-col-width-at-breakpoints: false !default;
 
-/* stylelint-disable max-line-length */
-
 $shell-grid-define-1-col-width-breakpoints: $shell-g-global-breakpoints !default;
-
-/* stylelint-enable */
 
 // 2 col
 $shell-grid-apply-2-col-width-at-breakpoints: false !default;
 
-/* stylelint-disable max-line-length */
-
 $shell-grid-define-2-col-width-breakpoints: $shell-g-global-breakpoints !default;
-
-/* stylelint-enable */
 
 // 3 col
 $shell-grid-apply-3-col-width-at-breakpoints: false !default;
 
-/* stylelint-disable max-line-length */
-
 $shell-grid-define-3-col-width-breakpoints: $shell-g-global-breakpoints !default;
-
-/* stylelint-enable */
 
 // 4 col
 $shell-grid-apply-4-col-width-at-breakpoints: false !default;
 
-/* stylelint-disable max-line-length */
-
 $shell-grid-define-4-col-width-breakpoints: $shell-g-global-breakpoints !default;
-
-/* stylelint-enable */
 
 // 5 col
 $shell-grid-apply-5-col-width-at-breakpoints: false !default;
 
-/* stylelint-disable max-line-length */
-
 $shell-grid-define-5-col-width-breakpoints: $shell-g-global-breakpoints !default;
-
-/* stylelint-enable */
 
 // 6 col
 $shell-grid-apply-6-col-width-at-breakpoints: false !default;
 
-/* stylelint-disable max-line-length */
-
 $shell-grid-define-6-col-width-breakpoints: $shell-g-global-breakpoints !default;
-
-/* stylelint-enable */
 
 // 7 col
 $shell-grid-apply-7-col-width-at-breakpoints: false !default;
 
-/* stylelint-disable max-line-length */
-
 $shell-grid-define-7-col-width-breakpoints: $shell-g-global-breakpoints !default;
-
-/* stylelint-enable */
 
 // 8 col
 $shell-grid-apply-8-col-width-at-breakpoints: false !default;
 
-/* stylelint-disable max-line-length */
-
 $shell-grid-define-8-col-width-breakpoints: $shell-g-global-breakpoints !default;
-
-/* stylelint-enable */
 
 // 9 col
 $shell-grid-apply-9-col-width-at-breakpoints: false !default;
 
-/* stylelint-disable max-line-length */
-
 $shell-grid-define-9-col-width-breakpoints: $shell-g-global-breakpoints !default;
-
-/* stylelint-enable */
 
 // 10 col
 $shell-grid-apply-10-col-width-at-breakpoints: false !default;
 
-/* stylelint-disable max-line-length */
-
 $shell-grid-define-10-col-width-breakpoints: $shell-g-global-breakpoints !default;
-
-/* stylelint-enable */
 
 // 11 col
 $shell-grid-apply-11-col-width-at-breakpoints: false !default;
 
-/* stylelint-disable max-line-length */
-
 $shell-grid-define-11-col-width-breakpoints: $shell-g-global-breakpoints !default;
-
-/* stylelint-enable */
 
 // 12 col
 $shell-grid-apply-12-col-width-at-breakpoints: false !default;
 
-/* stylelint-disable max-line-length */
-
 $shell-grid-define-12-col-width-breakpoints: $shell-g-global-breakpoints !default;
 
 /* stylelint-enable */
+
 
 
 
@@ -626,6 +583,7 @@ $shell-grid-define-12-col-width-breakpoints: $shell-g-global-breakpoints !defaul
  * Apply at breakpoints" to understand how this works.
  */
 
+/* stylelint-disable max-line-length */
 
 /**
  * Text sizes.
@@ -637,11 +595,7 @@ $shell-grid-define-12-col-width-breakpoints: $shell-g-global-breakpoints !defaul
 
 $shell-helper-apply-text-size-at-breakpoints: false !default;
 
-/* stylelint-disable max-line-length */
-
 $shell-helper-define-text-size-breakpoints: $shell-g-global-breakpoints !default;
-
-/* stylelint-enable */
 
 /**
  * Decrease from base.
@@ -650,29 +604,17 @@ $shell-helper-define-text-size-breakpoints: $shell-g-global-breakpoints !default
 // Small
 $shell-helper-apply-text-size-small-at-breakpoints: false !default;
 
-/* stylelint-disable max-line-length */
-
 $shell-helper-define-text-size-small-breakpoints: $shell-g-global-breakpoints !default;
-
-/* stylelint-enable */
 
 // X-Small
 $shell-helper-apply-text-size-x-small-at-breakpoints: false !default;
 
-/* stylelint-disable max-line-length */
-
 $shell-helper-define-text-size-x-small-breakpoints: $shell-g-global-breakpoints !default;
-
-/* stylelint-enable */
 
 // 2X-Small
 $shell-helper-apply-text-size-2x-small-at-breakpoints: false !default;
 
-/* stylelint-disable max-line-length */
-
 $shell-helper-define-text-size-2x-small-breakpoints: $shell-g-global-breakpoints !default;
-
-/* stylelint-enable */
 
 
 /**
@@ -682,75 +624,47 @@ $shell-helper-define-text-size-2x-small-breakpoints: $shell-g-global-breakpoints
 // Large
 $shell-helper-apply-text-size-large-at-breakpoints: false !default;
 
-/* stylelint-disable max-line-length */
-
 $shell-helper-define-text-size-large-breakpoints: $shell-g-global-breakpoints !default;
-
-/* stylelint-enable */
 
 // X-Large
 $shell-helper-apply-text-size-x-large-at-breakpoints: false !default;
 
-/* stylelint-disable max-line-length */
-
 $shell-helper-define-text-size-x-large-breakpoints: $shell-g-global-breakpoints !default;
-
-/* stylelint-enable */
 
 // 2X-Large
 $shell-helper-apply-text-size-2x-large-at-breakpoints: false !default;
 
-/* stylelint-disable max-line-length */
-
 $shell-helper-define-text-size-2x-large-breakpoints: $shell-g-global-breakpoints !default;
-
-/* stylelint-enable */
 
 // 3X-Large
 $shell-helper-apply-text-size-3x-large-at-breakpoints: false !default;
 
-/* stylelint-disable max-line-length */
-
 $shell-helper-define-text-size-3x-large-breakpoints: $shell-g-global-breakpoints !default;
-
-/* stylelint-enable */
 
 // 4X-Large
 $shell-helper-apply-text-size-4x-large-at-breakpoints: false !default;
 
-/* stylelint-disable max-line-length */
-
 $shell-helper-define-text-size-4x-large-breakpoints: $shell-g-global-breakpoints !default;
-
-/* stylelint-enable */
 
 // 5X-Large
 $shell-helper-apply-text-size-5x-large-at-breakpoints: false !default;
 
-/* stylelint-disable max-line-length */
-
 $shell-helper-define-text-size-5x-large-breakpoints: $shell-g-global-breakpoints !default;
-
-/* stylelint-enable */
 
 // 6X-Large
 $shell-helper-apply-text-size-6x-large-at-breakpoints: false !default;
 
-/* stylelint-disable max-line-length */
-
 $shell-helper-define-text-size-6x-large-breakpoints: $shell-g-global-breakpoints !default;
-
-/* stylelint-enable */
 
 // 7X-Large
 $shell-helper-apply-text-size-7x-large-at-breakpoints: false !default;
-
-/* stylelint-disable max-line-length */
 
 $shell-helper-define-text-size-7x-large-breakpoints: $shell-g-global-breakpoints !default;
 
 /* stylelint-enable */
 
+
+/* stylelint-disable max-line-length */
 
 /**
  * Alignments.
@@ -759,29 +673,22 @@ $shell-helper-define-text-size-7x-large-breakpoints: $shell-g-global-breakpoints
 // Center
 $shell-helper-apply-text-align-center-at-breakpoints: false !default;
 
-/* stylelint-disable max-line-length */
-
 $shell-helper-define-text-align-center-breakpoints: $shell-g-global-breakpoints !default;
-
-/* stylelint-enable */
 
 // Left
 $shell-helper-apply-text-align-left-at-breakpoints: false !default;
 
-/* stylelint-disable max-line-length */
-
 $shell-helper-define-text-align-left-breakpoints: $shell-g-global-breakpoints !default;
-
-/* stylelint-enable */
 
 // Right
 $shell-helper-apply-text-align-right-at-breakpoints: false !default;
 
-/* stylelint-disable max-line-length */
-
 $shell-helper-define-text-align-right-breakpoints: $shell-g-global-breakpoints !default;
 
 /* stylelint-enable */
+
+
+/* stylelint-disable max-line-length */
 
 
 /**
@@ -790,11 +697,12 @@ $shell-helper-define-text-align-right-breakpoints: $shell-g-global-breakpoints !
 
 $shell-helper-apply-text-truncate-at-breakpoints: false !default;
 
-/* stylelint-disable max-line-length */
-
 $shell-helper-define-text-truncate-breakpoints: $shell-g-global-breakpoints !default;
 
 /* stylelint-enable */
+
+
+/* stylelint-disable max-line-length */
 
 /**
  * Hide.
@@ -803,28 +711,20 @@ $shell-helper-define-text-truncate-breakpoints: $shell-g-global-breakpoints !def
 // Hide elements from both screen readers and the document flow
 $shell-helper-apply-hide-at-breakpoints: false !default;
 
-/* stylelint-disable max-line-length */
-
 $shell-helper-define-hide-breakpoints: $shell-g-global-breakpoints !default;
-
-/* stylelint-enable */
 
 // Hide elements only visually but have it available for screen readers
 $shell-helper-apply-hide-visually-at-breakpoints: false !default;
-
-/* stylelint-disable max-line-length */
 
 $shell-helper-define-hide-visually-breakpoints: $shell-g-global-breakpoints !default;
 
 /* stylelint-enable */
 
 
-/**
- * Spacing.
- */
+/* stylelint-disable max-line-length */
 
 /**
- * Base.
+ * Spacing.
  */
 
 $shell-helper-apply-spacing-at-breakpoints: false !default;
@@ -838,29 +738,17 @@ $shell-helper-define-spacing-breakpoints: $shell-g-global-breakpoints !default;
 // Small
 $shell-helper-apply-spacing-small-at-breakpoints: false !default;
 
-/* stylelint-disable max-line-length */
-
 $shell-helper-define-spacing-small-breakpoints: $shell-g-global-breakpoints !default;
-
-/* stylelint-enable */
 
 // X-Small
 $shell-helper-apply-spacing-x-small-at-breakpoints: false !default;
 
-/* stylelint-disable max-line-length */
-
 $shell-helper-define-spacing-x-small-breakpoints: $shell-g-global-breakpoints !default;
-
-/* stylelint-enable */
 
 // 2X-Small
 $shell-helper-apply-spacing-2x-small-at-breakpoints: false !default;
 
-/* stylelint-disable max-line-length */
-
 $shell-helper-define-spacing-2x-small-breakpoints: $shell-g-global-breakpoints !default;
-
-/* stylelint-enable */
 
 
 /**
@@ -870,61 +758,35 @@ $shell-helper-define-spacing-2x-small-breakpoints: $shell-g-global-breakpoints !
 // Large
 $shell-helper-apply-spacing-large-at-breakpoints: false !default;
 
-/* stylelint-disable max-line-length */
-
 $shell-helper-define-spacing-large-breakpoints: $shell-g-global-breakpoints !default;
-
-/* stylelint-enable */
 
 // X-Large
 $shell-helper-apply-spacing-x-large-at-breakpoints: false !default;
 
-/* stylelint-disable max-line-length */
-
 $shell-helper-define-spacing-x-large-breakpoints: $shell-g-global-breakpoints !default;
-
-/* stylelint-enable */
 
 // 2X-Large
 $shell-helper-apply-spacing-2x-large-at-breakpoints: false !default;
 
-/* stylelint-disable max-line-length */
-
 $shell-helper-define-spacing-2x-large-breakpoints: $shell-g-global-breakpoints !default;
-
-/* stylelint-enable */
 
 // 3X-Large
 $shell-helper-apply-spacing-3x-large-at-breakpoints: false !default;
 
-/* stylelint-disable max-line-length */
-
 $shell-helper-define-spacing-3x-large-breakpoints: $shell-g-global-breakpoints !default;
-
-/* stylelint-enable */
 
 // 4X-Large
 $shell-helper-apply-spacing-4x-large-at-breakpoints: false !default;
 
-/* stylelint-disable max-line-length */
-
 $shell-helper-define-spacing-4x-large-breakpoints: $shell-g-global-breakpoints !default;
-
-/* stylelint-enable */
 
 // 5X-Large
 $shell-helper-apply-spacing-5x-large-at-breakpoints: false !default;
 
-/* stylelint-disable max-line-length */
-
 $shell-helper-define-spacing-5x-large-breakpoints: $shell-g-global-breakpoints !default;
-
-/* stylelint-enable */
 
 // 6X-Large
 $shell-helper-apply-spacing-6x-large-at-breakpoints: false !default;
-
-/* stylelint-disable max-line-length */
 
 $shell-helper-define-spacing-6x-large-breakpoints: $shell-g-global-breakpoints !default;
 
