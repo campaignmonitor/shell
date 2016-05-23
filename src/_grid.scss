@@ -525,3 +525,15 @@
         width: $shell-grid-11-col-width;
     }
 }
+
+// 12 col
+.l-grid__item--12-col {
+    width: $shell-grid-12-col-width;
+}
+
+// Apply at breakpoints
+@if $shell-grid-apply-12-col-width-at-breakpoints {
+    @include apply-at-breakpoints(".l-grid__item--12-col", $shell-grid-define-12-col-width-breakpoints) {
+        width: $shell-grid-12-col-width;
+    }
+}
