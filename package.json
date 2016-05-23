@@ -1,12 +1,12 @@
 {
     "name": "shell-csslib",
-    "version": "0.10.0",
-    "description": "A lightweight CSS Library that allows you to build UI a lot faster, that is more consistent, robust, and maintainable",
+    "version": "1.0.0",
+    "description": "A powerful, lightweight, unopinionated, responsive friendly CSS library that provides a solid foundation for any UI build. Developed at Campaign Monitor",
     "homepage": "https://github.com/campaignmonitor/shell",
     "keywords": [
         "shell",
         "css",
-        "oocss",
+        "library",
         "sass",
         "bem",
         "responsive"

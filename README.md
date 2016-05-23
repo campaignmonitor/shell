@@ -1,76 +1,167 @@
-<img src="docs/src/_assets/img/logo.png" alt="Shell logo" width="230">
+<img src="logo.png" alt="Shell logo" width="230">
 
-# What is Shell?
+A powerful, lightweight, mostly unopinionated, responsive friendly CSS library that provides a solid foundation for any UI build.
 
-*Hold on to your hats, a docs website is in the works*, in the meantime Shell's
-code is heavily documented.
+Built with :blue_heart: by
+[Campaign Monitor](https://www.campaignmonitor.com/), which is why we say
+*mostly unopinionated* :smile:.
 
-In a nutshell this is Campaign Monitor's (CM) CSS Library that allows CM to build UI a lot faster and more consistently, plus makes our UI more robust and maintainable.
+A [docs website](http://campaignmonitor.github.io/shell/) is in the works, in
+the meantime Shell's code is heavily documented.
 
-**☞ Shell is not at MAJOR version 1—very soon it will be, until then anything may change at any time therefore the library should not be considered stable ([see](http://semver.org/#spec-item-4)) ☜**
+If you would like to suggest any new additions or improvements to Shell, log
+any issues or bugs, or just ask a question, please
+[open a new GitHub issue](https://github.com/campaignmonitor/shell/issues) and
+label it appropriately.
 
-Feedback is welcome via [Issues](https://github.com/campaignmonitor/shell/issues).
+
+# Install
+
+```sh
+npm install shell-csslib --save-dev
+```
+
+*There are other install options e.g. `git clone`, however, it's advised to
+use a package manager like NPM to handle your third-party dependencies :+1:.*
 
 
-# Install Shell
+# Setup
 
-`npm install shell-csslib`
+Once the `shell-csslib` NPM module is installed your project will look like
+this:
+
+```
+project root
+|
+└───node_modules
+    |
+    └───shell-csslib
+```
+
+Your master Sass stylesheet—we typically call ours `style.scss`—should be
+set up like this:
+
+```scss
+@charset 'UTF-8';
+
+/* ============================================================================
+   MASTER STYLESHEET
+   ========================================================================= */
+
+/**
+ * CONTENTS:
+ *
+ * 1. Your settings
+ * 2. Shell CSS library
+ * 3. Your styles
+ *
+ * N.B. the above order of sections #1 and #2 must be maintained otherwise Sass
+ * will not compile!
+ */
+
+
+
+
+/* 1. Your settings incl. any Shell setting overrides
+   ========================================================================= */
+
+@import 'settings';
+
+
+
+
+/* 2. Shell CSS library
+   ========================================================================= */
+
+/**
+ * N.B. do not change the order of these partial imports!
+ */
+
+@import '~shell-csslib/src/settings';
+
+@import '~shell-csslib/src/mixins-functions';
+
+@import '~shell-csslib/src/normalise-reset';
+
+@import '~shell-csslib/src/base';
+
+@import '~shell-csslib/src/container';
+
+@import '~shell-csslib/src/grid';
+
+@import '~shell-csslib/src/helpers';
+
+
+
+
+/* 3. Your styles
+   ========================================================================= */
+
+// Away you go!
+```
+
+Shell won't work without `_settings.scss` and `_mixins-functions.scss`, the
+rest are optional.
+
+## Dependencies
+
+- [Sass](http://sass-lang.com/install) (either [Ruby](http://rubyinstaller.org/) or [LibSass](http://libsass.org/), *we recommend LibSass*).
+- [Autoprefixer](https://github.com/postcss/autoprefixer).
+
+    > [PostCSS](https://github.com/postcss/postcss) plugin to parse CSS and add vendor prefixes to CSS rules using values from [Can I Use](http://caniuse.com/).
+
+    *We advise setting up Autoprefixer as part of your build process.*
+
+## Example architecture
+
+```
+project root
+|
+└───assets
+    |
+    └───components
+    |
+    └───vendor
+    |
+    └ _settings.scss
+    └ style.scss
+    |
+└───node_modules
+    |
+    └───shell-csslib
+```
 
 
 # Docs & Tests
-
-See:
 
 - [Test README.md](test/README.md)
 - [Docs README.md](docs/README.md)
 
 
-# Linting & Guidelines
+# Linting
 
-Shell is written and linted against these [guidelines](https://github.com/chris-pearce/css-guidelines).
+[stylelint](http://stylelint.io/) is used for linting and Shell follows these
+[CSS guidelines](https://github.com/chris-pearce/css-guidelines).
 
-Shell uses [stylelint](http://stylelint.io/) to lint all of the Shell source
-files (`src/*.scss`) and all of the CSS in the `docs/` and `test/` folders.
+*Eventually linting will be setup as part of CI, see: #19.*
 
-Linting will be automated via CI, so when anyone pushes code to Shell it'll
-automatically be linted against Shell's [guidelines](https://github.com/chris-pearce/css-guidelines) and also checked that Sass is compiling.
-
-Linting will run in all of the Grunt tasks in `docs/` and `test/`. If you're
-contributing to Shell and would like to lint against your updates and check
-that Shell's Sass is compiling then run the following commands in your
-Terminal:
-
-- `cd test`
-- `grunt testShell`
-
-On watch:
-
-- `cd test`
-- `grunt testShellWatch`
-
-Linting reporting in your text editor should work by reading the `.stylelintrc`
-in the root, this'll require you to install the relevant linting plug-in for
-your text editor. If you're using Sublime Text then install:
-
-- [SublimeLinter](http://www.sublimelinter.com/en/latest/installation.html)
-- [SublimeLinter-contrib-stylelint](https://github.com/kungfusheep/SublimeLinter-contrib-stylelint)
-
-*Usually to see the reporting in Sublime Text you need to add the `-g` flag
-for this command: `npm install postcss stylelint`, like this: `npm install postcss stylelint -g`.*
 
 # Browser support
 
-- Chrome
-- Firefox
-- Opera
-- Safari
-- Edge
+- Chrome *(latest version)*
+- Firefox *(latest version)*
+- Opera *(latest version)*
+- Safari *(latest version)*
+- Edge *(latest version)*
 - IE 10/11
 
 
-# Contributing
+# Versioning
 
-Coming soon.
+Shell is maintained under the
+[Semantic Versioning guidelines](http://semver.org/). We'll do our best to adhere to those guidelines and strive to maintain backwards compatibility.
+
+See the [CHANGELOG](CHANGELOG.md).
 
 
 # License

@@ -1,7 +1,6 @@
-# Shell's Tests
+# Tests
 
-Still being worked on, in the meantime here are some quick and dirty
-instructions:
+Still being worked on, in the meantime here are some quick and instructions:
 
 - `cd test`
 
@@ -19,8 +18,11 @@ instructions:
   *Runs the build tasks, pushes the `dist/` folder to the remote `gh-pages`
   branch making it available at this GitHub Pages URL:
   <http://campaignmonitor.github.io/shell/test>.*
+  **N.B.** we're using `dist/test` so we can have both the **test** and
+  **docs** available at this GitHub Pages URL:
+  <http://campaignmonitor.github.io/shell/>, **docs** sits in the root and
+  **test** in the `test` sub-folder available at this URL:
+  <http://campaignmonitor.github.io/shell/test>.
+- `grunt testShell`
 
-**N.B.** we're using `dist/test` so we can have both the **test** and **docs**
-available at this GitHub Pages URL: <http://campaignmonitor.github.io/shell/>,
-**docs** sits in the root and **test** in the `test` sub-folder available at
-this URL: <http://campaignmonitor.github.io/shell/test>.
+  *Testing the Sass in the Shell CSS library compiles.*

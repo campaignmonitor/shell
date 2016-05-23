@@ -1,7 +1,6 @@
-# Shell's Docs
+# Docs
 
-Still being worked on, in the meantime here are some quick and dirty
-instructions:
+Still being worked on, in the meantime here are some quick instructions:
 
 - `cd docs`
 
