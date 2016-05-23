@@ -1,0 +1,106 @@
+/* ============================================================================
+   SETTINGS
+   ========================================================================= */
+
+/**
+ * All global settings (Sass variables) for the Shell Docs and any Shell
+ * library setting overrides.
+ *
+ * Shell Docs settings can use any of the Shell library settings, like so:
+ *
+   $g-color-code-block-background: $shell-g-color-white;
+ *
+ * ---------------------------------------------------------------------------
+ *
+ * All settings start with a global namespace: `$g` followed by one hyphen,
+ * like this:
+ *
+   $g-;
+ *
+ * The "g" stands for "global".
+ *
+ * ----------------------------------------------------------------------------
+ *
+ * CONTENTS:
+ *
+ * 1. Colours
+ * 2. Typography
+ * 3. Shared units
+ * 4. Shell overrides
+ */
+
+
+
+
+/* 1. Colours
+   ========================================================================= */
+
+// CM blue
+$g-color-brand: #19a9e5;
+
+// Off white & black
+$g-color-off-white: #f9f9f9;
+
+$g-color-off-black: #37393b;
+
+// Greys
+$g-color-grey-light: #efefef;
+
+$g-color-grey-medium: #504f4f;
+
+// Code
+$g-color-code-navy-blue: #000080;
+
+
+
+
+/* 2. Typography
+   ========================================================================= */
+
+$g-font-family-light: "HelveticaNeue-Light", "Helvetica Neue Light",
+"Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+
+
+
+
+/* 3. Shared units
+   ========================================================================= */
+
+$g-header-width: 286;
+
+
+
+
+/* 4. Shell overrides
+   ========================================================================= */
+
+/**
+ * Colours (Global).
+ */
+
+$shell-g-color-text: #333;
+
+$shell-g-color-link: $g-color-brand;
+
+$shell-g-color-link-hover: #1176a0;
+
+
+/**
+ * Z-Index system (Global).
+ */
+
+$shell-g-z-layers: (
+    "header": 3,
+    "main": 2,
+    "footer": 1,
+    "underneath": -1
+);
+
+
+/**
+ * Container (Local).
+ */
+
+$shell-container-apply-center-alignment: false;
+
+$shell-container-maximum-width: 700;

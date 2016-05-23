@@ -68,9 +68,9 @@ $c-test-case-test-subject-height: 300;
     border-left: $c-test-case-block-border-width solid $g-color-brand;
     color: $g-color-dark-grey;
     display: flex;
-    margin-bottom: rem($shell-g-spacing-base);
-    margin-top: rem($shell-g-spacing-base);
-    padding: rem($shell-g-spacing-base);
+    margin-bottom: rem($shell-g-spacing);
+    margin-top: rem($shell-g-spacing);
+    padding: rem($shell-g-spacing);
 }
 
 // Adjacent blocks get a thinner border width

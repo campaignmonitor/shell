@@ -17,7 +17,7 @@
     background-color: $shell-g-color-white;
     border: 1px solid $g-color-light-grey;
     display: block;
-    padding: rem($shell-g-spacing-base);
+    padding: rem($shell-g-spacing);
 }
 
 code[class*="language-"] {

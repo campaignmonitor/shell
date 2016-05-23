@@ -24,11 +24,9 @@
  */
 
 // Padding and margins
-$c-demo-padding: $l-main-left-padding;
+$c-demo-padding: $shell-g-spacing;
 
-$c-demo-view-source-code-padding: $shell-g-spacing-half;
-
-$c-demo-base-spacing: $shell-g-spacing-base;
+$c-demo-view-source-code-padding: $shell-g-spacing-small;
 
 // Colors
 $c-demo-background-color: $g-color-off-white;
@@ -36,8 +34,6 @@ $c-demo-background-color: $g-color-off-white;
 $c-demo-foreground-color-light-grey: $g-color-grey-medium;
 
 // Typography
-$c-demo-font-size: $shell-g-font-size-small;
-
 $c-demo-font-size-small: $shell-g-font-size-x-small;
 
 // Other
@@ -46,13 +42,10 @@ $c-demo-github-icon-size: 26px;
 
 .c-demo {
     background-color: $c-demo-background-color;
-    font-size: rem($c-demo-font-size);
-    padding: rem($c-demo-padding / 2);
-    padding-left: rem($c-demo-padding);
-    padding-right: rem($c-demo-padding);
-    // TODO: move this out of the component and replace with a spacing helper
-    margin-bottom: rem($c-demo-padding);
-    margin-left: -(rem($c-demo-padding));
+    padding: rem($shell-g-spacing-2x-large);
+    padding-left: rem($shell-g-spacing-5x-large);
+    margin-bottom: rem($shell-g-spacing-5x-large);
+    margin-left: -(rem($shell-g-spacing-5x-large));
 }
 
 
@@ -63,11 +56,11 @@ $c-demo-github-icon-size: 26px;
  */
 
 .c-demo__spacing {
-    margin-bottom: rem($c-demo-base-spacing);
+    margin-bottom: rem($c-demo-padding);
 }
 
 .c-demo__spacing-large {
-    margin-bottom: rem($c-demo-base-spacing + $shell-g-spacing-half);
+    margin-bottom: rem($c-demo-padding + $shell-g-spacing-small);
 }
 
 
@@ -76,7 +69,7 @@ $c-demo-github-icon-size: 26px;
  */
 
 .c-demo__intro {
-    margin-bottom: rem($c-demo-base-spacing + $shell-g-spacing-half);
+    margin-bottom: rem($c-demo-padding + $shell-g-spacing-small);
 }
 
 
@@ -103,7 +96,6 @@ $c-demo-github-icon-size: 26px;
  */
 
 .c-demo__example--extra-styling {
-
     > p {
         color: $c-demo-foreground-color-light-grey;
         font-family: $g-font-family-light;
@@ -143,7 +135,6 @@ $c-demo-github-icon-size: 26px;
 .c-demo__view-source-code-icon {
     fill: $shell-g-color-link;
     height: $c-demo-github-icon-size;
-    transition: fill $shell-base-link-transition-duration $shell-base-link-transition-timing-function;
     width: $c-demo-github-icon-size;
 
     .c-demo__view-source-code:hover &,

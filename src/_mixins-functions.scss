@@ -355,6 +355,7 @@
         // We have to check if the breakpoint is a number or a named breakpoint
         // so that we can apply the relevant functions: `em()` and `bp()` so
         // that we can generate the breakpoint value correctly
+        $generate-breakpoint: $breakpoint;
         @if type-of($breakpoint) == "number" {
             $breakpoint: strip-unit($breakpoint);
             $generate-breakpoint: em($breakpoint, 16);

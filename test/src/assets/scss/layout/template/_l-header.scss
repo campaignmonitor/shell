@@ -44,8 +44,8 @@ $l-header-nav-link-underline-thickness: 3px;
 
 .🐌-l-header__logo-link {
     border-bottom: 0;
-    padding-bottom: rem($shell-g-spacing-tiny);
-    padding-top: rem($shell-g-spacing-tiny);
+    padding-bottom: rem($shell-g-spacing-small);
+    padding-top: rem($shell-g-spacing-small);
     width: rem(100);
 }
 
@@ -74,8 +74,8 @@ $l-header-nav-link-underline-thickness: 3px;
 .🐌-l-header__nav__link {
     align-items: center;
     color: $l-header-nav-link-color;
-    padding-left: rem($shell-g-spacing-base);
-    padding-right: rem($shell-g-spacing-base);
+    padding-left: rem($shell-g-spacing);
+    padding-right: rem($shell-g-spacing);
     position: relative;
     text-decoration: none;
     transition: all 0.1s ease-in;

@@ -1,0 +1,15 @@
+/* ============================================================================
+   LAYOUT -> TEMPLATE -> MAIN
+   ========================================================================= */
+
+/**
+ * The main content area of the site.
+ */
+
+
+.l-main {
+    margin-left: rem($g-header-width);
+    padding-bottom: rem($shell-g-spacing-large);
+    padding-left: rem($shell-g-spacing-5x-large);
+    padding-top: rem($shell-g-spacing-large);
+}

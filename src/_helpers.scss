@@ -169,6 +169,8 @@
 
 /**
  * Sizes.
+ *
+ * N.B. see the "Typography" section in `_settings.scss` for the scale.
  */
 
 /**
@@ -433,22 +435,6 @@
 
 
 /**
- * Hide elements for JavaScript users and non-JavaScript users, this is
- * necessary when building accessible and progressively enhanced UI's. This
- * will require functionality that can append a hook to an element
- * (typically the `html` element) if JavaScript is on.
- */
-
-.js .h-hide-if-js-is-on {
-    display: none !important;
-}
-
-.no-js .h-hide-if-js-is-off {
-    display: none !important;
-}
-
-
-/**
  * Hide elements only visually but have it available for screen readers.
  *
  * N.B. mixin is here: "Mixins and Functions -> Helpers".
@@ -533,7 +519,10 @@
  * Any spacing outside of a Component is handled by one of these "Spacing"
  * Helpers unless handled by the "Grid", and ALL spacing is downward facing
  * hence only `margin-bottom` being used.
+ *
+ * N.B. see the "Spacing" section in `_settings.scss` for the scale.
  */
+
 
 /**
  * Base.
@@ -575,6 +564,18 @@
 @if $shell-helper-apply-spacing-x-small-at-breakpoints {
     @include apply-at-breakpoints('.h-spacing-x-small', $shell-helper-define-spacing-x-small-breakpoints) {
         margin-bottom: rem($shell-g-spacing-x-small) !important;
+    }
+}
+
+// 2X-Small
+.h-spacing-2x-small {
+    margin-bottom: rem($shell-g-spacing-2x-small) !important;
+}
+
+// Apply at breakpoints
+@if $shell-helper-apply-spacing-2x-small-at-breakpoints {
+    @include apply-at-breakpoints('.h-spacing-2x-small', $shell-helper-define-spacing-2x-small-breakpoints) {
+        margin-bottom: rem($shell-g-spacing-2x-small) !important;
     }
 }
 
@@ -666,6 +667,7 @@
     }
 }
 
+
 /**
  * Remove spacing.
  */
@@ -673,6 +675,8 @@
 .h-spacing-none {
     margin-bottom: 0 !important;
 }
+
+
 
 
 /* 5. Horizontal and vertical alignment

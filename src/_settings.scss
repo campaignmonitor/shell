@@ -439,17 +439,6 @@ $shell-base-link-text-decoration-on-hover: none !default;
 
 
 /**
- * Horizontal rule.
- */
-
-$shell-base-hr-thickness: 1px !default;
-
-$shell-base-hr-style: solid !default;
-
-$shell-base-hr-color: $shell-g-color-text !default;
-
-
-/**
  * Forms.
  */
 
@@ -474,18 +463,18 @@ $shell-container-apply-center-alignment: true !default;
  * Widths.
  */
 
-$shell-container-maximum-width: $shell-g-base-number * 100 !default;
+$shell-container-maximum-width: 1600 !default;
 
 $shell-container-minimum-width: 320 !default;
 
 // Size modifiers
-$shell-container-maximum-width-x-large: $shell-g-base-number * 150 !default;
+$shell-container-maximum-width-x-large: 2400 !default;
 
-$shell-container-maximum-width-large: $shell-g-base-number * 125 !default;
+$shell-container-maximum-width-large: 2000 !default;
 
-$shell-container-maximum-width-small: $shell-g-base-number * 62.5 !default;
+$shell-container-maximum-width-small: 1000 !default;
 
-$shell-container-maximum-width-x-small: $shell-g-base-number * 47 !default;
+$shell-container-maximum-width-x-small: 746 !default;
 
 
 /**
@@ -589,6 +578,11 @@ $shell-grid-define-10-col-width-breakpoints: $shell-g-global-breakpoints !defaul
 $shell-grid-apply-11-col-width-at-breakpoints: false !default;
 
 $shell-grid-define-11-col-width-breakpoints: $shell-g-global-breakpoints !default;
+
+// 12 col
+$shell-grid-apply-12-col-width-at-breakpoints: false !default;
+
+$shell-grid-define-12-col-width-breakpoints: $shell-g-global-breakpoints !default;
 
 
 
@@ -747,6 +741,11 @@ $shell-helper-apply-spacing-x-small-at-breakpoints: false !default;
 
 $shell-helper-define-spacing-x-small-breakpoints: $shell-g-global-breakpoints !default;
 
+// 2X-Small
+$shell-helper-apply-spacing-2x-small-at-breakpoints: false !default;
+
+$shell-helper-define-spacing-2x-small-breakpoints: $shell-g-global-breakpoints !default;
+
 /**
  * Increase from base.
  */
@@ -780,3 +779,8 @@ $shell-helper-define-spacing-4x-large-breakpoints: $shell-g-global-breakpoints !
 $shell-helper-apply-spacing-5x-large-at-breakpoints: false !default;
 
 $shell-helper-define-spacing-5x-large-breakpoints: $shell-g-global-breakpoints !default;
+
+// 6X-Large
+$shell-helper-apply-spacing-6x-large-at-breakpoints: false !default;
+
+$shell-helper-define-spacing-6x-large-breakpoints: $shell-g-global-breakpoints !default;

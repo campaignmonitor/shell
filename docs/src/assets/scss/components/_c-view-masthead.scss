@@ -12,18 +12,8 @@
  */
 
 
-/**
- * Settings.
- */
-
-$c-view-masthead-heading-text-size: 58;
-
-$c-view-margin-bottom: $l-main-left-padding;
-
-
 .c-view-masthead {
-    // TODO: move this out of the component and replace with a spacing helper
-    margin-bottom: rem($l-main-left-padding);
+    margin-bottom: rem($shell-g-spacing-5x-large);
 }
 
 
@@ -32,7 +22,9 @@ $c-view-margin-bottom: $l-main-left-padding;
  */
 
 .c-view-masthead__heading {
-    margin-bottom: rem($shell-g-spacing-base);
+    font-size: rem(60);
+    font-weight: 200;
+    margin-bottom: rem($shell-g-spacing);
 }
 
 
@@ -41,9 +33,9 @@ $c-view-margin-bottom: $l-main-left-padding;
  */
 
 .c-view-masthead__intro {
-    font-size: rem($shell-g-font-size-x-large);
+    font-size: rem($shell-g-font-size-large);
 
-    > p {
-        margin-bottom: rem($shell-g-spacing-base);
+    > p:not(:last-child) {
+        margin-bottom: rem($shell-g-spacing);
     }
 }

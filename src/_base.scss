@@ -18,12 +18,11 @@
  *
  * 1. Root element
  * 2. Links
- * 3. Horizontal rule
- * 4. Images
- * 5. Forms
- * 6. Paragraphs
- * 7. Headings
- * 8. Print
+ * 3. Images
+ * 4. Forms
+ * 5. Paragraphs
+ * 6. Headings
+ * 7. Print
  */
 
 
@@ -61,19 +60,7 @@ a {
 
 
 
-/* 3. Horizontal rule
-   ========================================================================= */
-
-hr {
-    border-top: $shell-base-hr-thickness $shell-base-hr-style $shell-base-hr-color;
-    display: block;
-    height: 1px;
-}
-
-
-
-
-/* 4. Images
+/* 3. Images
    ========================================================================= */
 
 /**
@@ -109,7 +96,7 @@ img {
 
 
 
-/* 5. Forms
+/* 4. Forms
    ========================================================================= */
 
 /**
@@ -131,17 +118,20 @@ img {
 
 
 /**
- * Allows textual input values to be positioned by padding alone.
+ * Allows us to use `padding` alone to determine the height of certain form
+ * elements.
  */
 
-#{$shell-g-textual-inputs} {
+#{$shell-g-textual-inputs},
+select,
+option {
     line-height: 1;
 }
 
 
 
 
-/* 6. Paragraphs
+/* 5. Paragraphs
    ========================================================================= */
 
 /**
@@ -161,15 +151,14 @@ img {
 
 
 
-/* 7. Headings
+/* 6. Headings
    ========================================================================= */
 
 /**
- * Here we scope our Base Heading styles to classes instead of the `hx` element
- * selector so our styles are not tied to the semantics of the heading element,
- * i.e. if you want a `h4` to look like a `h2` you can easily do this.
- *
- * N.B. spacing (`bottom-margin`) is handled via the "Spacing" helpers.
+ * Here we scope our Base Heading styles to classes instead of the `<hx>`
+ * element selector so our styles are not tied to the semantics of the heading
+ * element, i.e. if you want a `<h4>` to look like a `<h2>` you can easily do
+ * this.
  */
 
 
@@ -214,7 +203,7 @@ h6 {
 
 
 
-/* 8. Print
+/* 7. Print
    ========================================================================= */
 
 /**
@@ -236,7 +225,7 @@ h6 {
     *::first-line {
         background: transparent !important;
         box-shadow: none !important;
-        color: #000 !important;
+        color: $shell-g-color-black !important;
         text-shadow: none !important;
     }
 

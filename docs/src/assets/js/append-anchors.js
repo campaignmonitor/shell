@@ -16,10 +16,7 @@ var appendAnchorsToHeadings = function appendAnchorsToHeadings() {
 
     // The inner HTML of the anchor
     var anchorHTML =
-        "<span class='h-hide-visually'>Anchor to this heading</span>
-         <svg aria-hidden='true'>
-            <use xmlns:xlink='http://www.w3.org/1999/xlink' xlink:href='#link-icon'></use>
-         </svg>";
+        "<span class='h-hide-visually'>Anchor to this heading</span><svg aria-hidden='true'><use xmlns:xlink='http://www.w3.org/1999/xlink' xlink:href='#link-icon'></use></svg>";
 
     // Loop through all headings applying the anchor and heading `id`s
     for (var i = 0, max = allHeadingsMinusLevelOne.length; i < max; i++) {
