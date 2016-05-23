@@ -63,7 +63,6 @@ $l-header-link-hover-color: darken($l-header-link-color, 26%);
     color: $shell-g-color-white;
     display: inline-block;
     text-decoration: none;
-    transition: all 0.10s ease-out;
 
     &:hover,
     &:focus,

@@ -78,20 +78,20 @@ $l-header-nav-link-underline-thickness: 3px;
     padding-right: rem($shell-g-spacing);
     position: relative;
     text-decoration: none;
-    transition: all 0.1s ease-in;
+    transition: all 0.15s ease-in;
 
     // Underline that sits off-canvas ready to be transitioned to the bottom
     // of the link on all states
     &::after {
         background-color: transparent;
         bottom: 0;
-        content: "";
+        content: '';
         height: $l-header-nav-link-underline-thickness;
         left: 0;
         position: absolute;
         right: 0;
         transform: translateY($l-header-nav-link-underline-thickness);
-        transition: transform 0.1s ease-in;
+        transition: transform 0.15s ease-in;
     }
 
     // States

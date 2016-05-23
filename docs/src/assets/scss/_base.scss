@@ -52,14 +52,14 @@ $heading-anchor-icon-size:  36px;
  */
 
 .heading__anchor {
+    background: aqua;
     bottom: 4px;
     //left: -32px;
     left: 0;
     line-height: 0;
     position: absolute;
-    transition: none;
     top: 4px;
-    background: aqua;
+    transition: none;
     width: 40px;
 
 

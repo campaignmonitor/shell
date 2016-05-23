@@ -3,12 +3,11 @@
    ========================================================================= */
 
 /**
- * A powerful "Mobile-first" Flexbox-based grid that is responsive ready (all
- * grid column widths are fluid using the `%` unit), nestable, and comes with
- * a bunch of handy modifiers. This makes the grid the workhorse of your UI
- * builds, any layout you need always look to the grid first—including within
- * your "Components", it exists so you don't have to write redundant CSS to
- * construct layouts.
+ * A powerful Flexbox-based grid that is responsive ready, nestable, and comes
+ * with a bunch of handy modifiers. This makes the grid the workhorse of your
+ * UI builds, any layout you need always look to the grid first—including
+ * within your "Components", it exists so you don't have to write redundant
+ * CSS to construct layouts.
  *
  * Every grid column width can be generated at any breakpoint thanks to the
  * mixin found here: "Mixins and Functions -> Apply at breakpoints". So if you
@@ -67,13 +66,8 @@
  *
  * N.B. they're are a number of Flexbox bugs captured here:
  * https://github.com/philipwalton/flexbugs, these have been accounted for in
- * the Shell grid however if anything is missed please refer to this resource.
- *
- * ----------------------------------------------------------------------------
- *
- * N.B. some of the Grid's modifiers and all of the Grid item widths are
- * available to be applied at any breakpoint the Shell consumer wishes, see
- * "Mixins and Functions -> Apply at breakpoints" to understand how this works.
+ * the Shell grid however if anything is missed please log an issue:
+ * https://github.com/campaignmonitor/shell/issues.
  *
  * ----------------------------------------------------------------------------
  *
@@ -119,8 +113,6 @@
  * Grid container.
  *
  * 1. Negative left margin to negate the horizontal gutters.
- *
- * N.B. all grid gutter sizes are in "Settings -> Grid (Local)".
  */
 
 .l-grid {
@@ -135,8 +127,6 @@
  *
  * 1. Allows the use of widths.
  * 2. Horizontal gutter.
- *
- * N.B. all grid gutter sizes are in "Settings -> Grid (Local)".
  */
 
 .l-grid__item {
@@ -155,26 +145,21 @@
 
 
 /**
- * Modifier: gutterless for both horizontal and vertical gutters.
+ * Modifier: fit, all grid items have an equal width.
  *
- * N.B. we boost the specificity by chaining the base class to the modifier
- * class to make sure we're always overriding any gutter modifier classes.
+ * 1. Provide all values to avoid IE 10 bug with the shorthand `flex`
+ *    property, see: http://git.io/vllC7.
+ *    Use `0%` to avoid bug in IE 10/11 with unitless `flex-basis`, see:
+ *    http://git.io/vllWx.
  */
 
-.l-grid.l-grid--gutterless {
-    margin-left: 0;
-
-    > .l-grid__item {
-        padding-left: 0;
-        margin-bottom: 0;
-    }
+.l-grid--fit .l-grid__item {
+    flex: 1 1 0%;  // [1]
 }
 
 
 /**
- * Modifiers: gutter sizes.
- *
- * N.B. all grid gutter sizes are in "Settings -> Grid (Local)".
+ * Modifiers: horizontal gutter sizes.
  */
 
 // Base
@@ -184,7 +169,7 @@
     margin-left: -(rem($shell-g-spacing));
 
     > .l-grid__item {
-        padding-left:  rem($shell-g-spacing);
+        padding-left: rem($shell-g-spacing);
     }
 }
 
@@ -193,7 +178,7 @@
     margin-left: -(rem($shell-g-spacing-small));
 
     > .l-grid__item {
-        padding-left:  rem($shell-g-spacing-small);
+        padding-left: rem($shell-g-spacing-small);
     }
 }
 
@@ -201,7 +186,7 @@
     margin-left: -(rem($shell-g-spacing-x-small));
 
     > .l-grid__item {
-        padding-left:  rem($shell-g-spacing-x-small);
+        padding-left: rem($shell-g-spacing-x-small);
     }
 }
 
@@ -209,7 +194,7 @@
     margin-left: -(rem($shell-g-spacing-2x-small));
 
     > .l-grid__item {
-        padding-left:  rem($shell-g-spacing-2x-small);
+        padding-left: rem($shell-g-spacing-2x-small);
     }
 }
 
@@ -218,7 +203,7 @@
     margin-left: -(rem($shell-g-spacing-large));
 
     > .l-grid__item {
-        padding-left:  rem($shell-g-spacing-large);
+        padding-left: rem($shell-g-spacing-large);
     }
 }
 
@@ -226,7 +211,7 @@
     margin-left: -(rem($shell-g-spacing-x-large));
 
     > .l-grid__item {
-        padding-left:  rem($shell-g-spacing-x-large);
+        padding-left: rem($shell-g-spacing-x-large);
     }
 }
 
@@ -234,7 +219,7 @@
     margin-left: -(rem($shell-g-spacing-2x-large));
 
     > .l-grid__item {
-        padding-left:  rem($shell-g-spacing-2x-large);
+        padding-left: rem($shell-g-spacing-2x-large);
     }
 }
 
@@ -242,7 +227,7 @@
     margin-left: -(rem($shell-g-spacing-3x-large));
 
     > .l-grid__item {
-        padding-left:  rem($shell-g-spacing-3x-large);
+        padding-left: rem($shell-g-spacing-3x-large);
     }
 }
 
@@ -250,7 +235,7 @@
     margin-left: -(rem($shell-g-spacing-4x-large));
 
     > .l-grid__item {
-        padding-left:  rem($shell-g-spacing-4x-large);
+        padding-left: rem($shell-g-spacing-4x-large);
     }
 }
 
@@ -258,7 +243,7 @@
     margin-left: -(rem($shell-g-spacing-5x-large));
 
     > .l-grid__item {
-        padding-left:  rem($shell-g-spacing-5x-large);
+        padding-left: rem($shell-g-spacing-5x-large);
     }
 }
 
@@ -266,15 +251,13 @@
     margin-left: -(rem($shell-g-spacing-6x-large));
 
     > .l-grid__item {
-        padding-left:  rem($shell-g-spacing-6x-large);
+        padding-left: rem($shell-g-spacing-6x-large);
     }
 }
 
 
 /**
  * Modifiers: vertical gutters.
- *
- * N.B. all grid gutter sizes are in "Settings -> Grid (Local)".
  */
 
 // Base
@@ -326,6 +309,23 @@
 
 
 /**
+ * Modifier: gutterless for both horizontal and vertical gutters.
+ *
+ * N.B. we boost the specificity by chaining the base class to the modifier
+ * class to make sure we're always overriding any gutter modifier classes.
+ */
+
+.l-grid.l-grid--gutterless {
+    margin-left: 0;
+
+    > .l-grid__item {
+        margin-bottom: 0;
+        padding-left: 0;
+    }
+}
+
+
+/**
  * Modifiers: alignments.
  */
 
@@ -366,20 +366,6 @@
 
 
 /**
- * Modifier: fit, all grid items have an equal width.
- *
- * 1. Provide all values to avoid IE 10 bug with the shorthand `flex`
- *    property, see: http://git.io/vllC7.
- *    Use `0%` to avoid bug in IE 10/11 with unitless `flex-basis`, see:
- *    http://git.io/vllWx.
- */
-
-.l-grid--fit .l-grid__item {
-    flex: 1 1 0%;  // [1]
-}
-
-
-/**
  * Modifier: horizontally center an individual grid item.
  */
 
@@ -390,8 +376,6 @@
 
 /**
  * Modifiers: grid column widths.
- *
- * N.B. grid column widths can be found in "Settings -> Grid (Local)".
  */
 
 // 1 col
@@ -400,11 +384,15 @@
 }
 
 // Apply at breakpoints
+/* stylelint-disable max-line-length */
+
 @if $shell-grid-apply-1-col-width-at-breakpoints {
-    @include apply-at-breakpoints(".l-grid__item--1-col", $shell-grid-define-1-col-width-breakpoints) {
+    @include apply-at-breakpoints('.l-grid__item--1-col', $shell-grid-define-1-col-width-breakpoints) {
         width: $shell-grid-1-col-width;
     }
 }
+
+/* stylelint-enable */
 
 // 2 col
 .l-grid__item--2-col {
@@ -412,11 +400,15 @@
 }
 
 // Apply at breakpoints
+/* stylelint-disable max-line-length */
+
 @if $shell-grid-apply-2-col-width-at-breakpoints {
-    @include apply-at-breakpoints(".l-grid__item--2-col", $shell-grid-define-2-col-width-breakpoints) {
+    @include apply-at-breakpoints('.l-grid__item--2-col', $shell-grid-define-2-col-width-breakpoints) {
         width: $shell-grid-2-col-width;
     }
 }
+
+/* stylelint-enable */
 
 // 3 col
 .l-grid__item--3-col {
@@ -424,11 +416,15 @@
 }
 
 // Apply at breakpoints
+/* stylelint-disable max-line-length */
+
 @if $shell-grid-apply-3-col-width-at-breakpoints {
-    @include apply-at-breakpoints(".l-grid__item--3-col", $shell-grid-define-3-col-width-breakpoints) {
+    @include apply-at-breakpoints('.l-grid__item--3-col', $shell-grid-define-3-col-width-breakpoints) {
         width: $shell-grid-3-col-width;
     }
 }
+
+/* stylelint-enable */
 
 // 4 col
 .l-grid__item--4-col {
@@ -436,11 +432,15 @@
 }
 
 // Apply at breakpoints
+/* stylelint-disable max-line-length */
+
 @if $shell-grid-apply-4-col-width-at-breakpoints {
-    @include apply-at-breakpoints(".l-grid__item--4-col", $shell-grid-define-4-col-width-breakpoints) {
+    @include apply-at-breakpoints('.l-grid__item--4-col', $shell-grid-define-4-col-width-breakpoints) {
         width: $shell-grid-4-col-width;
     }
 }
+
+/* stylelint-enable */
 
 // 5 col
 .l-grid__item--5-col {
@@ -448,11 +448,15 @@
 }
 
 // Apply at breakpoints
+/* stylelint-disable max-line-length */
+
 @if $shell-grid-apply-5-col-width-at-breakpoints {
-    @include apply-at-breakpoints(".l-grid__item--5-col", $shell-grid-define-5-col-width-breakpoints) {
+    @include apply-at-breakpoints('.l-grid__item--5-col', $shell-grid-define-5-col-width-breakpoints) {
         width: $shell-grid-5-col-width;
     }
 }
+
+/* stylelint-enable */
 
 // 6 col
 .l-grid__item--6-col {
@@ -460,11 +464,15 @@
 }
 
 // Apply at breakpoints
+/* stylelint-disable max-line-length */
+
 @if $shell-grid-apply-6-col-width-at-breakpoints {
-    @include apply-at-breakpoints(".l-grid__item--6-col", $shell-grid-define-6-col-width-breakpoints) {
+    @include apply-at-breakpoints('.l-grid__item--6-col', $shell-grid-define-6-col-width-breakpoints) {
         width: $shell-grid-6-col-width;
     }
 }
+
+/* stylelint-enable */
 
 // 7 col
 .l-grid__item--7-col {
@@ -472,11 +480,15 @@
 }
 
 // Apply at breakpoints
+/* stylelint-disable max-line-length */
+
 @if $shell-grid-apply-7-col-width-at-breakpoints {
-    @include apply-at-breakpoints(".l-grid__item--7-col", $shell-grid-define-7-col-width-breakpoints) {
+    @include apply-at-breakpoints('.l-grid__item--7-col', $shell-grid-define-7-col-width-breakpoints) {
         width: $shell-grid-7-col-width;
     }
 }
+
+/* stylelint-enable */
 
 // 8 col
 .l-grid__item--8-col {
@@ -484,11 +496,15 @@
 }
 
 // Apply at breakpoints
+/* stylelint-disable max-line-length */
+
 @if $shell-grid-apply-8-col-width-at-breakpoints {
-    @include apply-at-breakpoints(".l-grid__item--8-col", $shell-grid-define-8-col-width-breakpoints) {
+    @include apply-at-breakpoints('.l-grid__item--8-col', $shell-grid-define-8-col-width-breakpoints) {
         width: $shell-grid-8-col-width;
     }
 }
+
+/* stylelint-enable */
 
 // 9 col
 .l-grid__item--9-col {
@@ -496,11 +512,15 @@
 }
 
 // Apply at breakpoints
+/* stylelint-disable max-line-length */
+
 @if $shell-grid-apply-9-col-width-at-breakpoints {
-    @include apply-at-breakpoints(".l-grid__item--9-col", $shell-grid-define-9-col-width-breakpoints) {
+    @include apply-at-breakpoints('.l-grid__item--9-col', $shell-grid-define-9-col-width-breakpoints) {
         width: $shell-grid-9-col-width;
     }
 }
+
+/* stylelint-enable */
 
 // 10 col
 .l-grid__item--10-col {
@@ -508,11 +528,15 @@
 }
 
 // Apply at breakpoints
+/* stylelint-disable max-line-length */
+
 @if $shell-grid-apply-10-col-width-at-breakpoints {
-    @include apply-at-breakpoints(".l-grid__item--10-col", $shell-grid-define-10-col-width-breakpoints) {
+    @include apply-at-breakpoints('.l-grid__item--10-col', $shell-grid-define-10-col-width-breakpoints) {
         width: $shell-grid-10-col-width;
     }
 }
+
+/* stylelint-enable */
 
 // 11 col
 .l-grid__item--11-col {
@@ -520,11 +544,15 @@
 }
 
 // Apply at breakpoints
+/* stylelint-disable max-line-length */
+
 @if $shell-grid-apply-11-col-width-at-breakpoints {
-    @include apply-at-breakpoints(".l-grid__item--11-col", $shell-grid-define-11-col-width-breakpoints) {
+    @include apply-at-breakpoints('.l-grid__item--11-col', $shell-grid-define-11-col-width-breakpoints) {
         width: $shell-grid-11-col-width;
     }
 }
+
+/* stylelint-enable */
 
 // 12 col
 .l-grid__item--12-col {
@@ -532,8 +560,12 @@
 }
 
 // Apply at breakpoints
+/* stylelint-disable max-line-length */
+
 @if $shell-grid-apply-12-col-width-at-breakpoints {
-    @include apply-at-breakpoints(".l-grid__item--12-col", $shell-grid-define-12-col-width-breakpoints) {
+    @include apply-at-breakpoints('.l-grid__item--12-col', $shell-grid-define-12-col-width-breakpoints) {
         width: $shell-grid-12-col-width;
     }
 }
+
+/* stylelint-enable */

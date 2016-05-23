@@ -112,8 +112,8 @@ $c-test-case-test-subject-height: 300;
         background-color: $g-color-test-case-subject-background;
         font-family: $shell-g-font-family-monospace;
         font-weight: normal;
-        padding: 1rem;
         justify-content: center;
+        padding: 1rem;
         width: 100%;
     }
 
@@ -241,6 +241,6 @@ $c-test-case-test-subject-height: 300;
 }
 
 .🐌-c-test-case__test-desc::before {
-    content: counter(master) "." counter(slave);
+    content: counter(master) '.' counter(slave);
     counter-increment: slave;
 }

@@ -1,4 +1,4 @@
-@charset "UTF-8";
+@charset 'UTF-8';
 
 /* ============================================================================
    SHELL DOCS STYLESHEET
@@ -25,7 +25,7 @@
 /* 1. Shell Docs settings incl. any Shell setting overrides
    ========================================================================= */
 
-@import "settings";
+@import 'settings';
 
 
 
@@ -39,53 +39,19 @@
  */
 
 
-/**
- * Settings.
- */
+@import '../../../../src/settings';
 
-@import "../../../../src/settings";
+@import '../../../../src/mixins-functions';
 
+@import '../../../../src/normalise-reset';
 
-/**
- * Mixins/Functions.
- */
+@import '../../../../src/base';
 
-@import "../../../../src/mixins-functions";
+@import '../../../../src/container';
 
+@import '../../../../src/grid';
 
-/**
- * Normalise/Reset.
- */
-
-@import "../../../../src/normalise-reset";
-
-
-/**
- * Base.
- */
-
-@import "../../../../src/base";
-
-
-/**
- * Container.
- */
-
-@import "../../../../src/container";
-
-
-/**
- * Grid.
- */
-
-@import "../../../../src/grid";
-
-
-/**
- * Helpers.
- */
-
-@import "../../../../src/helpers";
+@import '../../../../src/helpers';
 
 
 
@@ -98,29 +64,29 @@
  * Base.
  */
 
-@import "base";
+@import 'base';
 
 
 /**
  * Layout/Template.
  */
 
-@import "layout/template/l-header";
+@import 'layout/template/l-header';
 
-@import "layout/template/l-main";
+@import 'layout/template/l-main';
 
 
 /**
  * Components.
  */
 
-@import "components/c-bulleted-list";
+@import 'components/c-bulleted-list';
 
-@import "components/c-view-masthead";
+@import 'components/c-view-masthead';
 
-@import "components/c-demo";
+@import 'components/c-demo';
 
-@import "components/c-inline-code";
+@import 'components/c-inline-code';
 
 
 /**
@@ -128,4 +94,4 @@
  */
 
 // GitHub style syntax highlighting
-@import "vendor/github-style-syntax-highlighting";
+@import 'vendor/github-style-syntax-highlighting';

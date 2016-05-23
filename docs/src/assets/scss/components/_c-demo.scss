@@ -42,10 +42,10 @@ $c-demo-github-icon-size: 26px;
 
 .c-demo {
     background-color: $c-demo-background-color;
-    padding: rem($shell-g-spacing-2x-large);
-    padding-left: rem($shell-g-spacing-5x-large);
     margin-bottom: rem($shell-g-spacing-5x-large);
     margin-left: -(rem($shell-g-spacing-5x-large));
+    padding: rem($shell-g-spacing-2x-large);
+    padding-left: rem($shell-g-spacing-5x-large);
 }
 
 
