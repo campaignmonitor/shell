@@ -2,7 +2,7 @@
 
 A powerful, lightweight, mostly unopinionated, responsive friendly CSS library that provides a solid foundation for any UI build.
 
-Built with :blue_heart: by
+Built with &nbsp;&nbsp;:blue_heart:&nbsp;&nbsp; by
 [Campaign Monitor](https://www.campaignmonitor.com/), which is why we say
 *mostly unopinionated* :smile:.
 
@@ -12,7 +12,8 @@ the meantime Shell's code is heavily documented.
 If you would like to suggest any new additions or improvements to Shell, log
 any issues or bugs, or just ask a question, please
 [open a new GitHub issue](https://github.com/campaignmonitor/shell/issues) and
-label it appropriately.
+label it appropriately. If you would like to contribute see
+[CONTRIBUTING.md](CONTRIBUTING.md).
 
 
 # Install
@@ -31,11 +32,9 @@ Once the `shell-csslib` NPM module is installed your project will look like
 this:
 
 ```
-project root
-|
-└───node_modules
-    |
-    └───shell-csslib
+project root/
+└── node_modules/
+    ├── shell-csslib/
 ```
 
 Your master Sass stylesheet—we typically call ours `style.scss`—should be
@@ -103,6 +102,19 @@ set up like this:
 Shell won't work without `_settings.scss` and `_mixins-functions.scss`, the
 rest are optional.
 
+## Example Architecture
+
+```
+project root/
+├── css/
+│   ├── components/
+│   ├── vendor/
+│   ├── _settings.scss
+│   └── style.scss
+└── node_modules/
+    ├── shell-csslib/
+```
+
 ## Dependencies
 
 - [Sass](http://sass-lang.com/install) (either [Ruby](http://rubyinstaller.org/) or [LibSass](http://libsass.org/), *we recommend LibSass*).
@@ -112,27 +124,8 @@ rest are optional.
 
     *We advise setting up Autoprefixer as part of your build process.*
 
-## Example architecture
 
-```
-project root
-|
-└───assets
-    |
-    └───components
-    |
-    └───vendor
-    |
-    └ _settings.scss
-    └ style.scss
-    |
-└───node_modules
-    |
-    └───shell-csslib
-```
-
-
-# Docs & Tests
+# Docs and Tests
 
 - [Test README.md](test/README.md)
 - [Docs README.md](docs/README.md)
@@ -146,7 +139,7 @@ project root
 *Eventually linting will be setup as part of CI, see: #19.*
 
 
-# Browser support
+# Browser Support
 
 - Chrome *(latest version)*
 - Firefox *(latest version)*
