@@ -16,7 +16,7 @@ module.exports = function(grunt) {
 
             // Sass
             sass: {
-                files: '<%= app.src %>/_assets/scss/**/*.scss',
+                files: '<%= app.src %>/assets/scss/**/*.scss',
                 tasks: [
                     'sass',
                     'postcss'
@@ -31,7 +31,7 @@ module.exports = function(grunt) {
 
             // Uglify
             uglify: {
-                files: ['<%= app.src %>/_assets/js/**/*.js'],
+                files: ['<%= app.src %>/assets/js/**/*.js'],
                 tasks: ['uglify:dev'],
                 options: {
                     spawn: false
@@ -42,7 +42,7 @@ module.exports = function(grunt) {
         // Assemble
         assemble: {
             options: {
-                assets: '<%= app.src %>/_assets/',
+                assets: '<%= app.src %>/assets/',
                 layout: 'page.hbs',
                 layoutdir: '<%= app.src %>/layouts/',
                 partials: '<%= app.src %>/partials/**/*',
@@ -66,7 +66,7 @@ module.exports = function(grunt) {
             dist: {
                 files: [{
                     expand: true,
-                    cwd: '<%= app.src %>/_assets/scss',
+                    cwd: '<%= app.src %>/assets/scss',
                     src: '**/*.scss',
                     dest: '<%= app.dist %>/css',
                     ext: '.css'
@@ -103,9 +103,9 @@ module.exports = function(grunt) {
                 files: {
                     '<%= app.dist %>/js/script.js':
                     [
-                        '<%= app.src %>/_assets/js/helpers.js',
-                        '<%= app.src %>/_assets/js/append-anchors.js',
-                        '<%= app.src %>/_assets/js/script.js'
+                        '<%= app.src %>/assets/js/helpers.js',
+                        '<%= app.src %>/assets/js/append-anchors.js',
+                        '<%= app.src %>/assets/js/script.js'
                     ]
                 }
             },
@@ -118,9 +118,9 @@ module.exports = function(grunt) {
                 files: {
                     '<%= app.dist %>/js/script.js':
                     [
-                        '<%= app.src %>/_assets/js/helpers.js',
-                        '<%= app.src %>/_assets/js/append-anchors.js',
-                        '<%= app.src %>/_assets/js/script.js'
+                        '<%= app.src %>/assets/js/helpers.js',
+                        '<%= app.src %>/assets/js/append-anchors.js',
+                        '<%= app.src %>/assets/js/script.js'
                     ]
                 }
             }
@@ -139,7 +139,7 @@ module.exports = function(grunt) {
             dist: {
                 files: [{
                     expand: true,
-                    cwd: '<%= app.src %>/_assets/img/',
+                    cwd: '<%= app.src %>/assets/img/',
                     src: ['*.svg'],
                     dest: '<%= app.dist %>/img/'
                 }]
@@ -185,7 +185,7 @@ module.exports = function(grunt) {
                 files: [{
                     expand: true,
                     dot: true,
-                    cwd: '<%= app.src %>/_assets/img',
+                    cwd: '<%= app.src %>/assets/img',
                     src: '**/*',
                     dest: '<%= app.dist %>/img'
                 }]
@@ -201,7 +201,7 @@ module.exports = function(grunt) {
             dist: {
                 files: [{
                   expand: true,
-                  cwd: '<%= app.src %>/_assets/img',
+                  cwd: '<%= app.src %>/assets/img',
                   src: ['**/*.{png,jpg,gif}'],
                   dest: '<%= app.dist %>/img'
                 }]

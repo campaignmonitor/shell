@@ -18,12 +18,11 @@
  *
  * 1. Root element
  * 2. Links
- * 3. Horizontal rule
- * 4. Images
- * 5. Forms
- * 6. Paragraphs
- * 7. Headings
- * 8. Print
+ * 3. Images
+ * 4. Forms
+ * 5. Paragraphs
+ * 6. Headings
+ * 7. Print
  */
 
 
@@ -61,31 +60,19 @@ a {
 
 
 
-/* 3. Horizontal rule
-   ========================================================================= */
-
-hr {
-    border-top: $shell-base-hr-thickness $shell-base-hr-style $shell-base-hr-color;
-    display: block;
-    height: 1px;
-}
-
-
-
-
-/* 4. Images
+/* 3. Images
    ========================================================================= */
 
 /**
- * 1. Make responsive, i.e. keep images from scaling beyond the width of their
+ * 1. `[alt]` text is visually offset if images don't load.
+ * 2. Make responsive, i.e. keep images from scaling beyond the width of their
  *    parents.
- * 2. `[alt]` text is visually offset if images don't load.
  */
 
 img {
-    max-width: 100%; // [1]
-    height: auto; // [1]
-    font-style: italic; // [2]
+    font-style: italic; // [1]
+    height: auto; // [2]
+    max-width: 100%; // [2]
 }
 
 
@@ -98,18 +85,24 @@ img {
  * N.B. it is okay to use `!important` here as we're doing it pre-emptively
  * i.e. you know you will always want the rule it's applied to to take
  * precedence.
+ *
+ * @todo https://github.com/campaignmonitor/shell/issues/71
  */
 
+/* stylelint-disable selector-no-id, selector-max-specificity */
+
 .remove-responsive-images img,
-#map_canvas img,
-.map_canvas img {
+.map_canvas img,
+#map_canvas img {
     max-width: none !important;
 }
 
+/* stylelint-enable */
 
 
 
-/* 5. Forms
+
+/* 4. Forms
    ========================================================================= */
 
 /**
@@ -119,7 +112,8 @@ img {
  * "Safari Mobile for iOS applies a default style of `opacity: 0.4` to disabled
  * textual `<input>` elements. Other major browsers don't currently share this
  * particular default style."
- * —https://developer.mozilla.org/en-US/docs/Web/HTML/Element/Input#Browser_compatibility
+ * —https://developer.mozilla.org/en-US/docs/Web/HTML/Element/
+ * Input#Browser_compatibility
  */
 
 @if $shell-base-apply-style-to-disabled-and-readonly-states {
@@ -131,17 +125,20 @@ img {
 
 
 /**
- * Allows textual input values to be positioned by padding alone.
+ * Allows us to use `padding` alone to determine the height of certain form
+ * elements.
  */
 
-#{$shell-g-textual-inputs} {
+#{$shell-g-textual-inputs},
+select,
+option {
     line-height: 1;
 }
 
 
 
 
-/* 6. Paragraphs
+/* 5. Paragraphs
    ========================================================================= */
 
 /**
@@ -149,36 +146,32 @@ img {
  */
 
 @if $shell-base-apply-bottom-margin-to-paragraphs {
-    p {
+    p:not(:last-child) {
         margin-bottom: rem($shell-g-spacing);
-
-        &:last-child {
-            margin-bottom: 0;
-        }
     }
 }
 
 
 
 
-/* 7. Headings
+/* 6. Headings
    ========================================================================= */
 
 /**
- * Here we scope our Base Heading styles to classes instead of the `hx` element
- * selector so our styles are not tied to the semantics of the heading element,
- * i.e. if you want a `h4` to look like a `h2` you can easily do this.
- *
- * N.B. spacing (`bottom-margin`) is handled via the "Spacing" helpers.
+ * Here we scope our Base Heading styles to classes instead of the `<hx>`
+ * element selector so our styles are not tied to the semantics of the heading
+ * element, i.e. if you want a `<h4>` to look like a `<h2>` you can easily do
+ * this.
  */
 
 
 /**
  * Neutralise all the heading elements in favour of applying styles via the
  * `.heading-` class and its variants. We make all the heading elements use the
- * default typography styles and we may as well apply the heading colour.
+ * default typography styles and we may as well apply the default text colour.
  *
- * N.B. `margin` and `padding` are taken care of in "Normalise/Reset".
+ * N.B. Resetting `margin` and `padding` are taken care of in
+ * "Normalise/Reset".
  */
 
 
@@ -214,7 +207,7 @@ h6 {
 
 
 
-/* 8. Print
+/* 7. Print
    ========================================================================= */
 
 /**
@@ -224,7 +217,6 @@ h6 {
  */
 
 @media print {
-
     /**
      * Apply print friendly styles to all the things.
      */
@@ -236,7 +228,7 @@ h6 {
     *::first-line {
         background: transparent !important;
         box-shadow: none !important;
-        color: #000 !important;
+        color: $shell-g-color-black !important;
         text-shadow: none !important;
     }
 
@@ -279,18 +271,18 @@ h6 {
      */
 
     a[href]::after {
-        content: " (" attr(href) ")";
+        content: ' (' attr(href) ')';
     }
 
     abbr[title]::after {
-        content: " (" attr(title) ")";
+        content: ' (' attr(title) ')';
     }
 
     // Don't show links that are fragment identifiers, or use the
     // `javascript:` pseudo protocol
-    a[href^="javascript:"]::after,
-    a[href^="#"]::after {
-        content: "";
+    a[href^='javascript:']::after,
+    a[href^='#']::after {
+        content: '';
     }
 
 
@@ -309,7 +301,7 @@ h6 {
      */
 
     // Page breaks
-    h2
+    h2,
     h3 {
         page-break-after: avoid;
     }

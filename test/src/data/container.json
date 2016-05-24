@@ -10,16 +10,16 @@
             "run": "<div class=l-container></div>"
         }]
         },{
-        "selector": ".l-container--tiny",
-        "test": [{
-            "description": "The narrowest version",
-            "run": "<div class='l-container l-container--tiny'></div>"
-        }]
-        },{
         "selector": ".l-container--small",
         "test": [{
             "description": "A narrower version",
             "run": "<div class='l-container l-container--small'></div>"
+        }]
+        },{
+        "selector": ".l-container--x-small",
+        "test": [{
+            "description": "The narrowest version",
+            "run": "<div class='l-container l-container--x-small'></div>"
         }]
         },{
         "selector": ".l-container--large",
@@ -28,10 +28,10 @@
             "run": "<div class='l-container l-container--large'></div>"
         }]
         },{
-        "selector": ".l-container--huge",
+        "selector": ".l-container--x-large",
         "test": [{
             "description": "The widest version",
-            "run": "<div class='l-container l-container--huge'></div>"
+            "run": "<div class='l-container l-container--x-large'></div>"
         }]
     }]
  }

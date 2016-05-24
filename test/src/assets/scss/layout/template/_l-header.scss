@@ -1,0 +1,108 @@
+/* ============================================================================
+   LAYOUT -> TEMPLATE -> HEADER
+   ========================================================================= */
+
+/**
+ * The site header.
+ */
+
+
+/**
+ * Settings.
+ */
+
+// Colours
+$l-header-background-color: $g-color-brand;
+
+$l-header-nav-link-color: $shell-g-color-white;
+
+$l-header-nav-link-hover-color: darken($l-header-nav-link-color, 26%);
+
+// Other
+$l-header-nav-link-underline-thickness: 3px;
+
+
+/**
+ * The containers.
+ */
+
+.🐌-l-header {
+    background-color: $l-header-background-color;
+    margin-bottom: rem($shell-g-spacing-large);
+}
+
+// Space logo and nav at either ends of each other
+.🐌-l-header__inner {
+    display: flex;
+    justify-content: space-between;
+}
+
+
+/**
+ * The SVG logo and the wrapping link.
+ */
+
+.🐌-l-header__logo-link {
+    border-bottom: 0;
+    padding-bottom: rem($shell-g-spacing-small);
+    padding-top: rem($shell-g-spacing-small);
+    width: rem(100);
+}
+
+.🐌-l-header__logo {
+    fill: $l-header-nav-link-color;
+}
+
+
+/**
+ * Make all the nav elements `display: flex` so that the links can be the
+ * height of the container.
+ */
+
+.🐌-l-header__nav,
+.🐌-l-header__nav__list,
+.🐌-l-header__nav__item,
+.🐌-l-header__nav__link {
+    display: flex;
+}
+
+
+/**
+ * Nav links.
+ */
+
+.🐌-l-header__nav__link {
+    align-items: center;
+    color: $l-header-nav-link-color;
+    padding-left: rem($shell-g-spacing);
+    padding-right: rem($shell-g-spacing);
+    position: relative;
+    text-decoration: none;
+    transition: all 0.15s ease-in;
+
+    // Underline that sits off-canvas ready to be transitioned to the bottom
+    // of the link on all states
+    &::after {
+        background-color: transparent;
+        bottom: 0;
+        content: '';
+        height: $l-header-nav-link-underline-thickness;
+        left: 0;
+        position: absolute;
+        right: 0;
+        transform: translateY($l-header-nav-link-underline-thickness);
+        transition: transform 0.15s ease-in;
+    }
+
+    // States
+    &:hover,
+    &:focus,
+    &.is-active {
+        color: $l-header-nav-link-hover-color;
+
+        &::after {
+            background-color: $l-header-nav-link-hover-color;
+            transform: translateY(0);
+        }
+    }
+}

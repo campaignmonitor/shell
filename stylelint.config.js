@@ -209,9 +209,9 @@ module.exports = {
         //     ignore: ['descendant'],
         //     severity: 'warning'
         // }],
-        'selector-no-universal': [true, {
-            severity: 'warning'
-        }],
+        // 'selector-no-universal': [true, {
+        //     severity: 'warning'
+        // }],
         'selector-no-vendor-prefix': true,
         'selector-pseudo-element-colon-notation': 'double',
         'selector-root-no-composition': null,

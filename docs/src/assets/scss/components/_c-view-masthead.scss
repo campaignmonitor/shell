@@ -1,0 +1,41 @@
+/* ============================================================================
+   COMPONENTS -> VIEW MASTHEAD
+   ========================================================================= */
+
+
+/**
+ * The masthead that sits at the top of each view (page), by default it
+ * contains the view heading and an introduction.
+ *
+ * @markup
+ * /partials/view-masthead.hbs
+ */
+
+
+.c-view-masthead {
+    margin-bottom: rem($shell-g-spacing-5x-large);
+}
+
+
+/**
+ * The heading.
+ */
+
+.c-view-masthead__heading {
+    font-size: rem(60);
+    font-weight: 200;
+    margin-bottom: rem($shell-g-spacing);
+}
+
+
+/**
+ * The introduction.
+ */
+
+.c-view-masthead__intro {
+    font-size: rem($shell-g-font-size-large);
+
+    > p:not(:last-child) {
+        margin-bottom: rem($shell-g-spacing);
+    }
+}

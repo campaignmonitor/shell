@@ -1,0 +1,73 @@
+/* ============================================================================
+   LAYOUT -> TEMPLATE -> HEADER
+   ========================================================================= */
+
+/**
+ * The site header which is in the form of a left sidebar at wider viewports.
+ */
+
+
+/**
+ * Settings.
+ */
+
+
+
+$l-header-link-color: $shell-g-color-white;
+
+$l-header-link-hover-color: darken($l-header-link-color, 26%);
+
+
+.l-header {
+    background-color: $g-color-off-black;
+    color: $shell-g-color-white;
+    height: 100vh;
+    padding: rem($shell-g-spacing-large);
+    position: fixed;
+    width: rem($g-header-width);
+}
+
+
+/**
+ * The SVG logo and the wrapping link.
+ */
+
+.l-header__logo-link {
+    display: block;
+    margin-bottom: rem($shell-g-spacing-4x-large);
+}
+
+.l-header__logo {
+    fill: $shell-g-color-white;
+}
+
+
+/**
+ * Main navigation.
+ */
+
+/**
+ * Items.
+ */
+
+.l-header__nav__item {
+    margin-bottom: rem($shell-g-spacing-2x-small);
+}
+
+/**
+ * Links.
+ */
+
+.l-header__nav__link {
+    border-bottom: 1px solid transparent;
+    color: $shell-g-color-white;
+    display: inline-block;
+    text-decoration: none;
+
+    &:hover,
+    &:focus,
+    &.is-active {
+        border-bottom-color: darken($shell-g-color-white, 30%);
+        color: darken($shell-g-color-white, 30%);
+    }
+}

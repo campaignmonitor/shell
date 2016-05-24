@@ -50,7 +50,7 @@
 ///     strip-unit(2.3em)
 
 @function strip-unit($number) {
-    @if type-of($number) == "number" and not unitless($number) {
+    @if type-of($number) == 'number' and not unitless($number) {
         @return $number / ($number * 0 + 1);
     }
     @return $number;
@@ -102,9 +102,11 @@
 ///     }
 
 @mixin hidpi-bg-img($img-url, $img-width: auto, $img-height: auto) {
+    /* stylelint-disable */
     @media (min-resolution: $shell-g-hidpi-dppx),
            (min-resolution: $shell-g-hidpi-dpi) {
-        background-image: url($img-url);
+    /* stylelint-enable */
+        background-image: url('#{$img-url}');
         background-size: $img-width $img-height;
     }
 }
@@ -147,8 +149,8 @@
 ///     }
 
 @function em($value, $context: $shell-g-font-size) {
-    @if type-of($value) != "number" or type-of($context) != "number" {
-        @error "You have to enter only numbers for `$value` and `$context`.";
+    @if type-of($value) != 'number' or type-of($context) != 'number' {
+        @error 'You have to enter only numbers for `$value` and `$context`.';
     }
     @return strip-unit($value) / strip-unit($context) * 1em;
 }
@@ -178,8 +180,12 @@
 ///     }
 
 @function rem($value) {
-    @if type-of($value) != "number" {
-        @error "You have to enter only a number for `$value`. You entered `#{$value}`.";
+    @if type-of($value) != 'number' {
+        /* stylelint-disable max-line-length */
+
+        @error 'You have to enter only a number for `$value`. You entered #{$value}`.';
+
+        /* stylelint-enable */
     }
     @return strip-unit($value) / strip-unit($shell-g-font-size) * 1rem;
 }
@@ -255,8 +261,8 @@
 ///
 /// @access public
 ///
-/// @param {String} $class-selector - Class selector used to generate the final
-/// class e.g. `.h-hide-visually` -> `.h-hide-visually-from-lap`.
+/// @param {String} $class-selector - Class selector used to generate the
+/// final class e.g. `.h-hide-visually` -> `.h-hide-visually-from-lap`.
 /// @param {List} $breakpoints - A list of breakpoints either named
 /// breakpoints e.g. `(palm, lap)`, integers e.g. `(400, 740)`, or "all" to
 /// generate all the named breakpoints e.g. `(all)`. Each breakpoint can be
@@ -311,7 +317,7 @@
     // N.B. you cannot pass in a limit when using this—the limit will use the
     // default: `min-width` except for "Palm" which uses: `max-width`
     $all-breakpoints: map-keys($shell-g-breakpoints);
-    @if $breakpoints == "all" {
+    @if $breakpoints == 'all' {
         $breakpoints: $all-breakpoints;
     }
 
@@ -321,7 +327,12 @@
     @if length($breakpoints) == 2 and index((min max), nth($breakpoints, 2)) {
         $breakpoints-copy: $breakpoints;
         $breakpoints: ();
+
+        /* stylelint-disable max-line-length */
+
         $breakpoints: append($breakpoints, (nth($breakpoints-copy, 1) nth($breakpoints-copy, 2)));
+
+        /* stylelint-enable */
     }
 
     // Loop through all the breakpoints passed in from the Shell consumer side
@@ -329,42 +340,48 @@
 
         // The "max" or "min" limit used for the media feature part of the
         // media query: `min-width` or `max-width`, default is always "min"
-        $limit-min: "min";
-        $limit-max: "max";
+        $limit-min: 'min';
+        $limit-max: 'max';
         $limit: $limit-min;
 
         // The "max" or "min" limit label that gets appended to the
         // generated class selector
-        $limit-label: "from";
+        $limit-label: 'from';
 
         // When defining a breakpoint with a limit—which is of type `list()`—
         // we need to check this so we can separate the breakpoint and the
         // limit parts, so they can be used in the relevant parts of the
         // generated media query
-        @if type-of($breakpoint) == "list" {
+        @if type-of($breakpoint) == 'list' {
             $limit: nth($breakpoint, 2);
             $breakpoint: nth($breakpoint, 1);
         }
 
         // Palm is a special case as it needs to use a `max-width` media query
         // as its viewport range is 0–640px
-        @if $breakpoint == "palm" {
+        @if $breakpoint == 'palm' {
             $limit: $limit-max;
         }
 
-        // We have to check if the breakpoint is a number or a named breakpoint
-        // so that we can apply the relevant functions: `em()` and `bp()` so
-        // that we can generate the breakpoint value correctly
-        @if type-of($breakpoint) == "number" {
+        // We have to check if the breakpoint is a number or a named
+        // breakpoint so that we can apply the relevant functions: `em()` and
+        // `bp()` so that we can generate the breakpoint value correctly
+        $generate-breakpoint: $breakpoint;
+
+        /* stylelint-disable block-closing-brace-newline-after */
+
+        @if type-of($breakpoint) == 'number' {
             $breakpoint: strip-unit($breakpoint);
             $generate-breakpoint: em($breakpoint, 16);
         } @else {
             $generate-breakpoint: bp($breakpoint);
         }
 
+        /* stylelint-enable */
+
         // Change the limit label when a "max" limit is used
         @if $limit == $limit-max {
-            $limit-label: "up-to";
+            $limit-label: 'up-to';
         }
 
         // Construct the generated media query with the passed in limit and
@@ -377,7 +394,12 @@
             // E.g.
             // `.h-hide-visually-from-900`
             // `.h-hide-visually-up-to-palm`
-            $generated-selector: "#{$class-selector}-#{$limit-label}-#{$breakpoint}";
+
+            /* stylelint-disable max-line-length */
+
+            $generated-selector: '#{$class-selector}-#{$limit-label}-#{$breakpoint}';
+
+            /* stylelint-enable */
 
             // The contents of the media query
             #{$generated-selector} {
@@ -448,7 +470,11 @@
 
 @function bp($breakpoint) {
     @if not map-has-key($shell-g-breakpoints, $breakpoint) {
-        @error "Sorry but `#{$breakpoint}` doesn't exist as a breakpoint name in the "Breakpoints" map.";
+        /* stylelint-disable max-line-length */
+
+        @error 'Sorry but `#{$breakpoint}` doesn\'t exist as a breakpoint name in the \'Breakpoints\' map.';
+
+        /* stylelint-enable */
     }
     @return map-get($shell-g-breakpoints, $breakpoint);
 }
@@ -484,9 +510,10 @@
 ///         z-index: 1;
 ///     }
 
+/* stylelint-disable */
 @function z($z-index-layer, $z-index-layer-nested: null) {
     @if not map-has-key($shell-g-z-layers, $z-index-layer) {
-        @error "Sorry but `#{$z-index-layer}` doesn't exist as a `z-index` name in the 'Z-Index system' map.";
+        @error 'Sorry but `#{$z-index-layer}` doesn\'t exist as a `z-index` name in the \'Z-Index system\' map.';
     }
     @if ($z-index-layer-nested != null) {
         @return map-get(map-get($shell-g-z-layers, $z-index-layer), $z-index-layer-nested);
@@ -494,6 +521,7 @@
         @return map-get($shell-g-z-layers, $z-index-layer);
     }
 }
+/* stylelint-enable */
 
 
 
@@ -536,10 +564,11 @@
 ///     }
 
 @mixin clear-fix($apply-important-keyword: false) {
-    $important-keyword: if($apply-important-keyword, " !important", "");
+    $important-keyword: if($apply-important-keyword, ' !important', '');
+
     &::after {
         clear: both#{$important-keyword};
-        content: ""#{$important-keyword};
+        content: '#{$important-keyword}';
         display: table#{$important-keyword};
     }
 }
@@ -577,8 +606,8 @@
 ///     }
 
 @mixin text-truncate($apply-important-keyword: false, $display: block) {
-    $important-keyword: if($apply-important-keyword, " !important", "");
-    $display-property-value: if($display == block, "block", $display);
+    $important-keyword: if($apply-important-keyword, ' !important', '');
+    $display-property-value: if($display == block, 'block', $display);
     display: #{$display-property-value}#{$important-keyword};
     overflow: hidden#{$important-keyword};
     text-overflow: ellipsis#{$important-keyword};
@@ -614,7 +643,7 @@
 ///     }
 
 @mixin text-osx-font-smoothing($apply-important-keyword: false) {
-    $important-keyword: if($apply-important-keyword, " !important", "");
+    $important-keyword: if($apply-important-keyword, ' !important', '');
     -moz-osx-font-smoothing: grayscale#{$important-keyword};
     -webkit-font-smoothing: antialiased#{$important-keyword};
 }
@@ -659,9 +688,15 @@
 ///     }
 
 @mixin hide-visually($apply-important-keyword: false) {
-    $important-keyword: if($apply-important-keyword, " !important", "");
+    $important-keyword: if($apply-important-keyword, ' !important', '');
     border: 0#{$important-keyword};
+
+    /* stylelint-disable function-whitespace-after */
+
     clip: rect(0 0 0 0)#{$important-keyword};
+
+    /* stylelint-enable */
+
     height: 1px#{$important-keyword};
     margin: -1px #{$important-keyword};
     overflow: hidden#{$important-keyword};
@@ -671,8 +706,8 @@
 }
 
 
-/// Makes an element be aligned horizontally and vertically using Flexbox, must
-/// go on the parent of the element that needs the alignment.
+/// Makes an element be aligned horizontally and vertically using Flexbox,
+/// must go on the parent of the element that needs the alignment.
 ///
 /// @author Chris Pearce
 ///
@@ -703,7 +738,7 @@
 ///     }
 
 @mixin align-horizontally-and-vertically($apply-important-keyword: false) {
-    $important-keyword: if($apply-important-keyword, " !important", "");
+    $important-keyword: if($apply-important-keyword, ' !important', '');
     align-items: center#{$important-keyword};
     display: flex#{$important-keyword};
     flex-flow: column;
@@ -744,11 +779,16 @@
 ///     }
 
 @mixin align-horizontally-and-vertically-alt($apply-important-keyword: false) {
-    $important-keyword: if($apply-important-keyword, " !important", "");
+    $important-keyword: if($apply-important-keyword, ' !important', '');
     left: 50%#{$important-keyword};
     position: absolute#{$important-keyword};
     top: 50%#{$important-keyword};
+
+    /* stylelint-disable function-whitespace-after */
+
     transform: translate(-50%, -50%)#{$important-keyword};
+
+    /* stylelint-enable */
 }
 
 
@@ -788,17 +828,24 @@
 ///         position: relative !important;
 ///     }
 
-@mixin intrinsic-ratio-container($apply-important-keyword: false, $ratio: 16 9) {
-    $important-keyword: if($apply-important-keyword, " !important", "");
+@mixin intrinsic-ratio-container(
+    $apply-important-keyword: false, $ratio: 16 9) {
+    $important-keyword: if($apply-important-keyword, ' !important', '');
     @if length($ratio) < 2 or length($ratio) > 2 {
-        @error "#{inspect($ratio)} must be a list with two values.";
+        @error '#{inspect($ratio)} must be a list with two values.';
     }
     display: block#{$important-keyword};
     height: 0#{$important-keyword};
     overflow: hidden#{$important-keyword};
+
+    /* stylelint-disable max-line-length, function-whitespace-after */
+
     padding-bottom: percentage(nth($ratio, 2) / nth($ratio, 1))#{$important-keyword};
+
+    /* stylelint-enable */
+
     position: relative#{$important-keyword};
- }
+}
 
 
 /// The content container for the "Intrinsic ratio container" mixin.
@@ -833,12 +880,12 @@
 ///         width: 100% !important;
 ///     }
 
- @mixin intrinsic-ratio-content($apply-important-keyword: false) {
-    $important-keyword: if($apply-important-keyword, " !important", "");
+@mixin intrinsic-ratio-content($apply-important-keyword: false) {
+    $important-keyword: if($apply-important-keyword, ' !important', '');
 
     height: 100%#{$important-keyword};
     left: 0#{$important-keyword};
     position: absolute#{$important-keyword};
     top: 0#{$important-keyword};
     width: 100%#{$important-keyword};
- }
+}

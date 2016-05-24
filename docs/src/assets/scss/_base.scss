@@ -1,0 +1,82 @@
+/* ============================================================================
+   BASE
+   ========================================================================= */
+
+/**
+ * Here we provide very basic styling that most UI's will need. These styles
+ * are applied at the most global level being applied via element selectors.
+ * Everything in Base needs to be easily overridden which is really easy to do
+ * as everything in Base sits right at the bottom in terms of specificity.
+ *
+ * Some of this styling builds on top of Shell's "Base".
+ *
+ * CONTENTS:
+ *
+ * 1. Code element
+ * 2. Headings
+ */
+
+
+
+
+/* 1. Code
+   ========================================================================= */
+
+code {
+    font-family: $shell-g-font-family-monospace;
+}
+
+
+
+
+/* 2. Headings
+   ========================================================================= */
+
+/**
+ * Settings.
+ */
+
+$heading-anchor-icon-size:  36px;
+
+
+/**
+ * Styles for the nested anchor element rendered as a link icon.
+ */
+
+.heading {
+    position: relative;
+}
+
+/**
+ * The anchor.
+ */
+
+.heading__anchor {
+    background: aqua;
+    bottom: 4px;
+    //left: -32px;
+    left: 0;
+    line-height: 0;
+    position: absolute;
+    top: 4px;
+    transition: none;
+    width: 40px;
+
+
+    /**
+     * The link icon.
+     */
+
+    svg {
+        fill: $g-color-grey-medium;
+        height: 100%;
+        opacity: 0.25;
+        transition: opacity 0.15s;
+        width: 100%;
+    }
+
+    &:hover svg,
+    &:focus svg {
+        opacity: 1;
+    }
+}

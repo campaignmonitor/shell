@@ -1,4 +1,4 @@
-@charset "UTF-8";
+@charset 'UTF-8';
 
 /**
  * Shell CSS library by Campaign Monitor.
@@ -7,50 +7,16 @@
  */
 
 
-/**
- * Settings.
- */
+@import 'settings';
 
-@import "settings";
+@import 'mixins-functions';
 
+@import 'normalise-reset';
 
-/**
- * Mixins/Functions.
- */
+@import 'base';
 
-@import "mixins-functions";
+@import 'container';
 
+@import 'grid';
 
-/**
- * Normalise/Reset.
- */
-
-@import "normalise-reset";
-
-
-/**
- * Base.
- */
-
-@import "base";
-
-
-/**
- * Container.
- */
-
-@import "container";
-
-
-/**
- * Grid.
- */
-
-@import "grid";
-
-
-/**
- * Helpers.
- */
-
-@import "helpers";
+@import 'helpers';

@@ -6,7 +6,6 @@ var mixinsFunctions = require('./src/_mixins-functions.scss');
 var normaliseReset = require('./src/_normalise-reset.scss');
 var settings = require('./src/_settings.scss');
 var shell = require('./src/shell.scss');
-var sideBySide = require('./src/_side-by-side.scss');
 
 
 module.exports = {
@@ -17,6 +16,5 @@ module.exports = {
     mixinsFunctions: mixinsFunctions,
     normaliseReset: normaliseReset,
     settings: settings,
-    shell: shell,
-    sideBySide: sideBySide
+    shell: shell
 };

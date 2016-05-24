@@ -1,6 +1,7 @@
 .gitignore
 .npmignore
-CHANGELOG.md
-NOTES.md
+.stylelintrc
+stylelint.config.js
 docs
 test
+logo.png

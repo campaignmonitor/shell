@@ -1,0 +1,144 @@
+/* ============================================================================
+   COMPONENTS -> DEMO
+   ========================================================================= */
+
+
+/**
+ * A component that encapsulates a demo for something coming from Shell,
+ * typically includes:
+ *
+ * - A heading
+ * - An intro
+ * - Configurable items
+ * - An example
+ * - The examples code
+ * - View source code link
+ *
+ * @example
+ * /partials/demo.hbs
+ */
+
+
+/**
+ * Settings.
+ */
+
+// Padding and margins
+$c-demo-padding: $shell-g-spacing;
+
+$c-demo-view-source-code-padding: $shell-g-spacing-small;
+
+// Colors
+$c-demo-background-color: $g-color-off-white;
+
+$c-demo-foreground-color-light-grey: $g-color-grey-medium;
+
+// Typography
+$c-demo-font-size-small: $shell-g-font-size-x-small;
+
+// Other
+$c-demo-github-icon-size: 26px;
+
+
+.c-demo {
+    background-color: $c-demo-background-color;
+    margin-bottom: rem($shell-g-spacing-5x-large);
+    margin-left: -(rem($shell-g-spacing-5x-large));
+    padding: rem($shell-g-spacing-2x-large);
+    padding-left: rem($shell-g-spacing-5x-large);
+}
+
+
+/**
+ * Apply shared spacing.
+ *
+ * TODO: move this out of the component and replace with spacing helpers.
+ */
+
+.c-demo__spacing {
+    margin-bottom: rem($c-demo-padding);
+}
+
+.c-demo__spacing-large {
+    margin-bottom: rem($c-demo-padding + $shell-g-spacing-small);
+}
+
+
+/**
+ * Intro.
+ */
+
+.c-demo__intro {
+    margin-bottom: rem($c-demo-padding + $shell-g-spacing-small);
+}
+
+
+/**
+ * Configurable items.
+ */
+
+.c-demo__config-items {
+    em {
+        color: $c-demo-foreground-color-light-grey;
+        font-size: rem($c-demo-font-size-small);
+    }
+}
+
+
+/**
+ * Example.
+ */
+
+/**
+ * Modifier: apply extra styling to the example markup, this is needed when
+ * we need additional markup like paragraphs that isn't the actual example
+ * markup.
+ */
+
+.c-demo__example--extra-styling {
+    > p {
+        color: $c-demo-foreground-color-light-grey;
+        font-family: $g-font-family-light;
+        font-size: rem($c-demo-font-size-small);
+    }
+}
+
+
+/**
+ * View source code link.
+ */
+
+.c-demo__view-source-code {
+    display: inline-block;
+    padding-left: rem($c-demo-view-source-code-padding);
+    padding-top: rem($c-demo-view-source-code-padding);
+    text-decoration: none;
+
+    // Remove padding when the demo doesn't show an example.
+    .has-no-example & {
+        padding: 0;
+    }
+}
+
+/**
+ * The link text.
+ */
+
+.c-demo__view-source-code-text {
+    vertical-align: middle;
+}
+
+/**
+ * The GitHub SVG icon.
+ */
+
+.c-demo__view-source-code-icon {
+    fill: $shell-g-color-link;
+    height: $c-demo-github-icon-size;
+    width: $c-demo-github-icon-size;
+
+    .c-demo__view-source-code:hover &,
+    .c-demo__view-source-code:focus & {
+        fill: $shell-g-color-link-hover;
+    }
+}

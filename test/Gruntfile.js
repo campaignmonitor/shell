@@ -30,7 +30,7 @@ module.exports = function(grunt) {
             // Dev
             dev: {
                 files: [
-                    '<%= app.src %>/_assets/scss/**/*.scss',
+                    '<%= app.src %>/assets/scss/**/*.scss',
                     '<%= app.src %>/**/*'
                 ],
                 tasks: [
@@ -45,7 +45,7 @@ module.exports = function(grunt) {
         assemble: {
             options: {
                 flatten: true,
-                _assets: '<%= app.src %>/_assets/**/*',
+                assets: '<%= app.src %>/assets/**/*',
                 layout: 'master.hbs',
                 layoutdir: '<%= app.src %>/layouts/',
                 partials: '<%= app.src %>/partials/**/*',
@@ -81,7 +81,7 @@ module.exports = function(grunt) {
             dev: {
                 files: [{
                     expand: true,
-                    cwd: '<%= app.src %>/_assets/scss',
+                    cwd: '<%= app.src %>/assets/scss',
                     src: '**/*.scss',
                     dest: '<%= app.dist %>/css',
                     ext: '.css'
@@ -159,7 +159,7 @@ module.exports = function(grunt) {
                 files: [{
                     expand: true,
                     dot: true,
-                    cwd: '<%= app.src %>/_assets/img',
+                    cwd: '<%= app.src %>/assets/img',
                     src: '**/*',
                     dest: '<%= app.dist %>/img'
                 }]
@@ -168,7 +168,7 @@ module.exports = function(grunt) {
                 files: [{
                     expand: true,
                     dot: true,
-                    cwd: '<%= app.src %>/_assets/fonts',
+                    cwd: '<%= app.src %>/assets/fonts',
                     src: '**/*',
                     dest: '<%= app.dist %>/fonts'
                 }]
@@ -184,7 +184,7 @@ module.exports = function(grunt) {
             dist: {
                 files: [{
                   expand: true,
-                  cwd: '<%= app.src %>/_assets/img',
+                  cwd: '<%= app.src %>/assets/img',
                   src: ['**/*.{png,jpg,gif}'],
                   dest: '<%= app.dist %>/img'
                 }]

@@ -7,9 +7,9 @@
  * The purpose of Helpers is to provide extremely common style treatments
  * and UI patterns, some good examples are:
  *
- * - Hide an element visually but have it available for screen readers
- * - Truncate a line of text using an ellipsis
- * - Applying white space outside of Components
+ * - Hide an element visually but have it available for screen readers.
+ * - Truncate a line of text using an ellipsis.
+ * - Applying white space outside of Components.
  *
  * Rather than repeating the CSS for these common style treatments and UI
  * patterns over and over and also the cognitive load of having to remember
@@ -22,7 +22,8 @@
  * modify any of Shell's Helpers then you should simply not use them. Read more
  * about these principles and how they apply to CSS here:
  *
- * - http://csswizardry.com/2012/04/the-single-responsibility-principle-applied-to-css/
+ * - http://csswizardry.com/2012/04/
+ *   the-single-responsibility-principle-applied-to-css/
  * - http://csswizardry.com/2012/06/the-open-closed-principle-applied-to-css/
  *
  * Implementation
@@ -73,7 +74,9 @@
  *
     <button type="button" class="c-drop-down-menu__trigger">
         My account
-        <span class="h-hide-visually">Open the menu with the enter key and close it with the escape key; use the up and down arrow keys to navigate.</span>
+        <span class="h-hide-visually">Open the menu with the enter key and
+        close it with the escape key; use the up and down arrow keys to
+        navigate.</span>
     </button>
  *
  *   Not:
@@ -109,7 +112,8 @@
  *
  *   Not:
  *
-    <a href="some/url" class="l-header__nav-item  h-text-truncate">List &amp; Subscribers</a>
+    <a href="some/url" class="l-header__nav-item  h-text-truncate">List &amp;
+    Subscribers</a>
  *
  * ----------------------------------------------------------------------------
  *
@@ -171,6 +175,7 @@
  * Sizes.
  */
 
+
 /**
  * Base.
  */
@@ -180,11 +185,16 @@
 }
 
 // Apply at breakpoints
+/* stylelint-disable max-line-length */
+
 @if $shell-helper-apply-text-size-at-breakpoints {
-    @include apply-at-breakpoints(".h-text-size", $shell-helper-define-text-size-breakpoints) {
+    @include apply-at-breakpoints('.h-text-size', $shell-helper-define-text-size-breakpoints) {
         font-size: rem($shell-g-font-size) !important;
     }
 }
+
+/* stylelint-enable */
+
 
 /**
  * Decrease from base.
@@ -196,11 +206,15 @@
 }
 
 // Apply at breakpoints
+/* stylelint-disable max-line-length */
+
 @if $shell-helper-apply-text-size-small-at-breakpoints {
-    @include apply-at-breakpoints(".h-text-size-small", $shell-helper-define-text-size-small-breakpoints) {
+    @include apply-at-breakpoints('.h-text-size-small', $shell-helper-define-text-size-small-breakpoints) {
         font-size: rem($shell-g-font-size-small) !important;
     }
 }
+
+/* stylelint-enable */
 
 // X-small
 .h-text-size-x-small {
@@ -208,11 +222,15 @@
 }
 
 // Apply at breakpoints
+/* stylelint-disable max-line-length */
+
 @if $shell-helper-apply-text-size-x-small-at-breakpoints {
-    @include apply-at-breakpoints(".h-text-size-x-small", $shell-helper-define-text-size-x-small-breakpoints) {
+    @include apply-at-breakpoints('.h-text-size-x-small', $shell-helper-define-text-size-x-small-breakpoints) {
         font-size: rem($shell-g-font-size-x-small) !important;
     }
 }
+
+/* stylelint-enable */
 
 // 2X-small
 .h-text-size-2x-small {
@@ -220,11 +238,16 @@
 }
 
 // Apply at breakpoints
+/* stylelint-disable max-line-length */
+
 @if $shell-helper-apply-text-size-x-small-at-breakpoints {
-    @include apply-at-breakpoints(".h-text-size-2x-small", $shell-helper-define-text-size-2x-small-breakpoints) {
+    @include apply-at-breakpoints('.h-text-size-2x-small', $shell-helper-define-text-size-2x-small-breakpoints) {
         font-size: rem($shell-g-font-size-2x-small) !important;
     }
 }
+
+/* stylelint-enable */
+
 
 /**
  * Increase from base.
@@ -236,11 +259,15 @@
 }
 
 // Apply at breakpoints
+/* stylelint-disable max-line-length */
+
 @if $shell-helper-apply-text-size-large-at-breakpoints {
     @include apply-at-breakpoints('.h-text-size-large', $shell-helper-define-text-size-large-breakpoints) {
         font-size: rem($shell-g-font-size-large) !important;
     }
 }
+
+/* stylelint-enable */
 
 // X-Large
 .h-text-size-x-large {
@@ -248,11 +275,15 @@
 }
 
 // Apply at breakpoints
+/* stylelint-disable max-line-length */
+
 @if $shell-helper-apply-text-size-x-large-at-breakpoints {
     @include apply-at-breakpoints('.h-text-size-x-large', $shell-helper-define-text-size-x-large-breakpoints) {
         font-size: rem($shell-g-font-size-x-large) !important;
     }
 }
+
+/* stylelint-enable */
 
 // 2X-Large
 .h-text-size-2x-large {
@@ -260,11 +291,15 @@
 }
 
 // Apply at breakpoints
+/* stylelint-disable max-line-length */
+
 @if $shell-helper-apply-text-size-2x-large-at-breakpoints {
     @include apply-at-breakpoints('.h-text-size-2x-large', $shell-helper-define-text-size-2x-large-breakpoints) {
         font-size: rem($shell-g-font-size-2x-large) !important;
     }
 }
+
+/* stylelint-enable */
 
 // 3X-Large
 .h-text-size-3x-large {
@@ -272,11 +307,15 @@
 }
 
 // Apply at breakpoints
+/* stylelint-disable max-line-length */
+
 @if $shell-helper-apply-text-size-3x-large-at-breakpoints {
     @include apply-at-breakpoints('.h-text-size-3x-large', $shell-helper-define-text-size-3x-large-breakpoints) {
         font-size: rem($shell-g-font-size-3x-large) !important;
     }
 }
+
+/* stylelint-enable */
 
 // 4X-Large
 .h-text-size-4x-large {
@@ -284,11 +323,15 @@
 }
 
 // Apply at breakpoints
+/* stylelint-disable max-line-length */
+
 @if $shell-helper-apply-text-size-4x-large-at-breakpoints {
     @include apply-at-breakpoints('.h-text-size-4x-large', $shell-helper-define-text-size-4x-large-breakpoints) {
         font-size: rem($shell-g-font-size-4x-large) !important;
     }
 }
+
+/* stylelint-enable */
 
 // 5X-Large
 .h-text-size-5x-large {
@@ -296,11 +339,15 @@
 }
 
 // Apply at breakpoints
+/* stylelint-disable max-line-length */
+
 @if $shell-helper-apply-text-size-5x-large-at-breakpoints {
     @include apply-at-breakpoints('.h-text-size-5x-large', $shell-helper-define-text-size-5x-large-breakpoints) {
         font-size: rem($shell-g-font-size-5x-large) !important;
     }
 }
+
+/* stylelint-enable */
 
 // 6X-Large
 .h-text-size-6x-large {
@@ -308,11 +355,15 @@
 }
 
 // Apply at breakpoints
+/* stylelint-disable max-line-length */
+
 @if $shell-helper-apply-text-size-6x-large-at-breakpoints {
     @include apply-at-breakpoints('.h-text-size-6x-large', $shell-helper-define-text-size-6x-large-breakpoints) {
         font-size: rem($shell-g-font-size-6x-large) !important;
     }
 }
+
+/* stylelint-enable */
 
 // 7X-Large
 .h-text-size-7x-large {
@@ -320,11 +371,15 @@
 }
 
 // Apply at breakpoints
+/* stylelint-disable max-line-length */
+
 @if $shell-helper-apply-text-size-7x-large-at-breakpoints {
     @include apply-at-breakpoints('.h-text-size-7x-large', $shell-helper-define-text-size-7x-large-breakpoints) {
         font-size: rem($shell-g-font-size-7x-large) !important;
     }
 }
+
+/* stylelint-enable */
 
 
 /**
@@ -337,11 +392,15 @@
 }
 
 // Apply at breakpoints
+/* stylelint-disable max-line-length */
+
 @if $shell-helper-apply-text-align-center-at-breakpoints {
     @include apply-at-breakpoints('.h-text-align-center', $shell-helper-define-text-align-center-breakpoints) {
         text-align: center !important;
     }
 }
+
+/* stylelint-enable */
 
 // Left
 .h-text-align-left {
@@ -349,23 +408,30 @@
 }
 
 // Apply at breakpoints
+/* stylelint-disable max-line-length */
+
 @if $shell-helper-apply-text-align-left-at-breakpoints {
     @include apply-at-breakpoints('.h-text-align-left', $shell-helper-define-text-align-left-breakpoints) {
         text-align: left !important;
     }
 }
 
+/* stylelint-enable */
 // Right
 .h-text-align-right {
     text-align: right !important;
 }
 
 // Apply at breakpoints
+/* stylelint-disable max-line-length */
+
 @if $shell-helper-apply-text-align-right-at-breakpoints {
     @include apply-at-breakpoints('.h-text-align-right', $shell-helper-define-text-align-right-breakpoints) {
         text-align: right !important;
     }
 }
+
+/* stylelint-enable */
 
 
 /**
@@ -389,11 +455,15 @@
 }
 
 // Apply at breakpoints
+/* stylelint-disable max-line-length */
+
 @if $shell-helper-apply-text-truncate-at-breakpoints {
     @include apply-at-breakpoints('.h-text-truncate', $shell-helper-define-text-truncate-breakpoints) {
         @include text-truncate(true);
     }
 }
+
+/* stylelint-enable */
 
 /**
  * Modifier: inline.
@@ -404,11 +474,15 @@
 }
 
 // Apply at breakpoints
+/* stylelint-disable max-line-length */
+
 @if $shell-helper-apply-text-truncate-at-breakpoints {
     @include apply-at-breakpoints('.h-text-truncate--inline', $shell-helper-define-text-truncate-breakpoints) {
         display: inline-block !important;
     }
 }
+
+/* stylelint-enable */
 
 
 
@@ -425,27 +499,15 @@
 }
 
 // Apply at breakpoints
+/* stylelint-disable max-line-length */
+
 @if $shell-helper-apply-hide-at-breakpoints {
     @include apply-at-breakpoints('.h-hide', $shell-helper-define-hide-breakpoints) {
         display: none !important;
     }
 }
 
-
-/**
- * Hide elements for JavaScript users and non-JavaScript users, this is
- * necessary when building accessible and progressively enhanced UI's. This
- * will require functionality that can append a hook to an element
- * (typically the `html` element) if JavaScript is on.
- */
-
-.js .h-hide-if-js-is-on {
-    display: none !important;
-}
-
-.no-js .h-hide-if-js-is-off {
-    display: none !important;
-}
+/* stylelint-enable */
 
 
 /**
@@ -459,11 +521,15 @@
 }
 
 // Apply at breakpoints
+/* stylelint-disable max-line-length */
+
 @if $shell-helper-apply-hide-visually-at-breakpoints {
     @include apply-at-breakpoints('.h-hide-visually', $shell-helper-define-hide-visually-breakpoints) {
         @include hide-visually(true);
     }
 }
+
+/* stylelint-enable */
 
 
 /**
@@ -505,7 +571,6 @@
 }
 
 @media print {
-
     .h-hide-for-print {
         display: none !important;
     }
@@ -530,10 +595,11 @@
    ========================================================================= */
 
 /**
- * Any spacing outside of a Component is handled by one of these "Spacing"
- * Helpers unless handled by the "Grid", and ALL spacing is downward facing
- * hence only `margin-bottom` being used.
+ * Sometimes spacing outside of a Component is handled by one of these
+ * "Spacing" Helpers, and ALL spacing is downward facing hence only
+ * `margin-bottom` being used.
  */
+
 
 /**
  * Base.
@@ -544,11 +610,16 @@
 }
 
 // Apply at breakpoints
+/* stylelint-disable max-line-length */
+
 @if $shell-helper-apply-spacing-at-breakpoints {
     @include apply-at-breakpoints('.h-spacing', $shell-helper-define-spacing-breakpoints) {
         margin-bottom: rem($shell-g-spacing) !important;
     }
 }
+
+/* stylelint-enable */
+
 
 /**
  * Decrease from base.
@@ -560,11 +631,15 @@
 }
 
 // Apply at breakpoints
+/* stylelint-disable max-line-length */
+
 @if $shell-helper-apply-spacing-small-at-breakpoints {
     @include apply-at-breakpoints('.h-spacing-small', $shell-helper-define-spacing-small-breakpoints) {
         margin-bottom: rem($shell-g-spacing-small) !important;
     }
 }
+
+/* stylelint-enable */
 
 // X-Small
 .h-spacing-x-small {
@@ -572,11 +647,32 @@
 }
 
 // Apply at breakpoints
+/* stylelint-disable max-line-length */
+
 @if $shell-helper-apply-spacing-x-small-at-breakpoints {
     @include apply-at-breakpoints('.h-spacing-x-small', $shell-helper-define-spacing-x-small-breakpoints) {
         margin-bottom: rem($shell-g-spacing-x-small) !important;
     }
 }
+
+/* stylelint-enable */
+
+// 2X-Small
+.h-spacing-2x-small {
+    margin-bottom: rem($shell-g-spacing-2x-small) !important;
+}
+
+// Apply at breakpoints
+/* stylelint-disable max-line-length */
+
+@if $shell-helper-apply-spacing-2x-small-at-breakpoints {
+    @include apply-at-breakpoints('.h-spacing-2x-small', $shell-helper-define-spacing-2x-small-breakpoints) {
+        margin-bottom: rem($shell-g-spacing-2x-small) !important;
+    }
+}
+
+/* stylelint-enable */
+
 
 /**
  * Increase from base.
@@ -588,11 +684,15 @@
 }
 
 // Apply at breakpoints
+/* stylelint-disable max-line-length */
+
 @if $shell-helper-apply-spacing-large-at-breakpoints {
     @include apply-at-breakpoints('.h-spacing-large', $shell-helper-define-spacing-large-breakpoints) {
         margin-bottom: rem($shell-g-spacing-large) !important;
     }
 }
+
+/* stylelint-enable */
 
 // X-Large
 .h-spacing-x-large {
@@ -600,11 +700,15 @@
 }
 
 // Apply at breakpoints
+/* stylelint-disable max-line-length */
+
 @if $shell-helper-apply-spacing-x-large-at-breakpoints {
     @include apply-at-breakpoints('.h-spacing-x-large', $shell-helper-define-spacing-x-large-breakpoints) {
         margin-bottom: rem($shell-g-spacing-x-large) !important;
     }
 }
+
+/* stylelint-enable */
 
 // 2X-Large
 .h-spacing-2x-large {
@@ -612,11 +716,15 @@
 }
 
 // Apply at breakpoints
+/* stylelint-disable max-line-length */
+
 @if $shell-helper-apply-spacing-2x-large-at-breakpoints {
     @include apply-at-breakpoints('.h-spacing-2x-large', $shell-helper-define-spacing-2x-large-breakpoints) {
         margin-bottom: rem($shell-g-spacing-2x-large) !important;
     }
 }
+
+/* stylelint-enable */
 
 // 3X-Large
 .h-spacing-3x-large {
@@ -624,11 +732,15 @@
 }
 
 // Apply at breakpoints
+/* stylelint-disable max-line-length */
+
 @if $shell-helper-apply-spacing-3x-large-at-breakpoints {
     @include apply-at-breakpoints('.h-spacing-3x-large', $shell-helper-define-spacing-3x-large-breakpoints) {
         margin-bottom: rem($shell-g-spacing-3x-large) !important;
     }
 }
+
+/* stylelint-enable */
 
 // 4X-Large
 .h-spacing-4x-large {
@@ -636,11 +748,15 @@
 }
 
 // Apply at breakpoints
+/* stylelint-disable max-line-length */
+
 @if $shell-helper-apply-spacing-4x-large-at-breakpoints {
     @include apply-at-breakpoints('.h-spacing-4x-large', $shell-helper-define-spacing-4x-large-breakpoints) {
         margin-bottom: rem($shell-g-spacing-4x-large) !important;
     }
 }
+
+/* stylelint-enable */
 
 // 5X-Large
 .h-spacing-5x-large {
@@ -648,11 +764,15 @@
 }
 
 // Apply at breakpoints
+/* stylelint-disable max-line-length */
+
 @if $shell-helper-apply-spacing-5x-large-at-breakpoints {
     @include apply-at-breakpoints('.h-spacing-5x-large', $shell-helper-define-spacing-5x-large-breakpoints) {
         margin-bottom: rem($shell-g-spacing-5x-large) !important;
     }
 }
+
+/* stylelint-enable */
 
 // 6X-Large
 .h-spacing-6x-large {
@@ -660,11 +780,16 @@
 }
 
 // Apply at breakpoints
+/* stylelint-disable max-line-length */
+
 @if $shell-helper-apply-spacing-6x-large-at-breakpoints {
     @include apply-at-breakpoints('.h-spacing-6x-large', $shell-helper-define-spacing-6x-large-breakpoints) {
         margin-bottom: rem($shell-g-spacing-6x-large) !important;
     }
 }
+
+/* stylelint-enable */
+
 
 /**
  * Remove spacing.
@@ -673,6 +798,8 @@
 .h-spacing-none {
     margin-bottom: 0 !important;
 }
+
+
 
 
 /* 5. Horizontal and vertical alignment
@@ -722,7 +849,8 @@
  * N.B. mixin is here: "Mixins and Functions -> Helpers".
  *
  * @credit
- * https://github.com/suitcss/components-flex-embed/blob/master/lib/flex-embed.css
+ * https://github.com/suitcss/components-flex-embed/blob/master/lib/
+ * flex-embed.css
  */
 
 

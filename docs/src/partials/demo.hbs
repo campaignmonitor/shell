@@ -3,7 +3,7 @@
     <div class="l-container">
 
         {{!-- Heading and intro --}}
-        <h2 class="heading heading--size-small  c-demo__spacing c-demo__heading">{{{ heading }}}</h2>
+        <h2 class="heading heading-headline  c-demo__spacing c-demo__heading">{{{ heading }}}</h2>
         <div class="c-demo__intro">
             {{{ intro }}}
         </div>
@@ -12,7 +12,7 @@
         {{!-- What's configurable --}}
         {{#if has-config-items}}
             <details>
-                <summary class="heading heading--size-xxx-small heading--weight-semi-bold  c-demo__spacing c-demo__heading-sub">
+                <summary class="heading heading-sub-title  c-demo__spacing c-demo__heading-sub">
                     What's configurable
                 </summary>
                 <ul class="c-demo__config-items{{#if remove-example}} c-demo__spacing {{else}} c-demo__spacing-large{{/if}}  c-bulleted-list">
@@ -20,7 +20,7 @@
                 </ul>
             </details>
         {{else}}
-            <p class="heading heading--size-xxx-small heading--weight-semi-bold  c-demo__spacing c-demo__heading-sub">
+            <p class="heading heading-sub-title  c-demo__spacing c-demo__heading-sub">
                 No configurable options
             </p>
         {{/if}}
@@ -33,7 +33,7 @@
     {{#if remove-example}}
         <div class="h-hide">
     {{/if}}
-            <h3 class="heading heading--size-xxx-small heading--weight-semi-bold  c-demo__spacing c-demo__heading-sub">Example</h3>
+            <h3 class="heading heading-sub-title  c-demo__spacing c-demo__heading-sub">Example</h3>
             <div class="c-demo__example{{#if example-styles}} c-demo__example--extra-styling{{/if}} c-demo__spacing">
                 {{> (lookup . 'example-markup') }}
             </div>

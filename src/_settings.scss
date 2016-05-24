@@ -11,26 +11,6 @@
  * - "Global".....settings for the entire library.
  * - "Local"......settings for a particular partial.
  *
- * N.B. usually "Local" settings exist in their relevant partial but we combine
- * them for Shell to make them easier to override. It's easier as you can
- * override all of the settings in the one place—typically in a
- * "_settings.scss" partial—compared to overriding "Local" settings above
- * their relevant partial within the master stylesheet, like so:
- *
-   $shell-apply-osx-font-smoothing: true;
-   $shell-apply-link-transition: false;
-   @import "[library/path]/base";
-
-   $shell-grid-gutter: 24;
-   @import "[library/path]/grid";
- *
- * The above set up is more cumbersome to maintain due to "Local" settings
- * being dispersed throughout the master stylesheet plus the master stylesheet
- * should only contain Sass partial imports.
- *
- * Having all settings together in the same Sass partial makes life easier for
- * consumers of Shell.
- *
  * ----------------------------------------------------------------------------
  *
  * All settings start with a global namespace: `$shell` followed by one
@@ -282,16 +262,16 @@ $shell-g-border-radius: 3px;
 $shell-g-breakpoints: (
 
   // Palm
-  "palm": (640 / 16) * 1em,
+  'palm': (640 / 16) * 1em,
 
   // Lap
-  "lap": (641 / 16) * 1em,
-  "lap-small": (768 / 16) * 1em,
-  "lap-large": (901 / 16) * 1em,
+  'lap': (641 / 16) * 1em,
+  'lap-small': (768 / 16) * 1em,
+  'lap-large': (901 / 16) * 1em,
 
   // Desk
-  "desk": (1200 / 16) * 1em,
-  "desk-large": (1366 / 16) * 1em
+  'desk': (1200 / 16) * 1em,
+  'desk-large': (1366 / 16) * 1em
 
 ) !default;
 
@@ -357,15 +337,15 @@ $shell-g-global-breakpoints: (lap) !default;
  */
 
 $shell-g-z-layers: (
-    "dialog-elements": (
-        "close-button": 1
+    'dialog-elements': (
+        'close-button': 1
     ),
-    "dialog": 5,
-    "dialog-underlay": 4,
-    "header": 3,
-    "main": 2,
-    "footer": 1,
-    "underneath": -1
+    'dialog': 5,
+    'dialog-underlay': 4,
+    'header': 3,
+    'main': 2,
+    'footer': 1,
+    'underneath': -1
 ) !default;
 
 
@@ -393,6 +373,8 @@ $shell-g-hidpi-dppx: 1.3 * 1dppx;
 /* 9. HTML textual `input`s (Global)
    ========================================================================= */
 
+/* stylelint-disable string-no-newline */
+
 $shell-g-textual-inputs: 'input[type="text"],
                           input[type="search"],
                           input[type="tel"],
@@ -407,6 +389,7 @@ $shell-g-textual-inputs: 'input[type="text"],
                           input[type="datetime-local"],
                           input[type="number"]' !default;
 
+/* stylelint-enable */
 
 
 
@@ -439,17 +422,6 @@ $shell-base-link-text-decoration-on-hover: none !default;
 
 
 /**
- * Horizontal rule.
- */
-
-$shell-base-hr-thickness: 1px !default;
-
-$shell-base-hr-style: solid !default;
-
-$shell-base-hr-color: $shell-g-color-text !default;
-
-
-/**
  * Forms.
  */
 
@@ -474,18 +446,18 @@ $shell-container-apply-center-alignment: true !default;
  * Widths.
  */
 
-$shell-container-maximum-width: $shell-g-base-number * 100 !default;
+$shell-container-maximum-width: 1600 !default;
 
 $shell-container-minimum-width: 320 !default;
 
 // Size modifiers
-$shell-container-maximum-width-x-large: $shell-g-base-number * 150 !default;
+$shell-container-maximum-width-x-large: 2400 !default;
 
-$shell-container-maximum-width-large: $shell-g-base-number * 125 !default;
+$shell-container-maximum-width-large: 2000 !default;
 
-$shell-container-maximum-width-small: $shell-g-base-number * 62.5 !default;
+$shell-container-maximum-width-small: 1000 !default;
 
-$shell-container-maximum-width-x-small: $shell-g-base-number * 47 !default;
+$shell-container-maximum-width-x-small: 746 !default;
 
 
 /**
@@ -528,6 +500,8 @@ $shell-grid-11-col-width: calc((100% / 12) * 11) !default;
 
 $shell-grid-12-col-width: 100% !default;
 
+
+/* stylelint-disable max-line-length */
 
 /**
  * For all grid item widths turn on the ability to apply breakpoints via
@@ -590,6 +564,13 @@ $shell-grid-apply-11-col-width-at-breakpoints: false !default;
 
 $shell-grid-define-11-col-width-breakpoints: $shell-g-global-breakpoints !default;
 
+// 12 col
+$shell-grid-apply-12-col-width-at-breakpoints: false !default;
+
+$shell-grid-define-12-col-width-breakpoints: $shell-g-global-breakpoints !default;
+
+/* stylelint-enable */
+
 
 
 
@@ -602,6 +583,7 @@ $shell-grid-define-11-col-width-breakpoints: $shell-g-global-breakpoints !defaul
  * Apply at breakpoints" to understand how this works.
  */
 
+/* stylelint-disable max-line-length */
 
 /**
  * Text sizes.
@@ -633,6 +615,7 @@ $shell-helper-define-text-size-x-small-breakpoints: $shell-g-global-breakpoints 
 $shell-helper-apply-text-size-2x-small-at-breakpoints: false !default;
 
 $shell-helper-define-text-size-2x-small-breakpoints: $shell-g-global-breakpoints !default;
+
 
 /**
  * Increase from base.
@@ -678,6 +661,11 @@ $shell-helper-apply-text-size-7x-large-at-breakpoints: false !default;
 
 $shell-helper-define-text-size-7x-large-breakpoints: $shell-g-global-breakpoints !default;
 
+/* stylelint-enable */
+
+
+/* stylelint-disable max-line-length */
+
 /**
  * Alignments.
  */
@@ -697,6 +685,12 @@ $shell-helper-apply-text-align-right-at-breakpoints: false !default;
 
 $shell-helper-define-text-align-right-breakpoints: $shell-g-global-breakpoints !default;
 
+/* stylelint-enable */
+
+
+/* stylelint-disable max-line-length */
+
+
 /**
  * Text truncate.
  */
@@ -705,6 +699,10 @@ $shell-helper-apply-text-truncate-at-breakpoints: false !default;
 
 $shell-helper-define-text-truncate-breakpoints: $shell-g-global-breakpoints !default;
 
+/* stylelint-enable */
+
+
+/* stylelint-disable max-line-length */
 
 /**
  * Hide.
@@ -720,13 +718,13 @@ $shell-helper-apply-hide-visually-at-breakpoints: false !default;
 
 $shell-helper-define-hide-visually-breakpoints: $shell-g-global-breakpoints !default;
 
+/* stylelint-enable */
+
+
+/* stylelint-disable max-line-length */
 
 /**
  * Spacing.
- */
-
-/**
- * Base.
  */
 
 $shell-helper-apply-spacing-at-breakpoints: false !default;
@@ -746,6 +744,12 @@ $shell-helper-define-spacing-small-breakpoints: $shell-g-global-breakpoints !def
 $shell-helper-apply-spacing-x-small-at-breakpoints: false !default;
 
 $shell-helper-define-spacing-x-small-breakpoints: $shell-g-global-breakpoints !default;
+
+// 2X-Small
+$shell-helper-apply-spacing-2x-small-at-breakpoints: false !default;
+
+$shell-helper-define-spacing-2x-small-breakpoints: $shell-g-global-breakpoints !default;
+
 
 /**
  * Increase from base.
@@ -780,3 +784,10 @@ $shell-helper-define-spacing-4x-large-breakpoints: $shell-g-global-breakpoints !
 $shell-helper-apply-spacing-5x-large-at-breakpoints: false !default;
 
 $shell-helper-define-spacing-5x-large-breakpoints: $shell-g-global-breakpoints !default;
+
+// 6X-Large
+$shell-helper-apply-spacing-6x-large-at-breakpoints: false !default;
+
+$shell-helper-define-spacing-6x-large-breakpoints: $shell-g-global-breakpoints !default;
+
+/* stylelint-enable */
