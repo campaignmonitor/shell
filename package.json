@@ -24,6 +24,14 @@
             "url": "http://davidberner.co.uk/"
         }
     ],
+    "scripts": {
+        "compile:shell": "node-sass src/shell.scss",
+        "compile:docs": "node-sass docs/src/assets/scss/style.scss",
+        "compile:test": "node-sass test/src/assets/scss/style.scss",
+        "lint:shell": "stylelint 'src/**.scss'",
+        "lint:docs": "stylelint 'docs/src/assets/scss/**.scss'",
+        "lint:test": "stylelint 'test/src/assets/scss/**.scss'"
+   },
     "repository": {
         "type": "git",
         "url":  "git@github.com:campaignmonitor/shell.git"
@@ -32,6 +40,7 @@
         "url": "https://github.com/campaignmonitor/shell/issues"
     },
     "devDependencies": {
+        "node-sass": "^3.4.2",
         "stylelint": "^6.5.1"
     },
     "license": "MIT"
