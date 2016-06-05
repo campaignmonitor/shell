@@ -9,5 +9,9 @@ install:
 - npm install
 
 script:
-- npm run lint
-- npm run compile
+- npm run lint:shell
+- npm run compile:shell
+- npm run lint:docs
+- npm run compile:docs
+- npm run lint:test
+- npm run compile:test

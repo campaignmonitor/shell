@@ -25,8 +25,12 @@
         }
     ],
     "scripts": {
-        "compile": "node-sass src/shell.scss",
-        "lint": "stylelint 'src/**.scss'"
+        "compile:shell": "node-sass src/shell.scss",
+        "compile:docs": "node-sass docs/src/assets/scss/style.scss",
+        "compile:test": "node-sass test/src/assets/scss/style.scss",
+        "lint:shell": "stylelint 'src/**.scss'",
+        "lint:docs": "stylelint 'docs/src/assets/scss/**.scss'",
+        "lint:test": "stylelint 'test/src/assets/scss/**.scss'"
    },
     "repository": {
         "type": "git",
