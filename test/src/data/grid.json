@@ -163,6 +163,12 @@
             "run": "<div class='l-grid l-grid--space-around'><div class='l-grid__item l-grid__item--3-col'><div>Item 1</div></div><div class='l-grid__item l-grid__item--3-col'><div>Item 2</div></div><div class='l-grid__item l-grid__item--3-col'><div>Item 3</div></div></div>"
         }]
         },{
+        "selector": ".l-grid--nowrap",
+        "test": [{
+            "description": "No wrap.",
+            "run": "<div class='l-grid l-grid--nowrap'><div class='l-grid__item l-grid__item--2-col'><div>Item 1</div></div><div class='l-grid__item l-grid__item--2-col'><div>Item 2</div></div><div class='l-grid__item l-grid__item--2-col'><div>Item 3</div></div><div class='l-grid__item l-grid__item--2-col'><div>Item 4</div></div><div class='l-grid__item l-grid__item--2-col'><div>Item 5</div></div><div class='l-grid__item l-grid__item--2-col'><div>Item 6</div></div></div>"
+        }]
+        },{
         "selector": ".l-grid--fit",
         "test": [{
             "description": "Fit, all grid items are equal width.",
