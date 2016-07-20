@@ -366,6 +366,15 @@
 
 
 /**
+ * Modifier: no wrap.
+ */
+
+.l-grid--nowrap {
+    flex-wrap: nowrap;
+}
+
+
+/**
  * Modifier: horizontally center an individual grid item.
  */
 
