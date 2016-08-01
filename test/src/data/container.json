@@ -33,5 +33,11 @@
             "description": "The widest version",
             "run": "<div class='l-container l-container--x-large'></div>"
         }]
+        },{
+        "selector": ".l-container--full-width",
+        "test": [{
+            "description": "Full width",
+            "run": "<div class='l-container l-container--full-width'></div>"
+        }]
     }]
  }

@@ -87,3 +87,12 @@
 .l-container--x-large {
     max-width: rem($shell-container-maximum-width-x-large);
 }
+
+
+/**
+ * Modifiers: full width.
+ */
+
+.l-container--full-width {
+    max-width: 100%;
+}

@@ -485,6 +485,30 @@
 /* stylelint-enable */
 
 
+/**
+ * Forces words to wrap onto new lines when the word can't fit on a line which
+ * is common when text is wrapped in a narrow width container. Hyphenation will
+ * be applied to the wrapped word.
+ *
+ * N.B. mixin is here: "Mixins and Functions -> Helpers".
+ */
+
+.h-text-wrap-word-and-hyphenate {
+    @include text-wrap-word-and-hyphenate(true);
+}
+
+// Apply at breakpoints
+/* stylelint-disable max-line-length */
+
+@if $shell-helper-apply-text-wrap-word-and-hyphenate-at-breakpoints {
+    @include apply-at-breakpoints('.h-text-wrap-word-and-hyphenate', $shell-helper-define-text-wrap-word-and-hyphenate-breakpoints) {
+        @include text-wrap-word-and-hyphenate(true);
+    }
+}
+
+/* stylelint-enable */
+
+
 
 
 /* 3. Hide

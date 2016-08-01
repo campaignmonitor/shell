@@ -124,18 +124,6 @@ img {
 }
 
 
-/**
- * Allows us to use `padding` alone to determine the height of certain form
- * elements.
- */
-
-#{$shell-g-textual-inputs},
-select,
-option {
-    line-height: 1;
-}
-
-
 
 
 /* 5. Paragraphs

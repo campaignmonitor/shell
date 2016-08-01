@@ -705,6 +705,19 @@ $shell-helper-define-text-truncate-breakpoints: $shell-g-global-breakpoints !def
 /* stylelint-disable max-line-length */
 
 /**
+ * Word wrap and hyphenate.
+ */
+
+$shell-helper-apply-text-wrap-word-and-hyphenate-at-breakpoints: false !default;
+
+$shell-helper-define-text-wrap-word-and-hyphenate-breakpoints: $shell-g-global-breakpoints !default;
+
+/* stylelint-enable */
+
+
+/* stylelint-disable max-line-length */
+
+/**
  * Hide.
  */
 
