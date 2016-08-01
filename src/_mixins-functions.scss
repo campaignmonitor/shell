@@ -649,6 +649,43 @@
 }
 
 
+/// Forces words to wrap onto new lines and applies hyphenation.
+///
+/// @author Chris Pearce
+///
+/// @access public
+///
+/// @param {Boolean} $apply-important-keyword [false] — Whether to apply the
+/// `!important` keyword
+///
+/// @example scss - Usage
+///     .element-1 {
+///         @include text-wrap-word-and-hyphenate();
+///     }
+///     .element-2 {
+///         @include text-wrap-word-and-hyphenate(true);
+///     }
+/// @example css - CSS Output
+///     .element-1 {
+///         hyphens: auto;
+///         overflow-wrap: break-word;
+///         word-wrap: break-word;
+///     }
+///     .element-2 {
+///         hyphens: auto !important;
+///         overflow-wrap: break-word !important;
+///         word-wrap: break-word !important;
+///     }
+
+@mixin text-wrap-word-and-hyphenate($apply-important-keyword: false) {
+    $important-keyword: if($apply-important-keyword, ' !important', '');
+
+    hyphens: auto#{$important-keyword};
+    overflow-wrap: break-word#{$important-keyword};
+    word-wrap: break-word#{$important-keyword};
+}
+
+
 /// Hide elements only visually but have it available for screen readers.
 ///
 /// @author Chris Pearce
