@@ -43,13 +43,19 @@
         "selector": ".l-grid--gutterless",
         "test": [{
             "description": "Gutterless—both horizontally and vertically.",
-            "run": "<div class='l-grid l-grid--gutterless l-grid--gutter-vertical-base'><div class='l-grid__item l-grid__item--3-col'><div>Item 1</div></div><div class='l-grid__item l-grid__item--3-col'><div>Item 2</div></div><div class='l-grid__item l-grid__item--3-col'><div>Item 3</div></div><div class='l-grid__item l-grid__item--3-col'><div>Item 4</div></div><div class='l-grid__item l-grid__item--3-col'><div>Item 5</div></div><div class='l-grid__item l-grid__item--3-col'><div>Item 6</div></div><div class='l-grid__item l-grid__item--3-col'><div>Item 7</div></div><div class='l-grid__item l-grid__item--3-col'><div>Item 8</div></div></div>"
+            "run": "<div class='l-grid l-grid--gutterless'><div class='l-grid__item l-grid__item--3-col'><div>Item 1</div></div><div class='l-grid__item l-grid__item--3-col'><div>Item 2</div></div><div class='l-grid__item l-grid__item--3-col'><div>Item 3</div></div><div class='l-grid__item l-grid__item--3-col'><div>Item 4</div></div><div class='l-grid__item l-grid__item--3-col'><div>Item 5</div></div><div class='l-grid__item l-grid__item--3-col'><div>Item 6</div></div><div class='l-grid__item l-grid__item--3-col'><div>Item 7</div></div><div class='l-grid__item l-grid__item--3-col'><div>Item 8</div></div></div>"
         }]
         },{
-        "selector": ".l-grid--gutter-horizontal-tiny",
+        "selector": ".l-grid--gutter-horizontal-2x-small",
         "test": [{
-            "description": "Horizontal gutter size tiny.",
-            "run": "<div class='l-grid l-grid--gutter-horizontal-tiny'><div class='l-grid__item l-grid__item--3-col'><div>Item 1</div></div><div class='l-grid__item l-grid__item--3-col'><div>Item 2</div></div><div class='l-grid__item l-grid__item--3-col'><div>Item 3</div></div><div class='l-grid__item l-grid__item--3-col'><div>Item 4</div></div></div>"
+            "description": "Horizontal gutter size 2x-small.",
+            "run": "<div class='l-grid l-grid--gutter-horizontal-2x-small'><div class='l-grid__item l-grid__item--3-col'><div>Item 1</div></div><div class='l-grid__item l-grid__item--3-col'><div>Item 2</div></div><div class='l-grid__item l-grid__item--3-col'><div>Item 3</div></div><div class='l-grid__item l-grid__item--3-col'><div>Item 4</div></div></div>"
+        }]
+        },{
+        "selector": ".l-grid--gutter-horizontal-x-small",
+        "test": [{
+            "description": "Horizontal gutter size x-small.",
+            "run": "<div class='l-grid l-grid--gutter-horizontal-x-small'><div class='l-grid__item l-grid__item--3-col'><div>Item 1</div></div><div class='l-grid__item l-grid__item--3-col'><div>Item 2</div></div><div class='l-grid__item l-grid__item--3-col'><div>Item 3</div></div><div class='l-grid__item l-grid__item--3-col'><div>Item 4</div></div></div>"
         }]
         },{
         "selector": ".l-grid--gutter-horizontal-small",
@@ -70,16 +76,52 @@
             "run": "<div class='l-grid l-grid--gutter-horizontal-large'><div class='l-grid__item l-grid__item--3-col'><div>Item 1</div></div><div class='l-grid__item l-grid__item--3-col'><div>Item 2</div></div><div class='l-grid__item l-grid__item--3-col'><div>Item 3</div></div><div class='l-grid__item l-grid__item--3-col'><div>Item 4</div></div></div>"
         }]
         },{
-        "selector": ".l-grid--gutter-horizontal-huge",
+        "selector": ".l-grid--gutter-horizontal-x-large",
         "test": [{
-            "description": "Horizontal gutter size huge.",
-            "run": "<div class='l-grid l-grid--gutter-horizontal-huge'><div class='l-grid__item l-grid__item--3-col'><div>Item 1</div></div><div class='l-grid__item l-grid__item--3-col'><div>Item 2</div></div><div class='l-grid__item l-grid__item--3-col'><div>Item 3</div></div><div class='l-grid__item l-grid__item--3-col'><div>Item 4</div></div></div>"
+            "description": "Horizontal gutter size x-large.",
+            "run": "<div class='l-grid l-grid--gutter-horizontal-x-large'><div class='l-grid__item l-grid__item--3-col'><div>Item 1</div></div><div class='l-grid__item l-grid__item--3-col'><div>Item 2</div></div><div class='l-grid__item l-grid__item--3-col'><div>Item 3</div></div><div class='l-grid__item l-grid__item--3-col'><div>Item 4</div></div></div>"
         }]
         },{
-        "selector": ".l-grid--gutter-vertical-tiny",
+        "selector": ".l-grid--gutter-horizontal-2x-large",
         "test": [{
-            "description": "Vertical gutter size tiny (horizontal gutters are set independently).",
-            "run": "<div class='l-grid l-grid--gutter-horizontal-tiny l-grid--gutter-vertical-tiny'><div class='l-grid__item l-grid__item--3-col'><div>Item 1</div></div><div class='l-grid__item l-grid__item--3-col'><div>Item 2</div></div><div class='l-grid__item l-grid__item--3-col'><div>Item 3</div></div><div class='l-grid__item l-grid__item--3-col'><div>Item 4</div></div><div class='l-grid__item l-grid__item--3-col'><div>Item 5</div></div><div class='l-grid__item l-grid__item--3-col'><div>Item 6</div></div><div class='l-grid__item l-grid__item--3-col'><div>Item 7</div></div><div class='l-grid__item l-grid__item--3-col'><div>Item 8</div></div></div>"
+            "description": "Horizontal gutter size 2x-large.",
+            "run": "<div class='l-grid l-grid--gutter-horizontal-2x-large'><div class='l-grid__item l-grid__item--3-col'><div>Item 1</div></div><div class='l-grid__item l-grid__item--3-col'><div>Item 2</div></div><div class='l-grid__item l-grid__item--3-col'><div>Item 3</div></div><div class='l-grid__item l-grid__item--3-col'><div>Item 4</div></div></div>"
+        }]
+        },{
+        "selector": ".l-grid--gutter-horizontal-3x-large",
+        "test": [{
+            "description": "Horizontal gutter size 3x-large.",
+            "run": "<div class='l-grid l-grid--gutter-horizontal-3x-large'><div class='l-grid__item l-grid__item--3-col'><div>Item 1</div></div><div class='l-grid__item l-grid__item--3-col'><div>Item 2</div></div><div class='l-grid__item l-grid__item--3-col'><div>Item 3</div></div><div class='l-grid__item l-grid__item--3-col'><div>Item 4</div></div></div>"
+        }]
+        },{
+        "selector": ".l-grid--gutter-horizontal-4x-large",
+        "test": [{
+            "description": "Horizontal gutter size 4x-large.",
+            "run": "<div class='l-grid l-grid--gutter-horizontal-4x-large'><div class='l-grid__item l-grid__item--3-col'><div>Item 1</div></div><div class='l-grid__item l-grid__item--3-col'><div>Item 2</div></div><div class='l-grid__item l-grid__item--3-col'><div>Item 3</div></div><div class='l-grid__item l-grid__item--3-col'><div>Item 4</div></div></div>"
+        }]
+        },{
+        "selector": ".l-grid--gutter-horizontal-5x-large",
+        "test": [{
+            "description": "Horizontal gutter size 5x-large.",
+            "run": "<div class='l-grid l-grid--gutter-horizontal-5x-large'><div class='l-grid__item l-grid__item--3-col'><div>Item 1</div></div><div class='l-grid__item l-grid__item--3-col'><div>Item 2</div></div><div class='l-grid__item l-grid__item--3-col'><div>Item 3</div></div><div class='l-grid__item l-grid__item--3-col'><div>Item 4</div></div></div>"
+        }]
+        },{
+        "selector": ".l-grid--gutter-horizontal-6x-large",
+        "test": [{
+            "description": "Horizontal gutter size 6x-large.",
+            "run": "<div class='l-grid l-grid--gutter-horizontal-6x-large'><div class='l-grid__item l-grid__item--3-col'><div>Item 1</div></div><div class='l-grid__item l-grid__item--3-col'><div>Item 2</div></div><div class='l-grid__item l-grid__item--3-col'><div>Item 3</div></div><div class='l-grid__item l-grid__item--3-col'><div>Item 4</div></div></div>"
+        }]
+        },{
+        "selector": ".l-grid--gutter-vertical-2x-small",
+        "test": [{
+            "description": "Vertical gutter size 2x-small (horizontal gutters are set independently).",
+            "run": "<div class='l-grid l-grid--gutter-horizontal-2x-small l-grid--gutter-vertical-2x-small'><div class='l-grid__item l-grid__item--3-col'><div>Item 1</div></div><div class='l-grid__item l-grid__item--3-col'><div>Item 2</div></div><div class='l-grid__item l-grid__item--3-col'><div>Item 3</div></div><div class='l-grid__item l-grid__item--3-col'><div>Item 4</div></div><div class='l-grid__item l-grid__item--3-col'><div>Item 5</div></div><div class='l-grid__item l-grid__item--3-col'><div>Item 6</div></div><div class='l-grid__item l-grid__item--3-col'><div>Item 7</div></div><div class='l-grid__item l-grid__item--3-col'><div>Item 8</div></div></div>"
+        }]
+        },{
+        "selector": ".l-grid--gutter-vertical-x-small",
+        "test": [{
+            "description": "Vertical gutter size x-small (horizontal gutters are set independently).",
+            "run": "<div class='l-grid l-grid--gutter-horizontal-x-small l-grid--gutter-vertical-x-small'><div class='l-grid__item l-grid__item--3-col'><div>Item 1</div></div><div class='l-grid__item l-grid__item--3-col'><div>Item 2</div></div><div class='l-grid__item l-grid__item--3-col'><div>Item 3</div></div><div class='l-grid__item l-grid__item--3-col'><div>Item 4</div></div><div class='l-grid__item l-grid__item--3-col'><div>Item 5</div></div><div class='l-grid__item l-grid__item--3-col'><div>Item 6</div></div><div class='l-grid__item l-grid__item--3-col'><div>Item 7</div></div><div class='l-grid__item l-grid__item--3-col'><div>Item 8</div></div></div>"
         }]
         },{
         "selector": ".l-grid--gutter-vertical-small",
@@ -88,10 +130,10 @@
             "run": "<div class='l-grid l-grid--gutter-horizontal-small l-grid--gutter-vertical-small'><div class='l-grid__item l-grid__item--3-col'><div>Item 1</div></div><div class='l-grid__item l-grid__item--3-col'><div>Item 2</div></div><div class='l-grid__item l-grid__item--3-col'><div>Item 3</div></div><div class='l-grid__item l-grid__item--3-col'><div>Item 4</div></div><div class='l-grid__item l-grid__item--3-col'><div>Item 5</div></div><div class='l-grid__item l-grid__item--3-col'><div>Item 6</div></div><div class='l-grid__item l-grid__item--3-col'><div>Item 7</div></div><div class='l-grid__item l-grid__item--3-col'><div>Item 8</div></div></div>"
         }]
         },{
-        "selector": ".l-grid--gutter-vertical-base",
+        "selector": ".l-grid--gutter-vertical",
         "test": [{
             "description": "Vertical gutter size base (horizontal gutters are set independently).",
-            "run": "<div class='l-grid l-grid--gutter-horizontal-base l-grid--gutter-vertical-base'><div class='l-grid__item l-grid__item--3-col'><div>Item 1</div></div><div class='l-grid__item l-grid__item--3-col'><div>Item 2</div></div><div class='l-grid__item l-grid__item--3-col'><div>Item 3</div></div><div class='l-grid__item l-grid__item--3-col'><div>Item 4</div></div><div class='l-grid__item l-grid__item--3-col'><div>Item 5</div></div><div class='l-grid__item l-grid__item--3-col'><div>Item 6</div></div><div class='l-grid__item l-grid__item--3-col'><div>Item 7</div></div><div class='l-grid__item l-grid__item--3-col'><div>Item 8</div></div></div>"
+            "run": "<div class='l-grid l-grid--gutter-horizontal l-grid--gutter-vertical'><div class='l-grid__item l-grid__item--3-col'><div>Item 1</div></div><div class='l-grid__item l-grid__item--3-col'><div>Item 2</div></div><div class='l-grid__item l-grid__item--3-col'><div>Item 3</div></div><div class='l-grid__item l-grid__item--3-col'><div>Item 4</div></div><div class='l-grid__item l-grid__item--3-col'><div>Item 5</div></div><div class='l-grid__item l-grid__item--3-col'><div>Item 6</div></div><div class='l-grid__item l-grid__item--3-col'><div>Item 7</div></div><div class='l-grid__item l-grid__item--3-col'><div>Item 8</div></div></div>"
         }]
         },{
         "selector": ".l-grid--gutter-vertical-large",
@@ -100,10 +142,40 @@
             "run": "<div class='l-grid l-grid--gutter-horizontal-large l-grid--gutter-vertical-large'><div class='l-grid__item l-grid__item--3-col'><div>Item 1</div></div><div class='l-grid__item l-grid__item--3-col'><div>Item 2</div></div><div class='l-grid__item l-grid__item--3-col'><div>Item 3</div></div><div class='l-grid__item l-grid__item--3-col'><div>Item 4</div></div><div class='l-grid__item l-grid__item--3-col'><div>Item 5</div></div><div class='l-grid__item l-grid__item--3-col'><div>Item 6</div></div><div class='l-grid__item l-grid__item--3-col'><div>Item 7</div></div><div class='l-grid__item l-grid__item--3-col'><div>Item 8</div></div></div>"
         }]
         },{
-        "selector": ".l-grid--gutter-vertical-huge",
+        "selector": ".l-grid--gutter-vertical-x-large",
         "test": [{
-            "description": "Vertical gutter size huge (horizontal gutters are set independently).",
-            "run": "<div class='l-grid l-grid--gutter-horizontal-huge l-grid--gutter-vertical-huge'><div class='l-grid__item l-grid__item--3-col'><div>Item 1</div></div><div class='l-grid__item l-grid__item--3-col'><div>Item 2</div></div><div class='l-grid__item l-grid__item--3-col'><div>Item 3</div></div><div class='l-grid__item l-grid__item--3-col'><div>Item 4</div></div><div class='l-grid__item l-grid__item--3-col'><div>Item 5</div></div><div class='l-grid__item l-grid__item--3-col'><div>Item 6</div></div><div class='l-grid__item l-grid__item--3-col'><div>Item 7</div></div><div class='l-grid__item l-grid__item--3-col'><div>Item 8</div></div></div>"
+            "description": "Vertical gutter size x-large (horizontal gutters are set independently).",
+            "run": "<div class='l-grid l-grid--gutter-horizontal-x-large l-grid--gutter-vertical-x-large'><div class='l-grid__item l-grid__item--3-col'><div>Item 1</div></div><div class='l-grid__item l-grid__item--3-col'><div>Item 2</div></div><div class='l-grid__item l-grid__item--3-col'><div>Item 3</div></div><div class='l-grid__item l-grid__item--3-col'><div>Item 4</div></div><div class='l-grid__item l-grid__item--3-col'><div>Item 5</div></div><div class='l-grid__item l-grid__item--3-col'><div>Item 6</div></div><div class='l-grid__item l-grid__item--3-col'><div>Item 7</div></div><div class='l-grid__item l-grid__item--3-col'><div>Item 8</div></div></div>"
+        }]
+        },{
+        "selector": ".l-grid--gutter-vertical-2x-large",
+        "test": [{
+            "description": "Vertical gutter size 2x-large (horizontal gutters are set independently).",
+            "run": "<div class='l-grid l-grid--gutter-horizontal-2x-large l-grid--gutter-vertical-2x-large'><div class='l-grid__item l-grid__item--3-col'><div>Item 1</div></div><div class='l-grid__item l-grid__item--3-col'><div>Item 2</div></div><div class='l-grid__item l-grid__item--3-col'><div>Item 3</div></div><div class='l-grid__item l-grid__item--3-col'><div>Item 4</div></div><div class='l-grid__item l-grid__item--3-col'><div>Item 5</div></div><div class='l-grid__item l-grid__item--3-col'><div>Item 6</div></div><div class='l-grid__item l-grid__item--3-col'><div>Item 7</div></div><div class='l-grid__item l-grid__item--3-col'><div>Item 8</div></div></div>"
+        }]
+        },{
+        "selector": ".l-grid--gutter-vertical-3x-large",
+        "test": [{
+            "description": "Vertical gutter size 3x-large (horizontal gutters are set independently).",
+            "run": "<div class='l-grid l-grid--gutter-horizontal-3x-large l-grid--gutter-vertical-3x-large'><div class='l-grid__item l-grid__item--3-col'><div>Item 1</div></div><div class='l-grid__item l-grid__item--3-col'><div>Item 2</div></div><div class='l-grid__item l-grid__item--3-col'><div>Item 3</div></div><div class='l-grid__item l-grid__item--3-col'><div>Item 4</div></div><div class='l-grid__item l-grid__item--3-col'><div>Item 5</div></div><div class='l-grid__item l-grid__item--3-col'><div>Item 6</div></div><div class='l-grid__item l-grid__item--3-col'><div>Item 7</div></div><div class='l-grid__item l-grid__item--3-col'><div>Item 8</div></div></div>"
+        }]
+        },{
+        "selector": ".l-grid--gutter-vertical-4x-large",
+        "test": [{
+            "description": "Vertical gutter size 4x-large (horizontal gutters are set independently).",
+            "run": "<div class='l-grid l-grid--gutter-horizontal-4x-large l-grid--gutter-vertical-4x-large'><div class='l-grid__item l-grid__item--3-col'><div>Item 1</div></div><div class='l-grid__item l-grid__item--3-col'><div>Item 2</div></div><div class='l-grid__item l-grid__item--3-col'><div>Item 3</div></div><div class='l-grid__item l-grid__item--3-col'><div>Item 4</div></div><div class='l-grid__item l-grid__item--3-col'><div>Item 5</div></div><div class='l-grid__item l-grid__item--3-col'><div>Item 6</div></div><div class='l-grid__item l-grid__item--3-col'><div>Item 7</div></div><div class='l-grid__item l-grid__item--3-col'><div>Item 8</div></div></div>"
+        }]
+        },{
+        "selector": ".l-grid--gutter-vertical-5x-large",
+        "test": [{
+            "description": "Vertical gutter size 5x-large (horizontal gutters are set independently).",
+            "run": "<div class='l-grid l-grid--gutter-horizontal-5x-large l-grid--gutter-vertical-5x-large'><div class='l-grid__item l-grid__item--3-col'><div>Item 1</div></div><div class='l-grid__item l-grid__item--3-col'><div>Item 2</div></div><div class='l-grid__item l-grid__item--3-col'><div>Item 3</div></div><div class='l-grid__item l-grid__item--3-col'><div>Item 4</div></div><div class='l-grid__item l-grid__item--3-col'><div>Item 5</div></div><div class='l-grid__item l-grid__item--3-col'><div>Item 6</div></div><div class='l-grid__item l-grid__item--3-col'><div>Item 7</div></div><div class='l-grid__item l-grid__item--3-col'><div>Item 8</div></div></div>"
+        }]
+        },{
+        "selector": ".l-grid--gutter-vertical-6x-large",
+        "test": [{
+            "description": "Vertical gutter size 6x-large (horizontal gutters are set independently).",
+            "run": "<div class='l-grid l-grid--gutter-horizontal-6x-large l-grid--gutter-vertical-6x-large'><div class='l-grid__item l-grid__item--3-col'><div>Item 1</div></div><div class='l-grid__item l-grid__item--3-col'><div>Item 2</div></div><div class='l-grid__item l-grid__item--3-col'><div>Item 3</div></div><div class='l-grid__item l-grid__item--3-col'><div>Item 4</div></div><div class='l-grid__item l-grid__item--3-col'><div>Item 5</div></div><div class='l-grid__item l-grid__item--3-col'><div>Item 6</div></div><div class='l-grid__item l-grid__item--3-col'><div>Item 7</div></div><div class='l-grid__item l-grid__item--3-col'><div>Item 8</div></div></div>"
         }]
         },{
         "selector": ".l-grid--align-middle",
@@ -185,7 +257,7 @@
         "multiple-selectors": true,
         "test": [{
             "description": "Nested grids.",
-            "run": "<div class='l-grid'><div class='l-grid__item l-grid__item--6-col'><div>Item 1</div></div><div class='l-grid__item l-grid__item--6-col'><div class='l-grid'><div class='l-grid__item l-grid__item--6-col'><div>Item 1</div></div><div class='l-grid__item l-grid__item--6-col'><div>Item 2</div></div><div class='l-grid__item l-grid__item--6-col'><div>Item 3</div></div><div class='l-grid__item l-grid__item--6-col'><div>Item 4</div></div></div></div></div>"
+            "run": "<div class='l-grid l-grid--gutter-vertical'><div class='l-grid__item l-grid__item--6-col'><div>Item 1</div></div><div class='l-grid__item l-grid__item--6-col'><div class='l-grid l-grid--gutterless'><div class='l-grid__item l-grid__item--6-col'><div>Item 1</div></div><div class='l-grid__item l-grid__item--6-col'><div>Item 2</div></div><div class='l-grid__item l-grid__item--6-col'><div>Item 3</div></div><div class='l-grid__item l-grid__item--6-col'><div>Item 4</div></div></div></div></div>"
         }]
     }]
  }

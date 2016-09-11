@@ -163,8 +163,8 @@
  */
 
 // Base
-// N.B. having to reinstate the default so that any nested grids that inherit
-// a "Gutterless" modifier can be easily reapplied
+// N.B. having to reinstate the default so that any nested grids that use the
+// "Gutterless" modifier can be easily reapplied
 .l-grid--gutter-horizontal {
     margin-left: -(rem($shell-g-spacing));
 
@@ -261,55 +261,100 @@
  */
 
 // Base
-.l-grid--gutter-vertical > .l-grid__item {
-    margin-bottom: rem($shell-g-spacing);
+.l-grid--gutter-vertical {
+    margin-bottom: -(rem($shell-g-spacing));
+
+    > .l-grid__item {
+        margin-bottom: rem($shell-g-spacing);
+    }
 }
 
 // Decrease
-.l-grid--gutter-vertical-small > .l-grid__item {
-    margin-bottom: rem($shell-g-spacing-small);
+.l-grid--gutter-vertical-small {
+    margin-bottom: -(rem($shell-g-spacing-small));
+
+    > .l-grid__item {
+        margin-bottom: rem($shell-g-spacing-small);
+    }
 }
 
-.l-grid--gutter-vertical-x-small > .l-grid__item {
-    margin-bottom: rem($shell-g-spacing-x-small);
+.l-grid--gutter-vertical-x-small {
+    margin-bottom: -(rem($shell-g-spacing-x-small));
+
+    > .l-grid__item {
+        margin-bottom: rem($shell-g-spacing-x-small);
+    }
 }
 
-.l-grid--gutter-vertical-2x-small > .l-grid__item {
-    margin-bottom: rem($shell-g-spacing-2x-small);
+.l-grid--gutter-vertical-2x-small {
+    margin-bottom: -(rem($shell-g-spacing-2x-small));
+
+    > .l-grid__item {
+        margin-bottom: rem($shell-g-spacing-2x-small);
+    }
 }
 
 // Increase
-.l-grid--gutter-vertical-large > .l-grid__item {
-    margin-bottom: rem($shell-g-spacing-large);
+.l-grid--gutter-vertical-large {
+    margin-bottom: -(rem($shell-g-spacing-large));
+
+    > .l-grid__item {
+        margin-bottom: rem($shell-g-spacing-large);
+    }
 }
 
-.l-grid--gutter-vertical-x-large > .l-grid__item {
-    margin-bottom: rem($shell-g-spacing-x-large);
+.l-grid--gutter-vertical-x-large {
+    margin-bottom: -(rem($shell-g-spacing-x-large));
+
+    > .l-grid__item {
+        margin-bottom: rem($shell-g-spacing-x-large);
+    }
 }
 
-.l-grid--gutter-vertical-2x-large > .l-grid__item {
-    margin-bottom: rem($shell-g-spacing-2x-large);
+.l-grid--gutter-vertical-2x-large {
+    margin-bottom: -(rem($shell-g-spacing-2x-large));
+
+    > .l-grid__item {
+        margin-bottom: rem($shell-g-spacing-2x-large);
+    }
 }
 
-.l-grid--gutter-vertical-3x-large > .l-grid__item {
-    margin-bottom: rem($shell-g-spacing-3x-large);
+.l-grid--gutter-vertical-3x-large {
+    margin-bottom: -(rem($shell-g-spacing-3x-large));
+
+    > .l-grid__item {
+        margin-bottom: rem($shell-g-spacing-3x-large);
+    }
 }
 
-.l-grid--gutter-vertical-4x-large > .l-grid__item {
-    margin-bottom: rem($shell-g-spacing-4x-large);
+.l-grid--gutter-vertical-4x-large {
+    margin-bottom: -(rem($shell-g-spacing-4x-large));
+
+    > .l-grid__item {
+        margin-bottom: rem($shell-g-spacing-4x-large);
+    }
 }
 
-.l-grid--gutter-vertical-5x-large > .l-grid__item {
-    margin-bottom: rem($shell-g-spacing-5x-large);
+.l-grid--gutter-vertical-5x-large {
+    margin-bottom: -(rem($shell-g-spacing-5x-large));
+
+    > .l-grid__item {
+        margin-bottom: rem($shell-g-spacing-5x-large);
+    }
 }
 
-.l-grid--gutter-vertical-6x-large > .l-grid__item {
-    margin-bottom: rem($shell-g-spacing-6x-large);
+.l-grid--gutter-vertical-6x-large {
+    margin-bottom: -(rem($shell-g-spacing-6x-large));
+
+    > .l-grid__item {
+        margin-bottom: rem($shell-g-spacing-6x-large);
+    }
 }
 
 
 /**
- * Modifier: gutterless for both horizontal and vertical gutters.
+ * Modifier: gutterless for both horizontal gutters, we don't need to apply for
+ * vertical gutters as their gutters aren't applied at the base level.
  *
  * N.B. we boost the specificity by chaining the base class to the modifier
  * class to make sure we're always overriding any gutter modifier classes.
@@ -319,7 +364,6 @@
     margin-left: 0;
 
     > .l-grid__item {
-        margin-bottom: 0;
         padding-left: 0;
     }
 }
