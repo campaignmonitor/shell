@@ -711,6 +711,7 @@
 ///         overflow: hidden;
 ///         padding: 0;
 ///         position: absolute;
+///         white-space: nowrap;
 ///         width: 1px;
 ///     }
 ///     .element-2 {
@@ -721,6 +722,7 @@
 ///         overflow: hidden !important;
 ///         padding: 0 !important;
 ///         position: absolute !important;
+///         white-space: nowrap !important;
 ///         width: 1px !important;
 ///     }
 
@@ -739,6 +741,7 @@
     overflow: hidden#{$important-keyword};
     padding: 0#{$important-keyword};
     position: absolute#{$important-keyword};
+    white-space: nowrap#{$important-keyword};
     width: 1px#{$important-keyword};
 }
 
