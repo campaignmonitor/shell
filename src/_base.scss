@@ -19,10 +19,9 @@
  * 1. Root element
  * 2. Links
  * 3. Images
- * 4. Forms
- * 5. Paragraphs
- * 6. Headings
- * 7. Print
+ * 4. Paragraphs
+ * 5. Headings
+ * 6. Print
  */
 
 
@@ -102,31 +101,7 @@ img {
 
 
 
-/* 4. Forms
-   ========================================================================= */
-
-/**
- * Apply an optional `opacity` style for disabled and read-only states.
- *
- * N.B. if developing for iOS be aware of this bug:
- * "Safari Mobile for iOS applies a default style of `opacity: 0.4` to disabled
- * textual `<input>` elements. Other major browsers don't currently share this
- * particular default style."
- * —https://developer.mozilla.org/en-US/docs/Web/HTML/Element/
- * Input#Browser_compatibility
- */
-
-@if $shell-base-apply-style-to-disabled-and-readonly-states {
-    :disabled,
-    [readonly] {
-        opacity: $shell-base-disabled-and-readonly-state-opacity-strength;
-    }
-}
-
-
-
-
-/* 5. Paragraphs
+/* 4. Paragraphs
    ========================================================================= */
 
 /**
@@ -142,7 +117,7 @@ img {
 
 
 
-/* 6. Headings
+/* 5. Headings
    ========================================================================= */
 
 /**
@@ -195,7 +170,7 @@ h6 {
 
 
 
-/* 7. Print
+/* 6. Print
    ========================================================================= */
 
 /**
