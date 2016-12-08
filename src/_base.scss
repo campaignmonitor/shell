@@ -76,30 +76,6 @@ img {
 }
 
 
-/**
- * Third-party widgets—like Google Maps—cannot have their images be responsive
- * as this breaks any images used within them therefore we remove that by
- * applying the two possible Google Map container selectors plus a generic
- * container selector to be used for other third-party widgets.
- *
- * N.B. it is okay to use `!important` here as we're doing it pre-emptively
- * i.e. you know you will always want the rule it's applied to to take
- * precedence.
- *
- * @todo https://github.com/campaignmonitor/shell/issues/71
- */
-
-/* stylelint-disable selector-no-id, selector-max-specificity */
-
-.remove-responsive-images img,
-.map_canvas img,
-#map_canvas img {
-    max-width: none !important;
-}
-
-/* stylelint-enable */
-
-
 
 
 /* 4. Forms
