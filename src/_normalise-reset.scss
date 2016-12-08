@@ -744,6 +744,43 @@ progress {
 
 
 /**
+ * Optional custom `:focus` styles for all browsers, however, if you wish to
+ * keep the default focus ring that Webkit and Blink browsers apply then assign
+ * `$shell-normalise-reset-apply-webkit-and-blink-focusring-if-focus-outline-
+ * style-is-applied-for-all-browsers` to `true`.
+ */
+
+@if $shell-normalise-reset-apply-focus-outline-style-for-all-browsers {
+    :focus {
+        outline: $shell-normalise-reset-focus-outline-color
+                 $shell-normalise-reset-focus-outline-style
+                 $shell-normalise-reset-focus-outline-width;
+    }
+
+    /* stylelint-disable max-line-length */
+
+    @if $shell-normalise-reset-apply-webkit-and-blink-focusring-if-focus-outline-style-is-applied-for-all-browsers {
+        @supports (outline-color: -webkit-focus-ring-color) {
+            :focus {
+                outline: -webkit-focus-ring-color auto 5px;
+            }
+        }
+    }
+
+    /* stylelint-enable max-line-length */
+}
+
+
+/**
+ * Don't use outline on Mozilla browsers, if it's not needed.
+ */
+
+:focus:not(:-moz-focusring) {
+    outline: none;
+}
+
+
+/**
  * Avoid 300ms click delay on touch devices that support the `touch-action` CSS
  * property.
  *
