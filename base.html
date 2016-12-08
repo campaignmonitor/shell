@@ -251,12 +251,7 @@
         <h2 class="heading heading-headline  c-demo__spacing c-demo__heading">Images</h2>
         <div class="c-demo__intro">
             
-            <ul class='c-bulleted-list'>
-                <li>Make images responsive, i.e., keep images from scaling
-                beyond the width of their parent container.</li>
-                <li>Provide a way to turn the default responsive styles off
-                for any images within embeddable third-party widgets—particularly Google Maps—as their images cannot be responsive. For Google Maps, Shell uses two of the possible map container selectors from Google, and for other third-party widgets Shell provides a generic container selector.</li>
-            </ul>
+            <p>Make images responsive, i.e., keep images from scaling beyond the width of their parent container.</p>
         
         </div>
 
@@ -273,36 +268,10 @@
                 <div class="l-container">
                     <img src="img/test-img-shell.png" alt="">
                 </div>
-                
-                <!-- Remove responsive image styles for third-party widgets -->
-                <div class="remove-responsive-images">
-                    <img src="img/test-img-shell.png" alt="">
-                </div>
-                
-                <div class="map_canvas">
-                    <img src="img/test-img-shell.png" alt="">
-                </div>
-                
-                <div id="map_canvas">
-                    <img src="img/test-img-shell.png" alt="">
-                </div>
             </div>
             <div class="c-demo__code">
 <pre><code class="language-handlebars"><span class="comment">&lt;!-- Responsive image constrained in a container --&gt;</span>
 <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"l-container"</span>&gt;</span>
-    <span class="tag">&lt;<span class="title">img</span> <span class="attribute">src</span>=<span class="value">"img/test-img-shell.png"</span> <span class="attribute">alt</span>=<span class="value">""</span>&gt;</span>
-<span class="tag">&lt;/<span class="title">div</span>&gt;</span>
-
-<span class="comment">&lt;!-- Remove responsive image styles for third-party widgets --&gt;</span>
-<span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"remove-responsive-images"</span>&gt;</span>
-    <span class="tag">&lt;<span class="title">img</span> <span class="attribute">src</span>=<span class="value">"img/test-img-shell.png"</span> <span class="attribute">alt</span>=<span class="value">""</span>&gt;</span>
-<span class="tag">&lt;/<span class="title">div</span>&gt;</span>
-
-<span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"map_canvas"</span>&gt;</span>
-    <span class="tag">&lt;<span class="title">img</span> <span class="attribute">src</span>=<span class="value">"img/test-img-shell.png"</span> <span class="attribute">alt</span>=<span class="value">""</span>&gt;</span>
-<span class="tag">&lt;/<span class="title">div</span>&gt;</span>
-
-<span class="tag">&lt;<span class="title">div</span> <span class="attribute">id</span>=<span class="value">"map_canvas"</span>&gt;</span>
     <span class="tag">&lt;<span class="title">img</span> <span class="attribute">src</span>=<span class="value">"img/test-img-shell.png"</span> <span class="attribute">alt</span>=<span class="value">""</span>&gt;</span>
 <span class="tag">&lt;/<span class="title">div</span>&gt;</span></code></pre>
             </div>
