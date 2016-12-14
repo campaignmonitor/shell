@@ -393,14 +393,13 @@ $shell-g-textual-inputs: 'input[type="text"],
 
 
 
+
 /* 10. Base (Local)
    ========================================================================= */
 
 /**
  * Booleans.
  */
-
-$shell-base-apply-style-to-disabled-and-readonly-states: true !default;
 
 $shell-base-apply-bottom-margin-to-paragraphs: false !default;
 
@@ -419,15 +418,6 @@ $shell-base-root-element-background-color: $shell-g-color-white !default;
 $shell-base-link-text-decoration: underline !default;
 
 $shell-base-link-text-decoration-on-hover: none !default;
-
-
-/**
- * Forms.
- */
-
-$shell-base-disabled-and-readonly-state-opacity-strength: 0.6 !default;
-
-$shell-base-target-ios-selector: '.target-ios' !default;
 
 
 
