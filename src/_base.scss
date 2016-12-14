@@ -47,14 +47,7 @@ html {
    ========================================================================= */
 
 a {
-    color: $shell-g-color-link;
-    text-decoration: $shell-base-link-text-decoration;
-
-    &:hover,
-    &:focus {
-        color: $shell-g-color-link-hover;
-        text-decoration: $shell-base-link-text-decoration-on-hover;
-    }
+    @include base-link;
 }
 
 
