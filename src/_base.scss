@@ -19,10 +19,9 @@
  * 1. Root element
  * 2. Links
  * 3. Images
- * 4. Forms
- * 5. Paragraphs
- * 6. Headings
- * 7. Print
+ * 4. Paragraphs
+ * 5. Headings
+ * 6. Print
  */
 
 
@@ -69,57 +68,9 @@ img {
 }
 
 
-/**
- * Third-party widgets—like Google Maps—cannot have their images be responsive
- * as this breaks any images used within them therefore we remove that by
- * applying the two possible Google Map container selectors plus a generic
- * container selector to be used for other third-party widgets.
- *
- * N.B. it is okay to use `!important` here as we're doing it pre-emptively
- * i.e. you know you will always want the rule it's applied to to take
- * precedence.
- *
- * @todo https://github.com/campaignmonitor/shell/issues/71
- */
-
-/* stylelint-disable selector-no-id, selector-max-specificity */
-
-.remove-responsive-images img,
-.map_canvas img,
-#map_canvas img {
-    max-width: none !important;
-}
-
-/* stylelint-enable */
 
 
-
-
-/* 4. Forms
-   ========================================================================= */
-
-/**
- * Apply an optional `opacity` style for disabled and read-only states.
- *
- * N.B. if developing for iOS be aware of this bug:
- * "Safari Mobile for iOS applies a default style of `opacity: 0.4` to disabled
- * textual `<input>` elements. Other major browsers don't currently share this
- * particular default style."
- * —https://developer.mozilla.org/en-US/docs/Web/HTML/Element/
- * Input#Browser_compatibility
- */
-
-@if $shell-base-apply-style-to-disabled-and-readonly-states {
-    :disabled,
-    [readonly] {
-        opacity: $shell-base-disabled-and-readonly-state-opacity-strength;
-    }
-}
-
-
-
-
-/* 5. Paragraphs
+/* 4. Paragraphs
    ========================================================================= */
 
 /**
@@ -135,7 +86,7 @@ img {
 
 
 
-/* 6. Headings
+/* 5. Headings
    ========================================================================= */
 
 /**
@@ -188,7 +139,7 @@ h6 {
 
 
 
-/* 7. Print
+/* 6. Print
    ========================================================================= */
 
 /**
@@ -199,14 +150,22 @@ h6 {
 
 @media print {
     /**
-     * Apply print friendly styles to all the things.
+     * Global.
      */
 
     *,
-    *::before,
     *::after,
-    *::first-letter,
-    *::first-line {
+    *::before,
+    // First letter
+    blockquote::first-letter,
+    div::first-letter,
+    li::first-letter,
+    p::first-letter,
+    // First line
+    blockquote::first-line,
+    div::first-line,
+    li::first-line,
+    p::first-line {
         background: transparent !important;
         box-shadow: none !important;
         color: $shell-g-color-black !important;
@@ -218,9 +177,9 @@ h6 {
      * Hide elements not really useful on a piece of paper.
      */
 
+    audio,
     nav,
-    video,
-    audio {
+    video {
         display: none !important;
     }
 
@@ -232,6 +191,15 @@ h6 {
     img {
         height: auto !important;
         max-width: 100% !important;
+    }
+
+
+    /**
+     * Apply bottom margin to all paragraphs.
+     */
+
+    p:not(:last-child) {
+        margin-bottom: rem($shell-g-spacing) !important;
     }
 
 
@@ -259,8 +227,12 @@ h6 {
         content: ' (' attr(title) ')';
     }
 
-    // Don't show links that are fragment identifiers, or use the
-    // `javascript:` pseudo protocol
+
+    /**
+     * Don't show links that are fragment identifiers, or use the
+     * `javascript:` pseudo protocol.
+     */
+
     a[href^='javascript:']::after,
     a[href^='#']::after {
         content: '';
@@ -273,32 +245,51 @@ h6 {
      */
 
     thead {
-        display: table-header-group;
+        display: table-header-group !important;
     }
 
 
     /**
-     * Set page breaks, orphans and widows.
+     * Better formatted `<pre>`s.
      */
 
-    // Page breaks
+    pre {
+        white-space: pre-wrap !important;
+    }
+
+
+    /**
+     * Page breaks.
+     */
+
+    /* stylelint-disable no-descending-specificity */
+
     h2,
     h3 {
         page-break-after: avoid;
     }
 
-    tr,
+    blockquote,
+    dl,
     img,
+    ol,
     pre,
-    blockquote {
+    tr,
+    ul {
         page-break-inside: avoid;
     }
 
-    // Orphans and widows
-    p,
+
+    /**
+     * Orphans and widows.
+     */
+
     h2,
-    h3 {
+    h3,
+    p {
         orphans: 3;
         widows: 3;
     }
+
+    /* stylelint-enable no-descending-specificity */
 }
