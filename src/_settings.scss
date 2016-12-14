@@ -44,11 +44,12 @@
  * 6.  Breakpoints (Global)
  * 7.  Z-Index system (Global)
  * 8.  HiDPI units (Global)
- * 9.  HTML textual `input`s (Global)
- * 10. Base (Local)
- * 11. Container (Local)
- * 12. Grid (Local)
- * 13. Helpers (Local)
+ * 9.  HTML textual `<input>`s (Global)
+ * 10. Normalise and Reset (Local)
+ * 11. Base (Local)
+ * 12. Container (Local)
+ * 13. Grid (Local)
+ * 14. Helpers (Local)
  */
 
 
@@ -370,7 +371,7 @@ $shell-g-hidpi-dppx: 1.3 * 1dppx;
 
 
 
-/* 9. HTML textual `input`s (Global)
+/* 9. HTML textual `<input>`s (Global)
    ========================================================================= */
 
 /* stylelint-disable string-no-newline */
@@ -393,14 +394,42 @@ $shell-g-textual-inputs: 'input[type="text"],
 
 
 
-/* 10. Base (Local)
+
+/* 10. Normalise and Reset (Local)
    ========================================================================= */
 
 /**
  * Booleans.
  */
 
-$shell-base-apply-style-to-disabled-and-readonly-states: true !default;
+/* stylelint-disable max-line-length */
+
+$shell-normalise-reset-apply-focus-outline-style-for-all-browsers: false !default;
+
+$shell-normalise-reset-apply-webkit-and-blink-focusring-if-focus-outline-style-is-applied-for-all-browsers: false !default;
+
+/* stylelint-enable max-line-length */
+
+
+/**
+ * `:focus` outline styles.
+ */
+
+$shell-normalise-reset-focus-outline-color: Highlight !default;
+
+$shell-normalise-reset-focus-outline-style: solid !default;
+
+$shell-normalise-reset-focus-outline-width: 2px !default;
+
+
+
+
+/* 11. Base (Local)
+   ========================================================================= */
+
+/**
+ * Booleans.
+ */
 
 $shell-base-apply-bottom-margin-to-paragraphs: false !default;
 
@@ -421,18 +450,9 @@ $shell-base-link-text-decoration: underline !default;
 $shell-base-link-text-decoration-on-hover: none !default;
 
 
-/**
- * Forms.
- */
-
-$shell-base-disabled-and-readonly-state-opacity-strength: 0.6 !default;
-
-$shell-base-target-ios-selector: '.target-ios' !default;
 
 
-
-
-/* 11. Container (Local)
+/* 12. Container (Local)
    ========================================================================= */
 
 /**
@@ -469,7 +489,7 @@ $shell-container-gutter: $shell-g-spacing-3x-large !default;
 
 
 
-/* 12. Grid (Local)
+/* 13. Grid (Local)
    ========================================================================= */
 
 /**
@@ -574,7 +594,7 @@ $shell-grid-define-12-col-width-breakpoints: $shell-g-global-breakpoints !defaul
 
 
 
-/* 13. Helpers (Local)
+/* 14. Helpers (Local)
    ========================================================================= */
 
 /**
