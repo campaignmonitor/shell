@@ -19,6 +19,7 @@
  * 4. Apply at breakpoints (Mixin)
  * 5. Retrieve from maps (Function)
  * 6. Helpers (Mixin)
+ * 7. Shared styles (Mixin)
  */
 
 
@@ -695,6 +696,11 @@
 /// @param {Boolean} $apply-important-keyword [false] — Whether to apply the
 /// `!important` keyword
 ///
+/// @link http://unobfuscated.blogspot.com.au/2015/01/
+///       updated-offscreen-techniques.html
+/// @link https://medium.com/@jessebeach/
+///       beware-smushed-off-screen-accessible-text-5952a4c2cbfe#.ixzj7idgo
+///
 /// @example scss - Usage
 ///     .element-1 {
 ///         @include hide-visually();
@@ -704,41 +710,40 @@
 ///     }
 /// @example css - CSS Output
 ///     .element-1 {
-///         border: 0;
-///         clip: rect(0 0 0 0);
+///         clip: rect(1px, 1px, 1px, 1px);
+///         clip-path: polygon(0 0, 0 0, 0 0, 0 0);
 ///         height: 1px;
-///         margin: -1px ;
 ///         overflow: hidden;
-///         padding: 0;
 ///         position: absolute;
+///         white-space: nowrap;
 ///         width: 1px;
 ///     }
 ///     .element-2 {
-///         border: 0 !important;
-///         clip: rect(0 0 0 0) !important;
+///         clip: rect(1px, 1px, 1px, 1px) !important;
+///         clip-path: polygon(0 0, 0 0, 0 0, 0 0) !important;
 ///         height: 1px !important;
-///         margin: -1px !important;
 ///         overflow: hidden !important;
-///         padding: 0 !important;
 ///         position: absolute !important;
+///         white-space: nowrap !important;
 ///         width: 1px !important;
 ///     }
 
 @mixin hide-visually($apply-important-keyword: false) {
     $important-keyword: if($apply-important-keyword, ' !important', '');
-    border: 0#{$important-keyword};
 
     /* stylelint-disable function-whitespace-after */
 
-    clip: rect(0 0 0 0)#{$important-keyword};
+    // `clip` is deprecated but we keep it for browsers that don't support
+    // `clip-path`
+    clip: rect(1px, 1px, 1px, 1px)#{$important-keyword};
+    clip-path: polygon(0 0, 0 0, 0 0, 0 0)#{$important-keyword};
 
     /* stylelint-enable */
 
     height: 1px#{$important-keyword};
-    margin: -1px #{$important-keyword};
     overflow: hidden#{$important-keyword};
-    padding: 0#{$important-keyword};
     position: absolute#{$important-keyword};
+    white-space: nowrap#{$important-keyword};
     width: 1px#{$important-keyword};
 }
 
@@ -925,4 +930,25 @@
     position: absolute#{$important-keyword};
     top: 0#{$important-keyword};
     width: 100%#{$important-keyword};
+}
+
+
+
+
+/* 7. Shared styles
+   ========================================================================= */
+
+/**
+ * Certain styles need to be shared to keep things DRY.
+ */
+
+@mixin base-link {
+    color: $shell-g-color-link;
+    text-decoration: $shell-base-link-text-decoration;
+
+    &:hover,
+    &:focus {
+        color: $shell-g-color-link-hover;
+        text-decoration: $shell-base-link-text-decoration-on-hover;
+    }
 }
