@@ -145,8 +145,9 @@
  * 2. Text
  * 3. Hide
  * 4. Spacing
- * 5. Horizontal and vertical alignment
+ * 5. Alignment
  * 6. Intrinsic ratio
+ * 7. Non-responsive image
  */
 
 
@@ -826,7 +827,7 @@
 
 
 
-/* 5. Horizontal and vertical alignment
+/* 5. Alignment
    ========================================================================= */
 
 /**
@@ -920,4 +921,27 @@
 
 .h-intrinsic-ratio__content {
     @include intrinsic-ratio-content(true);
+}
+
+
+
+
+/* 7. Non-responsive image
+   ========================================================================= */
+
+/**
+ * Images are responsive by default, see: "Base -> Images". But there can be
+ * scenarios when you don't need this. A common example is when using
+ * third-party widgets like Google Maps, not applying a Helper like this can
+ * result in images not rendering correctly.
+ *
+ * This selector: `.h-non-responsive-img img` is included as sometimes applying
+ * the Helper directly to the image element isn't always possible, or,
+ * sometimes it makes sense to target a bunch of image elements within a
+ * certain element.
+ */
+
+.h-non-responsive-img,
+.h-non-responsive-img img {
+    max-width: none !important;
 }
