@@ -8,7 +8,8 @@
  * with modern standards, and let's nuke certain user-agent styles so that
  * everything is on an even playing field.
  *
- * We can also be a bit opinionated about CM specific style treatments.
+ * We can also be a bit opinionated about CM specific style treatments, marked
+ * with "N.B. Shell specific".
  *
  * N.B. we should be keeping an eye on the normalize.css repo especially the
  * Issues: https://github.com/necolas/normalize.css/issues/.
@@ -23,7 +24,7 @@
  * 1. Root element and global resets
  * 2. Block-level elements
  * 3. Inline elements
- * 4. Embedded, image, and multimedia, elements
+ * 4. Embedded elements
  * 5. Form elements
  * 6. Interactions
  */
@@ -35,9 +36,10 @@
    ========================================================================= */
 
 /**
- * 1. Reset the `box-sizing` property to the more friendly `border-box` value.
- * 2. Prevent iOS and IE text size adjust after device orientation change,
- *    without disabling user zoom.
+ * 1. Reset the `box-sizing` property to the more friendly `border-box` value,
+ *    N.B. Shell specific.
+ * 2. Prevent adjustments of font size after orientation changes in IE on
+ *    Windows Phone and in iOS.
  */
 
 html {
@@ -67,6 +69,8 @@ html {
  * The complete list of HTML5 elements:
  * https://developer.mozilla.org/en/docs/Web/Guide/HTML/HTML5/
  * HTML5_element_list
+ *
+ * N.B. Shell specific.
  */
 
 a,
@@ -151,6 +155,7 @@ var {
 
 /**
  * Add the correct display in IE 9-.
+ *
  * 1. Add the correct display in Edge, IE, and Firefox.
  * 2. Add the correct display in IE.
  */
@@ -162,22 +167,30 @@ figcaption,
 figure,
 footer,
 header,
+nav,
 main, // [2]
 menu,
-nav,
-section,
-summary { // [1]
+section {
     display: block;
 }
 
 
+/*
+ * Add the correct display in all browsers.
+ */
+
+summary {
+    display: list-item;
+}
+
+
 /**
- * Add the correct display in IE 10-.
  * 1. Add the correct display in IE.
+ * 2. Add the correct display in IE 10-.
  */
 
 template, // [1]
-[hidden] {
+[hidden] { // [2]
     display: none;
 }
 
@@ -185,6 +198,8 @@ template, // [1]
 /**
  * Reset lists, this is in addition to removing `margin` and `padding` in
  * "Root element and global resets".
+ *
+ * N.B. Shell specific.
  */
 
 ul,
@@ -345,23 +360,8 @@ samp {
 
 
 
-/* 4. Embedded, image and multimedia, elements
+/* 4. Embedded elements
    ========================================================================= */
-
-/**
- * Remove the gap between media elements and the bottom of their containers.
- * See: https://github.com/h5bp/html5-boilerplate/issues/440.
- */
-
-audio,
-canvas,
-iframe,
-img,
-svg,
-video {
-    vertical-align: middle;
-}
-
 
 /**
  * Add the correct display in iOS 4-7.
@@ -388,18 +388,13 @@ svg:not(:root) {
    ========================================================================= */
 
 /**
- * N.B. known limitation: by default, Chrome and Safari on OS X allow very
- * limited styling of `<select>`s, unless a `border` property is set.
- */
-
-
-/**
  * 1. Change font properties to `inherit` in all browsers.
  * 2. Remove the margin in Firefox and Safari.
  */
 
 button,
 input,
+optgroup,
 select,
 textarea {
     font: inherit; // [1]
@@ -408,16 +403,8 @@ textarea {
 
 
 /**
- * Restore the font weight unset by the previous rule.
- */
-
-optgroup {
-    font-weight: bold;
-}
-
-
-/**
  * Show the overflow in IE.
+ *
  * 1. Show the overflow in Edge.
  */
 
@@ -429,6 +416,7 @@ input { // [1]
 
 /**
  * Remove the inheritance of text transform in Edge, Firefox, and IE.
+ *
  * 1. Remove the inheritance of text transform in Firefox.
  */
 
@@ -440,6 +428,8 @@ select { // [1]
 
 /**
  * Reset all styles so we have a blank canvas.
+ *
+ * N.B. Shell specific.
  */
 
 button {
@@ -453,7 +443,7 @@ button {
  * 1. Prevent a WebKit bug where (2) destroys native `<audio>` and `<video>`
  *    controls in Android 4.
  * 2. Improve usability and consistency of cursor style between image-type
- *    `<input>` and others.
+ *    `<input>` and others (N.B. Shell specific).
  * 3. Correct the inability to style clickable types in iOS and Safari.
  */
 
@@ -496,6 +486,8 @@ button:-moz-focusring,
 /**
  * Indicate that `<label>` will shift focus to the associated `<input>`
  * element.
+ *
+ * N.B. Shell specific.
  */
 
 label {
@@ -505,7 +497,8 @@ label {
 
 /**
  * 1. Remove the default vertical scrollbar in IE.
- * 2. Disable `<textarea>`s from being resized horizontally.
+ * 2. Disable `<textarea>`s from being resized horizontally
+ *    (N.B. Shell specific).
  */
 
 textarea {
@@ -519,6 +512,8 @@ textarea {
  * reset that to ensure it behaves more like a standard block element, see:
  * http://stackoverflow.com/questions/17408815/
  * fieldset-resizes-wrong-appears-to-have-unremovable-min-width-min-content.
+ *
+ * N.B. Shell specific.
  */
 
 fieldset {
@@ -563,6 +558,8 @@ progress {
  * Apply the `not-allowed` cursor for disabled elements (`<button>`, `<input>`,
  * `<textarea>`, `<optgroup>`, `<option>` and `<fieldset>`) and disable pointer
  * events.
+ *
+ * N.B. Shell specific.
  */
 
 :disabled {
@@ -607,7 +604,7 @@ progress {
 
 
 /**
- * Remove the inner padding and cancel buttons in Chrome and Safari on OS X.
+ * Remove the inner padding and cancel buttons in Chrome and Safari on macOS.
  */
 
 [type='search']::-webkit-search-cancel-button,
@@ -618,20 +615,6 @@ progress {
 
     /* stylelint-enable */
 }
-
-
-/**
- * Correct the text style of placeholders in Chrome, Edge, and Safari.
- */
-
-/* stylelint-disable */
-
-::-webkit-input-placeholder {
-    color: inherit;
-    opacity: 0.54;
-}
-
-/* stylelint-enable */
 
 
 /**
@@ -652,7 +635,9 @@ progress {
 /**
  * Remove the clear field button (an "X" icon) and the reveal password button
  * (an "eye" icon) that is generated by IE 10+ for textual inputs. See:
- * http://stackoverflow.com/a/21869433/1116204
+ * http://stackoverflow.com/a/21869433/1116204.
+ *
+ * N.B. Shell specific.
  */
 
 /* stylelint-disable */
@@ -667,6 +652,8 @@ progress {
 
 /**
  * Unstyle the caret on `<select>`s in IE 10+.
+ *
+ * N.B. Shell specific.
  */
 
 /* stylelint-disable */
@@ -689,6 +676,8 @@ progress {
  *
  * N.B. this functionality is not part of the Shell library, you will need to
  * add it yourself to the project Shell applies too.
+ *
+ * N.B. Shell specific.
  */
 
 .target-ios {
@@ -713,7 +702,7 @@ progress {
     textarea {
         /* stylelint-disable property-no-vendor-prefix */
 
-        -webkit-appearance: caret;
+        background-clip: padding-box;
 
         /* stylelint-enable */
     }
@@ -745,10 +734,49 @@ progress {
  * N.B. it is okay to use `!important` here as we're doing it pre-emptively
  * i.e. you know you will always want the rule it's applied too to take
  * precedence.
+ *
+ * N.B. Shell specific.
  */
 
 [tabindex='-1']:focus {
     outline: none !important;
+}
+
+
+/**
+ * Optional custom `:focus` styles for all browsers, however, if you wish to
+ * keep the default focus ring that Webkit and Blink browsers apply then assign
+ * `$shell-normalise-reset-apply-webkit-and-blink-focusring-if-focus-outline-
+ * style-is-applied-for-all-browsers` to `true`.
+ */
+
+@if $shell-normalise-reset-apply-focus-outline-style-for-all-browsers {
+    :focus {
+        outline: $shell-normalise-reset-focus-outline-color
+                 $shell-normalise-reset-focus-outline-style
+                 $shell-normalise-reset-focus-outline-width;
+    }
+
+    /* stylelint-disable max-line-length */
+
+    @if $shell-normalise-reset-apply-webkit-and-blink-focusring-if-focus-outline-style-is-applied-for-all-browsers {
+        @supports (outline-color: -webkit-focus-ring-color) {
+            :focus {
+                outline: -webkit-focus-ring-color auto 5px;
+            }
+        }
+    }
+
+    /* stylelint-enable max-line-length */
+}
+
+
+/**
+ * Don't use outline on Mozilla browsers, if it's not needed.
+ */
+
+:focus:not(:-moz-focusring) {
+    outline: none;
 }
 
 
@@ -766,6 +794,7 @@ progress {
  * - http://caniuse.com/#feat=css-touch-action
  * - http://patrickhlauke.github.io/touch/tests/results/#suppressing-300ms-delay
  * - https://adactio.com/journal/10019
+ * - https://developers.google.com/web/updates/2013/12/300ms-tap-delay-gone-away
  */
 
 /* stylelint-disable no-descending-specificity */
