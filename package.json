@@ -28,7 +28,7 @@
         "type": "git",
         "url":  "git@github.com:campaignmonitor/shell.git"
     },
-        "bugs": {
+    "bugs": {
         "url": "https://github.com/campaignmonitor/shell/issues"
     },
     "devDependencies": {
