@@ -352,21 +352,33 @@ $shell-g-z-layers: (
 
 
 
-/* 8. HiDPI units (Global)
+/* 8. HiDPI (Global)
    ========================================================================= */
 
 /**
- * HiDPI units, currently being used in:
- * "Mixins/Functions -> HiDPI background images".
+ * The two HiDPI units required for full support, see:
+ * http://caniuse.com/#feat=css-media-resolution. Eventually the `dppx` unit
+ * will only be required.
  *
- * N.B. non-over-ridable.
+ * N.B. Autoprefixer will take care of generating the non-standard
+ * `-webkit-min-device-pixel-ratio` for browsers/devices that need it.
  */
 
-$shell-g-hidpi-dpr: 1.3;
+$shell-g-hidpi-dppx: 2dppx !default;
 
-$shell-g-hidpi-dpi: ($shell-g-hidpi-dpr * 96) * 1dpi;
+$shell-g-hidpi-dpi: 192dpi !default;
 
-$shell-g-hidpi-dppx: 1.3 * 1dppx;
+
+/**
+ * Easily target HiDPI resolutions with this media query.
+ */
+
+/* stylelint-disable string-no-newline */
+
+$shell-g-hidpi-mq: '(min-resolution: #{$shell-g-hidpi-dpi}),
+                    (min-resolution: #{$shell-g-hidpi-dppx})' !default;
+
+/* stylelint-enable */
 
 
 

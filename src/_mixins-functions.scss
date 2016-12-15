@@ -14,7 +14,7 @@
  * CONTENTS:
  *
  * 1. Private mixins and functions
- * 2. HiDPI background images (Mixin)
+ * 2. HiDPI background image (Mixin)
  * 3. Convert pixels to `rem`s or `em`s (Function)
  * 4. Apply at breakpoints (Mixin)
  * 5. Retrieve from maps (Function)
@@ -60,53 +60,97 @@
 
 
 
-/* 2. HiDPI background images (Mixin)
+/* 2. HiDPI background image (Mixin)
    ========================================================================= */
 
-/// Easily apply HiDPI background images. We use a device pixel ratio ("dpr")
-/// of "1.3" which captures almost all HiDPI aware devices, see:
-/// https://gist.github.com/marcedwards/3446599.
+/// Easily apply a HiDPI background image. Autoprefixer will take care of
+/// generating the non-standard `-webkit-min-device-pixel-ratio` for
+/// browsers/devices that need it.
 ///
-/// N.B. Autoprefixer will take care of generating the non-standard
-/// `-webkit-device-pixel-ratio` for browsers/devices that need it, see:
-/// http://caniuse.com/#feat=css-media-resolution.
+/// @link http://caniuse.com/#feat=css-media-resolution - Browser support.
 ///
-/// @author Chris Pearce
+/// @param {String} $file - The image filename and path if required.
+/// @param {Number} $width [auto] - The image width + its unit e.g. `px`, or
+/// the `em()` or `rem()` functions can be used.
+/// @param {Number} $height [$width] - Same as width but for the height and
+/// the height is optional, if empty it'll default to `$width`.
 ///
-/// @access public
-///
-/// @param {String} $img-url — The image url path
-/// @param {Number [unit]} $img-width [auto] — The image width in `px`
-/// @param {Number [unit]} $img-height [auto] — The image height in `px`
+/// @throws '`$file` must be of type "string"'
+/// @throws '`$width` must be of type "number"'
+/// @throws '`$width` must have a unit'
+/// @throws '`$height` must be of type "number"'
+/// @throws '`$height` must have a unit'
+/// @throws 'The `$shell-g-hidpi-mq` setting is required'
 ///
 /// @example scss - Usage
 ///     .element-1 {
-///         @include hidpi-bg-img("path/to/image/image.png", 100px, 45px);
+///         @include hidpi-bg-img('img/icons/tick@2x.png', 100px, 45px);
 ///     }
 ///     .element-2 {
-///         @include hidpi-bg-img("path/to/image/image.png", 32px);
+///         @include hidpi-bg-img('arrow@2x.png', 32px);
 ///     }
+///     .element-3 {
+///         @include hidpi-bg-img('delete@2x.png', rem(134), rem(65));
+///     }
+///
 /// @example css - CSS Output
 ///     .element-1 {
-///         @media (min-resolution: 1.3dppx),
-///                (min-resolution: 124.8dpi) {
-///             background-image: url("path/to/image/image.png");
+///         @media (min-resolution: 2dppx),
+///                (min-resolution: 192dpi) {
+///             background-image: url('img/icons/tick@2x.png');
 ///             background-size: 100px 45px;
 ///         }
 ///     }
 ///     .element-2 {
-///         @media (min-resolution: 1.3dppx),
-///                (min-resolution: 124.8dpi) {
-///             background-image: url("path/to/image/image.png");
+///         @media (min-resolution: 2dppx),
+///                (min-resolution: 192dpi) {
+///             background-image: url('arrow@2x.png');
 ///             background-size: 32px 32px;
 ///         }
 ///     }
+///     .element-3 {
+///         @media (min-resolution: 2dppx),
+///                (min-resolution: 192dpi) {
+///             background-image: url('delete@2x.png');
+///             background-size: 8.375rem 4.062rem;
+///         }
+///     }
 
-@mixin hidpi-bg-img($img-url, $img-width: auto, $img-height: auto) {
-    @media (min-resolution: $shell-g-hidpi-dppx),
-           (min-resolution: $shell-g-hidpi-dpi) {
-        background-image: url('#{$img-url}');
-        background-size: $img-width $img-height;
+@mixin hidpi-bg-img($file, $width: auto, $height: $width) {
+    @if type-of($file) != 'string' {
+        @error '⚠️ Sorry, but `$file` must be of type "string" e.g. ' +
+            '`arrow@2x.png`, you entered: `#{$file}` which is of type: ' +
+            '"#{type-of($file)}".';
+    }
+    @else if type-of($width) != 'number' and $width != 'auto' {
+        @error '⚠️ Sorry, but `$width` must be of type "number", you ' +
+            'entered: `#{$width}` which is of type: ' +
+            '"#{type-of($width)}".';
+    }
+    @else if $width != 'auto' and unitless($width) {
+        @error '⚠️ Sorry, but `$width` must have a unit, you entered: ' +
+            '`#{$width}`, please add a unit, e.g. #{$width}px';
+    }
+    @else if type-of($height) != 'number' and $height != 'auto' {
+        @error '⚠️ Sorry, but `$height` must be of type "number", you ' +
+            'entered: `#{$height}` which is of type: ' +
+            '"#{type-of($height)}".';
+    }
+    @else if $height != 'auto' and unitless($height) {
+        @error '⚠️ Sorry, but `$height` must have a unit, you entered: ' +
+            '`#{$height}`, please add a unit, e.g. #{$height}px';
+    }
+    @else if global-variable-exists(shell-g-hidpi-mq) {
+        @media #{$shell-g-hidpi-mq} {
+            background-image: url('#{$file}');
+            background-size: $width $height;
+        }
+    }
+    @else {
+        @error '⚠️ Sorry, but the setting: `$shell-g-hidpi-mq` doesn\'t ' +
+            'exist, please make you\'re importing the Shell ' +
+            ' `_settings.scss` partial and the `$shell-g-hidpi-mq` ' +
+            'setting is in there as per the default set up.';
     }
 }
 

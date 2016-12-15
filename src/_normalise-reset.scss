@@ -581,12 +581,30 @@ progress {
 
 
 /**
- * Correct the cursor style of increment and decrement buttons in Chrome.
+ * Remove the increment and decrement buttons in Webkit and Firefox.
+ *
+ * N.B. Shell specific.
  */
 
+// Firefox
+[type='number'] {
+    /* stylelint-disable property-no-vendor-prefix */
+
+    -moz-appearance: textfield;
+
+    /* stylelint-enable */
+}
+
+// Webkit
 [type='number']::-webkit-inner-spin-button,
 [type='number']::-webkit-outer-spin-button {
-    height: auto;
+    /* stylelint-disable property-no-vendor-prefix */
+
+    -webkit-appearance: none;
+
+    /* stylelint-enable */
+
+    margin: 0;
 }
 
 
