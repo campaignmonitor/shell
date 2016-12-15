@@ -314,7 +314,7 @@ module.exports = {
          */
 
         'comment-empty-line-before': ['always', {
-            ignore: ["between-comments", "stylelint-commands"],
+            ignore: ['between-comments', 'stylelint-commands'],
             except: ['first-nested']
         }],
         'comment-whitespace-inside': 'always',
