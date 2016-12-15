@@ -18,6 +18,6 @@
     "grunt-sass": "^1.1.0",
     "postcss": "^5.0.17",
     "postcss-scss": "^0.1.5",
-    "stylelint": "^6.5.1"
+    "stylelint": "^7.6.0"
   }
 }

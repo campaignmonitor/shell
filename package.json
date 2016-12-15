@@ -32,7 +32,11 @@
         "url": "https://github.com/campaignmonitor/shell/issues"
     },
     "devDependencies": {
-        "stylelint": "^7.6.0"
+        "stylelint": "^7.6.0",
+        "gulp": "^3.9.1",
+        "gulp-postcss": "^6.2.0",
+        "postcss-reporter": "^1.4.1",
+        "postcss-scss": "^0.4.0"
     },
     "license": "MIT"
 }
