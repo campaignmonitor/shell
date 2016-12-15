@@ -138,6 +138,14 @@ project root/
 
 *Eventually linting will be setup as part of CI, see: #19.*
 
+For now you can go to your Terminal `cd` into the root of Shell and run:
+
+```sh
+gulp lint
+```
+
+This will lint all of the Shell source `.scss` files including `test` and `docs`.
+
 
 # Browser Support
 

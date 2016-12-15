@@ -153,9 +153,11 @@ h6 {
      * Global.
      */
 
+    /* stylelint-disable selector-no-universal */
     *,
     *::after,
     *::before,
+    /* stylelint-enable */
     // First letter
     blockquote::first-letter,
     div::first-letter,
