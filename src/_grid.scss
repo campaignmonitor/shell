@@ -437,15 +437,12 @@
 }
 
 // Apply at breakpoints
-/* stylelint-disable max-line-length */
-
 @if $shell-grid-apply-1-col-width-at-breakpoints {
+    /* stylelint-disable-next-line max-line-length */
     @include apply-at-breakpoints('.l-grid__item--1-col', $shell-grid-define-1-col-width-breakpoints) {
         width: $shell-grid-1-col-width;
     }
 }
-
-/* stylelint-enable */
 
 // 2 col
 .l-grid__item--2-col {
@@ -453,15 +450,12 @@
 }
 
 // Apply at breakpoints
-/* stylelint-disable max-line-length */
-
 @if $shell-grid-apply-2-col-width-at-breakpoints {
+    /* stylelint-disable-next-line max-line-length */
     @include apply-at-breakpoints('.l-grid__item--2-col', $shell-grid-define-2-col-width-breakpoints) {
         width: $shell-grid-2-col-width;
     }
 }
-
-/* stylelint-enable */
 
 // 3 col
 .l-grid__item--3-col {
@@ -469,15 +463,12 @@
 }
 
 // Apply at breakpoints
-/* stylelint-disable max-line-length */
-
 @if $shell-grid-apply-3-col-width-at-breakpoints {
+    /* stylelint-disable-next-line max-line-length */
     @include apply-at-breakpoints('.l-grid__item--3-col', $shell-grid-define-3-col-width-breakpoints) {
         width: $shell-grid-3-col-width;
     }
 }
-
-/* stylelint-enable */
 
 // 4 col
 .l-grid__item--4-col {
@@ -485,15 +476,12 @@
 }
 
 // Apply at breakpoints
-/* stylelint-disable max-line-length */
-
 @if $shell-grid-apply-4-col-width-at-breakpoints {
+    /* stylelint-disable-next-line max-line-length */
     @include apply-at-breakpoints('.l-grid__item--4-col', $shell-grid-define-4-col-width-breakpoints) {
         width: $shell-grid-4-col-width;
     }
 }
-
-/* stylelint-enable */
 
 // 5 col
 .l-grid__item--5-col {
@@ -501,15 +489,12 @@
 }
 
 // Apply at breakpoints
-/* stylelint-disable max-line-length */
-
 @if $shell-grid-apply-5-col-width-at-breakpoints {
+    /* stylelint-disable-next-line max-line-length */
     @include apply-at-breakpoints('.l-grid__item--5-col', $shell-grid-define-5-col-width-breakpoints) {
         width: $shell-grid-5-col-width;
     }
 }
-
-/* stylelint-enable */
 
 // 6 col
 .l-grid__item--6-col {
@@ -517,15 +502,12 @@
 }
 
 // Apply at breakpoints
-/* stylelint-disable max-line-length */
-
 @if $shell-grid-apply-6-col-width-at-breakpoints {
+    /* stylelint-disable-next-line max-line-length */
     @include apply-at-breakpoints('.l-grid__item--6-col', $shell-grid-define-6-col-width-breakpoints) {
         width: $shell-grid-6-col-width;
     }
 }
-
-/* stylelint-enable */
 
 // 7 col
 .l-grid__item--7-col {
@@ -533,15 +515,12 @@
 }
 
 // Apply at breakpoints
-/* stylelint-disable max-line-length */
-
 @if $shell-grid-apply-7-col-width-at-breakpoints {
+    /* stylelint-disable-next-line max-line-length */
     @include apply-at-breakpoints('.l-grid__item--7-col', $shell-grid-define-7-col-width-breakpoints) {
         width: $shell-grid-7-col-width;
     }
 }
-
-/* stylelint-enable */
 
 // 8 col
 .l-grid__item--8-col {
@@ -549,15 +528,12 @@
 }
 
 // Apply at breakpoints
-/* stylelint-disable max-line-length */
-
 @if $shell-grid-apply-8-col-width-at-breakpoints {
+    /* stylelint-disable-next-line max-line-length */
     @include apply-at-breakpoints('.l-grid__item--8-col', $shell-grid-define-8-col-width-breakpoints) {
         width: $shell-grid-8-col-width;
     }
 }
-
-/* stylelint-enable */
 
 // 9 col
 .l-grid__item--9-col {
@@ -565,15 +541,12 @@
 }
 
 // Apply at breakpoints
-/* stylelint-disable max-line-length */
-
 @if $shell-grid-apply-9-col-width-at-breakpoints {
+    /* stylelint-disable-next-line max-line-length */
     @include apply-at-breakpoints('.l-grid__item--9-col', $shell-grid-define-9-col-width-breakpoints) {
         width: $shell-grid-9-col-width;
     }
 }
-
-/* stylelint-enable */
 
 // 10 col
 .l-grid__item--10-col {
@@ -581,15 +554,12 @@
 }
 
 // Apply at breakpoints
-/* stylelint-disable max-line-length */
-
 @if $shell-grid-apply-10-col-width-at-breakpoints {
+    /* stylelint-disable-next-line max-line-length */
     @include apply-at-breakpoints('.l-grid__item--10-col', $shell-grid-define-10-col-width-breakpoints) {
         width: $shell-grid-10-col-width;
     }
 }
-
-/* stylelint-enable */
 
 // 11 col
 .l-grid__item--11-col {
@@ -597,15 +567,12 @@
 }
 
 // Apply at breakpoints
-/* stylelint-disable max-line-length */
-
 @if $shell-grid-apply-11-col-width-at-breakpoints {
+    /* stylelint-disable-next-line max-line-length */
     @include apply-at-breakpoints('.l-grid__item--11-col', $shell-grid-define-11-col-width-breakpoints) {
         width: $shell-grid-11-col-width;
     }
 }
-
-/* stylelint-enable */
 
 // 12 col
 .l-grid__item--12-col {
@@ -613,12 +580,9 @@
 }
 
 // Apply at breakpoints
-/* stylelint-disable max-line-length */
-
 @if $shell-grid-apply-12-col-width-at-breakpoints {
+    /* stylelint-disable-next-line max-line-length */
     @include apply-at-breakpoints('.l-grid__item--12-col', $shell-grid-define-12-col-width-breakpoints) {
         width: $shell-grid-12-col-width;
     }
 }
-
-/* stylelint-enable */

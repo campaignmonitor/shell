@@ -45,7 +45,9 @@ module.exports = {
         'function-linear-gradient-no-nonstandard-direction': true,
         'function-parentheses-newline-inside': 'always-multi-line',
         'function-parentheses-space-inside': 'never-single-line',
-        'function-url-quotes': 'always',
+        'function-url-quotes': ['always', {
+            except: ['empty']
+        }],
         'function-whitelist': null,
         'function-whitespace-after': 'always',
 
@@ -312,7 +314,7 @@ module.exports = {
          */
 
         'comment-empty-line-before': ['always', {
-            ignore: ['between-comments'],
+            ignore: ["between-comments", "stylelint-commands"],
             except: ['first-nested']
         }],
         'comment-whitespace-inside': 'always',
