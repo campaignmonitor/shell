@@ -20,7 +20,7 @@ module.exports = {
          * http://stylelint.io/user-guide/rules/#font-family
          */
 
-        'font-family-name-quotes': 'single-where-recommended',
+        'font-family-name-quotes': 'always-where-required',
 
 
         /**
@@ -45,7 +45,7 @@ module.exports = {
         'function-linear-gradient-no-nonstandard-direction': true,
         'function-parentheses-newline-inside': 'always-multi-line',
         'function-parentheses-space-inside': 'never-single-line',
-        'function-url-quotes': 'single',
+        'function-url-quotes': 'always',
         'function-whitelist': null,
         'function-whitespace-after': 'always',
 
@@ -58,7 +58,6 @@ module.exports = {
         'number-leading-zero': 'always',
         'number-max-precision': 3,
         'number-no-trailing-zeros': true,
-        'number-zero-length-no-unit': true,
 
 
         /**
@@ -71,11 +70,19 @@ module.exports = {
 
 
         /**
+         * Length
+         * http://stylelint.io/user-guide/rules/#length
+         */
+
+        'length-zero-no-unit': true,
+
+
+        /**
          * Time
          * http://stylelint.io/user-guide/rules/#time
          */
 
-        'time-no-imperceptible': true,
+        //'time-no-imperceptible': true,
 
 
         /**
@@ -128,20 +135,6 @@ module.exports = {
 
         'property-blacklist': null,
         'property-no-vendor-prefix': true,
-        'property-unit-blacklist': null,
-        'property-unit-whitelist': {
-            'font-size': [
-                'em',
-                'rem'
-            ],
-            'letter-spacing': [
-                'em',
-                'rem'
-            ],
-            'line-height': []
-        },
-        'property-value-blacklist': null,
-        'property-value-whitelist': null,
         'property-whitelist': null,
 
 
@@ -156,6 +149,17 @@ module.exports = {
         'declaration-colon-space-after': 'always',
         'declaration-colon-space-before': 'never',
         'declaration-no-important': null,
+        'declaration-property-unit-whitelist': {
+            'font-size': [
+                'em',
+                'rem'
+            ],
+            'letter-spacing': [
+                'em',
+                'rem'
+            ],
+            'line-height': []
+        },
 
 
         /**
@@ -200,7 +204,7 @@ module.exports = {
         'selector-combinator-space-after': 'always',
         'selector-combinator-space-before': 'always',
         'selector-id-pattern': null,
-        'selector-max-specificity': '0,3,1',
+        'selector-max-specificity': '0,4,1',
         'selector-no-attribute': null,
         'selector-no-combinator': null,
         'selector-no-id': true,
@@ -209,14 +213,13 @@ module.exports = {
         //     ignore: ['descendant'],
         //     severity: 'warning'
         // }],
-        // 'selector-no-universal': [true, {
-        //     severity: 'warning'
-        // }],
+        'selector-no-universal': [true, {
+            severity: 'warning'
+        }],
         'selector-no-vendor-prefix': true,
         'selector-pseudo-element-colon-notation': 'double',
         'selector-root-no-composition': null,
-        // Not working: https://github.com/stylelint/stylelint/issues/908
-        // 'selector-type-case': 'lower',
+        'selector-type-case': 'lower',
 
 
         /**
@@ -278,7 +281,7 @@ module.exports = {
          * http://stylelint.io/user-guide/rules/#media-query
          */
 
-        'media-query-parentheses-space-inside': 'never',
+        'media-feature-parentheses-space-inside': 'never',
 
 
         /**
@@ -324,15 +327,17 @@ module.exports = {
             ignore: ['value']
         }],
         'max-empty-lines': 4,
-        'max-line-length': 80,
+        'max-line-length': [80, {
+            severity: 'warning'
+        }],
         'max-nesting-depth': 2,
         'no-browser-hacks': null,
         'no-descending-specificity': true,
         'no-duplicate-selectors': true,
         'no-eol-whitespace': true,
         'no-invalid-double-slash-comments': null,
-        'no-missing-eof-newline': true,
-        'no-unknown-animations': true,
+        'no-missing-end-of-source-newline': true,
+        //'no-unknown-animations': true,
         'no-unsupported-browser-features': null
         // Not working in Sublime Text reporting
         // 'no-unsupported-browser-features': [true, {

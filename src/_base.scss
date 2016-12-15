@@ -202,15 +202,6 @@ h6 {
 
 
     /**
-     * Apply bottom margin to all paragraphs.
-     */
-
-    p:not(:last-child) {
-        margin-bottom: rem($shell-g-spacing) !important;
-    }
-
-
-    /**
      * Make links always stand out.
      */
 
@@ -269,8 +260,6 @@ h6 {
      * Page breaks.
      */
 
-    /* stylelint-disable no-descending-specificity */
-
     h2,
     h3 {
         page-break-after: avoid;
@@ -298,5 +287,11 @@ h6 {
         widows: 3;
     }
 
-    /* stylelint-enable no-descending-specificity */
+    /**
+     * Apply bottom margin to all paragraphs.
+     */
+
+    p:not(:last-child) {
+        margin-bottom: rem($shell-g-spacing) !important;
+    }
 }

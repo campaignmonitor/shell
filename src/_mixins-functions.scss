@@ -103,10 +103,8 @@
 ///     }
 
 @mixin hidpi-bg-img($img-url, $img-width: auto, $img-height: auto) {
-    /* stylelint-disable */
     @media (min-resolution: $shell-g-hidpi-dppx),
            (min-resolution: $shell-g-hidpi-dpi) {
-    /* stylelint-enable */
         background-image: url('#{$img-url}');
         background-size: $img-width $img-height;
     }
