@@ -34,15 +34,15 @@ Be respectful to one another and keep reviews of [GitHub Pull Request](https://h
 - [ ] Update [`CHANGELOG.md`](CHANGELOG.md). The format is always:
   - A H2 heading (`##` in markdown) for the version number plus the date.
   - A list item for each update, each item describes the update and references
-    the corresponding Github issue within brackets at the end.
+    the corresponding Github issue as a link within brackets at the end.
 
     **An example:**
 
     ```
     ## 1.3.0 (May 25, 2016)
 
-    * Add a new Helper to remove responsive images (#71)
-    * Add PR/Issue templates and `.github` folder (#15)
+    * Added a new Helper to remove responsive images ([#71](https://github.com/campaignmonitor/shell/issues/71)).
+    * Added PR/Issue templates within a `.github` folder ([#70](https://github.com/campaignmonitor/shell/issues/70)).
     ```
 
 *Some of the above tasks will eventually be automated by CI, see: #19.*
