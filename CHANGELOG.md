@@ -2,15 +2,15 @@
 
 ## 2.0.0 (December 16, 2016)
 
-* Updated the HiDPI units in `_settings.scss` and the `hidpi-bg-img` `@mixin` (#88).
-* Updated the `h-hide-visually` Helper (#87).
-* Updated print styles (#83).
-* Removed the spinner from the `number` input type (#82).
-* Made the base link styles into a `@mixin` (#81).
-* Updated to latest [normalize.css](https://necolas.github.io/normalize.css/) (#80).
-* Removed base `disabled`/`readonly` styles (#79).
-* Applied Campaign Monitor CSS conventions via [stylelint](http://stylelint.io/), and updated stylelint to latest version. Also added a [Gulp task](README.md#linting) to lint all necessary `.scss` files (#72).
-* Added a new Helper to remove responsive images (#71).
+* Updated the HiDPI units in `_settings.scss` and the `hidpi-bg-img` `@mixin` ([#88](https://github.com/campaignmonitor/shell/issues/88)).
+* Updated the `h-hide-visually` Helper ([#87](https://github.com/campaignmonitor/shell/issues/87)).
+* Updated print styles ([#83](https://github.com/campaignmonitor/shell/issues/83)).
+* Removed the spinner from the `number` input type ([#82](https://github.com/campaignmonitor/shell/issues/82)).
+* Made the base link styles into a `@mixin` ([#81](https://github.com/campaignmonitor/shell/issues/81)).
+* Updated to latest [normalize.css](https://necolas.github.io/normalize.css/) ([#80](https://github.com/campaignmonitor/shell/issues/80)).
+* Removed base `disabled`/`readonly` styles ([#79](https://github.com/campaignmonitor/shell/issues/79)).
+* Applied Campaign Monitor CSS conventions via [stylelint](http://stylelint.io/), and updated stylelint to latest version. Also added a [Gulp task](README.md#linting) to lint all necessary `.scss` files ([#72](https://github.com/campaignmonitor/shell/issues/72)).
+* Added a new Helper to remove responsive images ([#71](https://github.com/campaignmonitor/shell/issues/71)).
 
 ## 1.2.0 (September 9, 2016)
 
