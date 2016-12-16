@@ -1,19 +1,37 @@
 <img src="logo.png" alt="Shell logo" width="230">
 
+
+
+
+# Contents
+
+- [What is Shell?](#what-is-shell)
+- [Install](#install)
+- [Setup](#setup)
+  - [Example architecture](#example-architecture)
+  - [Dependencies](#dependencies)
+- [Docs and tests](#docs-and-tests)
+- [Linting](#linting)
+- [Browser support](#browser-support)
+- [Versioning](#versioning)
+- [License](#license)
+
+
+
+
+# What is Shell?
+
 A powerful, lightweight, mostly unopinionated, responsive friendly CSS library that provides a solid foundation for any UI build.
 
-Built with &nbsp;&nbsp;:blue_heart:&nbsp;&nbsp; by
-[Campaign Monitor](https://www.campaignmonitor.com/), which is why we say
-*mostly unopinionated* :smile:.
+Built with &nbsp;:blue_heart:&nbsp; by [Campaign Monitor](https://www.campaignmonitor.com/), which is why we say *mostly unopinionated* :smile:.
 
 A [docs website](http://campaignmonitor.github.io/shell/) is in the works, in
 the meantime Shell's code is heavily documented.
 
 If you would like to suggest any new additions or improvements to Shell, log
-any issues or bugs, or just ask a question, please
-[open a new GitHub issue](https://github.com/campaignmonitor/shell/issues) and
-label it appropriately. If you would like to contribute see
-[CONTRIBUTING.md](CONTRIBUTING.md).
+any issues or bugs, or just ask a question, please [open a new GitHub issue](https://github.com/campaignmonitor/shell/issues) and label it appropriately. If you would like to contribute see [CONTRIBUTING.md](CONTRIBUTING.md).
+
+
 
 
 # Install
@@ -22,23 +40,22 @@ label it appropriately. If you would like to contribute see
 npm install shell-csslib --save-dev
 ```
 
-*There are other install options e.g. `git clone`, however, it's advised to
-use a package manager like NPM to handle your third-party dependencies :+1:.*
+*There are other install options e.g. `git clone`, however, it's advised to use a package manager like NPM to handle your third-party dependencies :+1:.*
+
+
 
 
 # Setup
 
-Once the `shell-csslib` NPM module is installed your project will look like
-this:
+Once the `shell-csslib` NPM module is installed your project will look like this:
 
 ```
-project root/
-└── node_modules/
-    ├── shell-csslib/
+project root
+└── node_modules
+    ├── shell-csslib
 ```
 
-Your master Sass stylesheet—we typically call ours `style.scss`—should be
-set up like this:
+Your master Sass stylesheet—we typically call ours `style.scss`—should be setup like this:
 
 ```scss
 @charset 'UTF-8';
@@ -99,20 +116,19 @@ set up like this:
 // Away you go!
 ```
 
-Shell won't work without `_settings.scss` and `_mixins-functions.scss`, the
-rest are optional.
+Shell won't work without `_settings.scss` and `_mixins-functions.scss`, the rest are optional.
 
-## Example Architecture
+## Example architecture
 
 ```
-project root/
-├── css/
-│   ├── components/
-│   ├── vendor/
+project root
+├── css
+│   ├── components
+│   ├── vendor
 │   ├── _settings.scss
 │   └── style.scss
-└── node_modules/
-    ├── shell-csslib/
+└── node_modules
+    ├── shell-csslib
 ```
 
 ## Dependencies
@@ -125,29 +141,39 @@ project root/
     *We advise setting up Autoprefixer as part of your build process.*
 
 
-# Docs and Tests
+
+
+# Docs and tests
 
 - [Test README.md](test/README.md)
 - [Docs README.md](docs/README.md)
 
 
+
+
 # Linting
 
-[stylelint](http://stylelint.io/) is used for linting and Shell follows these
-[CSS guidelines](https://git.campmon.com/Architecture/coding-conventions/blob/master/css/README.md) applied by [stylelint.config.js](stylelint.config.js).
+[Stylelint](http://stylelint.io/) is used for linting and Shell follows these
+[CSS conventions](https://git.campmon.com/Architecture/coding-conventions/blob/master/css/README.md) applied by [stylelint.config.js](stylelint.config.js).
 
 *Eventually linting will be setup as part of CI, see: #19.*
 
-For now you can go to your Terminal `cd` into the root of Shell and run:
+For now, you can go to your Terminal, `cd` into the root of Shell, and run:
 
 ```sh
 gulp lint
 ```
 
-This will lint all of the Shell source `.scss` files including `test` and `docs`.
+This will lint all of the `.scss` files in:
+
+- `src/**/*.scss`
+- `docs/src/**/*.scss`
+- `test/src/**/*.scss`
 
 
-# Browser Support
+
+
+# Browser support
 
 - Chrome *(latest version)*
 - Firefox *(latest version)*
@@ -157,12 +183,15 @@ This will lint all of the Shell source `.scss` files including `test` and `docs`
 - IE 10/11
 
 
+
+
 # Versioning
 
-Shell is maintained under the
-[Semantic Versioning guidelines](http://semver.org/). We'll do our best to adhere to those guidelines and strive to maintain backwards compatibility.
+Shell is maintained under the [Semantic Versioning guidelines](http://semver.org/). We'll do our best to adhere to those guidelines and strive to maintain backwards compatibility.
 
 See the [CHANGELOG](CHANGELOG.md).
+
+
 
 
 # License
