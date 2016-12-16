@@ -134,9 +134,17 @@ project root/
 # Linting
 
 [stylelint](http://stylelint.io/) is used for linting and Shell follows these
-[CSS guidelines](https://github.com/chris-pearce/css-guidelines).
+[CSS guidelines](https://git.campmon.com/Architecture/coding-conventions/blob/master/css/README.md) applied by [stylelint.config.js](stylelint.config.js).
 
 *Eventually linting will be setup as part of CI, see: #19.*
+
+For now you can go to your Terminal `cd` into the root of Shell and run:
+
+```sh
+gulp lint
+```
+
+This will lint all of the Shell source `.scss` files including `test` and `docs`.
 
 
 # Browser Support

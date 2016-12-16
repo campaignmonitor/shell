@@ -1,38 +1,42 @@
 {
-    "name": "shell-csslib",
-    "version": "1.2.0",
-    "description": "A powerful, lightweight, unopinionated, responsive friendly CSS library that provides a solid foundation for any UI build. Developed at Campaign Monitor",
-    "homepage": "https://github.com/campaignmonitor/shell",
-    "keywords": [
-        "shell",
-        "css",
-        "library",
-        "sass",
-        "bem",
-        "responsive"
-    ],
-    "main": "index.js",
-    "author": [
-        {
-            "name": "Chris Pearce",
-            "email": "chrisp@campaignmonitor.com",
-            "url": "http://chris-pearce.me"
-        },
-        {
-            "name": "Dave Berner",
-            "email": "daveb@campaignmonitor.com",
-            "url": "http://davidberner.co.uk/"
-        }
-    ],
-    "repository": {
-        "type": "git",
-        "url":  "git@github.com:campaignmonitor/shell.git"
+  "name": "shell-csslib",
+  "version": "1.2.0",
+  "description": "A powerful, lightweight, unopinionated, responsive friendly CSS library that provides a solid foundation for any UI build. Developed at Campaign Monitor",
+  "homepage": "https://github.com/campaignmonitor/shell",
+  "keywords": [
+    "shell",
+    "css",
+    "library",
+    "sass",
+    "bem",
+    "responsive"
+  ],
+  "main": "index.js",
+  "author": [
+    {
+      "name": "Chris Pearce",
+      "email": "chrisp@campaignmonitor.com",
+      "url": "http://chris-pearce.me"
     },
-        "bugs": {
-        "url": "https://github.com/campaignmonitor/shell/issues"
-    },
-    "devDependencies": {
-        "stylelint": "^6.5.1"
-    },
-    "license": "MIT"
+    {
+      "name": "Dave Berner",
+      "email": "daveb@campaignmonitor.com",
+      "url": "http://davidberner.co.uk/"
+    }
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:campaignmonitor/shell.git"
+  },
+  "bugs": {
+    "url": "https://github.com/campaignmonitor/shell/issues"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-postcss": "^6.2.0",
+    "postcss-reporter": "^1.4.1",
+    "postcss-scss": "^0.4.0",
+    "stylelint": "^7.6.0"
+  },
+  "license": "MIT"
 }

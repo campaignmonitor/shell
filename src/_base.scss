@@ -153,9 +153,11 @@ h6 {
      * Global.
      */
 
+    /* stylelint-disable selector-no-universal */
     *,
     *::after,
     *::before,
+    /* stylelint-enable */
     // First letter
     blockquote::first-letter,
     div::first-letter,
@@ -191,15 +193,6 @@ h6 {
     img {
         height: auto !important;
         max-width: 100% !important;
-    }
-
-
-    /**
-     * Apply bottom margin to all paragraphs.
-     */
-
-    p:not(:last-child) {
-        margin-bottom: rem($shell-g-spacing) !important;
     }
 
 
@@ -262,8 +255,6 @@ h6 {
      * Page breaks.
      */
 
-    /* stylelint-disable no-descending-specificity */
-
     h2,
     h3 {
         page-break-after: avoid;
@@ -291,5 +282,11 @@ h6 {
         widows: 3;
     }
 
-    /* stylelint-enable no-descending-specificity */
+    /**
+     * Apply bottom margin to all paragraphs.
+     */
+
+    p:not(:last-child) {
+        margin-bottom: rem($shell-g-spacing) !important;
+    }
 }

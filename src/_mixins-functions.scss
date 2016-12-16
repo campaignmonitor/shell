@@ -224,11 +224,8 @@
 
 @function rem($value) {
     @if type-of($value) != 'number' {
-        /* stylelint-disable max-line-length */
-
+        /* stylelint-disable-next-line max-line-length */
         @error 'You have to enter only a number for `$value`. You entered #{$value}`.';
-
-        /* stylelint-enable */
     }
     @return strip-unit($value) / strip-unit($shell-g-font-size) * 1rem;
 }
@@ -370,12 +367,8 @@
     @if length($breakpoints) == 2 and index((min max), nth($breakpoints, 2)) {
         $breakpoints-copy: $breakpoints;
         $breakpoints: ();
-
-        /* stylelint-disable max-line-length */
-
+        /* stylelint-disable-next-line max-line-length */
         $breakpoints: append($breakpoints, (nth($breakpoints-copy, 1) nth($breakpoints-copy, 2)));
-
-        /* stylelint-enable */
     }
 
     // Loop through all the breakpoints passed in from the Shell consumer side
@@ -411,16 +404,13 @@
         // `bp()` so that we can generate the breakpoint value correctly
         $generate-breakpoint: $breakpoint;
 
-        /* stylelint-disable block-closing-brace-newline-after */
-
         @if type-of($breakpoint) == 'number' {
             $breakpoint: strip-unit($breakpoint);
             $generate-breakpoint: em($breakpoint, 16);
-        } @else {
+        }
+        @else {
             $generate-breakpoint: bp($breakpoint);
         }
-
-        /* stylelint-enable */
 
         // Change the limit label when a "max" limit is used
         @if $limit == $limit-max {
@@ -438,11 +428,8 @@
             // `.h-hide-visually-from-900`
             // `.h-hide-visually-up-to-palm`
 
-            /* stylelint-disable max-line-length */
-
+            /* stylelint-disable-next-line max-line-length */
             $generated-selector: '#{$class-selector}-#{$limit-label}-#{$breakpoint}';
-
-            /* stylelint-enable */
 
             // The contents of the media query
             #{$generated-selector} {
@@ -513,11 +500,8 @@
 
 @function bp($breakpoint) {
     @if not map-has-key($shell-g-breakpoints, $breakpoint) {
-        /* stylelint-disable max-line-length */
-
+        /* stylelint-disable-next-line max-line-length */
         @error 'Sorry but `#{$breakpoint}` doesn\'t exist as a breakpoint name in the \'Breakpoints\' map.';
-
-        /* stylelint-enable */
     }
     @return map-get($shell-g-breakpoints, $breakpoint);
 }
@@ -553,18 +537,19 @@
 ///         z-index: 1;
 ///     }
 
-/* stylelint-disable */
 @function z($z-index-layer, $z-index-layer-nested: null) {
     @if not map-has-key($shell-g-z-layers, $z-index-layer) {
+        /* stylelint-disable-next-line max-line-length */
         @error 'Sorry but `#{$z-index-layer}` doesn\'t exist as a `z-index` name in the \'Z-Index system\' map.';
     }
     @if ($z-index-layer-nested != null) {
+        /* stylelint-disable-next-line max-line-length */
         @return map-get(map-get($shell-g-z-layers, $z-index-layer), $z-index-layer-nested);
-    } @else {
+    }
+    @else {
         @return map-get($shell-g-z-layers, $z-index-layer);
     }
 }
-/* stylelint-enable */
 
 
 
@@ -651,6 +636,7 @@
 @mixin text-truncate($apply-important-keyword: false, $display: block) {
     $important-keyword: if($apply-important-keyword, ' !important', '');
     $display-property-value: if($display == block, 'block', $display);
+
     display: #{$display-property-value}#{$important-keyword};
     overflow: hidden#{$important-keyword};
     text-overflow: ellipsis#{$important-keyword};
@@ -687,6 +673,7 @@
 
 @mixin text-osx-font-smoothing($apply-important-keyword: false) {
     $important-keyword: if($apply-important-keyword, ' !important', '');
+
     -moz-osx-font-smoothing: grayscale#{$important-keyword};
     -webkit-font-smoothing: antialiased#{$important-keyword};
 }
@@ -773,15 +760,12 @@
 @mixin hide-visually($apply-important-keyword: false) {
     $important-keyword: if($apply-important-keyword, ' !important', '');
 
-    /* stylelint-disable function-whitespace-after */
-
     // `clip` is deprecated but we keep it for browsers that don't support
     // `clip-path`
+    /* stylelint-disable function-whitespace-after */
     clip: rect(1px, 1px, 1px, 1px)#{$important-keyword};
     clip-path: polygon(0 0, 0 0, 0 0, 0 0)#{$important-keyword};
-
     /* stylelint-enable */
-
     height: 1px#{$important-keyword};
     overflow: hidden#{$important-keyword};
     position: absolute#{$important-keyword};
@@ -823,6 +807,7 @@
 
 @mixin align-horizontally-and-vertically($apply-important-keyword: false) {
     $important-keyword: if($apply-important-keyword, ' !important', '');
+
     align-items: center#{$important-keyword};
     display: flex#{$important-keyword};
     flex-flow: column;
@@ -864,15 +849,12 @@
 
 @mixin align-horizontally-and-vertically-alt($apply-important-keyword: false) {
     $important-keyword: if($apply-important-keyword, ' !important', '');
+
     left: 50%#{$important-keyword};
     position: absolute#{$important-keyword};
     top: 50%#{$important-keyword};
-
-    /* stylelint-disable function-whitespace-after */
-
+    /* stylelint-disable-next-line function-whitespace-after */
     transform: translate(-50%, -50%)#{$important-keyword};
-
-    /* stylelint-enable */
 }
 
 
@@ -918,16 +900,12 @@
     @if length($ratio) < 2 or length($ratio) > 2 {
         @error '#{inspect($ratio)} must be a list with two values.';
     }
+
     display: block#{$important-keyword};
     height: 0#{$important-keyword};
     overflow: hidden#{$important-keyword};
-
-    /* stylelint-disable max-line-length, function-whitespace-after */
-
+    /* stylelint-disable-next-line function-whitespace-after, max-line-length */
     padding-bottom: percentage(nth($ratio, 2) / nth($ratio, 1))#{$important-keyword};
-
-    /* stylelint-enable */
-
     position: relative#{$important-keyword};
 }
 
