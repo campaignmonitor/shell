@@ -370,7 +370,7 @@
 
 
 /**
- * Modifiers: alignments.
+ * Modifiers: align grid items.
  */
 
 // Middle
@@ -419,11 +419,48 @@
 
 
 /**
+ * Modifiers: align grid item contents.
+ */
+
+// Middle
+.l-grid__item--align-middle {
+    display: flex;
+    align-items: center;
+}
+
+// Bottom
+.l-grid__item--align-bottom {
+    display: flex;
+    align-items: flex-end;
+}
+
+// Center
+.l-grid__item--align-center {
+    display: flex;
+    justify-content: center;
+}
+
+// Right
+.l-grid__item--align-right {
+    display: flex;
+    justify-content: flex-end;
+}
+
+/**
  * Modifier: horizontally center an individual grid item.
  */
 
 .l-grid__item--align-center {
     margin: 0 auto;
+}
+
+
+/**
+ * Modifier: make a grid item take up the remaining width.
+ */
+
+.l-grid__item--fit {
+    flex: 1;
 }
 
 

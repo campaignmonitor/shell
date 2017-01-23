@@ -83,3 +83,15 @@
  */
 
 //@import "vendor/github-style-syntax-highlighting";
+
+
+.test-button {
+    background-color: gold;
+    border-radius: 6px;
+    display: inline-block;
+    min-height: rem(40);
+    padding-bottom: rem($shell-g-spacing-x-small);
+    padding-left: rem($shell-g-spacing-small);
+    padding-right: rem($shell-g-spacing-x-large);
+    padding-top: rem($shell-g-spacing-x-small);
+}
