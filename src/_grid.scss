@@ -370,27 +370,87 @@
 
 
 /**
- * Modifiers: alignments.
+ * Modifiers: alignments for all grid items in a grid container and alignments
+ * for the direct child of a grid item.
+ *
+ * Grid container alignments work like this:
+ *
+ * ➜ Middle
+ * [.........................................................................]
+ * [....................[Flex item][Flex item][Flex item]....................]
+ * [.........................................................................]
+ *
+ * ➜ Bottom
+ * [.........................................................................]
+ * [.........................................................................]
+ * [....................[Flex item][Flex item][Flex item]....................]
+ *
+ * ➜ Center
+ * [....................[Flex item][Flex item][Flex item]....................]
+ *
+ * ➜ Right
+ * [........................................[Flex item][Flex item][Flex item]]
+ *
+ * Grid item alignments work as above but within a grid item and are best
+ * suited when grid items use set column widths (see: "Modifiers: grid column
+ * widths").
  */
 
 // Middle
-.l-grid--align-middle {
+.l-grid--align-middle,
+.l-grid__item--align-middle {
     align-items: center;
 }
 
 // Bottom
-.l-grid--align-bottom {
+.l-grid--align-bottom,
+.l-grid__item--align-bottom {
     align-items: flex-end;
 }
 
 // Center
-.l-grid--align-center {
+.l-grid--align-center,
+.l-grid__item--align-center {
     justify-content: center;
 }
 
 // Right
-.l-grid--align-right {
+.l-grid--align-right,
+.l-grid__item--align-right {
     justify-content: flex-end;
+}
+
+// Grid items need to be Flex containers for their alignments to work
+.l-grid__item--align-middle,
+.l-grid__item--align-bottom,
+.l-grid__item--align-center,
+.l-grid__item--align-right {
+    display: flex;
+}
+
+/**
+ * Modifier: alignments for grid items themselves using the "Auto-margin"
+ * technique. The most common use case is when you want one of the grid items
+ * in a grid container to be aligned in the center or to the right of the
+ * remaining space in a grid container.
+ *
+ * See: https://medium.freecodecamp.com/understanding-flexbox-everything-
+ * you-need-to-know-b4013d4dc9af#.11oq5pimb#d874
+ *
+ * ➜ Center
+ * [[Flex item @20%][Flex item @20%][Flex item @20%]........[Flex item].......]
+ *
+ * ➜ Right
+ * [[Flex item @20%][Flex item @20%][Flex item @20%]...............[Flex item]]
+ */
+
+.l-grid__item--auto-margin-center {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.l-grid__item--auto-margin-right {
+    margin-left: auto;
 }
 
 
@@ -419,11 +479,11 @@
 
 
 /**
- * Modifier: horizontally center an individual grid item.
+ * Modifier: make a grid item take up the remaining space of a grid container.
  */
 
-.l-grid__item--align-center {
-    margin: 0 auto;
+.l-grid__item--fill {
+    flex-grow: 1;
 }
 
 

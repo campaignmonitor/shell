@@ -117,6 +117,16 @@ $c-test-case-test-subject-height: 300;
         width: 100%;
     }
 
+    .l-grid__item--align-center > div,
+    .l-grid__item--align-right > div {
+        width: auto;
+    }
+
+    .l-grid__item > .🐌-c-test-case__grid-label-no-bg {
+        background: none;
+        color: $shell-g-color-white;
+    }
+
     // Grid alignment modifiers
     .l-grid--align-middle,
     .l-grid--align-bottom,
@@ -127,6 +137,11 @@ $c-test-case-test-subject-height: 300;
         .l-grid__item > div {
             height: $c-test-case-test-subject-height / 2 * 1px;
         }
+    }
+
+    .l-grid__item--align-middle,
+    .l-grid__item--align-bottom {
+        height: $c-test-case-test-subject-height * 1px;
     }
 
     // Nested grids
