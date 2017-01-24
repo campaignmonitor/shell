@@ -39,5 +39,11 @@
             "description": "Full width",
             "run": "<div class='l-container l-container--full-width'></div>"
         }]
+        },{
+        "selector": ".l-container--flex",
+        "test": [{
+            "description": "Flex container (<code class='🐌-b-code'>display: flex;</code>)",
+            "run": "<div class='l-container l-container--flex'></div>"
+        }]
     }]
  }

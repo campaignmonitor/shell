@@ -96,3 +96,12 @@
 .l-container--full-width {
     max-width: 100%;
 }
+
+
+/**
+ * Modifiers: flex container.
+ */
+
+.l-container--flex {
+    display: flex;
+}
