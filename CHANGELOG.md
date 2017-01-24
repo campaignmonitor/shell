@@ -1,5 +1,10 @@
 # HEAD
 
+## 2.1.0 (January 24, 2017)
+
+* Added new modifiers to [Grid](https://github.com/campaignmonitor/shell/blob/master/src/_grid.scss) ([#102](https://github.com/campaignmonitor/shell/issues/102)).
+* Added a new modifier to [Container](https://github.com/campaignmonitor/shell/blob/master/src/_container.scss) ([#100](https://github.com/campaignmonitor/shell/issues/100)).
+
 ## 2.0.0 (December 16, 2016)
 
 * Updated the HiDPI units in `_settings.scss` and the `hidpi-bg-img` `@mixin` ([#88](https://github.com/campaignmonitor/shell/issues/88)).
