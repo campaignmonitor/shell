@@ -16,6 +16,11 @@ Be respectful to one another and keep reviews of [GitHub Pull Request](https://h
     In the PR description include:
 
     > This fixes #71.
+
+    Once the PR is merged (let's say the PR is number 72) then add the
+    following in the corresponding GitHub issue:
+
+    > Fixed in #72.
 - [ ] If suitable for a visual test then create a test, [see here](test/README.md).
 - [ ] Make sure all Sass compiles:
   - `cd test`
