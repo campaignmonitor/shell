@@ -180,47 +180,83 @@
         },{
         "selector": ".l-grid--align-middle",
         "test": [{
-            "description": "Middle alignment.",
+            "description": "Middle alignment for all grid items in a grid container.",
             "run": "<div class='l-grid l-grid--align-middle'><div class='l-grid__item l-grid__item--3-col'><div>Item 1</div></div><div class='l-grid__item l-grid__item--3-col'><div>Item 2</div></div><div class='l-grid__item l-grid__item--3-col'><div>Item 3</div></div></div>"
         }]
         },{
         "selector": ".l-grid--align-bottom",
         "test": [{
-            "description": "Bottom alignment.",
+            "description": "Bottom alignment for all grid items in a grid container.",
             "run": "<div class='l-grid l-grid--align-bottom'><div class='l-grid__item l-grid__item--3-col'><div>Item 1</div></div><div class='l-grid__item l-grid__item--3-col'><div>Item 2</div></div><div class='l-grid__item l-grid__item--3-col'><div>Item 3</div></div></div>"
         }]
         },{
         "selector": "<code class='🐌-b-code'>.l-grid--align-bottom</code> /  <code class='🐌-b-code'>.l-grid--align-center</code>",
         "multiple-selectors": true,
         "test": [{
-            "description": "Bottom center alignment.",
+            "description": "Bottom center alignment for all grid items in a grid container.",
             "run": "<div class='l-grid l-grid--align-bottom l-grid--align-center'><div class='l-grid__item l-grid__item--3-col'><div>Item 1</div></div><div class='l-grid__item l-grid__item--3-col'><div>Item 2</div></div><div class='l-grid__item l-grid__item--3-col'><div>Item 3</div></div></div>"
         }]
         },{
         "selector": ".l-grid--align-center",
         "test": [{
-            "description": "Center alignment.",
+            "description": "Center alignment for all grid items in a grid container.",
             "run": "<div class='l-grid l-grid--align-center'><div class='l-grid__item l-grid__item--3-col'><div>Item 1</div></div><div class='l-grid__item l-grid__item--3-col'><div>Item 2</div></div><div class='l-grid__item l-grid__item--3-col'><div>Item 3</div></div></div>"
         }]
         },{
         "selector": ".l-grid--align-right",
         "test": [{
-            "description": "Right alignment.",
+            "description": "Right alignment for all grid items in a grid container.",
             "run": "<div class='l-grid l-grid--align-right'><div class='l-grid__item l-grid__item--3-col'><div>Item 1</div></div><div class='l-grid__item l-grid__item--3-col'><div>Item 2</div></div><div class='l-grid__item l-grid__item--3-col'><div>Item 3</div></div></div>"
         }]
         },{
         "selector": "<code class='🐌-b-code'>.l-grid--align-right</code> /  <code class='🐌-b-code'>.l-grid--align-middle</code>",
         "multiple-selectors": true,
         "test": [{
-            "description": "Middle right alignment.",
+            "description": "Middle right alignment for all grid items in a grid container.",
             "run": "<div class='l-grid l-grid--align-right l-grid--align-middle'><div class='l-grid__item l-grid__item--3-col'><div>Item 1</div></div><div class='l-grid__item l-grid__item--3-col'><div>Item 2</div></div><div class='l-grid__item l-grid__item--3-col'><div>Item 3</div></div></div>"
         }]
         },{
         "selector": "<code class='🐌-b-code'>.l-grid--align-right</code> /  <code class='🐌-b-code'>.l-grid--align-bottom</code>",
         "multiple-selectors": true,
         "test": [{
-            "description": "Bottom right alignment.",
+            "description": "Bottom right alignment for all grid items in a grid container.",
             "run": "<div class='l-grid l-grid--align-right l-grid--align-bottom'><div class='l-grid__item l-grid__item--3-col'><div>Item 1</div></div><div class='l-grid__item l-grid__item--3-col'><div>Item 2</div></div><div class='l-grid__item l-grid__item--3-col'><div>Item 3</div></div></div>"
+        }]
+        },{
+        "selector": ".l-grid__item--align-middle",
+        "test": [{
+            "description": "Middle alignment for a direct child of a grid item.",
+            "run": "<div class='l-grid'><div class='l-grid__item l-grid__item--4-col l-grid__item--align-middle'><div>Item 1</div></div><div class='l-grid__item l-grid__item--4-col l-grid__item--align-middle'><div>Item 2</div></div><div class='l-grid__item l-grid__item--4-col l-grid__item--align-middle'><div>Item 3</div></div></div>"
+        }]
+        },{
+        "selector": ".l-grid__item--align-bottom",
+        "test": [{
+            "description": "Bottom alignment for a direct child of a grid item.",
+            "run": "<div class='l-grid'><div class='l-grid__item l-grid__item--4-col l-grid__item--align-bottom'><div>Item 1</div></div><div class='l-grid__item l-grid__item--4-col l-grid__item--align-bottom'><div>Item 2</div></div><div class='l-grid__item l-grid__item--4-col l-grid__item--align-bottom'><div>Item 3</div></div></div>"
+        }]
+        },{
+        "selector": ".l-grid__item--align-center",
+        "test": [{
+            "description": "Center alignment for a direct child of a grid item.",
+            "run": "<div class='l-grid'><div class='l-grid__item l-grid__item--4-col l-grid__item--align-center'><div>Item 1</div></div><div class='l-grid__item l-grid__item--4-col l-grid__item--align-center'><div>Item 2</div></div><div class='l-grid__item l-grid__item--4-col l-grid__item--align-center'><div>Item 3</div></div></div>"
+        }]
+        },{
+        "selector": ".l-grid__item--align-right",
+        "test": [{
+            "description": "Right alignment for a direct child of a grid item.",
+            "run": "<div class='l-grid'><div class='l-grid__item l-grid__item--4-col l-grid__item--align-right'><div>Item 1</div></div><div class='l-grid__item l-grid__item--4-col l-grid__item--align-right'><div>Item 2</div></div><div class='l-grid__item l-grid__item--4-col l-grid__item--align-right'><div>Item 3</div></div></div>"
+        }]
+        },{
+        "selector": ".l-grid__item--auto-margin-center",
+        "test": [{
+            "description": "Auto-margin center alignment for a grid item.",
+            "run": "<div class='l-grid'><div class='l-grid__item l-grid__item--3-col l-grid__item--align-right'><div class='🐌-c-test-case__grid-label-no-bg'>Item 1</div></div><div class='l-grid__item l-grid__item--3-col l-grid__item--align-right'><div class='🐌-c-test-case__grid-label-no-bg'>Item 2</div></div><div class='l-grid__item l-grid__item--3-col l-grid__item--align-right'><div class='🐌-c-test-case__grid-label-no-bg'>Item 3</div></div><div class='l-grid__item l-grid__item--auto-margin-center'><div>Item 4</div></div></div>"
+        }]
+        },{
+        "selector": ".l-grid__item--auto-margin-right",
+        "test": [{
+            "description": "Auto-margin right alignment for a grid item.",
+            "run": "<div class='l-grid'><div class='l-grid__item l-grid__item--3-col l-grid__item--align-right'><div class='🐌-c-test-case__grid-label-no-bg'>Item 1</div></div><div class='l-grid__item l-grid__item--3-col l-grid__item--align-right'><div class='🐌-c-test-case__grid-label-no-bg'>Item 2</div></div><div class='l-grid__item l-grid__item--3-col l-grid__item--align-right'><div class='🐌-c-test-case__grid-label-no-bg'>Item 3</div></div><div class='l-grid__item l-grid__item--auto-margin-right'><div>Item 4</div></div></div>"
         }]
         },{
         "selector": ".l-grid--space-between",
@@ -241,16 +277,16 @@
             "run": "<div class='l-grid l-grid--nowrap'><div class='l-grid__item l-grid__item--2-col'><div>Item 1</div></div><div class='l-grid__item l-grid__item--2-col'><div>Item 2</div></div><div class='l-grid__item l-grid__item--2-col'><div>Item 3</div></div><div class='l-grid__item l-grid__item--2-col'><div>Item 4</div></div><div class='l-grid__item l-grid__item--2-col'><div>Item 5</div></div><div class='l-grid__item l-grid__item--2-col'><div>Item 6</div></div></div>"
         }]
         },{
+        "selector": ".l-grid__item--fill",
+        "test": [{
+            "description": "Fill, grid item takes up the remaining space of a grid container.",
+            "run": "<div class='l-grid'><div class='l-grid__item l-grid__item--2-col'><div class='🐌-c-test-case__grid-label-no-bg'>Item 1</div></div><div class='l-grid__item l-grid__item--2-col'><div class='🐌-c-test-case__grid-label-no-bg'>Item 2</div></div><div class='l-grid__item l-grid__item--fill'><div>Item 3</div></div></div>"
+        }]
+        },{
         "selector": ".l-grid--fit",
         "test": [{
             "description": "Fit, all grid items are equal width.",
             "run": "<div class='l-grid l-grid--fit'><div class='l-grid__item'><div>Item 1</div></div><div class='l-grid__item'><div>Item 2</div></div><div class='l-grid__item'><div>Item 3</div></div><div class='l-grid__item'><div>Item 4</div></div><div class='l-grid__item'><div>Item 5</div></div><div class='l-grid__item'><div>Item 6</div></div><div class='l-grid__item'><div>Item 7</div></div></div>"
-        }]
-        },{
-        "selector": ".l-grid__item--align-center",
-        "test": [{
-            "description": "Horizontally center an individual grid item.",
-            "run": "<div class='l-grid'><div class='l-grid__item l-grid__item--align-center l-grid__item--6-col'><div>Item 1</div></div></div>"
         }]
         },{
         "selector": "N/A",
