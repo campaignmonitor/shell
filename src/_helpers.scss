@@ -141,254 +141,19 @@
  *
  * CONTENTS:
  *
- * 1. Clear fix
- * 2. Text
- * 3. Hide
- * 4. Spacing
- * 5. Alignment
- * 6. Intrinsic ratio
- * 7. Non-responsive image
+ * 1. Text
+ * 2. Hide
+ * 3. Spacing
+ * 4. Alignment
+ * 5. Intrinsic ratio
+ * 6. Non-responsive image
  */
 
 
 
 
-/* 1. Clear fix
+/* 1. Text
    ========================================================================= */
-
-/**
- * Makes an element expand to contain floated children.
- *
- * N.B. mixin is here: "Mixins and Functions -> Helpers".
- */
-
-.h-clear-fix {
-    @include clear-fix(true);
-}
-
-
-
-
-/* 2. Text
-   ========================================================================= */
-
-/**
- * Sizes.
- */
-
-
-/**
- * Base.
- */
-
-.h-text-size {
-    font-size: rem($shell-g-font-size) !important;
-}
-
-// Apply at breakpoints
-@if $shell-helper-apply-text-size-at-breakpoints {
-    /* stylelint-disable-next-line max-line-length */
-    @include apply-at-breakpoints('.h-text-size',$shell-helper-define-text-size-breakpoints) {
-        font-size: rem($shell-g-font-size) !important;
-    }
-}
-
-
-/**
- * Decrease from base.
- */
-
-// Small
-.h-text-size-small {
-    font-size: rem($shell-g-font-size-small) !important;
-}
-
-// Apply at breakpoints
-@if $shell-helper-apply-text-size-small-at-breakpoints {
-    /* stylelint-disable-next-line max-line-length */
-    @include apply-at-breakpoints('.h-text-size-small', $shell-helper-define-text-size-small-breakpoints) {
-        font-size: rem($shell-g-font-size-small) !important;
-    }
-}
-
-// X-small
-.h-text-size-x-small {
-    font-size: rem($shell-g-font-size-x-small) !important;
-}
-
-// Apply at breakpoints
-@if $shell-helper-apply-text-size-x-small-at-breakpoints {
-    /* stylelint-disable-next-line max-line-length */
-    @include apply-at-breakpoints('.h-text-size-x-small', $shell-helper-define-text-size-x-small-breakpoints) {
-        font-size: rem($shell-g-font-size-x-small) !important;
-    }
-}
-
-// 2X-small
-.h-text-size-2x-small {
-    font-size: rem($shell-g-font-size-2x-small) !important;
-}
-
-// Apply at breakpoints
-@if $shell-helper-apply-text-size-x-small-at-breakpoints {
-    /* stylelint-disable-next-line max-line-length */
-    @include apply-at-breakpoints('.h-text-size-2x-small', $shell-helper-define-text-size-2x-small-breakpoints) {
-        font-size: rem($shell-g-font-size-2x-small) !important;
-    }
-}
-
-
-/**
- * Increase from base.
- */
-
-// Large
-.h-text-size-large {
-    font-size: rem($shell-g-font-size-large) !important;
-}
-
-// Apply at breakpoints
-@if $shell-helper-apply-text-size-large-at-breakpoints {
-    /* stylelint-disable-next-line max-line-length */
-    @include apply-at-breakpoints('.h-text-size-large', $shell-helper-define-text-size-large-breakpoints) {
-        font-size: rem($shell-g-font-size-large) !important;
-    }
-}
-
-// X-Large
-.h-text-size-x-large {
-    font-size: rem($shell-g-font-size-x-large) !important;
-}
-
-// Apply at breakpoints
-@if $shell-helper-apply-text-size-x-large-at-breakpoints {
-    /* stylelint-disable-next-line max-line-length */
-    @include apply-at-breakpoints('.h-text-size-x-large', $shell-helper-define-text-size-x-large-breakpoints) {
-        font-size: rem($shell-g-font-size-x-large) !important;
-    }
-}
-
-// 2X-Large
-.h-text-size-2x-large {
-    font-size: rem($shell-g-font-size-2x-large) !important;
-}
-
-// Apply at breakpoints
-@if $shell-helper-apply-text-size-2x-large-at-breakpoints {
-    /* stylelint-disable-next-line max-line-length */
-    @include apply-at-breakpoints('.h-text-size-2x-large', $shell-helper-define-text-size-2x-large-breakpoints) {
-        font-size: rem($shell-g-font-size-2x-large) !important;
-    }
-}
-
-// 3X-Large
-.h-text-size-3x-large {
-    font-size: rem($shell-g-font-size-3x-large) !important;
-}
-
-// Apply at breakpoints
-@if $shell-helper-apply-text-size-3x-large-at-breakpoints {
-    /* stylelint-disable-next-line max-line-length */
-    @include apply-at-breakpoints('.h-text-size-3x-large', $shell-helper-define-text-size-3x-large-breakpoints) {
-        font-size: rem($shell-g-font-size-3x-large) !important;
-    }
-}
-
-// 4X-Large
-.h-text-size-4x-large {
-    font-size: rem($shell-g-font-size-4x-large) !important;
-}
-
-// Apply at breakpoints
-@if $shell-helper-apply-text-size-4x-large-at-breakpoints {
-    /* stylelint-disable-next-line max-line-length */
-    @include apply-at-breakpoints('.h-text-size-4x-large', $shell-helper-define-text-size-4x-large-breakpoints) {
-        font-size: rem($shell-g-font-size-4x-large) !important;
-    }
-}
-
-// 5X-Large
-.h-text-size-5x-large {
-    font-size: rem($shell-g-font-size-5x-large) !important;
-}
-
-// Apply at breakpoints
-@if $shell-helper-apply-text-size-5x-large-at-breakpoints {
-    /* stylelint-disable-next-line max-line-length */
-    @include apply-at-breakpoints('.h-text-size-5x-large', $shell-helper-define-text-size-5x-large-breakpoints) {
-        font-size: rem($shell-g-font-size-5x-large) !important;
-    }
-}
-
-// 6X-Large
-.h-text-size-6x-large {
-    font-size: rem($shell-g-font-size-6x-large) !important;
-}
-
-// Apply at breakpoints
-@if $shell-helper-apply-text-size-6x-large-at-breakpoints {
-    /* stylelint-disable-next-line max-line-length */
-    @include apply-at-breakpoints('.h-text-size-6x-large', $shell-helper-define-text-size-6x-large-breakpoints) {
-        font-size: rem($shell-g-font-size-6x-large) !important;
-    }
-}
-
-// 7X-Large
-.h-text-size-7x-large {
-    font-size: rem($shell-g-font-size-7x-large) !important;
-}
-
-// Apply at breakpoints
-@if $shell-helper-apply-text-size-7x-large-at-breakpoints {
-    /* stylelint-disable-next-line max-line-length */
-    @include apply-at-breakpoints('.h-text-size-7x-large', $shell-helper-define-text-size-7x-large-breakpoints) {
-        font-size: rem($shell-g-font-size-7x-large) !important;
-    }
-}
-
-
-/**
- * Alignments.
- */
-
-// Center
-.h-text-align-center {
-    text-align: center !important;
-}
-
-// Apply at breakpoints
-@if $shell-helper-apply-text-align-center-at-breakpoints {
-    /* stylelint-disable-next-line max-line-length */
-    @include apply-at-breakpoints('.h-text-align-center', $shell-helper-define-text-align-center-breakpoints) {
-        text-align: center !important;
-    }
-}
-
-// Left
-.h-text-align-left {
-    text-align: left !important;
-}
-
-// Apply at breakpoints
-@if $shell-helper-apply-text-align-left-at-breakpoints {
-    /* stylelint-disable-next-line max-line-length */
-    @include apply-at-breakpoints('.h-text-align-left', $shell-helper-define-text-align-left-breakpoints) {
-        text-align: left !important;
-    }
-}
-// Right
-.h-text-align-right {
-    text-align: right !important;
-}
-
-// Apply at breakpoints
-@if $shell-helper-apply-text-align-right-at-breakpoints {
-    /* stylelint-disable-next-line max-line-length */
-    @include apply-at-breakpoints('.h-text-align-right', $shell-helper-define-text-align-right-breakpoints) {
-        text-align: right !important;
-    }
-}
-
 
 /**
  * Truncate some text using an ellipsis. This Helper will only work on block
@@ -458,7 +223,7 @@
 
 
 
-/* 3. Hide
+/* 2. Hide
    ========================================================================= */
 
 /**
@@ -556,7 +321,7 @@
 
 
 
-/* 4. Spacing
+/* 3. Spacing
    ========================================================================= */
 
 /**
@@ -734,7 +499,7 @@
 
 
 
-/* 5. Alignment
+/* 4. Alignment
    ========================================================================= */
 
 /**
@@ -767,7 +532,7 @@
 
 
 
-/* 6. Intrinsic ratio
+/* 5. Intrinsic ratio
    ========================================================================= */
 
 /**
@@ -833,7 +598,7 @@
 
 
 
-/* 7. Non-responsive image
+/* 6. Non-responsive image
    ========================================================================= */
 
 /**
